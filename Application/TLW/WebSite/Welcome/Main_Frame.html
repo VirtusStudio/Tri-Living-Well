@@ -1,0 +1,226 @@
+﻿ 
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	Tri-Living Well: Fitness Management System
+</title><link href="Styles/Corporate.css" rel="stylesheet" type="text/css" /><link href="/Styles/Website.css" rel="stylesheet" type="text/css" />
+<!--popUpWin-->
+<script type="text/javascript"> 
+function popUpWin(path, x, y)
+{ 
+    var sURL =  path;
+	var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width='+x+',height='+y+',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
+	var windownew = window.open(sURL,"new_window",features);
+	try { windownew.focus(); } catch(err) { }
+}
+</script>
+<!--iframe height resizing-->
+<script type="text/javascript"> 
+// IFRAME HEIGHT STUFF
+  var iframeName = "IFRAME_CONTENT";
+  
+function getDocHeight(doc) {
+  var docHt = 0, sh, oh;
+  if (doc.height) docHt = doc.height;
+  else if (doc.body) {
+    if (doc.body.scrollHeight) docHt = sh = doc.body.scrollHeight;
+    if (doc.body.offsetHeight) docHt = oh = doc.body.offsetHeight;
+    if (sh && oh) docHt = Math.max(sh, oh);
+  }
+  return docHt;
+}
+ 
+function setIframeHeight() { refresh();
+  var iframeWin = window.frames[iframeName];
+  var iframeEl = document.getElementById? document.getElementById(iframeName): document.all? document.all[iframeName]: null;
+  //alert("setIframeHeight() - iframeWin=" + iframeWin);
+  //alert("setIframeHeight() - iframeEl=" + iframeEl);
+  if ( iframeEl && iframeWin ) {
+   if (bTopScroll)iframeEl.style.height = "auto"; //causes a top scroll to occur & help resize for some shorter content pages
+    var docHt = getDocHeight(iframeWin.document);
+    // need to add to height to be sure it will all show
+    //alert("setIframeHeight() - docHt=" + docHt);
+    if (docHt)//
+    {
+        if (docHt < 300)//
+        {
+            docHt = 300;
+        }
+        iframeEl.style.height = docHt + "px";
+        //iframeEl.style.width = '923px';
+    }
+  }
+}
+ 
+ 
+ 
+var bTopScroll = true;
+function setIframeHeight_NoTopScroll() {
+    bTopScroll = false;
+    setIframeHeight();
+    bTopScroll = true;
+}
+ 
+function setIframeHeightPlus(i)
+{
+    var iframeWin = window.frames[iframeName];
+  var iframeEl = document.getElementById? document.getElementById(iframeName): document.all? document.all[iframeName]: null;
+  //alert("setIframeHeight() - iframeWin=" + iframeWin);
+  //alert("setIframeHeight() - iframeEl=" + iframeEl);
+  if ( iframeEl && iframeWin ) {
+    iframeEl.style.height = "auto"; // helps resize (for some) if new doc shorter than previous  
+    var docHt = getDocHeight(iframeWin.document);
+    // need to add to height to be sure it will all show
+    //alert("setIframeHeight() - docHt=" + docHt);
+    if (docHt) 
+    {
+        iframeEl.style.height = docHt + i + "px";
+  //      iframeEl.style.width = '923px';
+    }
+    //iframeEl.style.width = "100%";
+  }  
+}
+ 
+</script>
+<!--setting the iframe-->
+<script type="text/javascript"> 
+function load(sUrl) 
+{
+    document.getElementById(iframeName).src = sUrl;
+}
+</script>
+<!--refreshing user status-->
+<script type="text/javascript"> 
+function refresh()
+{
+    document.getElementById('btnRefresh').click();
+}
+</script>
+<link href="/WebResource.axd?d=_-crbFq4t6BmPuNsXtr36a6n7yAZBQpRoE91wzLgztCDKayhMBvl-qaLHwrXrWCU0&amp;t=634036585140000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body class="WebsiteBody">
+<form name="form1" method="post" action="main_frame.aspx" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE0Nzg3ODQ2MzUPZBYCAgMPZBYKAgMPFCsAAhQrAAIPFgIeF0VuYWJsZUFqYXhTa2luUmVuZGVyaW5naGQQFgRmAgECAgIDFgQUKwACZGQUKwACZGQUKwACZGQUKwACZGQPFgRmZmZmFgEFc1RlbGVyaWsuV2ViLlVJLlJhZE1lbnVJdGVtLCBUZWxlcmlrLldlYi5VSSwgVmVyc2lvbj0yMDEwLjEuMzA5LjIwLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDRkZAIFDw8WAh4EVGV4dAUFR3Vlc3RkZAIHDw8WAh8BBQEgZGQCCQ8PFgIfAQUBIGRkAg8PDxYCHhFVc2VTdWJtaXRCZWhhdmlvcmhkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUIUmFkTWVudTF4s5oDkWF5ZJjQoBmZRrCwyWgQ2A==" />
+</div>
+ 
+<script type="text/javascript"> 
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+ 
+ 
+<script src="/WebResource.axd?d=Mh0g0hKvWtG58tnmWWLUbQ2&amp;t=633108433671337807" type="text/javascript"></script>
+ 
+ 
+<script src="/ScriptResource.axd?d=1CPBi4wnrcFd0jPPH2zP_HfVfE8VF4w_-vgMWxzVRSiWggnZNnMMKToud-4ZJ__8PfwrCPpqgDEmsmGNdYHlLSt76siPRQr12U8RIRWhPvo1&amp;t=633408294858093550" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=1CPBi4wnrcFd0jPPH2zP_HfVfE8VF4w_-vgMWxzVRSiWggnZNnMMKToud-4ZJ__8PfwrCPpqgDEmsmGNdYHlLX8EBJ2m0yga1R8fW8InpR440FDVT24cKxaYkHBKeaSE0&amp;t=633408294858093550" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-nHOGFeEfn3aD-irhvsEWnxjvp49U18dmDz246YmbfA7UUZEGSYWxb-mtAZ1Q_S40&amp;t=634036585140000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-nHOGFeEfn3aD-irhvsEWnxjvp49U18dmDz246YmbfBFOFc7Ud_zQpKjHTmvGbBbP4kYc_gviXE-J-OAdWOHcQ2&amp;t=634036585140000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-nHOGFeEfn3aD-irhvsEWnxjvp49U18dmDz246YmbfA6Qn2Cj2QJ4yjFu8cPgGyCgw4by2rGCJ6qCkNgF8rbUQ2&amp;t=634036585140000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-nHOGFeEfn3aD-irhvsEWnxjvp49U18dmDz246YmbfDMDPXZ86x5yjqkkJ93jHk1tLGo29_hG_hTpX8XPEkFo-L352XKmepVNREg5STMhOM1&amp;t=634036585140000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-nHOGFeEfn3aD-irhvsEWnxjvp49U18dmDz246YmbfCsFuWZX0JvcZJ0xGNauN5QOwLjeIL86oUYYlCoP1uN9MIplu-lOcFOAw5qv5df3MY1&amp;t=634036585140000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-nHOGFeEfn3aD-irhvsEWlL-fcWe6FAAKrg_s88OS0466XYrj0GpTroyShjgunj8Vv3dfVO27RRkXanvT9XnNw2&amp;t=634036585140000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-nHOGFeEfn3aD-irhvsEWi6VTMh_xHCyFXdot1TS4XSvyOdC7Oj5ZE32hlbVbobi0&amp;t=634036585140000000" type="text/javascript"></script>
+<script type="text/javascript"> 
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tlblNamePanel','tlblEditPanel','tlblLogoutPanel','tRadAjaxManager1SU'], ['btnRefresh'], [], 90);
+//]]>
+</script>
+ 
+ 
+<table class="center" style="width:950px;">
+<tr>
+<td>
+    <div class="WebsiteHeader">
+        <div style="padding:89px 0px 0px 591px;">
+            <div id="RadMenu1" class="RadMenu RadMenu_Default WebsiteHeaderMenu">
+	<!-- 2010.1.309.20 --><ul class="rmHorizontal rmRootGroup">
+		<li class="rmItem rmFirst"><a href="javascript:load('Content/Home.aspx');" class="rmLink"><span class="rmText">Home</span></a></li><li class="rmItem "><a href="javascript:load('Content/About.aspx');" class="rmLink"><span class="rmText">About Us</span></a></li><li class="rmItem "><a href="javascript:load('Content/HowItWorks.aspx');" class="rmLink"><span class="rmText">How It Works</span></a></li><li class="rmItem rmLast"><a href="javascript:load('Contactus.aspx');" class="rmLink"><span class="rmText">Contact Us</span></a></li>
+	</ul><input id="RadMenu1_ClientState" name="RadMenu1_ClientState" type="hidden" />
+</div>
+        </div>
+    </div>
+        
+    <div style="display:none;">
+        <div id="lblNamePanel">
+	<span id="lblName">Guest</span>
+</div>
+        <div id="lblEditPanel">
+	<span id="lblEdit"> </span>
+</div>
+        <div id="lblLogoutPanel">
+	<span id="lblLogout"> </span>
+</div> 
+    </div>
+        
+    <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" frameborder="0" class="IFRAME_CONTENT" src="layout/howitworks.html"></iframe>
+     
+    <div class="WebsiteFooter">
+        <table>
+        <tr>
+            <td class="top">
+                Tri-Living Well<br />
+                820 Godfrey Rd<br />
+                Villanova, PA 19085
+            </td>
+            <td class="top" style="text-align:right;">
+                
+                    (484) 580-8048<br />
+                    Email: support@TriLivingWell.com<br />
+                
+            </td>
+        </tr>
+        </table>
+    </div>
+   
+</td>
+</tr>
+</table>
+ 
+<div style="display:none;">
+    <input type="button" name="btnRefresh" value="REFRESH" onclick="javascript:__doPostBack('btnRefresh','')" id="btnRefresh" />
+</div>
+ 
+    <div id="RadAjaxManager1SU">
+	<span id="RadAjaxManager1" style="display:none;"></span>
+</div>
+ 
+        
+ 
+<div>
+ 
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAgK3jbibCQLAn+vmDAUaMvzHBsmMGj7Jbj47eyzYJ10F" />
+</div>
+ 
+<script type="text/javascript"> 
+<!--
+Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadMenu, {"_childListElementCssClass":null,"_skin":"Default","clientStateFieldID":"RadMenu1_ClientState","collapseAnimation":"{\"duration\":450}","enableScreenBoundaryDetection":false,"expandAnimation":"{\"duration\":450}","itemData":[{"navigateUrl":"javascript:load(\u0027Content/Home.aspx\u0027);"},{"navigateUrl":"javascript:load(\u0027Content/About.aspx\u0027);"},{"navigateUrl":"javascript:load(\u0027Content/HowItWorks.aspx\u0027);"},{"navigateUrl":"javascript:load(\u0027Contactus.aspx\u0027);"}]}, null, null, $get("RadMenu1"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadAjaxManager, {"_updatePanels":"","ajaxSettings":[{InitControlID : "btnRefresh",UpdatedControls : [{ControlID:"lblName",PanelID:""},{ControlID:"lblEdit",PanelID:""},{ControlID:"lblLogout",PanelID:""}]}],"clientEvents":{OnRequestStart:"",OnResponseEnd:""},"defaultLoadingPanelID":"","enableAJAX":true,"enableHistory":false,"links":[],"styles":[],"uniqueID":"RadAjaxManager1","updatePanelsRenderMode":0}, null, null, $get("RadAjaxManager1"));
+});
+// -->
+</script>
+</form>
+</body>
+</html>
+
+

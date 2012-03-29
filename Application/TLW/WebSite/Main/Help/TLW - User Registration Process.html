@@ -1,0 +1,126 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:innovasys xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="history" name="save" />
+    <meta name="GENERATOR" content="Innovasys HelpStudio (http://www.innovasys.com)" />
+    <title>TLW - User Registration Process</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/helpstudio.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="stylesheets/customstyles.css"></link>
+    <script src="script/helpstudio.js" type="text/javascript"></script>
+    
+    
+    
+    
+    
+</head>
+<body id="hsbody">
+	
+    <div style="display: none">
+        <input type="hidden" id="userDataCache" class="userDataStyle" name="userDataCache" />
+        <input type="hidden" id="hiddenScrollOffset" name="hiddenScrollOffset" />
+    </div>
+    <img id="collapseImage" style="display:none; height:0; width:0;" src="images/collapse.gif">
+    <img id="expandImage" style="display:none; height:0; width:0;" src="images/expand.gif"/>
+    <img id="copyImage" style="display:none; height:0; width:0;" src="images/copycode.gif"/>
+    <img id="copyHoverImage" style="display:none; height:0; width:0;" src="images/copycodeHighlight.gif">
+    <img id="dropDownImage" style="display:none; height:0; width:0;" src="images/drpdown.gif"/>
+    <img id="dropDownHoverImage" style="display:none; height:0; width:0;" src="images/drpdown_orange.gif"/>
+    <div id="pagetop">
+        
+        <table width="100%" id="pagetoptable2" cellspacing="0" cellpadding="0">
+        	<tr>
+        		<td></td>
+        	</tr>
+        </table>
+        <table width="100%" id="pagetoptable1">
+            <tr id="pagetoptable1row1">
+                <td align="left">
+                    <span id="projecttitle">
+                        TLW_Site
+                    </span>
+                </td>
+            </tr>
+            <tr id="pagetoptable1row2">
+                <td align="left" colspan="2">
+                    <span id="pagetitle">
+                        TLW - User Registration Process
+                    </span>
+                </td>
+            </tr>
+            <tr id="pagetoptable1row3">
+            	<td colspan="2">
+            		
+            		<span id="feedbacklink"><a href="mailto:support@company.com?subject=Documentation Feedback: TLW - User Registration Process">Send Feedback</a></span>
+            	</td>
+            </tr>
+        </table>
+        <table width="100%" id="pagetopbreadcrumbs" cellspacing="0" cellpadding="0"><tr><td>
+Site OVerview > TLW - User Registration Process</td></tr></table>
+        
+    </div>
+    <div class="hspopupbubble" id="hsglossaryitembox">
+        <p>Glossary Item Box</p>
+    </div>
+    <div id="pagebody">
+        <div id="mainbody">
+<DIV class=Section1>
+<P class=MsoNormal>TLW - User Registration Process</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><B><U>Setting up an account</U></B></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>This system is designed to allow an Administrator to collect data for main users (ie Member) and then create those users, and sub-accounts for those users (ie Spouse, Domestic Partner, Child/Dependent).&nbsp; </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Special requested fields for the user are stored in <B>USER_INFO</B> and are currently as follows:</P>
+<P class=MsoNormal>&nbsp;</P>
+<UL type=disc>
+<LI class=MsoNormal><B>GENDER_ID</B>, <B>FAMILY_STATUS_ID</B>, and <B>ACCOUNT_FROM_RELATIONSHIP</B> link to table <B>LIST_ITEMS</B>. 
+<LI class=MsoNormal><B>DATE_BIRTH</B> - birthday of the user. 
+<LI class=MsoNormal><B>REGISTRATION_FLG</B> – 1= User is registered. 0= false.&nbsp;&nbsp;&nbsp; 
+<UL type=circle>
+<LI class=MsoNormal>Note: they can’t login if they haven’t completed registration. 
+<LI class=MsoNormal>The <U>main</U> account holder should be marked as registered when created. </LI></UL>
+<LI class=MsoNormal><B>ACCOUNT_CREDITS </B>– No longer used. 
+<LI class=MsoNormal><B>ACCOUNT_FROM – </B>The USER_ID of the user who is the <U>main</U> account holder. So <U>main</U> user John Smith has his <B>ACCOUNT_FROM=USER_ID</B>.&nbsp; While Johnny Jr. Has his <B>ACCOUNT_FROM= </B>John Smith’s <B>USER_ID</B>. </LI></UL>
+<P class=MsoNormal>&nbsp;</P>
+<TABLE class=MsoTableGrid border=1 cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD vAlign=top width=295>
+<P class=MsoNormal>USER_INFO</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG id="Picture 1" src="Images/Image036.jpg" width=276 height=131></P>
+<P class=MsoNormal>&nbsp;</P></TD>
+<TD vAlign=top width=295>
+<P class=MsoNormal>LIST_ITEMS</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG id="Picture 2" src="Images/Image037.jpg" width=280 height=255></P>
+<P class=MsoNormal>&nbsp;</P></TD></TR></TBODY></TABLE>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>With the <U>main</U><B> </B>account holder set up (and their sub-accounts), they may begin using the website as normal.&nbsp; However, for the sub-accounts to be able to login, the <U>main</U> account holder must complete their registration.&nbsp; <I>Continue…</I><BR clear=all><B><U>Activating sub-accounts</U></B></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>To complete registration for a sub-account, the <U>main</U> account holder simply needs to select which sub-account they would like to activate, and update that information.&nbsp; When the <U>main</U> account holder has sub-accounts that haven’t completed registration, they will be shown their “Account Credits,” which they can click on and then select a sub-account from the list provided.&nbsp; After that, they need only to provide information for the sub-account, and click Update.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG id="Picture 3" src="Images/Image038.jpg" width=574 height=155></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG id="Picture 4" src="Images/Image039.jpg" width=173 height=176></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Once registration is complete for the sub-account, they may log in and begin using the website as normal.</P>
+<P class=MsoNormal><IMG id="Picture 5" src="Images/Image040.jpg" width=336 height=264></P>
+<P class=MsoNormal>&nbsp;</P></DIV>
+            <a name="seealsobookmark"></a>
+            
+        </div>
+        
+        <div id="pagefooter">
+            
+        </div>
+        
+    </div>
+    <div id=nonscrollingpagefooter>&copy;2009. All Rights Reserved.</div>
+</body>
+</html>

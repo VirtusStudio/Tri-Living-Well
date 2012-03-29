@@ -1,0 +1,50 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Template_Edit.aspx.cs" Inherits="PAL_Recent" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<%@ Register Src="~/Controls/UC_PAL_PalEntries_PopUp.ascx" TagName="UC_PAL_PalEntries_PopUp" TagPrefix="uc2" %>
+<%@ Register Src="~/Controls/UC_PAL_EntryView.ascx" TagName="UC_PAL_EntryView" TagPrefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+<%--
+    <link href="/Styles/Main.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Table.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Grid.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/centerRound1.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/centerRound2.css" rel="stylesheet" type="text/css" />
+    Above lines are commented by Netsmartz
+    --%>
+
+</head>
+<body onload="parent.setIframeHeight_NoTopScroll();top.setIframeHeight_NoTopScroll();" class="body2">
+    <form id="form1" runat="server">
+    
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+<table>
+<tr>
+    <td><asp:Label ID="lblTitle" runat="server"></asp:Label></td>
+    
+</tr>
+</table>
+    
+    <br />
+    
+    
+    <br />
+    <div style="width:680;">
+        <telerik:RadEditor ID="RadEditor1" runat="server"></telerik:RadEditor>
+     </div>
+     <a class="aButton" href="javascript:document.getElementById('btnSubmit').click();">Update</a>
+     <div style="visibility:hidden;">
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+     </div>
+
+        
+    </form>
+</body>
+</html>

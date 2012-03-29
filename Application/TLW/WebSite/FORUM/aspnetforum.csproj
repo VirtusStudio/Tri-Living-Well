@@ -1,0 +1,1738 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C6835F3-7E60-4E96-BC01-32150E619BBE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>aspnetforum</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>aspnetforum</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Full %28Release%29|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Trial|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE; TRIAL</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Full %28Debug%29|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>false</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addpost.aspx" />
+    <Content Include="addprivatemsg.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="admin.aspx" />
+    <Content Include="aspnetforum.css" />
+    <Content Include="broswerDetection.js" />
+    <Content Include="captchajpgimg.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="default.aspx" />
+    <Content Include="editforum.aspx" />
+    <Content Include="editprofile.aspx" />
+    <Content Include="editusergroup.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="forum.js" />
+    <Content Include="images\forum.gif" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\rss20.gif" />
+    <Content Include="images\topic.gif" />
+    <Content Include="logout.aspx" />
+    <Content Include="lostpassword.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="messages.aspx" />
+    <Content Include="mysubscriptions.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="premoderatedmessage.aspx" />
+    <Content Include="privateinbox.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="privatesent.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="recent.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="register.aspx" />
+    <Content Include="search.aspx" />
+    <Content Include="smilies.htm" />
+    <Content Include="topics.aspx" />
+    <Content Include="allusers.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="viewpostsbyuser.aspx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="viewprofile.aspx" />
+    <Content Include="Web.config" />
+    <Compile Include="activate.aspx.cs">
+      <DependentUpon>activate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="activate.aspx.designer.cs">
+      <DependentUpon>activate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addpost.aspx.cs">
+      <DependentUpon>addpost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addpost.aspx.designer.cs">
+      <DependentUpon>addpost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addprivatemsg.aspx.cs">
+      <DependentUpon>addprivatemsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addprivatemsg.aspx.designer.cs">
+      <DependentUpon>addprivatemsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adduser.aspx.cs">
+      <DependentUpon>adduser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adduser.aspx.designer.cs">
+      <DependentUpon>adduser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForumPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminusergroups.aspx.cs">
+      <DependentUpon>adminusergroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminusergroups.aspx.designer.cs">
+      <DependentUpon>adminusergroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.cn.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.zh-cn.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.da-DK.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.da-DK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.de.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.es.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.fr.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.he.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.he.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.it.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.it.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.nl.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.nl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.pl.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.pl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.pt-pt.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.pt-pt.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.sv.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.sv.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\various.tr.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>various.tr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetForumMaster.Master.cs">
+      <DependentUpon>AspNetForumMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AspNetForumMaster.Master.designer.cs">
+      <DependentUpon>AspNetForumMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="imgthumbnail.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>imgthumbnail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="imgthumbnail.aspx.designer.cs">
+      <DependentUpon>imgthumbnail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.Formatting.cs" />
+    <Compile Include="faq.aspx.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="faq.aspx.designer.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forumgroups.aspx.cs">
+      <DependentUpon>forumgroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forumgroups.aspx.designer.cs">
+      <DependentUpon>forumgroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonactivatedusers.aspx.cs">
+      <DependentUpon>nonactivatedusers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonactivatedusers.aspx.designer.cs">
+      <DependentUpon>nonactivatedusers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AsyncSendMail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CaptchaImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="captchajpgimg.aspx.cs">
+      <DependentUpon>captchajpgimg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="captchajpgimg.aspx.designer.cs">
+      <DependentUpon>captchajpgimg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editforum.aspx.cs">
+      <DependentUpon>editforum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editforum.aspx.designer.cs">
+      <DependentUpon>editforum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editprofile.aspx.cs">
+      <DependentUpon>editprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editprofile.aspx.designer.cs">
+      <DependentUpon>editprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editsubforums.aspx.cs">
+      <DependentUpon>editsubforums.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editsubforums.aspx.designer.cs">
+      <DependentUpon>editsubforums.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editusergroup.aspx.cs">
+      <DependentUpon>editusergroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editusergroup.aspx.designer.cs">
+      <DependentUpon>editusergroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForumPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lostpassword.aspx.cs">
+      <DependentUpon>lostpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lostpassword.aspx.designer.cs">
+      <DependentUpon>lostpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="messages.aspx.cs">
+      <DependentUpon>messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="messages.aspx.designer.cs">
+      <DependentUpon>messages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mysubscriptions.aspx.cs">
+      <DependentUpon>mysubscriptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mysubscriptions.aspx.designer.cs">
+      <DependentUpon>mysubscriptions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Password.cs" />
+    <Compile Include="premoderatedmessage.aspx.cs">
+      <DependentUpon>premoderatedmessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="premoderatedmessage.aspx.designer.cs">
+      <DependentUpon>premoderatedmessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="privateinbox.aspx.cs">
+      <DependentUpon>privateinbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="privateinbox.aspx.designer.cs">
+      <DependentUpon>privateinbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="privatesent.aspx.cs">
+      <DependentUpon>privatesent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="privatesent.aspx.designer.cs">
+      <DependentUpon>privatesent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recent.aspx.cs">
+      <DependentUpon>recent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recent.aspx.designer.cs">
+      <DependentUpon>recent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recenttopics.aspx.cs">
+      <DependentUpon>recenttopics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recenttopics.aspx.designer.cs">
+      <DependentUpon>recenttopics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="renewses.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>renewses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="renewses.aspx.designer.cs">
+      <DependentUpon>renewses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="search.aspx.cs">
+      <DependentUpon>search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="search.aspx.designer.cs">
+      <DependentUpon>search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendNotifications.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ForumSEOHttpModule.cs" />
+    <Compile Include="topics.aspx.cs">
+      <DependentUpon>topics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topics.aspx.designer.cs">
+      <DependentUpon>topics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="allusers.aspx.cs">
+      <DependentUpon>allusers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="allusers.aspx.designer.cs">
+      <DependentUpon>allusers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="users.aspx.cs">
+      <DependentUpon>users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="users.aspx.designer.cs">
+      <DependentUpon>users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <Compile Include="Utils.DB.cs" />
+    <Compile Include="viewpostsbyuser.aspx.cs">
+      <DependentUpon>viewpostsbyuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewpostsbyuser.aspx.designer.cs">
+      <DependentUpon>viewpostsbyuser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewprofile.aspx.cs">
+      <DependentUpon>viewprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewprofile.aspx.designer.cs">
+      <DependentUpon>viewprofile.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="!!!license.txt" />
+    <Content Include="!!!readme.htm" />
+    <Content Include="activate.aspx" />
+    <Content Include="adduser.aspx" />
+    <Content Include="adminusergroups.aspx" />
+    <Content Include="AspNetForumMaster.Master" />
+    <Content Include="!!!readme_1.gif" />
+    <Content Include="App_Data\FORUM.mdb">
+    </Content>
+    <Content Include="App_Data\MySQL scripts\upgrade_from_4.0.0_to_4.1.0.sql" />
+    <Content Include="App_Data\MySQL scripts\upgrade_from_4.1.0_to_4.2.0.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_4.3.5_to_4.3.8.sql" />
+    <None Include="App_Data\MySQL scripts\upgrade_from_4.3.5_to_4.3.8.sql" />
+    <Content Include="App_Data\SQL scripts\upgrade_from_4.0.0_to_4.1.0.sql" />
+    <Content Include="App_Data\SQL scripts\upgrade_from_4.1.0_to_4.2.0.sql" />
+    <Content Include="editsubforums.aspx" />
+    <Content Include="images\admin.gif" />
+    <Content Include="images\bgl.gif" />
+    <Content Include="images\bgr.gif" />
+    <Content Include="images\darkgradient.gif" />
+    <Content Include="images\editbar_bg.gif" />
+    <Content Include="images\lock.gif" />
+    <Content Include="images\logout.gif" />
+    <Content Include="images\menuleftedge.gif" />
+    <Content Include="images\menurightedge.gif" />
+    <Content Include="images\topic_sticky.gif" />
+    <Content Include="recenttopics.aspx" />
+    <Content Include="upload\!upload_readme.txt" />
+    <Content Include="users.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\MySQL scripts\aspneforum.sql" />
+    <None Include="App_Data\MySQL scripts\upgrade_from_3.1.3_to_3.3.0.sql" />
+    <None Include="App_Data\MySQL scripts\upgrade_from_3.3.0_to_4.0.0.sql" />
+    <None Include="App_Data\MySQL scripts\upgrade_from_4.2.0_to_4.3.5.sql" />
+    <None Include="App_Data\SQL scripts\aspneforum.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_1.24_to_1.3.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_2.0.2_to_2.2.0.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_2.3.1_to_3.0.0.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_3.1.2_to_3.1.3.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_3.1.3_to_3.3.0.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_3.3.0_to_4.0.0.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_4.2.0_to_4.3.5.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\FORUM.mdf">
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\MySQL scripts\upgrade_from_4.6.11_to_4.7.0.sql" />
+    <None Include="App_Data\MySQL scripts\upgrade_from_4.5.0_to_4.6.11.sql" />
+    <None Include="App_Data\MySQL scripts\upgrade_from_4.7.0_to_4.7.5.sql" />
+    <None Include="App_Data\MySQL scripts\upgrade_from_4.7.5_to_4.8.3.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_4.7.5_to_4.8.3.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_4.3.8_to_4.5.0.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_4.5.0_to_4.6.11.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_4.6.11_to_4.7.0.sql" />
+    <None Include="App_Data\SQL scripts\upgrade_from_4.7.0_to_4.7.5.sql" />
+    <Content Include="App_Data\MySQL scripts\upgrade_from_4.3.8_to_4.5.0.sql" />
+    <Content Include="faq.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.es.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.es.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\various.nl.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.nl.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\various.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\various.sv.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.sv.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_LocalResources\en\addpost.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\addprivatemsg.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\adduser.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\admin.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\adminusergroups.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\allusers.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\AspNetForumMaster.Master.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\default.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\editforum.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\editprofile.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\editsubforums.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\editusergroup.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\messages.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\mysubscriptions.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\privateinbox.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\privatesent.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\recent.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\recenttopics.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\register.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\search.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\topics.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\users.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\viewpostsbyuser.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\en\viewprofile.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\addpost.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\addprivatemsg.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\adduser.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\admin.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\adminusergroups.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\allusers.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\AspNetForumMaster.Master.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\default.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\editforum.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\editprofile.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\editsubforums.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\editusergroup.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\messages.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\mysubscriptions.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\privateinbox.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\privatesent.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\recent.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\recenttopics.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\register.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\search.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\topics.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\users.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\viewpostsbyuser.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\es\viewprofile.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\addpost.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\addprivatemsg.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\adduser.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\admin.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\adminusergroups.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\allusers.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\AspNetForumMaster.Master.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\default.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\editforum.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\editprofile.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\editsubforums.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\editusergroup.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\messages.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\mysubscriptions.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\privateinbox.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\privatesent.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\recent.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\recenttopics.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\register.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\search.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\topics.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\users.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\viewpostsbyuser.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\nl\viewprofile.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\addpost.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\addprivatemsg.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\adduser.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\admin.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\adminusergroups.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\allusers.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\AspNetForumMaster.Master.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\default.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\editforum.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\editprofile.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\editsubforums.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\messages.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\mysubscriptions.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\privateinbox.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\privatesent.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\recent.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\recenttopics.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\register.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\search.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\topics.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\users.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\viewpostsbyuser.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\sv\viewprofile.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.de.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.de.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\de\addpost.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\addprivatemsg.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\adduser.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\admin.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\adminusergroups.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\allusers.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\AspNetForumMaster.Master.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\default.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\editforum.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\editprofile.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\editsubforums.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\editusergroup.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\messages.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\mysubscriptions.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\privateinbox.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\privatesent.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\recent.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\recenttopics.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\register.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\search.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\topics.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\users.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\viewpostsbyuser.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\de\viewprofile.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\tr\addpost.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\addprivatemsg.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\allusers.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\AspNetForumMaster.Master.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\default.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\editprofile.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\messages.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\mysubscriptions.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\privateinbox.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\privatesent.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\recent.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\recenttopics.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\register.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\search.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\topics.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\users.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\viewpostsbyuser.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\tr\viewprofile.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.tr.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.tr.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="images\edit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\he\addpost.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\addprivatemsg.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\adduser.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\admin.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\adminusergroups.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\allusers.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\AspNetForumMaster.Master.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\default.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\editforum.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\editprofile.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\editsubforums.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\editusergroup.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\messages.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\mysubscriptions.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\privateinbox.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\privatesent.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\recent.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\recenttopics.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\register.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\search.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\topics.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\users.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\viewpostsbyuser.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\he\viewprofile.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.he.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.he.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.da-DK.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.da-DK.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\dk\addpost.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\addprivatemsg.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\adduser.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\admin.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\adminusergroups.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\allusers.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\AspNetForumMaster.Master.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\default.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\editforum.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\editprofile.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\editsubforums.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\editusergroup.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\messages.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\mysubscriptions.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\privateinbox.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\privatesent.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\recent.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\recenttopics.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\register.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\search.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\topics.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\users.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\viewpostsbyuser.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\dk\viewprofile.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\en\lostpassword.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\de\lostpassword.aspx.de.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\dk\lostpassword.aspx.da-DK.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\es\lostpassword.aspx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\he\lostpassword.aspx.he.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\nl\lostpassword.aspx.nl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\sv\lostpassword.aspx.sv.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\tr\lostpassword.aspx.tr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.fr.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.fr.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\fr\addpost.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\addprivatemsg.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\adduser.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\admin.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\adminusergroups.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\allusers.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\AspNetForumMaster.Master.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\default.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\editforum.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\editprofile.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\editsubforums.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\editusergroup.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\messages.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\mysubscriptions.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\privateinbox.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\privatesent.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\recent.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\recenttopics.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\register.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\search.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\topics.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\users.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\viewpostsbyuser.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\fr\viewprofile.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\fr\lostpassword.aspx.fr.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\pt-br\addpost.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\addprivatemsg.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\adduser.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\admin.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\adminusergroups.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\allusers.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\AspNetForumMaster.Master.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\default.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\editforum.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\editprofile.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\editsubforums.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\editusergroup.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\lostpassword.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\messages.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\mysubscriptions.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\privateinbox.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\privatesent.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\recent.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\recenttopics.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\register.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\search.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\topics.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\users.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\viewpostsbyuser.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-br\viewprofile.aspx.pt-br.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="images\img.gif" />
+    <Content Include="images\url.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.it.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.it.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\it\addpost.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\addprivatemsg.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\adduser.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\admin.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\adminusergroups.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\allusers.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\AspNetForumMaster.Master.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\default.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\editforum.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\editprofile.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\editsubforums.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\editusergroup.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\lostpassword.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\messages.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\mysubscriptions.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\privateinbox.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\privatesent.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\recent.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\recenttopics.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\register.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\search.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\topics.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\users.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\viewpostsbyuser.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\it\viewprofile.aspx.it.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="images\colors.gif" />
+    <Content Include="nonactivatedusers.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.zh-cn.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.cn.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\zh-cn\addpost.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\addprivatemsg.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\adduser.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\admin.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\adminusergroups.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\allusers.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\AspNetForumMaster.Master.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\default.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\editforum.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\editprofile.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\editsubforums.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\editusergroup.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\lostpassword.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\messages.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\mysubscriptions.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\privateinbox.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\privatesent.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\recent.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\recenttopics.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\register.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\search.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\topics.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\users.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\viewpostsbyuser.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\zh-cn\viewprofile.aspx.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="renewses.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\pt-pt\addpost.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\addprivatemsg.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\adduser.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\admin.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\adminusergroups.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\allusers.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\AspNetForumMaster.Master.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\default.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\editforum.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\editprofile.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\editsubforums.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\editusergroup.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\lostpassword.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\messages.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\mysubscriptions.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\privateinbox.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\privatesent.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\recent.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\recenttopics.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\register.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\search.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\topics.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\users.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\viewpostsbyuser.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pt-pt\viewprofile.aspx.pt-pt.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.pt-pt.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.pt-pt.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="forumgroups.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\various.pl.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>various.pl.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\pl\addpost.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\addprivatemsg.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\adduser.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\admin.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\adminusergroups.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\allusers.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\AspNetForumMaster.Master.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\default.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\editforum.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\editprofile.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\editsubforums.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\editusergroup.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\lostpassword.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\messages.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\mysubscriptions.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\privateinbox.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\privatesent.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\recent.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\recenttopics.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\register.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\search.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\topics.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\users.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\viewpostsbyuser.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\pl\viewprofile.aspx.pl.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="imgthumbnail.aspx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1501</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

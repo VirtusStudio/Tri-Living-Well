@@ -1,0 +1,58 @@
+body
+{
+	font-size: 8pt;
+	font-family: Verdana;
+	background-color: #ebebeb;
+}
+
+/*topheader*/
+.topheader {margin-bottom:20px;}
+.topheader table {height:25px;border-collapse:separate;width:100%;background-color:Transparent;font-size:100%;}
+.topheader td {height:25px;}
+.topheader th {height:25px;background-image:url(images/darkgradient.gif);color:White;white-space:nowrap;font-weight:normal;}
+.topheader a {color: White;text-decoration: none;}
+.topheader a:hover{text-decoration:underline;}
+.topheader th.menuitem {color:white;text-align:center;width:12%;border-left:1px solid #9FAABF;border-right:1px solid #606D85;white-space:nowrap;padding-left:5px;padding-right:5px;}
+.topheader th.rightitem {border-left:1px solid #9FAABF;color:Silver;text-align:right;border-right:none;}
+.topheader td.outerheader {width:6px;}
+
+/*header*/
+.header table {font-size: 8pt;background-color:Transparent;width:100%;height:90px;border:none;}
+.header td {white-space:nowrap;}
+.header h1 {font-weight: normal;font-size: 18pt;margin-bottom: 0px;font-family: 'Arial Narrow';margin-top:5px;}
+.header a {color: #333399;text-decoration: underline;}
+.header a:hover{text-decoration: none;}
+.header img{vertical-align:middle;border:none;}
+
+/*main body*/
+.forumcontent table {font-size: 8pt;border-collapse:collapse;background-color:#FFFFFF;}
+.forumcontent h1 {font-weight: normal;font-size: 18pt;margin-bottom: 0px;font-family: 'Arial Narrow';}
+.forumcontent h2 {margin-bottom: 0px;font-size: 10pt;margin-top:0px;}
+.forumcontent h3 {font-weight: bold;font-size: 8pt;margin-bottom: 0px;}
+.forumcontent a {color: #333399;text-decoration: underline;}
+.forumcontent a:hover{text-decoration: none;}
+.forumcontent th {background-image:url(images/darkgradient.gif);color:White;font-weight: bold;font-size: 9pt;text-align: left;padding: 5px 5px 5px 5px;border:1px solid #606D85;}
+.forumcontent th a {color: White;font-size: 8pt;font-weight: normal;text-decoration: none;}
+.forumcontent th a:hover{text-decoration:underline;}
+.forumcontent td {border:1px solid silver;}
+.forumcontent button{font-family: Verdana;font-size: 8pt;border: slategray 1px solid;}
+.forumcontent textarea{font-family: Verdana;font-size: 8pt;border-left: slategray 1px solid;border-right: slategray 1px solid;border-bottom: slategray 1px solid;border-top: none;}
+.forumcontent select{font-family: Verdana;font-size: 8pt;border: 1px solid slategray;}
+.forumcontent img{vertical-align:middle;border:none;}
+.forumcontent hr{height:1px;border:none;color:silver;background:silver;}
+.forumcontent div.location{margin-top:17px;margin-bottom:17px;}
+
+INPUT[type="text"], INPUT[type="button"], INPUT[type="submit"], INPUT[type="file"], INPUT[type="password"]
+{border: 1px solid slategray;font-family: Verdana;font-size: 8pt;}
+
+/* other classes */
+.gradientbutton {background-image:url('images/darkgradient.gif');color:White;font-family: Verdana;font-size: 8pt;border: 1px solid slategray;}
+.radiolist td {text-align: left;}
+button.formatting{width: 25px;height: 20px;border: none;background-color:Transparent;cursor: pointer;}
+div.editbar{margin-top: 3px;background-image: url('images/editbar_bg.gif');height: 20px;border-left: 1px solid slategray;border-right: 1px solid slategray;border-top: 1px solid slategray;}
+div.quote{color: #7777aa;text-decoration: none;padding-left: 15px;}
+.forumtopicHeading
+{
+    font-size:14px;
+    font-weight:bold;
+}

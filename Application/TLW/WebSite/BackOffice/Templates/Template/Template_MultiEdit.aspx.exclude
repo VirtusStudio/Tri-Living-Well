@@ -1,0 +1,114 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Template_MultiEdit.aspx.cs" Inherits="PAL_Recent" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<%@ Register Src="~/Controls/UC_PAL_PalEntries_PopUp.ascx" TagName="UC_PAL_PalEntries_PopUp" TagPrefix="uc2" %>
+<%@ Register Src="~/Controls/UC_PAL_EntryView.ascx" TagName="UC_PAL_EntryView" TagPrefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title><%--
+
+    <link href="/Styles/Main.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Table.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Grid.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/centerRound1.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/centerRound2.css" rel="stylesheet" type="text/css" />
+    Above lines are commented by Netsmartz
+    --%>
+
+<script type="text/javascript">
+function showDisplay(sDisplyPage)
+{
+top.popUpWin("/CorpWeb/Main_FRAME.aspx", 700, 700);
+}
+</script>
+
+</head>
+<body onload="parent.setIframeHeight_NoTopScroll();top.setIframeHeight_NoTopScroll();" class="body2">
+    <form id="form1" runat="server">
+    
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+<table>
+<tr>
+    <td><asp:Label ID="lblTitle" runat="server"></asp:Label></td>
+    
+</tr>
+</table>
+    
+    <br />
+    
+    <table>
+    <tr>
+        <td>
+            <div style="width:680px; height:350px;">
+                <telerik:RadEditor ID="RadEditor1" runat="server"  Height="350px" >
+                    <Content></Content>
+                </telerik:RadEditor>
+             </div>
+        </td>
+        <td>
+            <a class="aButton" href="javascript:showDisplay('1');">View Display</a>
+            <a class="aButton" href="javascript:document.getElementById('btnSubmit1').click();">Update</a>
+        </td>
+    </tr>
+    <tr><td colspan="2"><br /></td></tr>
+    <tr>
+        <td>
+            <div style="width:680px; height:350px;">
+                <telerik:RadEditor ID="RadEditor2" runat="server" Height="350px" >
+                    <Content></Content>
+                </telerik:RadEditor>
+             </div>
+        </td>
+        <td>
+            <a class="aButton" href="javascript:showDisplay('2');">View Display</a>
+            <a class="aButton" href="javascript:document.getElementById('btnSubmit2').click();">Update</a>
+        </td>
+    </tr>
+    <tr><td colspan="2"><br /></td></tr>
+    <tr>
+        <td>
+            <div style="width:680px; height:350px;">
+                <telerik:RadEditor ID="RadEditor3" runat="server" Height="350px" >
+                    <Content></Content>
+                </telerik:RadEditor>
+             </div>
+        </td>
+        <td>
+            <a class="aButton" href="javascript:showDisplay('3');">View Display</a>
+            <a class="aButton" href="javascript:document.getElementById('btnSubmit3').click();">Update</a>
+        </td>
+    </tr>
+    <tr><td colspan="2"><br /></td></tr>
+    <tr>
+        <td>
+            <div style="width:680px; height:350px;">
+                <telerik:RadEditor ID="RadEditor4" runat="server"  Height="350px" >
+                    <Content></Content>
+                </telerik:RadEditor>
+             </div>
+        </td>
+        <td>
+            <a class="aButton" href="javascript:showDisplay('4');">View Display</a>
+            <a class="aButton" href="javascript:document.getElementById('btnSubmit4').click();">Update</a>
+        </td>
+    </tr>
+    
+    </table>
+     <a class="aButton" href="javascript:document.getElementById('btnSubmit').click();">Update All</a>
+     <div style="visibility:hidden;">
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+        <asp:Button ID="btnSubmit1" runat="server" Text="Submit" OnClick="btnSubmit1_Click" />
+        <asp:Button ID="btnSubmit2" runat="server" Text="Submit" OnClick="btnSubmit2_Click" />
+        <asp:Button ID="btnSubmit3" runat="server" Text="Submit" OnClick="btnSubmit3_Click" />
+        <asp:Button ID="btnSubmit4" runat="server" Text="Submit" OnClick="btnSubmit4_Click" /> 
+     </div>
+
+        
+    </form>
+</body>
+</html>

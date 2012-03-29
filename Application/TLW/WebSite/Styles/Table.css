@@ -1,0 +1,38 @@
+/*************************************************************
+/    Copyright 2007 Blue Grotto Technologies, Inc.          /
+/    This code is owned by Blue Grotto Technologies, Inc    /
+/    It may not be copied, shared or modified.              /
+/************************************************************/
+
+table.tblItems
+{
+       width:auto;
+}
+table.tblItems td
+{                   
+    width:auto;
+    vertical-align:middle;  white-space:nowrap;
+    padding: 2px;
+}
+
+
+table.bgtTable /**/ {   /*done to avoid affecting rad controls popups*/
+    border-spacing:0px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border-collapse: collapse;
+                width:100%;
+    border:0px solid silver;
+
+}
+table.bgtTable td /**/ {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border-collapse: collapse;
+}
+
+table.tblBorder td
+{
+	border:solid 1px #999999;
+}
+

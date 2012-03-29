@@ -1,0 +1,156 @@
+<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/User.master"
+    CodeFile="AspNetForumMaster.master.cs" Inherits="AspNetForumMaster" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href="aspnetforum.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Forums.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Grid.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Table.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/centerRound1.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHEAD" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="topheader">
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="outerheader">
+                    <img src="images/menuleftedge.gif" alt="" />
+                </td>
+                <th class="menuitem">
+                    <a href="recenttopics.aspx">
+                        <asp:Label ID="lblRecentTopics" runat="server" EnableViewState="False" meta:resourcekey="lblRecentTopicsResource1">recent topics</asp:Label></a>
+                </th>
+                <th class="menuitem">
+                    <a href="recent.aspx">
+                        <asp:Label ID="lblRecentPosts" runat="server" EnableViewState="False" meta:resourcekey="lblRecentPostsResource1">recent posts</asp:Label></a>
+                </th>
+                <th class="menuitem" id="registerLink" runat="server" enableviewstate="false">
+                    <a href="register.aspx">
+                        <asp:Label ID="lblRegister" runat="server" EnableViewState="False" meta:resourcekey="lblRegisterResource1">register</asp:Label></a>
+                </th>
+                <th class="menuitem" id="Th2" runat="server" enableviewstate="false">
+                    <a href="editprofile.aspx">
+                        <asp:Label ID="Label1" runat="server" EnableViewState="False" meta:resourcekey="lblProfileResource1">my profile</asp:Label></a>
+                </th>
+                <th class="menuitem" id="usersLink" runat="server" enableviewstate="false">
+                    <a href="users.aspx">
+                        <asp:Label ID="lblUsers" runat="server" EnableViewState="False" meta:resourcekey="lblUsersResource1">users</asp:Label></a>
+                </th>
+                <th class="menuitem" id="adminLink" runat="server" enableviewstate="false">
+                    <a href="admin.aspx">
+                        <asp:Label ID="lblAdmin" runat="server" EnableViewState="False" meta:resourcekey="lblAdminResource1">administrator</asp:Label></a>
+                </th>
+                <th class="menuitem" id="Th1" runat="server" enableviewstate="false">
+                    <a href="faq.aspx">faq</a>
+                </th>
+                <th class="menuitem" id="Th3" runat="server" enableviewstate="false">
+                    <a href="privateinbox.aspx">personal inbox</a>
+                </th>
+                   <th class="menuitem" id="Th4" runat="server" enableviewstate="false">
+                    <a href="search.aspx">search forums</a>
+                </th>
+                <th class="rightitem">
+                    &nbsp;
+                    <asp:Label ID="lblVersion" runat="server" EnableViewState="false"></asp:Label>
+                </th>
+                <td class="outerheader">
+                    <img alt="" src="images/menurightedge.gif" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="header">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 7px; height: 100px; background: url('images/bgl.gif');">
+                </td>
+                <td style="height: 76px; border-top: 1px solid #BABABA; border-bottom: 1px solid #BABABA;
+                    background-color: white">
+                    <table style="width: 100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td valign="middle">
+                                <h1>
+                                    <img alt="" src="images/logo.gif" />
+                                    <a id="titleLink" runat="server" enableviewstate="false">Acme Web Site</a> :: Forum</h1>
+                            </td>
+                            <td style="width: 40%; text-align: right" valign="top">
+                                <table style="width: 100px; float: right" cellpadding="3" cellspacing="0" id="curuserTable"
+                                    runat="server" enableviewstate="false">
+                                    <tr>
+                                        <td align="center">
+                                            <div style="display: none;">
+                                                <asp:Label ID="lblLoggedIn" runat="server" EnableViewState="False" meta:resourcekey="lblLoggedInResource1">Logged in as</asp:Label>
+                                                <b><a href="editprofile.aspx" id="editProfileLink" runat="server" title="edit my profile"
+                                                    enableviewstate="false"></a></b>&nbsp;|&nbsp; <a href="logout.aspx" id="logoutLink"
+                                                        runat="server" enableviewstate="false">
+                                                        <img alt="" src="images/logout.gif" /><asp:Label ID="lblSignOut" runat="server" EnableViewState="False"
+                                                            meta:resourcekey="lblSignOutResource1">sign out</asp:Label></a>
+                                            </div>
+                                            <div id="divPersonalMsgs" runat="server" enableviewstate="false">
+                                                <a href="privateinbox.aspx">
+                                                    <asp:Label ID="lblYouHave" runat="server" EnableViewState="False" meta:resourcekey="lblYouHaveResource1">you have</asp:Label>
+                                                    <span runat="server" id="spanNumMsgs"></span>
+                                                    <asp:Label ID="lblNewMsgs" runat="server" EnableViewState="False" meta:resourcekey="lblNewMsgsResource1">new private messages</asp:Label>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- ############## -->
+                                <!-- comment (or remove) the following two tables if you use single sign-on (and you don't need login-password inputs etc)-->
+                                <table style="width: 100px; height: 80px; float: right;" cellpadding="1" cellspacing="0"
+                                    id="loginTable" runat="server" enableviewstate="false">
+                                    <tr>
+                                        <td align="right">
+                                            <asp:Label ID="lblUser" runat="server" EnableViewState="False" meta:resourcekey="lblUserResource1">user:</asp:Label>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="LoginName" name="LoginName" />
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td rowspan="3">
+                                            <img alt="" src="images/lock.gif" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">
+                                            <asp:Label ID="lblPsw" runat="server" EnableViewState="False" meta:resourcekey="lblPswResource1">psw:</asp:Label>
+                                        </td>
+                                        <td>
+                                            <input type="password" id="Password" name="Password" />
+                                        </td>
+                                        <td>
+                                            <input name="loginbutton" id="loginbutton" type="submit" class="gradientbutton" value="login" />
+                                        </td>
+                                    </tr>
+                                    <tr valign="baseline">
+                                        <td colspan="3" align="center">
+                                            <input name="rememberme" id="rememberme" type="checkbox" value="1" style="border: none;" />
+                                            <label for="rememberme">
+                                                <asp:Label ID="lblRememberMe" runat="server" EnableViewState="False" meta:resourcekey="lblRememberMeResource1">remember me</asp:Label></label>
+                                            | <a href="lostpassword.aspx">
+                                                <asp:Label ID="lblLostPsw" runat="server" EnableViewState="False" meta:resourcekey="lblLostPswResource1">lost password</asp:Label></a>
+                                            <br />
+                                            <asp:Label EnableViewState="false" runat="server" ID="lblLoginErr" Visible="false"
+                                                ForeColor="red" meta:resourcekey="lblLoginErrResource1">wrong username/password</asp:Label>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- comment (or remove) the ABOVE content if you use single sign-on (and you don't need login-password inputs etc)-->
+                                <!-- ################## -->
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width: 7px; background: url('images/bgr.gif');">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="forumcontent">
+        <asp:ContentPlaceHolder ID="AspNetForumContentPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</asp:Content>

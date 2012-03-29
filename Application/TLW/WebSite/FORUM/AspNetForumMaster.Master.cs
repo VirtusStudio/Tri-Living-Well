@@ -1,0 +1,107 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.Common;
+
+
+    public partial class AspNetForumMaster : System.Web.UI.MasterPage
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            // Put user code to initialize the page here
+            string dllversion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            lblVersion.Text = "AspNetForum v." + dllversion;
+
+            string forumtitle = ConfigurationManager.AppSettings["ForumTitle"];
+            string titleurl = ConfigurationManager.AppSettings["TitleLink"];
+            titleLink.InnerHtml = forumtitle;
+            titleLink.HRef = titleurl;
+
+            if (Page.Session["aspnetforumUserID"] == null) //not logged in
+            {
+                if (registerLink != null) registerLink.Visible = true;
+                if (logoutLink != null) logoutLink.Visible = false;
+                if (editProfileLink != null) editProfileLink.Visible = false;
+                if (loginTable != null) loginTable.Visible = true;
+                if (curuserTable != null) curuserTable.Visible = false;
+                if (usersLink != null) usersLink.Visible = false;
+            }
+            else //logged in
+            {
+                if (registerLink != null) registerLink.Visible = false;
+                if (logoutLink != null) logoutLink.Visible = true;
+                if (editProfileLink != null) editProfileLink.Visible = true;
+                if (loginTable != null) loginTable.Visible = false;
+                if (curuserTable != null) curuserTable.Visible = true;
+                if (usersLink != null) usersLink.Visible = true;
+
+                if (editProfileLink != null)
+                {
+                    string username;
+                    //IF "integrated auth" is enabled
+                    //AND it is windows-authenctication
+                    //then lets remove tha domain name from "domain\user" username
+                    if (Page.User is System.Security.Principal.WindowsPrincipal
+                        && ConfigurationManager.AppSettings["IntegratedAuthentication"] != null
+                        && ConfigurationManager.AppSettings["IntegratedAuthentication"].ToLower() == "true")
+                    {
+                        username = Session["aspnetforumUserName"].ToString();
+                        username = username.Substring(username.IndexOf("\\") + 1);
+                    }
+                    else
+                    {
+                        username = Session["aspnetforumUserName"].ToString();
+                    }
+                    editProfileLink.InnerHtml = username;
+                }
+
+                if (divPersonalMsgs != null) //check - if customer has commented that div in .ASPX
+                {
+                    int unreadPrivateMsgs = GetUnreadMessagesCount();
+                    if (unreadPrivateMsgs > 0)
+                    {
+                        divPersonalMsgs.Visible = true;
+                        spanNumMsgs.InnerHtml = unreadPrivateMsgs.ToString();
+                    }
+                    else
+                    {
+                        divPersonalMsgs.Visible = false;
+                    }
+                }
+            }
+
+            if (((aspnetforum.ForumPage)Page).IsAdministrator && adminLink != null)
+            {
+                adminLink.Visible = true;
+            }
+            else
+            {
+                adminLink.Visible = false;
+            }
+        }
+
+        private int GetUnreadMessagesCount()
+        {
+            string userID = (string)Page.Session["aspnetforumUserID"];
+
+            DbProviderFactory providerFactory = aspnetforum.Utils.DB.CreateDBProviderFactory();
+            DbConnection cn = aspnetforum.Utils.DB.CreateConnection();
+            DbCommand cmd = providerFactory.CreateCommand();
+            cmd.Connection = cn;
+
+            cmd.CommandText = "SELECT COUNT(MessageID) FROM ForumPersonalMessages WHERE ToUserID=convert(uniqueidentifier, '" + userID + "') AND New=?";
+            aspnetforum.Utils.DB.FillCommandParamaters(ref cmd, true);
+            cn.Open();
+            object res = cmd.ExecuteScalar();
+            cn.Close();
+            return res == null ? 0 : Convert.ToInt32(res);
+        }
+    }

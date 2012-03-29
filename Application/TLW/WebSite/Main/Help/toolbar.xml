@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<toolbarcommands>
+    <toolbarcommand type="togglenavigation" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="sep" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="addtofavorites" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="printtopic" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="sep" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="quicksearch" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="clearsearch" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="sep" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="back" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="forward" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="refresh" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="home" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="sep" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="label" label="$$GoTo" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="gotoc" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="goindex" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="gosearch" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+    <toolbarcommand type="gofavorites" label="" page="" tooltip="" image="" hotimage="" selectedimage=""/>
+</toolbarcommands>

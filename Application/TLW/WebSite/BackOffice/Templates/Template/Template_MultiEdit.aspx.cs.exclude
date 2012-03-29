@@ -1,0 +1,120 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class PAL_Recent : System.Web.UI.Page
+{
+    SqlConnClass objSqlConnClass = new SqlConnClass();
+    CorpClass objCorpClass;
+
+    string gsUserID = "";
+    string gsTemplateGroupID = "0";
+    string[,] gsTemplateGroups = new string[2, 4] { { "1", "2", "3", "4" }, { "0", "0", "0", "0" } };
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        objCorpClass = new CorpClass(objSqlConnClass.OpenConnection());
+
+        gsUserID = Membership.GetUser().ProviderUserKey.ToString();
+
+        
+        if (!IsPostBack)
+        {
+            if (Request.QueryString["templategroupid"] != null)
+            {
+                gsTemplateGroupID = Request.QueryString["templategroupid"].ToString();
+            }
+        }
+        else
+        {
+            gsTemplateGroupID = ViewState["gsTemplateGroupID"].ToString();
+        }
+    }
+
+    protected void Page_PreRender(object sender, EventArgs e)
+    {
+        fillOutForm();
+
+        ViewState["gsTemplateGroupID"] = gsTemplateGroupID;
+        objSqlConnClass.CloseConnection();
+    }
+
+    private void fillOutForm()
+    {
+        fillOutInformation();
+        
+    }
+
+    private void fillOutInformation()
+    {
+        try
+        {
+
+            DataSet DS = objCorpClass.Crp_GET_CorpTemplates_BY_TemplateId(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 0]);
+            RadEditor1.Content = DS.Tables[0].Rows[0]["TEMPLATE_TEXT"].ToString();
+
+            DS = objCorpClass.Crp_GET_CorpTemplates_BY_TemplateId(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 1]);
+            RadEditor2.Content = DS.Tables[0].Rows[0]["TEMPLATE_TEXT"].ToString();
+
+            DS = objCorpClass.Crp_GET_CorpTemplates_BY_TemplateId(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 2]);
+            RadEditor3.Content = DS.Tables[0].Rows[0]["TEMPLATE_TEXT"].ToString();
+
+            DS = objCorpClass.Crp_GET_CorpTemplates_BY_TemplateId(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 3]);
+            RadEditor4.Content = DS.Tables[0].Rows[0]["TEMPLATE_TEXT"].ToString();
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        updateTemplate(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 0], RadEditor1.Content.Trim());
+        updateTemplate(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 1], RadEditor2.Content.Trim());
+        updateTemplate(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 2], RadEditor3.Content.Trim());
+        updateTemplate(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 3], RadEditor4.Content.Trim());
+    }
+
+    protected void btnSubmit1_Click(object sender, EventArgs e)
+    {
+        updateTemplate(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 0], RadEditor1.Content.Trim());
+    }
+    protected void btnSubmit2_Click(object sender, EventArgs e)
+    {
+        updateTemplate(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 1], RadEditor2.Content.Trim());
+    }
+    protected void btnSubmit3_Click(object sender, EventArgs e)
+    {
+        updateTemplate(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 2], RadEditor3.Content.Trim());
+    }
+    protected void btnSubmit4_Click(object sender, EventArgs e)
+    {
+        updateTemplate(gsTemplateGroups[Convert.ToInt32(gsTemplateGroupID), 3], RadEditor4.Content.Trim());
+    }
+
+    private void updateTemplate(string sTemplateId, string sTemplateText)
+    {
+        objCorpClass.Crp_UPDATE_CorpTemplates(sTemplateId, sTemplateText);
+    }
+
+    /*Following function is added by Netsmartz for adding the css path at runtime*/
+    protected override void OnInit(EventArgs e)
+    {
+
+        Page.Header.Controls.Add(new LiteralControl("<link type=\"text/css\" rel=\"Stylesheet\" href=\"" + AppConfig.GetBaseSiteUrl() + "Styles/Main.css\" />"));
+        Page.Header.Controls.Add(new LiteralControl("<link type=\"text/css\" rel=\"Stylesheet\" href=\"" + AppConfig.GetBaseSiteUrl() + "Styles/Table.css\" />"));
+        Page.Header.Controls.Add(new LiteralControl("<link type=\"text/css\" rel=\"Stylesheet\" href=\"" + AppConfig.GetBaseSiteUrl() + "Styles/Grid.css\" />"));
+        Page.Header.Controls.Add(new LiteralControl("<link type=\"text/css\" rel=\"Stylesheet\" href=\"" + AppConfig.GetBaseSiteUrl() + "Styles/centerRound1.css\" />"));
+        Page.Header.Controls.Add(new LiteralControl("<link type=\"text/css\" rel=\"Stylesheet\" href=\"" + AppConfig.GetBaseSiteUrl() + "Styles/centerRound2.css\" />"));
+
+        base.OnInit(e);
+
+    }
+}

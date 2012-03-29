@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<navigationcommands>
+  <navigationcommand name="toc" type="toc" label="Table of Contents" icon="images/toolbar/tabtoc.gif" page="webtoc.html" default="1" />
+  <navigationcommand name="index" type="index" label="Index" icon="images/toolbar/tabindex.gif" page="webindex.html" default="0" />
+  <navigationcommand name="search" type="search" label="Search" icon="images/toolbar/tabsearch.gif" page="websearch.html" default="0" />
+  <navigationcommand name="favorites" type="favorites" label="Favorites" icon="images/toolbar/tabfavorites.gif" page="webfavorites.html" default="0" />
+</navigationcommands>

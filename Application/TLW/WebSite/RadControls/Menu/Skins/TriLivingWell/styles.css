@@ -1,0 +1,74 @@
+
+/* r.a.d.menu CssBlue skin */
+.RadMenu_TriLivingWell
+{
+    cursor:default;
+}
+
+
+.RadMenu_TriLivingWell .group .link
+{
+    background-color:#151515;
+
+    font-weight:normal;
+	text-align: left;
+	padding-right: 0px;
+
+	border-bottom: solid 1px #254654;
+    border-left: solid 1px #254654;  
+}
+
+.RadMenu_TriLivingWell .item .link:hover .text
+{
+    color:#000000;
+}
+
+
+.RadMenu_TriLivingWell .item .link .text
+{
+    color:#ffffff;
+}
+
+.RadMenu_TriLivingWell .item
+{
+    border-right: solid 1px #127198;
+}
+.RadMenu_TriLivingWell .item .link:hover
+{
+    background-color:#ffffff;
+    cursor:hand;
+}
+
+.RadMenu_TriLivingWell .group .text
+{
+	padding-left:6px;
+	padding-right: 40px;
+}
+
+
+
+.RadMenu_TriLivingWell .group .link:hover,
+.RadMenu_TriLivingWell .group .focused,
+.RadMenu_TriLivingWell .group .expanded
+{
+	background-color: #ffffff;
+
+	font-weight: normal;
+    cursor:hand;
+}
+
+.RadMenu_TriLivingWell .group .link:hover .text,
+.RadMenu_TriLivingWell .group .focused .text,
+.RadMenu_TriLivingWell .group .expanded .text
+{
+	border-top: 0;
+    color:#000000;
+    cursor:hand;
+}
+
+
+
+.RadMenu_TriLivingWell .separator .text
+{
+    color:#ff0000;
+}

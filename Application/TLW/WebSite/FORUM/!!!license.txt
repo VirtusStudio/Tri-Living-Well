@@ -1,0 +1,53 @@
+LICENSE AGREEMENT 
+
+IT IS NECESSARY FOR YOU TO AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE BEFORE YOU ARE PERMITTED TO CONTINUE TO INSTALL THE SOFTWARE.  BY CLICKING THE [ENTER] OR [ACCEPTED] ICON BELOW, OR BY INSTALLING, COPYING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE INCUDING THE WARRANTY DISCLAIMERS, LIMITATIONS ON LIABILITY AND TERMINATION PROVISIONS.
+
+VERY IMPORTANT - READ CAREFULLY: This Software License Agreement (hereinafter, this "LICENSE") is a legal agreement between you (either an individual or a single entity) and JitBit Software (hereinafter called AUTHOR), the author of the software product "Jitbit AspNetForum" (hereinafter called SOFTWARE). SOFTWARE means the "Jitbit AspNetForum" software product and everything included in its official distribution packages, such as the documentation, libraries, plug-ins, and all other files.
+
+IF YOU DO NOT AGREE, DO NOT INSTALL, DISTRIBUTE OR USE SOFTWARE IN ANY WAYS.
+
+I.  OWNERSHIP; LICENSE GRANT.
+
+This is a license agreement and NOT an agreement for sale. AUTHOR continues to own the copy of the SOFTWARE contained on the disk or CD-ROM and all copies thereof.  Your rights to the SOFTWARE are specified in this LICENSE, and AUTHOR retains all rights not expressly granted to you in this LICENSE. AUTHOR hereby grants to you, and you accept, a non-exclusive, non-transferable license to use, copy and modify the SOFTWARE only as authorized below.
+
+II.  PERMITTED USES.
+
+This LICENSE grants you the following rights:
+
+A.  The SOFTWARE is licensed per single computer and single company and single website. Purchasing one (1) copy of the SOFTWARE grants you the license to install and use the SOFTWARE on a single computer and on a single company and on a single website; if you require multiple installations of the SOFTWARE or one installation for multiple companies or for multiple websites, you must have additional licenses for each or purchase a "site license" which allows multiple uses (in ONE company).
+
+B.  Solely with respect to electronic documents included with the SOFTWARE, you may make a copy (either in hardcopy or electronic form) for each developer for which the Software has been licensed as described in Section II.A, above; provided, that such copies shall be used only by such developer for internal purposes and are not to be republished or distributed to any other third party or developer.
+
+C.  You may use the trial versions and product tours of the SOFTWARE only for the limited purposes of demonstrations, trials and design time evaluations and running a product tour. You may use the trial version ONLY with a "Powered by Jitbit AspNetForum TRIAL version" label on top of every page.
+
+III.  PROHIBITED USES.
+
+You may not, without the prior written permission of AUTHOR:
+
+A.  Disassemble, decompile or "unlock", decode or otherwise reverse translate or engineer, or attempt in any manner to reconstruct or discover any source code or underlying algorithms of SOFTWARE provided in object code form only.
+
+B.  Use, copy, modify, or merge copies of the SOFTWARE and any accompanying documents except as permitted in this LICENSE.
+
+C.  Transfer, rent, lease, or sublicense the SOFTWARE.
+
+D.  Produce, distribute or resell derivative works based on the SOFTWARE or its source codes.
+
+E.  Separate the software programs comprising the SOFTWARE for use by more than one user at a time.
+
+F.  Remove a "Powered by Jitbit AspNetForum TRIAL version" label from the trial version.
+
+IV.  COPYRIGHT.
+
+All title and copyrights in and to the SOFTWARE (including but not limited to any images, photographs, animation, video, audio, music, text and "applets" incorporated into the SOFTWARE) and the accompanying printed materials are owned by AUTHOR or its suppliers.  The SOFTWARE is protected by copyright laws and international treaty provisions. All rights are reserved worldwide.  You must treat the SOFTWARE like any other copyrighted material, except that you may, in addition to the copies permitted in this LICENSE, make one copy of the SOFTWARE solely for backup or archival purposes. No part of the accompanying printed materials may be reproduced, transmitted, transcribed, stored in any retrieval system, or translated into any language by any means without the express prior written permission of AUTHOR.
+
+V.  TERMINATION.
+
+This LICENSE and your right to use the SOFTWARE will terminate immediately without notice from AUTHOR if you fail to comply with the terms and conditions of this LICENSE.  Upon termination, you agree to destroy the SOFTWARE, including all accompanying documents and copies.  This is in addition to and not in lieu of any criminal, civil or other remedies available to AUTHOR. AUTHOR credit policy will apply. AUTHOR credit policy is available upon request.
+
+VI.  CONFIDENTIALITY.
+
+You acknowledge that the SOFTWARE and any source code provided to you pursuant to this LICENSE, as well as any modification, enhancement, derivative work and/or extension thereto includes valuable trade secrets of AUTHOR.  You agree to maintain in confidence the AUTHOR Source Code (in source code form), and any modification, enhancement, derivative work and/or extension thereto, by using at least the same physical and other security measures as you use for your own confidential technical information and documentation, but in no event less that a commercially reasonable standard of care.  You further agree not to disclose the AUTHOR Source Code (in source code form), or any aspect thereof, or any modification, enhancement, derivative work and/or extension thereto, or any aspect thereof, to anyone other than employees or contractors who have a need to know or obtain access to such information in order to support your authorized use of the SOFTWARE and who are bound to protect such information against any other use or disclosure.  You agree to assume full responsibility for such employees' or contractors' use, or misuse, of such disclosed source code as if it was your use.  These obligations shall not apply to any information generally available to the public, independently developed or obtained without reliance on AUTHOR' information, or approved in writing for release by AUTHOR without restriction.
+
+VII. DISCLAIMER
+
+THE AUTHOR EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, OF FITNESS FOR A PARTICULAR PURPOSE, NONINFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY RIGHTS, AND ANY WARRANTY THAT MAY ARISE BY REASON OF TRADE USAGE, CUSTOM, OR COURSE OF DEALING. WITHOUT LIMITING THE FOREGOING, YOU ACKNOWLEDGE THAT SOFTWARE IS PROVIDED "AS IS" AND THAT THE AUTHOR DOES NOT WARRANT THAT SOFTWARE WILL RUN UNINTERRUPTED OR ERROR FREE NOR THAT SOFTWARE WILL OPERATE WITH HARDWARE AND/OR SOFTWARE NOT PROVIDED BY THE AUTHOR. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THE AGREEMENT. SOME STATES DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSION MAY NOT APPLY TO YOU, AND YOU MAY HAVE OTHER RIGHTS, WHICH VARY FROM STATE TO STATE

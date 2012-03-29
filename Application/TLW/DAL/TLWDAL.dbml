@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TLW_FMS" Class="TLWDALDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.10.15\sqlent2008;Initial Catalog=TLW_FMS;User ID=dev2008" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="TLW_FMSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
+    <Type Name="aspnet_User">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredUserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_Membership" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Membership" Cardinality="One" />
+      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="UserId" OtherKey="UserId" Type="aspnet_UsersInRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Membership" Member="aspnet_Memberships">
+    <Type Name="aspnet_Membership">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordFormat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="MobilePIN" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="LoweredEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordQuestion" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordAnswer" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsLockedOut" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastPasswordChangedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLockoutDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="aspnet_Membership_USER_INFO" Member="USER_INFO" ThisKey="UserId" OtherKey="USER_ID" Type="USER_INFO" Cardinality="One" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Questionnaires" Member="Questionnaires">
+    <Type Name="Questionnaire">
+      <Column Name="intQuestionnaireId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="intQuestionnaireType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="strQuestionHeading" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="strQuestion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="chrDisplayYes" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="chrDisplayNo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="chrDisplayDontKnow" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="chrIsActive" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="dtDeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtCreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dtModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_ContentPages" Member="ContentPages">
+    <Type Name="ContentPage">
+      <Column Name="intContentPagesId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strPageName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="strDefaultName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="intTemplateType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TextAreaHTML" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="dtModifedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Newsletters" Member="Newsletters">
+    <Type Name="Newsletter">
+      <Column Name="intNewsLetterId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strTitle" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescription" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="strNewsletterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="strPDFFileName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="chrIsActive" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dtModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtDeletedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Events" Member="Events">
+    <Type Name="Event">
+      <Column Name="intEventsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strUserName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="dtEventDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="strActivity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="strLocation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="strComments" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="chrStatus" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="chrIsActive" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dtDeletedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_NewsandAnnouncements" Member="NewsandAnnouncements">
+    <Type Name="NewsandAnnouncement">
+      <Column Name="intNewsAnnouncementsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strHeading" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescription" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="strPDFFilename" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="strDirectLink" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="chrIsHomePage" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="chrIsActive" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="chrIsDelelte" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dtModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtDeletedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Library" Member="Libraries">
+    <Type Name="Library">
+      <Column Name="intLibraryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strTitle" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescription" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="strCategory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="strLocation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="strLocationType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dtLibraryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtCreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="chrIsActive" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dtDeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.List_StateCountry" Member="List_StateCountries">
+    <Type Name="List_StateCountry">
+      <Column Name="LISTITEM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LIST_NAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ITEM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ITEM_VALUE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ITEM_TEXT" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_CompanyInfo" Member="CompanyInfos">
+    <Type Name="CompanyInfo">
+      <Column Name="intCompanyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strUserID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="strCompanyEmail" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="strPassword" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="strCompanyName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="strCompanyPhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="strCompanyFax" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="intCountryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intStateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="strStateText" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="strCity" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="strCompanyAddress" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="chrIsPaid" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="chrIsActive" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="chrIsApproved" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dtCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="chrCreatedBy" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_UserRiskStratificationDetails" Member="UserRiskStratificationDetails">
+    <Type Name="UserRiskStratificationDetail">
+      <Column Name="intUserRiskStratificationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="intQuestionnaireId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="strQuestion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="strAnswer" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="guidUserId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="strStratificationStep" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USER_ASSESSMENTS" Member="USER_ASSESSMENTs">
+    <Type Name="USER_ASSESSMENT">
+      <Column Name="ASSESSMENT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LEVEL_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ASSESSMENT_SCORE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DELETE_FLG" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="DATE_CREATED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_UsersInRoles" Member="aspnet_UsersInRoles">
+    <Type Name="aspnet_UsersInRole">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_Role" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Roles" Member="aspnet_Roles">
+    <Type Name="aspnet_Role">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredRoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_UsersInRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_UsersPrivateAnswers" Member="UsersPrivateAnswers">
+    <Type Name="UsersPrivateAnswer">
+      <Column Name="intAnswerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="intQuestionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="strAnswer" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="dtAnsweredOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="strAnswerBy" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_QuestionsForHealthCoach" Member="QuestionsForHealthCoaches">
+    <Type Name="QuestionsForHealthCoach">
+      <Column Name="intQuestionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strUserName" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="strCategoryName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="strCategoryLevel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="strQuestion" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="strSubject" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="strComments" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="strQuestionType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="chrIsAnsweredGiven" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_SectionVisited" Member="SectionVisiteds">
+    <Type Name="SectionVisited">
+      <Column Name="intSectionVisitedId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strUserId" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="strUserType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="strAgent" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="strVisitedIP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="strSectionVisited" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FAQ" Member="FAQs">
+    <Type Name="FAQ">
+      <Column Name="intFAQId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="intQuestionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="strHeading" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="strQuestion" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="strAnswer" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="chrUserType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="strUserId" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="chrisDeleted" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="dtDeletedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FaqTopic" Member="FaqTopics">
+    <Type Name="FaqTopic">
+      <Column Name="int_FAQTopicId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strFaqTopic" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="strCreatedBy" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="dtDeletedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_UserFavoriteDetails" Member="UserFavoriteDetails">
+    <Type Name="UserFavoriteDetail">
+      <Column Name="intFavoriteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strUserId" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="strTitle" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="strFavoriteType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="intFavoriteTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_CompanyRequestedUsersList" Member="CompanyRequestedUsersLists">
+    <Type Name="CompanyRequestedUsersList">
+      <Column Name="intCompanyRequestedUsersListId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="intCompanyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="strEmpCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="strEmpFirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="strEmpMiddleName" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="strEmpLastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="strEmployeeAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dtEmpDateofBirth" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="strEmpEmail" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="strEmpRelationShipCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="strEmpFamilyStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="strEmpGender" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="strEmpPhoneORCell" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="chrStatus" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dtCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USER_INFO" Member="USER_INFOs">
+    <Type Name="USER_INFO">
+      <Column Name="USER_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="intCompanyId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USER_GROUP_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DELETE_FLG" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="FNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEGREE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SPECIALTY" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AFFILIATION" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ADDRESS1" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ADDRESS2" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="CITY" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="STATE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="STATE_TEXT" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ZIP" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="COUNTRY_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PHONE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FAX" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ORGANIZATION" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="IS_ACCREDITED" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RND_REG_CODE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DATE_CREATED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LAST_MODIFIED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL_LIST_FLG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="YOUR_ROLE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HEIGHT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GENDER_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FAMILY_STATUS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DATE_BIRTH" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="REGISTRATION_FLG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ACCOUNT_CREDITS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ACCOUNT_FROM" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ACCOUNT_FROM_RELATIONSHIP_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="strRiskStratificationProcessStep" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="aspnet_Membership_USER_INFO" Member="aspnet_Membership" ThisKey="USER_ID" OtherKey="UserId" Type="aspnet_Membership" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_METActivity" Member="METActivities">
+    <Type Name="METActivity">
+      <Column Name="intActivityTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strActivityName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="decMET" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="dtModifiedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="strModifiedBy" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FoodIntakeLog" Member="FoodIntakeLogs">
+    <Type Name="FoodIntakeLog">
+      <Column Name="intFoodIntakeLogId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strUserId" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="dtFoodIntakeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="intCalorie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="strMilkDetails" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="strFruitDetails" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="strVegetablesDetails" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="strStarchDetails" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="strProteinDetails" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="strFATDetails" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="strWaterDetails" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dtDeletedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_GlobalCodes" Member="GlobalCodes">
+    <Type Name="GlobalCode">
+      <Column Name="intGlobalCodesId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strGlobalCodeCategory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="strHeading" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="strValue" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="strValueCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="chrisActive" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_HotSectionDetails" Member="HotSectionDetails">
+    <Type Name="HotSectionDetail">
+      <Column Name="intHotSectionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strHeading" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="strLink" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dtDeletedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="chrDisplayOnDashboard" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="guidUserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_PersonalSummary" Member="PersonalSummaries">
+    <Type Name="PersonalSummary">
+      <Column Name="intPersonalSummaryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="decWeight" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="decWaist" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="decBMI" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="decBodyFATPercentage" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="decWaistToHeight" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="decWaistToHip" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="guidUserId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="dtCreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ms_UpdateUserINRoles" Method="ms_UpdateUserINRoles">
+    <Parameter Name="strUserEmail" Type="System.String" DbType="VarChar(250)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ms_GetUserFavoriteNewsLEtters" Method="ms_GetUserFavoriteNewsLEtters">
+    <Parameter Name="UserId" Parameter="userId" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="ms_GetUserFavoriteNewsLEttersResult">
+      <Column Name="strTitle" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="AddRemoveFromFavorite" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="IntNewsLetterId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ms_GetUserFavoriteNewsAnnouncements" Method="ms_GetUserFavoriteNewsAnnouncements">
+    <Parameter Name="UserId" Parameter="userId" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="ms_GetUserFavoriteNewsAnnouncementsResult">
+      <Column Name="strTitle" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="AddRemoveFromFavorite" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="IntNewsLetterId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ms_GetUserFavoriteEvents" Method="ms_GetUserFavoriteEvents">
+    <Parameter Name="UserId" Parameter="userId" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="ms_GetUserFavoriteEventsResult">
+      <Column Name="strTitle" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="AddRemoveFromFavorite" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="IntNewsLetterId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ms_GetUserFavoriteLibrary" Method="ms_GetUserFavoriteLibrary">
+    <Parameter Name="UserId" Parameter="userId" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="ms_GetUserFavoriteLibraryResult">
+      <Column Name="strTitle" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="AddRemoveFromFavorite" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="IntNewsLetterId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ms_GetFoodExchangeChartByCalories" Method="ms_GetFoodExchangeChartByCalories">
+    <Parameter Name="intCalories" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ms_GetFoodExchangeChartByCaloriesResult">
+      <Column Name="intFoodExchangeChartId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intCalories" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intMilk" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intFruit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intVegetable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intStarch" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intProtein" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="intFat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dtModifiedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="strModifiedBy" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="intWater" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ms_GetTLWFormulaForIndividualReport" Method="ms_GetTLWFormulaForIndividualReport">
+    <Parameter Name="strGender" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="decWaist" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="decBMI" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="decBFATP" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="decWtHeight" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="decWtHip" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="decWeight" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="ms_GetTLWFormulaForIndividualReportResult">
+      <Column Name="strRatioType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="strRatioCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="decFrom" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="decTo" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="strLevelofRisk" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="dtModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

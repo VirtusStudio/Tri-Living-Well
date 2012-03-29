@@ -1,0 +1,19 @@
+
+//
+// editdoc -- Represents the HTML document object in the editor
+//
+
+// You can modify the following function to change the table default properties within the InsertTable dialog
+function _CreateEditingTable()
+{
+	return editdoc.createElement("<table border='1' cellspacing='0' cellpadding='3' style='border-collapse:collapse;width:320'>");
+}
+
+// Customize context menu
+var const_menuwidth="140";
+var const_submenudelay=100; // Please don't change to 0!
+var absolutevalue='relative';//'absolute';
+
+// If you have any questions or suggestions, please visit http://www.cutesoft.net/forums/.
+// Thanks
+

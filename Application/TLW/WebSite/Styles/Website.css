@@ -1,0 +1,10 @@
+﻿.WebsiteBody{background-image:url(../images/corporate/WebsiteBackground.gif);background-repeat:repeat-x;background-color:#133053;}
+.WebsiteHeader{width:950px;height:113px;background-image:url(../images/corporate/WebsiteHeader.jpg);}
+.WebsiteFooter{background-color:#1e242b;color:#ffffff;padding:5px 10px 5px 10px;margin-top:5px;}
+
+/* RadMenu CssClass="WebsiteHeaderMenu" */
+.WebsiteHeaderMenu .rmLink{vertical-align:bottom;height:22px;font-weight:normal;border-left:solid 1px #ffffff;color:#ffffff;font-size:15px;background-color:Transparent;text-decoration:none;}
+.WebsiteHeaderMenu .rmLink:hover{background-color:#0a1524;text-decoration:none;}
+
+.WebsiteHeaderMenu .rmSlide .rmLink {background-color:#B85B22;}
+.WebsiteHeaderMenu .rmSlide .rmLink:hover {background-color:#0a1524;}

@@ -1,0 +1,128 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Collections.Generic;
+
+public partial class HTML_MyProgram : System.Web.UI.Page
+{
+    SqlConnClass objSqlConnClass = new SqlConnClass();
+    PALClass objPalClass;
+    ProgramClass objProgramClass;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        objPalClass = new PALClass(objSqlConnClass.OpenConnection());
+        objProgramClass = new ProgramClass(objSqlConnClass.OpenConnection());
+    }
+
+    protected void Page_PreRender(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            fillOutForm();
+        }
+        objSqlConnClass.CloseConnection();
+    }
+
+    private void fillOutForm()
+    {
+        if(Request.QueryString["programID"] != null && Request.QueryString["stepID"] != null)
+        {
+            string sProgramID = Request.QueryString["programID"];
+            string sStepID = Request.QueryString["stepID"];
+            string sUrl = "HTML/MyProgram_" + sProgramID + "_" + sStepID + ".html";
+
+            string sUserID = Membership.GetUser().ProviderUserKey.ToString();
+            DataSet DS = objPalClass.PAL_GET_PalStarts(sUserID, "1", "0");
+            if (DS.Tables[0].Rows.Count > 0)
+            {
+                if (DS.Tables[0].Rows[0]["PROGRAM_ID"].ToString() == sProgramID)
+                {
+                    if (Convert.ToInt32(sStepID) <= Convert.ToInt32(DS.Tables[0].Rows[0]["PROGRAM_CURRENT_STEP"]) + 1)
+                    {
+                        WritePage(sUrl);
+                    }
+                }
+            }
+            else//they are looking at sample program data
+            {
+                if (Convert.ToInt32(sStepID) <= 3)
+                {
+                    WritePage(sUrl);
+                }
+            }
+        }
+    }
+
+    private void WritePage(string sUrl)
+    {
+        Dictionary<string, string> dictTokens = new Dictionary<string, string>();
+
+
+
+        //getting these from SQL
+        /*
+        dictTokens.Add("#Hip Abduction#", "Hip Abduction");
+        dictTokens.Add("#Hip Adduction#", "Hip Adduction");
+        dictTokens.Add("#Leg Extension#", "Leg Extension");
+        dictTokens.Add("#Leg Curl#", "Leg Curl");
+        dictTokens.Add("#Leg Press#", "Leg Press");
+        dictTokens.Add("#Leg Raise#", "Leg Raise");
+        dictTokens.Add("#Machine Row#", "Machine Row");
+        dictTokens.Add("#Machine Fly#", "Machine Fly");
+        dictTokens.Add("#Lateral Pulldown#", "Lateral Pulldown");
+        dictTokens.Add("#Machine Lateral Raise#", "Machine Lateral Raise");
+        dictTokens.Add("#Dumbbell Biceps Curl#", "Dumbbell Biceps Curl");
+        dictTokens.Add("#Dumbbell Triceps Extension#", "Dumbbell Triceps Extension");
+        dictTokens.Add("#Abdominal Machine or Crunch#", "Abdominal Machine or Crunch");
+        dictTokens.Add("#Dumbbell Side Bend#", "Dumbbell Side Bend");
+        dictTokens.Add("#Machine Chest Press#", "Machine Chest Press");
+        dictTokens.Add("#Machine Overhead Press#", "Machine Overhead Press");
+        */
+        DataSet DS = objProgramClass.Prg_GET_ProgramsExercises_BY_ProgramId("800");
+        foreach (DataRow DR in DS.Tables[0].Rows)
+        {
+            dictTokens.Add("#" + DR["Name"].ToString() + "#", "<table><tr><td>" + DR["Name"].ToString() + "</td><td><img src='images\\" + DR["image1"].ToString() + "'></td><td><img src='images\\" + DR["image2"].ToString() + "'></td></tr></table>");
+            
+        }
+
+
+        dictTokens.Add("<body", "<body onload=\"top.setIframeHeight();\"");
+        try
+        {
+            System.IO.StreamReader SR = new System.IO.StreamReader(Server.MapPath(sUrl));
+            string sHTML = SR.ReadToEnd().ToString().Replace("\r\n", "");
+            SR.Close();
+            while(sHTML.Contains("  "))
+            {
+                sHTML = sHTML.Replace("  ", " ");
+            }
+            /*
+            DataSet DS = objProgramClass.Prg_GET_ProgramsExercises_BY_ProgramId("800");
+            foreach (DataRow DR in DS.Tables[0].Rows)
+            {
+                sHTML = sHTML.Replace("#" + DR["Name"].ToString() + "#", DR["Name"].ToString());
+            }
+            */
+
+            foreach (KeyValuePair<string, string> dictToken in dictTokens)
+            {
+                sHTML = sHTML.Replace(dictToken.Key, dictToken.Value);
+            }
+            Response.Write(sHTML);
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+  
+
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MetaBuilders.WebControls.RollOverLink</name>
+    </assembly>
+    <members>
+        <member name="T:MetaBuilders.WebControls.RollOverLink">
+            <summary>
+            Displays an image link on the page.
+            When the mouse is over it, the images changes to a different one.
+            </summary>
+            <remarks>
+            This behaves exactly like a <see cref="T:System.Web.UI.WebControls.HyperLink"/> unless both <see cref="P:System.Web.UI.WebControls.HyperLink.ImageUrl"/> and <see cref="P:MetaBuilders.WebControls.RollOverLink.RollOverImageUrl"/> are specified.
+            </remarks>
+            <example>
+            The following example demonstrates how to create a image which does a roll-over.
+            <code>
+            <![CDATA[
+            <html>
+            	<body>
+            	<form runat="server">
+            		<h3>RollOver Example</h3>
+            
+            		Put your mouse over the image.<br><br>
+            
+            		<mb:RollOverLink id="myLink"
+            			Text="google"
+            			ImageUrl="/normalImage.png"
+            			RollOverImageUrl="/activeImage.png"
+            			NavigateUrl="http://www.google.com"
+            			runat="server"/>
+                  
+            	</form>
+            	</body>
+            </html>
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:MetaBuilders.WebControls.RollOverLink.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MetaBuilders.WebControls.RollOverLink"/> class.
+            </summary>
+            <remarks>
+            Use this constructor to create and initialize a new instance of the <see cref="T:MetaBuilders.WebControls.RollOverLink"/> class.
+            </remarks>
+        </member>
+        <member name="M:MetaBuilders.WebControls.RollOverLink.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the PreRender event, which notifies the server control that is about to be rendered to the page.
+            </summary>
+            <remarks>Overridden to register client script with the <see cref="T:System.Web.UI.Page"/></remarks>
+            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data. </param>
+        </member>
+        <member name="M:MetaBuilders.WebControls.RollOverLink.RegisterClientScript">
+            <summary>
+            Emits the client scripts which support the rollover behavior.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.RollOverLink.RenderContents(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the contents of the control into the specified writer. This method is primarily used by control developers.
+            </summary>
+            <param name="writer">The output stream that renders HTML content to the client.</param>
+            <remarks>
+            Overridden to allow script to access the inner image.
+            </remarks>
+        </member>
+        <member name="P:MetaBuilders.WebControls.RollOverLink.RollOverImageUrl">
+            <summary>
+            Gets or sets the path to an image to display for the <see cref="T:MetaBuilders.WebControls.RollOverLink"/> control during a mouse-over.
+            </summary>
+            <value>
+            The path to the image to display for the <see cref="T:MetaBuilders.WebControls.RollOverLink"/> control. The default value is <see cref="F:System.String.Empty"/>.
+            </value>
+            <remarks>
+            The <see cref="P:MetaBuilders.WebControls.RollOverLink.RollOverImageUrl"/> is only used if <see cref="P:System.Web.UI.WebControls.HyperLink.ImageUrl"/> is also set.
+            The image will be shown when the user puts the mouse arrow over the image.
+            </remarks>
+        </member>
+    </members>
+</doc>

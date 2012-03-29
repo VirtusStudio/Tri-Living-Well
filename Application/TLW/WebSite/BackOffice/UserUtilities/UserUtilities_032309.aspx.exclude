@@ -1,0 +1,214 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserUtilities_032309.aspx.cs" Inherits="Administrator_UserUtilities_UserUtilities" %>
+ 
+
+
+    
+<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>
+<%@ Register Assembly="RadGrid.Net2" Namespace="Telerik.WebControls" TagPrefix="radG" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--########################################################
+    Copyright 2007 Blue Grotto Technologies, Inc.
+    This code is owned by Blue Grotto Technologies, Inc
+    It may not be copied, shared or modified.
+###########################################################-->
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Blue Grotto List Users</title> 
+<script  type="text/javascript">
+function editUser(userName)
+{
+    document.location.href = "/Administrator/UserUtilities/EditUser.aspx?userName=" + userName;
+}
+function deleteUser(userName)
+{
+    if (confirm("Are you sure you want to delete " + userName))
+    {
+        document.location.href = "/Administrator/UserUtilities/UserUtilities.aspx?delete=" + userName;
+    }
+}
+</script>
+<!--setting the size of the frame onload-->
+<script type="text/javascript">
+// IFRAME HEIGHT STUFF //this one is add to the body onload in the code behind
+function goSetHeight() {
+  if (window.parent == window) return;
+  // no way to obtain id of iframe object doc loaded into? no parentNode or parentElement or ...
+  else parent.setIframeHeightPlus('ifAdmin', 30);
+}
+</script>
+    
+        <link href="../../Styles/Main.css" rel="stylesheet" type="text/css" />
+    
+</head>
+<body onload="top.setIframeHeight();">
+    <form id="form1" runat="server">
+
+
+       
+<table class="tblBoHeader"> 
+<tr>
+    <td>
+        <img src="/images/icons/iconUser.gif" />Users
+    </td>
+    <td style="text-align:right;">
+        <a href="CreateUser.aspx"><img src="/images/icons/iconCreateUser.gif" />Create User</a>
+    </td>
+</tr>
+</table>
+       
+<div class="divBoSubtitle">Active Users</div> 
+
+                
+    <div class="divBorder">              
+    <radG:RadGrid AllowSorting="True" Skin="na" id="RadGrid1" OnDeleteCommand="RadGrid1_DeleteCommand" Width="100%" BorderWidth="0" runat="server" AutoGenerateColumns="False" OnItemDataBound="RadGrid1_ItemDataBound" GridLines="None" >
+    <mastertableview GridLines="None"><Columns>
+
+
+    <radG:GridTemplateColumn DataField="ItemId" UniqueName="ucEdit">
+    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+    <ItemStyle HorizontalAlign="Center" Width="35px"></ItemStyle>
+    <ItemTemplate>
+    </ItemTemplate>
+    </radG:GridTemplateColumn>
+
+      <radG:GridTemplateColumn>
+    <ItemTemplate>
+    &nbsp;
+    </ItemTemplate>
+    </radG:GridTemplateColumn>
+    
+    <radG:GridButtonColumn UniqueName="column" Text="Inactivate" CommandName="Delete">
+        <ItemStyle HorizontalAlign="Center" Width="55px" />
+    </radG:GridButtonColumn>
+
+    <radG:GridTemplateColumn DataField="UserName" UniqueName="ucDelete" Visible="False">
+    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+    <ItemStyle HorizontalAlign="Center" Width="180px"></ItemStyle>
+    <ItemTemplate>
+    </ItemTemplate>
+    </radG:GridTemplateColumn>
+
+    <radG:GridTemplateColumn DataField="IsLockedOut" UniqueName="ucAccess" SortExpression="IsLockedOut" HeaderText="Locked Out">
+    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+    <ItemStyle HorizontalAlign="Center" Width="80px"></ItemStyle>
+    <ItemTemplate>
+    </ItemTemplate>
+    </radG:GridTemplateColumn>
+
+    <radG:GridTemplateColumn DataField="RoleName" UniqueName="ucRole" SortExpression="RoleName" HeaderText="Role">
+    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+      <ItemStyle HorizontalAlign="Center" Width="75px" />
+    <ItemTemplate>
+    </ItemTemplate>
+    </radG:GridTemplateColumn>
+    
+      <radG:GridTemplateColumn>
+    <ItemTemplate>
+    &nbsp;
+    </ItemTemplate>
+    </radG:GridTemplateColumn>
+    
+    <radG:GridBoundColumn DataField="UserName" UniqueName="UserName" SortExpression="UserName" HeaderText="User&#160;Name"><HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+        <ItemStyle Width="180px" />
+    </radG:GridBoundColumn>
+    <radG:GridBoundColumn DataField="PASSWORD" UniqueName="PASSWORD" SortExpression="PASSWORD" HeaderText="Password"><HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+        <ItemStyle Width="80px" />
+    </radG:GridBoundColumn>
+    <radG:GridBoundColumn DataField="LNAME" UniqueName="LNAME" SortExpression="LNAME" HeaderText="Last&#160;Name"><HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+        <ItemStyle Width="80px" />
+    </radG:GridBoundColumn>
+    <radG:GridBoundColumn DataField="FNAME" UniqueName="FNAME" SortExpression="FNAME" HeaderText="First&#160;Name"><HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+        <ItemStyle Width="80px" />
+    </radG:GridBoundColumn>
+    <radG:GridBoundColumn DataField="LAST_MODIFIED"  Visible="false" UniqueName="LAST_MODIFIED" SortExpression="LAST_MODIFIED" HeaderText="Last&#160;Modified"><HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+        <ItemStyle HorizontalAlign="Right" Width="120px" />
+    </radG:GridBoundColumn>
+    <radG:GridTemplateColumn   HeaderText="Last&#160;Modified" UniqueName="TemplateColumn" SortExpression="LAST_MODIFIED">
+    <ItemTemplate>
+    <%# Convert.ToDateTime(DataBinder.Eval(Container.DataItem, "LAST_MODIFIED").ToString()).ToString("MM/dd/yyyy hh:mm tt")  %> 
+</ItemTemplate>
+   <ItemStyle HorizontalAlign="Right" Width="125px" />
+ <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+</radG:GridTemplateColumn>
+
+
+    <radG:GridBoundColumn Visible="False" DataField="IsLockedOut" UniqueName="IsLockedOut" SortExpression="IsLockedOut" HeaderText="IsLockedOut"><HeaderStyle HorizontalAlign="Center"></HeaderStyle></radG:GridBoundColumn>
+    <radG:GridBoundColumn Visible="False" DataField="RoleName" UniqueName="RoleName" SortExpression="RoleName" HeaderText="Role"><HeaderStyle HorizontalAlign="Center"></HeaderStyle></radG:GridBoundColumn>
+    </Columns>
+                    <HeaderStyle CssClass="gridHeader" />
+              
+<AlternatingItemStyle  CssClass="gridAltItem" />
+<ItemStyle CssClass="gridItem" />
+            
+    </mastertableview>
+    </radG:RadGrid>
+    </div>
+
+   
+<br />
+<div class="divBoSubtitle">Inactive Users</div>
+
+                
+<div class="divBorder">              
+<radG:RadGrid AllowSorting="true" Skin="na" id="RadGrid2" OnDeleteCommand="RadGrid2_DeleteCommand" Width="100%" runat="server" BorderWidth="0" AutoGenerateColumns="False" OnItemDataBound="RadGrid2_ItemDataBound" GridLines="None" >
+<mastertableview><Columns>
+
+<radG:GridButtonColumn ItemStyle-Width="90px" ItemStyle-HorizontalAlign="center" HeaderStyle-Width="95px" UniqueName="column" Text="Activate" CommandName="Delete"></radG:GridButtonColumn>
+
+<radG:GridTemplateColumn ItemStyle-Width="80px" DataField="IsLockedOut" UniqueName="ucAccess" SortExpression="IsLockedOut" HeaderText="Locked Out">
+<HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+<ItemTemplate>
+</ItemTemplate>
+</radG:GridTemplateColumn>
+<radG:GridTemplateColumn ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="75px" DataField="RoleName" UniqueName="ucRole" SortExpression="RoleName" HeaderText="Role">
+<ItemTemplate>
+</ItemTemplate>
+</radG:GridTemplateColumn>
+      <radG:GridTemplateColumn>
+    <ItemTemplate>
+    &nbsp;
+    </ItemTemplate>
+    </radG:GridTemplateColumn>
+<radG:GridBoundColumn ItemStyle-Width="160px" DataField="UserName" UniqueName="UserName" SortExpression="UserName" HeaderText="User&#160;Name"><HeaderStyle HorizontalAlign="Left"></HeaderStyle></radG:GridBoundColumn>
+<radG:GridBoundColumn ItemStyle-Width="80px" DataField="PASSWORD" UniqueName="PASSWORD" SortExpression="PASSWORD" HeaderText="Password"><HeaderStyle HorizontalAlign="Left"></HeaderStyle></radG:GridBoundColumn>
+<radG:GridBoundColumn ItemStyle-Width="80px" DataField="LNAME" UniqueName="LNAME" SortExpression="LNAME" HeaderText="Last&#160;Name"><HeaderStyle HorizontalAlign="Left"></HeaderStyle></radG:GridBoundColumn>
+<radG:GridBoundColumn ItemStyle-Width="80px" DataField="FNAME" UniqueName="FNAME" SortExpression="FNAME" HeaderText="First&#160;Name"><HeaderStyle HorizontalAlign="Left"></HeaderStyle></radG:GridBoundColumn>
+<radG:GridBoundColumn ItemStyle-HorizontalAlign="Right" ItemStyle-Width="120px" DataField="LAST_MODIFIED" UniqueName="LAST_MODIFIED" SortExpression="LAST_MODIFIED" HeaderText="Last&#160;Modified"><HeaderStyle HorizontalAlign="Center"></HeaderStyle></radG:GridBoundColumn>
+<radG:GridBoundColumn Visible="False" DataField="IsLockedOut" UniqueName="IsLockedOut" SortExpression="IsLockedOut" HeaderText="IsLockedOut"><HeaderStyle HorizontalAlign="Center"></HeaderStyle></radG:GridBoundColumn>
+<radG:GridBoundColumn Visible="False" ItemStyle-Width="120px" DataField="RoleName" UniqueName="RoleName" SortExpression="RoleName" HeaderText="Role"><HeaderStyle HorizontalAlign="Center"></HeaderStyle></radG:GridBoundColumn>
+
+
+
+</Columns>
+
+                    <HeaderStyle CssClass="gridHeader" />
+                 
+<AlternatingItemStyle  CssClass="gridAltItem" />
+<ItemStyle CssClass="gridItem" />
+        
+</mastertableview>        
+</radG:RadGrid>
+</div>
+
+            
+         <rada:radajaxmanager id="RadAjaxManager1" runat="server"><AjaxSettings>
+            <radA:AjaxSetting AjaxControlID="RadGrid1">
+                <UpdatedControls>
+                    <radA:AjaxUpdatedControl ControlID="RadGrid1" />
+                    <radA:AjaxUpdatedControl ControlID="RadGrid2" />
+                </UpdatedControls>
+            </radA:AjaxSetting>
+            <radA:AjaxSetting AjaxControlID="RadGrid2">
+                <UpdatedControls>
+                    <radA:AjaxUpdatedControl ControlID="RadGrid1" />
+                    <radA:AjaxUpdatedControl ControlID="RadGrid2" />
+                </UpdatedControls>
+            </radA:AjaxSetting>
+        </AjaxSettings>
+        </rada:radajaxmanager>
+        
+    </form>
+</body>
+</html>

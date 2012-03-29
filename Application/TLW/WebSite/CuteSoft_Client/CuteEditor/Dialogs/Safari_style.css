@@ -1,0 +1,151 @@
+body,input,textarea,button,select,fieldset,td
+{
+	color: windowtext; font-family: "MS Sans Serif"; font-size: 7pt;
+}
+button
+{
+	padding-top: 1px;
+	height: 22px;
+}
+fieldset
+{
+	padding: 2px;
+}
+.normal
+{
+	color: windowtext; font-family: "MS Sans Serif"; font-size: 7pt; 
+}
+body
+{
+	background-color:#d7d3cc;	
+	overflow:hidden;
+}
+
+.TabNav 
+{
+	font:bold 9pt MS Sans Serif;
+    padding: 3px 3px 3px 10px;
+    color: #000;
+    height:23px;
+    text-decoration: none;
+    margin-left:2px;
+    BACKGROUND-COLOR: #d7d3cc;
+    BORDER-RIGHT: buttonshadow 1px solid; BORDER-TOP: buttonhighlight 1px solid; BORDER-LEFT: buttonhighlight 1px solid; BORDER-BOTTOM: buttonshadow 1px solid; 
+    rem-VERTICAL-ALIGN: middle;
+}
+
+.ActiveTabNav, .TabNav:hover
+{
+	font:bold 9pt MS Sans Serif;
+    padding: 3px 3px 3px 10px;
+    color: #000;
+    height:23px;
+    text-decoration: none;
+    margin-left:2px;     
+    BORDER: #0A246A 1px solid; 
+    BACKGROUND-COLOR: #c0c0c0;
+    rem-VERTICAL-ALIGN: middle;
+}
+
+.StyleNav
+{
+	font:normal 9pt MS Sans Serif;
+    padding: 1px 3px 1px 3px;
+    color: #000;
+    height:23px;
+    width:100px;
+    text-decoration: none;
+    margin-left:0px;
+    margin-right:2px;
+    margin-bottom:2px;
+    BACKGROUND-COLOR: #d7d3cc;
+    BORDER-RIGHT: buttonshadow 1px solid; BORDER-TOP: buttonhighlight 1px solid; BORDER-LEFT: buttonhighlight 1px solid; BORDER-BOTTOM: buttonshadow 1px solid;
+}
+
+.ActiveStyleNav, .StyleNav:hover
+{
+	font:normal 9pt MS Sans Serif;
+    padding: 1px 3px 1px 3px;
+    color: #000;
+    height:23px;
+    width:100px;
+    text-decoration: none;
+    margin-left:0px;
+    margin-right:2px;
+    margin-bottom:2px;
+    BORDER: #0A246A 1px solid; BACKGROUND-COLOR: #c0c0c0;
+}
+.ActiveStyleNav:hover
+{
+	border:darkgreen 1px solid;
+}
+
+#div_demo
+{
+	position:static!important;
+	width:100%!important;
+	height:100%!important;
+}
+
+#outer
+{
+	height:65px;
+	width:300px;
+	overflow:hidden; 
+	padding:5px;
+	BACKGROUND-COLOR: #ffffff;
+	margin-top:10px;
+	font:normal 9pt MS Sans Serif;
+    BORDER-RIGHT: buttonhighlight 1px solid; 
+	BORDER-TOP: buttonshadow 1px solid; 
+	BORDER-LEFT: buttonshadow 1px solid; 
+	BORDER-BOTTOM: buttonhighlight 1px solid; 
+}
+
+.inputbuttoncancel , .inputbuttoninsert
+{
+	width:80px;
+	padding-top:2px;
+	padding-bottom:-2px;
+}
+.dialogButton
+{
+	border:1px solid #f5f5f4;
+}
+
+.CuteEditorDropDown {	margin-left:1px; margin-right:1px; width:80px; border:#dad6d0 1px solid!important; height:21px; vertical-align:middle;}
+.CuteEditorToolbar {}
+.CuteEditorGroupMenu {background-image: url(images/horizontal.background.gif); height:25px; background-repeat: repeat-x; vertical-align:middle;}
+.CuteEditorGroupImage { margin:0px; vertical-align:middle;}
+.CuteEditorLineBreak {}
+.CuteEditorFrame {}
+.CuteEditorButton { margin:1px; vertical-align:middle;}
+.CuteEditorButtonActive { margin:0px; vertical-align:middle; border:#0a246a 1px solid!important; background-color:#d4d5d8;}
+.CuteEditorButtonOver { margin:0px;vertical-align:middle;border:#0a246a 1px solid!important; background-color:#b6bdd2;}
+.CuteEditorButtonDown { border-right: buttonhighlight 1px solid!important; border-TOP: buttonshadow 1px solid!important; border-left: buttonshadow 1px solid!important; border-bottom: buttonhighlight 1px solid!important; margin:0px;vertical-align:middle; }
+.CuteEditorButtonDisabled {filter: Shadow(Color=#666666, Direction=135, Strength=5);border:1px solid #f5f5f4;opacity: .25; -moz-opacity: .25;}
+.ToolControl{}
+.ToolControlOver{}
+.ToolControlDown{}
+.editimgDisabled {opacity: .25; -moz-opacity: .25; }
+.separator {background-image: url(images/Separator.gif); height:25px; background-repeat: no-repeat; vertical-align:middle; width:2px;margin-left:2px; margin-right:2px;	}
+
+.filelistHeadCol A
+{
+	font-family: "MS Sans Serif"; font-size: 7pt; 
+	cursor: default; 
+	color: windowtext;
+}
+
+a.filelistHeadCol:visited, a.filelistHeadCol:link /* Font used for links in the navigation menu */
+{
+	font:menu;
+	color: #ffffff;
+    text-decoration: none; 
+}
+
+a.filelistHeadCol:Hover /* Font used for hovering over a link in the navigation menu */
+{
+    color: #FF3300;
+	font-family: "MS Sans Serif"; font-size: 7pt; 
+}

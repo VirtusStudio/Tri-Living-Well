@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Jitbit ASP.NET Forum Software README</title>
+    <meta name="description" content="ASP.NET forum software. Installation manual.">
+    <meta name="keywords" content="ASP.NET forum software">
+</head>
+<body style="font: 10pt Verdana;">
+<div>
+    <h2>Jitbit AspNetForum README</h2>
+    <p>Thank you for choosing <a href="http://www.jitbit.com/asp-net-forum.aspx">Asp.Net Forum
+            from Jitbit Software</a>. This README will guide through the basics of installation
+        and operation of Asp.Net Forum. Please read it carefully. Thank you.</p>
+    <p>
+        IMPORTANT: before installing and using Jitbit AspNetForum read the License Agreement
+        located in "!!!license.txt" file.</p>
+    <p><strong>Contents:</strong></p>
+    <div>
+        1. <a href="#inst">INSTALLING ASPNETFORUM</a><br />
+        <div style="padding-left: 30px">
+            1.1. <a href="#distrib">Distribution package</a><br />
+            1.2. <a href="#inststndal">Installing AspNetForum as a standalone web app</a><br />
+            1.3. <a href="#instexist">Installing AspNetForum under an existing web site (no separate
+                web application or virtual directory)</a><br />
+        </div>
+        2. <a href="#dbsetup" style="color: Red">DATABASE SETUP</a>
+        <div style="padding-left: 30px">
+			2.1. <a href="#dbsetup">Database Setup</a><br />
+            2.2. <a href="#dbconn">Database connection</a><br />
+			2.3. <a href="#predef">Pre-created forum users</a><br />
+		</div>
+        3. <a href="#upgr">UPGRADING FROM PREVIOUS VERSIONS</a><br/>
+        4. <a href="#config">CONFIGURING ASPNETFORUM</a><br/>
+        <div style="padding-left: 30px">
+            4.1. <a href="#adminpsw">ADMIN PASSWORD</a><br />
+            4.2. <a href="#titlebar">FORUM TITLE BAR</a><br />
+            4.3. <a href="#email">EMAIL NOTIFICATIONS</a><br />
+			4.4. <a href="#lang">LANGUAGE</a><br />
+            4.5. <a href="#lookandfeel">LOOK AND FEEL</a><br />
+            4.6. <a href="#masterpages">INTEGRATING INTO YOUR WEBSITE'S DESIGN</a><br />
+            4.7. <a href="#ffa">FREE FOR ALL FORUM</a><br />
+            4.8. <a href="#webconfig">OTHER Web.Config options</a><br />
+            4.9. <a href="#sso"><b>SINGLE SIGN ON instructions</b></a><br />
+        </div>
+    </div>
+    <a name="inst"></a>
+    <h3>1. INSTALLING ASPNETFORUM</h3>
+    <p>
+        <b><a name="distrib"></a>1.1. Distribution package</b></p>
+    <p>
+        The forum is distributed in a ZIP-archive, which contains:
+    </p>
+    <ul>
+        <li>a number of .aspx-files, .css-file and .js-file</li>
+        <li>image files (/images subfolder)</li>
+        <li><em>aspnetforum.dll</em> (/bin subfolder)</li>
+        <li><em>web.config</em></li>
+        <li>ready-to-use MS Access database file (<em>App_Data/</em><em>FORUM.mdb</em>)</li>
+        <li>ready-to-use SQL Express database file (<em>App_Data/</em><em>FORUM.<b>mdf</b></em>)</li>
+        <li>SQL-scripts (<em>App_Data/SQL scripts/aspnetforum.sql</em>) for creating tables in <b>SQL Server</b></li>
+        <li>SQL-scripts (<em>App_Data/MySQLScrtips/aspnetforum.sql</em>) for creating tables in <b>MYSQL</b></li>
+    </ul>
+    <p>
+        <strong><a name="inststndal"></a>1.2. Installing the Forum as a standalone ASP.NET application</strong>:</p>
+    <ul>
+        <li>create an IIS virtual directory, copy all files (including the "<em>/bin</em>", "<em>/App_Data</em>",
+			"<em>/App_GlobalResources</em>" and "<em>/App_LocalResources</em>" folders) into it</li>
+        <li>
+        configure this virtual directory as an application in IIS</li>
+        <li>configure this virtual directory to run ASP.NET 2.0 since Jitbit AspNetForum requires
+            ASP.NET 2.0</li>
+    </ul>
+    <p>
+        <strong><a name="instexist"></a>1.3. Installing this Forum as a sub-part of an existing web site
+            (without configuring a standalone web-application):</strong></p>
+    <ul>
+        <li>create a subfolder in your website's directory (e.g. "<em>c:\mywebsite\forum</em>")</li>
+        <li>extract all the files <strong>except</strong> the "<em>/bin</em>", "<em>/App_Data</em>",
+			"<em>/App_GlobalResources</em>" folders
+            into this subfolder including the "<em>/images</em>" subdir (contains forum images)
+			and "<em>/App_LocalResources</em>" subdir (contains page resources)</li>
+        <li>extract the contents of the "<em>/bin</em>", "<em>/App_Data</em>",
+			and "<em>/App_GlobalResources</em>" folders into the
+            <strong><u>parent website's</u></strong> "<em>/bin</em>", "<em>/App_Data</em>" and
+            "<em>/App_GlobalResources</em>" folders
+            (e.g. "<em>c:\mywebsite\bin</em>").</li>
+        <li><strong>
+            Please see the picture.</strong><br /><br />
+            <img src="!!!readme_1.gif" alt="" />
+        </li>
+        <li>ensure that your website runs ASP.NET <strong>2.0 </strong>since Jitbit AspNetForum
+            requires ASP.NET <b>2.0</b></li>
+        <li>if you want "SEO-friendly" URLs feature enabled, then add this code to your parent
+            website's web.config:
+            <pre>&lt;httpModules&gt;
+    &lt;add type="aspnetforum.ForumSEOHttpModule, aspnetforum" name="ForumSEOHttpModule" /&gt;
+&lt;/httpModules&gt;</pre>    
+        </li>
+    </ul>
+    <h3><a name="dbsetup"></a>2. DATABASE SETUP</h3>
+    <p>
+        <strong>2.1. Database Setup</strong></p>
+		The package contains the "<em>/App_Data</em>" folder, which contains:
+		<ol>
+		<li>setup scripts for MS SQL Server ("<em>/SQL scripts</em>" subfolder)</li>
+		<li>setup scripts for MySQL ("<em>/MySQL scripts</em>" subfolder)</li>
+		<li>MS Access initial database ("<em>forum.mdb</em>" file)</li>
+		<li>SQL Server Express initial database ("<em>forum.mdf</em>" file)</li>
+		</ol>
+    <ul>
+        <li><b>Microsoft Access</b> or <b>SQL Server Express</b>:
+            <ul>
+                <li>if you have installed the Forum under an existing website (as a part of it) place the contents of the "App_Data" folder
+                (including the <em>FORUM.mdb</em> or <em>FORUM.mdf</em> database files)
+                into your main
+                    website's "<em>/App_Data</em>" folder.</li>
+                <li>if you have installed the Forum as a standalone ASP.NET application,
+                copy the "<em>/App_Data</em>"
+                folder (including the <em>FORUM.mdb</em> or <em>FORUM.mdf</em> database files)
+                to the folder where you have installed AspNetForum.</li>
+            </ul>
+            </li>
+        <li><b>MS SQL database</b>:
+            <ul>
+                <li>run the "<em>sql\aspnetforum.sql</em>" script
+                against your MS SQL Server to create the necessary tables</li>
+                <li>note, that the script does NOT create any database, it creates tables in an existing database</li>
+                <li>uncomment and edit the appropriate connection string line in the "<em>web.config</em>"
+                    file (see the "connectionStrings" section)</li>
+            </ul></li>
+        <li><b>MySQL database</b>:
+            <ul>
+                <li>run the "<em>mysql\aspnetforum.sql</em>" script
+                against your MySQL Server to create the necessary tables</li>
+                <li>note, that the script does NOT create any database, it creates tables in an existing database</li>
+                <li>uncomment and edit the appropriate connection string line in the "<em>web.config</em>"
+                    file (see the "connectionStrings" section)</li>
+            </ul>
+        </li>
+        <li><b>Other databases</b>:
+            <ul>
+                <li>Theoretically, this Forum can use <b>any</b> database engine, which has a .NET provider,
+                and	supports unnamed command parameters (SqlClient and MySql drivers do not support unnamed parameters,
+				but we have a special workaround for this). We have tested the Forum only with MS SQL,
+				MS Access and MySQL (win-version), and detailed setup instructions for other database engines
+				are beyond the scope of this article. However, to install the Forum under a database engine, other than MS SQL,
+				MySQL and Access simply follow these steps:
+				<ul>
+				<li>use the same scripts to create the necessary tables (may require modifying the scripts
+                    to fit the SQL-dialect used by your DB-server)</li>
+				<li>Modify the connection string appropriately (see next section)</li>
+				</ul>
+				</li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <b><a name="dbconn"></a>2.2. Database connection</b></p>
+    <p>
+        When you are editing the connection strings in the "<em>web.config</em>" file please
+        note that apart from editing the connection string itself (in the <b>connectionString</b>
+        attribute), you have to specify a value of the <b style="color: Red">providerName</b>
+        attribute. This will tell ASP.NET (and AspNetForum) what database driver to use.</p>
+    <p>
+        For example:
+        </p>
+        <ul>
+        <li>when using the Forum with MS Access, specify "System.Data.OleDb" as the providerName.</li>
+        <li>when using the Forum with MS SQL, specify "System.Data.SqlClient" as the providerName.</li>
+        <li>when using the Forum with MySQL, specify "MySql.Data.MySqlClient" as the providerName.</li>
+        </ul>
+    <p>
+        As you can see, this allows Jitbit AspNetForum using not only MS Access or MS
+        SQL database, but, theoretically, <b>any</b> database engine, which has a .NET provider.</p>
+    <p>
+        <b>Note for MySQL users</b>: To use the Forum with MySQL you have to download and install the free
+        "MySQL Connector .NET" on your server. The download is available here -
+        <a href="http://dev.mysql.com/downloads/connector/net/" rel="nofollow">http://dev.mysql.com/downloads/connector/net/</a>.
+        Please ask your hosting provider if they have this driver installed. If they do not -
+        simply place the "MySql.Data.dll" from the downloaded package into the "/bin" folder.
+        Contact your hosting provider for more info. More information on "MySQL Connector .NET" is available at
+        <a href="http://www.mysql.com/products/connector/net/" rel="nofollow">http://www.mysql.com/products/connector/net/</a>
+    </p>
+    <p>
+        <b><a name="predef"></a>2.3. Pre-created forum users</b></p>
+    <p>
+        Both MS Access and MSSQL/MySQL default databases come with a pre-created user "admin".
+        The user's password is "admin". Log in under these credentials to start using the
+        forum. But remember to change the default password afterwards!</p>
+    <a name="upgr"></a>
+    <h3>3. UPGRADING FROM PREVIOUS VERSIONS</h3>
+    <p>
+        VERY IMPORTANT, read carefully</p>
+    <p>
+        Sometimes a new version uses an updated database format. These database changes
+        are usually light and simple, so there should be no problem to upgrade your existing
+        copy.</p>
+    <p>
+        <strong>3.1. MS SQL and MySQL users:</strong></p>
+    <p>
+        The installation package can contain one or more files named "<em>upgrade_from_XXX.sql</em>"
+        where "XXX" is a forum version. Depending on your existing version, execute the
+        appropriate file. The file contains text comments, describing the changes made.
+        Read these comments carefully.</p>
+    <p>
+        The upgrade scripts are not cumulative. This means that, for example, if you are upgrading
+        from the oldest version, you have to apply all the scripts one by one.</p>
+    <p>
+        <strong>3.2. MS Access users:</strong></p>
+    <p>
+        The installation package contains the "<em>forum.mdb</em>" database file. This file
+        is the new updated database format. Open two copies of MS Access: one with your
+        existing "<em>forum.mdb</em>", and one with the new downloaded "<em>forum.mdb</em>".</p>
+    <ul>
+        <li>
+        Compare the table lists, and if some tables are missing - just drag-drop the needed
+        tables to your existing database (or copy-paste instead of drag-dropping).</li>
+        <li>If any columns are added to any tables - open this table's "design-view" in each
+            copy of MS Access, and use "copy/paste" to add new columns.</li>
+        <li>If you see, that some tables and/or columns are renamed, rename your tables.</li>
+    </ul>
+    <p>
+        You can always look at the "<em>upgrade_from_XXX.sql</em>" files, which contain
+        text comments, describing the changes, made to the database format (see the above
+        paragraph for SQL users), to know WHAT columns and tables have been added or removed.</p>
+    <a name="config"></a>
+    <h3>4. CONFIGURING ASPNETFORUM</h3>
+    <p>
+        <strong>4.1. ADMIN PASSWORD</strong></p>
+    <p>
+        !!!IMPORTANT NOTE!!! Please note, that default database comes with a pre-created
+        user "admin". The default password is "admin". CHANGE THAT!!!</p>
+    <p>
+        <strong>4.2. FORUM TITLE BAR.</strong></p>
+    <p>
+        By default AspNetForum comes with an "Acme Web Site" title. This title is used in
+        forum notification emails, and in forum pages title. You can change
+        this to whatever you like by editing the "web.config" file.
+        Find and edit this lines:
+    </p>
+    <pre>&lt;add key="ForumTitle" value="Acme Web Site" /&gt;
+&lt;add key="TitleLink" value="http://www.jitbit.com/" /&gt;</pre>
+    <p><a name="email"></a><strong>4.3. EMAIL NOTIFICATIONS.</strong></p>
+    <p>
+        AspNetForum can be configured to send email notifications to subscribers when topic
+        and forums are updated. Emails are sent asynchronously, without affecting the forum
+        performance. To enable email notifications you should edit the web.config and specify
+        your smtp-server's address, specify the smtp-server login/password (if your server
+		does not require authentication simply leave the username field blank) etc.</p>
+    <p>
+        INPORTANT NOTE: the Forum also has the "Email Verification" feature which also requires
+        you to specify smtp-credentials in <em>web.config</em>.</p>
+    <p><a name="lang"></a><strong>4.4. LANGUAGE</strong></p>
+    <p>
+        AspNetForum is a multi-language forum application. It is "globalized" using resource strings,
+		which is a standard ASP.NET technique.</p>
+	<p>
+		The application comes with a number of predefined languages. You can switch between these languages
+		editing the web.config.</p>
+		<ul>
+		<li><code>&lt;globalization uiCulture="en-US"/&gt</code> will set the language to English.</li>
+		<li><code>&lt;globalization uiCulture="nl-NL"/&gt</code> will set the language to Dutch.</li>
+		<li>And so on.</li>
+		</ul>
+	<p>
+		If you are a little familiar with ASP.NET you can easily add more languages by adding the
+		required .resx-files to the "App_LocalResources" folder, using the existing files as templates. Please contact us to get a discount for you translation.</p>
+	<p><a name="lookandfeel"></a><strong>4.5. LOOK AND FEEL</strong></p>
+    <p>
+		To modify the html-code of any forum page edit the appropriate ".aspx" file. Be
+        careful when editing .NET-controls code (tags like "&lt;asp:textbox&gt;"). Backup
+        the files before editing.</p>
+    <p>
+		You can also edit the "aspnetforum.css" file and modify images.</p>
+    <p><a name="masterpages"></a><strong>4.6. INTEGRATING INTO YOUR WEBSITE'S DESIGN</strong></p>
+    <p>
+        The Forum utilizes ASP.NET 2.0 "MasterPages" functionality. All AspNetForum pages
+        use one masterpage called "AspNetForumMaster.Master". All you have to do to integrate
+        the Forum into your website - is <strong>edit this one file only</strong> ("AspNetForumMaster.Master"),
+        and configure it to use your parent website's masterpage. This trick is called "nested
+        masterpages". To make it work properly you should also edit "AspNetForumMaster.Master"
+        and remove the "&lt;form&gt;", "&lt;html&gt;", "&lt;body&gt;" tags, and replace
+        them with "&lt;asp:Content&gt;" instead.</p>
+    <p><a name="ffa"></a><strong>4.7. FREE FOR ALL FORUM</strong></p>
+    <p>
+        You can allow unregistered guest-users to post messages. To do this edit the forum's
+        Web.config and set the "AllowGuestPosts" flag to "true".</p>
+    <p><a name="webconfig"></a><strong>4.8. OTHER Web.Config options</strong></p>
+    <p></p>
+    <ul>
+    <li><code>&lt;add key="PageSize" value="10" /&gt;</code> - page size for the messages
+        list</li>
+    <li><code>&lt;add key="MsgSortDescending" value="true" /&gt;</code> - sort the messages
+        in the forum to have the most recent postings listed first</li>
+    <li><code>&lt;add key="BadWords" value="f*ck;sh*t;"/&gt;</code> - semicolon separated list
+		of bad words. These words will be replaced with "*" signs when posting a message</li>
+    <li><code>&lt;add key="IntegratedAuthentication" value="false"/&gt;</code> - <a href="#sso">look here</a></li>
+    <li><code>&lt;add key="ServerTimeOffset" value="0"/&gt;</code> - Offset in hours.
+    EXAMPLE: if your hosting provider is in New York-USA,
+    but your forum is French, you might want to add a 6 hours offset
+    (cause when it's 1:00 in NY it is 7:00 in Paris)</li>
+    <li><code>&lt;add key="EnableAvatars" value="true"/&gt;</code> -  Enable/disable avatars.
+    PLEASE NOTE: to use avatars you should grant write permissions on the "/upload" folder
+    to the user-account, which your ASP.NET website runs under.
+    (typically "NETWORK SERVICE" account, or "ASPNET" account)</li>
+    <li><code>&lt;add key="EnableFileUploads" value="true"/&gt;</code> - Enable/disable file attachments.
+    PLEASE NOTE: to use file attachments you should grant write permissions on the "/upload" folder
+    to the user-account, which your ASP.NET website runs under.
+    (typically "NETWORK SERVICE" account, or "ASPNET" account)</li>
+    <li><code>&lt;add key="EnableEmailActivation" value="true"/&gt;</code> - enable/disable email confirmation when registering new forum users</li>
+    <li><code>&lt;add key="NewUsersNotifyAdmin" value="false"/&gt;</code> - notify ALL administrators of new forum user registrations</li>
+    </ul>
+        <p>
+            <a name="sso"></a><strong>4.9 SINGLE SIGN ON instructions</strong></p>
+        <p>If you run a website where users already have an account and you don't want them
+            to create another account for the forum, AspNetForum offers an option of "single
+            sign-on" for your users. First of all, install the Forum so that the Forum and
+            your website share the same ASP.NET Session. To share the same Session, DO NOT configure the "/forum" folder
+			as a virtual directory/application. Instead, make it a part of your
+			website-application, as described above (section 1.2). Now you have two
+            options:</p>
+            
+            <ol>
+                <li><strong>ASP.NET authentication.</strong> If your website uses 
+                    <b>ASP.NET Forms Authentication</b> (for example, in conjunction with ASP.NET
+                    membership provider) or <b>
+                        ASP.NET Windows authentication</b>, then AspNetForum can be configured to recognize your authenticated users, and automatically
+                    register them as forum users (and login automatically). To enable this feature simply edit this line in the <em>web.config</em>:
+                    <br />
+                    <code>&lt;add key="IntegratedAuthentication" value="false"/&gt;</code>
+                </li>
+            <li><strong>Custom
+            &nbsp;authentication model.</strong> If your website uses some custom
+                authentication procedure, AspNetForum still has the ability to pass
+            credentials to it. The first IMPORTANT thing to do is - when a new user is registered on your website,
+            you should add a record to aspnetforum's "Users" table. Also you should transfer
+            your existing users to this table.
+        <p>Next steps are simple. The Forum uses ASP.NET "Session" object to store the current
+            logged on user. There are two variables: Session["aspnetforumUserID"] (the user's
+            ID in forum database) and Session["aspnetforumUserName"] (the user's name in forum).
+            You can assign these variables in your website code and aspnetforum will authenticate
+            the current user.</p>
+        <p>This will work only when your website and AspNetForum are configured to share the
+            Session. Which means that the Forum should be installed under the existing website
+            (web-application) and is NOT configured to be a separate web-application.</p>
+        <p>
+            <strong>Code example 1 - adding a new user (this sample code if for AspNetForum using <b style="color:red">MS Access</b>):</strong></p>
+        <pre>    <span style="color: Green">//Code sample - ADDING A NEW USER TO THE FORUM'S DATABASE.
+    //This sample assumes you use MS Access DB. It wont work with SQL Server or MySQL!!!</span>
+    System.Data.OleDb.OleDbConnection cn;
+    System.Data.OleDb.OleDbCommand cmd;
+    
+    <span style="color: Green">//Creating a connection to the forum database (remember to
+    //edit the connection string)</span>
+    cn = new System.Data.OleDb.OleDbConnection(
+        "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Inetpub\wwwroot\db\forum.mdb;Jet OLEDB:Database Password=DB_PASSWORD;");
+    cmd = new System.Data.OleDb.OleDbCommand();
+    cmd.Connection = cn;
+    
+    <span style="color: Green">//Inserting a new user</span>
+    cmd.CommandText = "INSERT INTO ForumUsers (UserName, Email, Password, Homepage, Interests, RegistrationDate, Disabled, ActivationCode) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    cmd.Parameters.AddWithValue("@UserName", username);
+    cmd.Parameters.AddWithValue("@Email", email);
+    cmd.Parameters.AddWithValue("@Password", password);
+    cmd.Parameters.AddWithValue("@Homepage", homepage);
+    cmd.Parameters.AddWithValue("@Interests", interests);
+    cmd.Parameters.AddWithValue("@RegDate", DateTime.Now);
+    cmd.Parameters.AddWithValue("@Disabled", false);
+    cmd.Parameters.AddWithValue("@ActivationCode", "");
+    cn.Open();
+    cmd.ExecuteNonQuery();
+    cn.Close();
+    </pre>
+        <p>
+            <b>Code example 2 - authenticating a user:</b></p>
+        <pre>    <span style="color: Green">//code sample - Pre-authenticate a user for the forum
+    //This sample assumes you use MS Access DB. It wont work with SQL Server or MySQL!!!</span>
+    System.Data.OleDb.OleDbConnection cn;
+    System.Data.OleDb.OleDbCommand cmd;
+    
+    <span style="color: Green">//Creating a connection to the forum database (remember to
+    // edit the connection string)</span>
+    cn = new System.Data.OleDb.OleDbConnection(
+        "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Inetpub\wwwroot\db\forum.mdb;Jet OLEDB:Database Password=DB_PASSWORD;");
+    cmd = new System.Data.OleDb.OleDbCommand();
+    cmd.Connection = cn;
+    
+    <span style="color: Green">//Get the user's ID from the forum database</span>
+    cmd.CommandText = "SELECT UserID, UserName FROM ForumUsers WHERE UserName=? AND Disabled=?";
+    cmd.Parameters.AddWithValue("@UserName", username);
+    cmd.Parameters.AddWithValue("@Disabled", false);
+    cn.Open();
+    System.Data.OleDb.OleDbDataReader dr = cmd.ExecuteReader();
+    if(dr.Read())
+    {
+        <span style="color: Green">//Assign two session variables - and the user will be treated
+        // as authenticated by the forum</span>
+         old Session["aspnetforumUserID"] = (int)dr[0];
+        
+        Session["aspnetforumUserID"] = dr[0].ToString();
+        Session["aspnetforumUserName"] = dr[1].ToString();
+    }
+    dr.Close();
+    cn.Close();
+    </pre>
+    </li>
+            </ol>
+</div>
+</body>
+</html>

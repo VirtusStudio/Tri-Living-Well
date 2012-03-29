@@ -1,0 +1,12 @@
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Debug\DAL.dll.config
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Debug\DAL.dll
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Debug\DAL.pdb
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Debug\DAL.dll
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Debug\DAL.pdb
+D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Debug\DAL.dll.config
+D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Debug\DAL.dll
+D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Debug\DAL.pdb
+D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Debug\DAL.dll
+D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Debug\DAL.pdb

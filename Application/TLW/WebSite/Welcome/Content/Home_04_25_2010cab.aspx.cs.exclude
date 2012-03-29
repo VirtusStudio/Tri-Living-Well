@@ -1,0 +1,62 @@
+//###########################################################//
+//    Copyright 2007 Blue Grotto Technologies, Inc.          //
+//    This code is owned by Blue Grotto Technologies, Inc    //
+//    It may not be copied, shared or modified.              //
+//###########################################################//
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class Home : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Session["CURRENTFRAME"] = "Home";
+        
+        
+        if (Session["MODE_CURRENT"] != null)
+        {
+             string a = Session.Contents["MODE_CURRENT"].ToString();
+             //Response.Write(Session.Contents["MODE_CURRENT"].ToString());
+        }
+
+        
+
+
+
+
+    }
+
+
+    protected void Page_PreRender(object sender, EventArgs e)
+    {
+        setTextAreasMode();
+    }
+
+
+    private void setTextAreasMode()
+    {
+
+    }
+
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        if (Session["MODE_CURRENT"] == "EDIT")
+        {
+            Session["MODE_CURRENT"] = "NORMAL";
+
+        }
+        else
+        {
+            Session["MODE_CURRENT"] = "EDIT";
+        }
+    }
+}

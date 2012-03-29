@@ -1,0 +1,65 @@
+﻿.Header{
+  font-size:14px;
+  font-weight:bold;
+  padding-left:5px;
+  padding-top:1px;
+}
+
+.Header1{
+margin-top:2px;
+  background-color:#0b5b98;
+  border:solid 1px #0b5b98;
+  color:white;
+}
+
+.Header1 a{
+  color:white;
+}
+.Body1{
+    background-color:#e8eff6;
+    border:solid 1px #0b5b98;
+    border-top-width:0px;
+}
+
+.HeaderY{
+  background-color:blue;
+  border:solid 1px blue;
+  color:white;
+}
+
+.BodyY{
+  background-color:white;
+  border:solid 1px blue;
+}
+
+.HeaderN{
+margin-top:2px;
+  background-color:#9AABB7;
+  border:solid 1px #9AABB7;
+  color:white;
+}
+
+.HeaderN a{
+  color:white;
+}
+
+.BodyN{
+    background-color:#efefef;
+    border:solid 1px #9AABB7;
+    border-top-width:0px;
+}
+
+  .fixed {
+    position: absolute;
+  }
+  
+.transparent {
+	opacity:.70;
+	filter:alpha(opacity=70);
+	width:100%;/*Note that an element must have layout for a filter to work.*/
+	}
+	
+.transparent *{
+	opacity:1.00;
+	filter:alpha(opacity=100);
+	}

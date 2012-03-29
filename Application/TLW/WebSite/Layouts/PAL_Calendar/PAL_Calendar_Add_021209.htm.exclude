@@ -1,0 +1,8 @@
+<a href="javascript:addEntry('#DATE#');" onclick="addEntry('#DATE#');" >
+    <div style="width:110px;height:70px;">
+        #DAY#
+        <div style="text-align:center;">
+            <img style="opacity:.2;filter:alpha(Opacity=20);" src="/images/icons/iconPalEntryCreate.gif" title="Add a new Person Activity Log Entry" />
+        </div>
+    </div>
+</a>

@@ -1,0 +1,155 @@
+﻿/* r.a.d.menu Web 2.0 skin */
+
+.RadMenu_Web20 
+{
+	background: url('img/MenuItemBackgrounda.gif');	
+}
+
+.RadMenu_Web20_Context
+{
+	background: url('img/MenuItemBackground.gif');
+	border:0;
+}
+
+.RadMenu_Web20 .link
+{
+	float: left;
+	text-decoration: none;
+	color: #ffffff;
+	background: transparent;
+}
+
+.RadMenu_Web20 .link:hover,
+.RadMenu_Web20 .focused,
+.RadMenu_Web20 .expanded
+{
+	color: #000066;
+	/* background: transparent url('img/MainItemBackgroundHover.gif') no-repeat center; */
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.RadMenu_Web20 .rootGroup .text
+{
+	padding-left: 8px;
+	margin-right: 4px;
+	font: bold 16px Arial, Verdana, Sans-serif;
+	line-height: 28px;
+	padding-right: 24px;
+}
+
+.RadMenu_Web20 .group
+{
+	border: solid 1px #ffffff;
+	border-top: 0px;
+	background: white;
+}
+
+/* compensate the missing top-border on group items in the horizontal skin */
+.RadMenu_Web20 .vertical .group
+{
+	border: solid 1px #6788be;
+}
+
+.RadMenu_Web20 .group .last
+{
+	background: white;
+}
+
+.RadMenu_Web20 .group .link
+{
+	background: white;
+	border: 0px;
+	border-bottom: solid 1px #f0f2f3;
+	color: #333;
+}
+
+.RadMenu_Web20 .group .text
+{
+	font-weight: normal !important;
+	background: none;
+	margin-right: 0px !important;
+	padding-right: 60px;
+	font-size: 11px;
+}
+
+.RadMenu_Web20 .group .link:hover,
+.RadMenu_Web20 .group .focused,
+.RadMenu_Web20 .group .expanded
+{
+	background: #e7f1ff;
+	border: 0px;
+	border-bottom: solid 1px #d8dde0;
+}
+
+.RadMenu_Web20 .leftArrow,
+.RadMenu_Web20 .rightArrow,
+.RadMenu_Web20 .topArrow,
+.RadMenu_Web20 .bottomArrow,
+.RadMenu_Web20 .leftArrowDisabled,
+.RadMenu_Web20 .rightArrowDisabled,
+.RadMenu_Web20 .topArrowDisabled,
+.RadMenu_Web20 .bottomArrowDisabled
+{
+	background: #e7f1ff url('img/left.gif') center center no-repeat;
+	width: 15px;
+}
+
+.RadMenu_Web20 .topArrow,
+.RadMenu_Web20 .topArrowDisabled
+{
+	background-image: url('img/top.gif');
+	width: 100%;
+}
+
+.RadMenu_Web20 .bottomArrow,
+.RadMenu_Web20 .bottomArrowDisabled
+{
+	background-image:url('img/bottom.gif');
+	width: 100%;
+}
+
+.RadMenu_Web20 .rightArrow,
+.RadMenu_Web20 .leftArrow
+{
+	height: 100%;
+}
+
+.RadMenu_Web20 .rightArrow,
+.RadMenu_Web20 .rightArrowDisabled
+{
+	background-image: url('img/right.gif');
+}
+
+.RadMenu_Web20 .vertical .separator .text
+{
+	padding-top: 2px;
+	background: #6788be;
+	font-size: 1px;
+}
+
+.RadMenu_Web20 .expandLeft,
+.RadMenu_Web20 .expandRight
+{
+	background: transparent url(img/groupImage.gif) right center no-repeat !important;
+}
+
+.RadMenu_Web20 .link:hover .expandLeft,
+.RadMenu_Web20 .link:hover .expandRight,
+.RadMenu_Web20 .focused .expandLeft,
+.RadMenu_Web20 .focused .expandRight,
+.RadMenu_Web20 .expanded .expandLeft,
+.RadMenu_Web20 .expanded .expandRight
+{
+	background: transparent url(img/invertedGroupImage.gif) right center no-repeat;
+}
+
+/* mozilla only - disabled state */
+.RadMenu_Web20 .link.disabled, .RadMenu_Web20 .link.disabled:hover
+{
+	-moz-opacity: 0.8;
+	opacity: 0.8;
+	color: #ccc;
+	background: none;
+}
+            

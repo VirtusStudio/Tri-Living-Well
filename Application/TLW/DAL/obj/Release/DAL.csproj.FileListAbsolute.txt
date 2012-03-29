@@ -1,0 +1,6 @@
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Release\DAL.dll.config
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Release\DAL.dll
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Release\DAL.pdb
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Release\ResolveAssemblyReference.cache
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Release\DAL.dll
+D:\Pardeep Kumar\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Release\DAL.pdb

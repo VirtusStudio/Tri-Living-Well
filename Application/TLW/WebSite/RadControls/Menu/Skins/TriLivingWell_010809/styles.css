@@ -1,0 +1,76 @@
+
+/* r.a.d.menu CssBlue skin */
+.RadMenu_TriLivingWell
+{
+    background-color:#CC8D00;
+    cursor:default;
+}
+
+
+.RadMenu_TriLivingWell .group .link
+{
+    background-color: #FDBB24;
+	border: solid 1px #DB9902;
+    font-weight:normal;
+	text-align: left;
+	padding-right: 0px;
+}
+
+.RadMenu_TriLivingWell .item .link:hover .text
+{
+    color:#990000;
+}
+
+
+.RadMenu_TriLivingWell .item .link .text
+{
+    color:#1F000A;
+}
+
+.RadMenu_TriLivingWell .item
+{
+    background-color:#E1BB68;
+}
+.RadMenu_TriLivingWell .item .link:hover
+{
+    background-color:#CC8D00;
+    cursor:hand;
+}
+
+.RadMenu_TriLivingWell .group .text
+{
+	padding-left:6px;
+	padding-right: 40px;
+}
+
+
+
+.RadMenu_TriLivingWell .group .link:hover,
+.RadMenu_TriLivingWell .group .focused,
+.RadMenu_TriLivingWell .group .expanded
+{
+	background-color: #CC8D00;
+
+	border-bottom: 1px solid #990000;
+	border-top: 1px solid #990000;
+	font-weight: normal;
+    color:#990000;
+    cursor:hand;
+}
+
+.RadMenu_TriLivingWell .group .link:hover .text,
+.RadMenu_TriLivingWell .group .focused .text,
+.RadMenu_TriLivingWell .group .expanded .text
+{
+	border-top: 0;
+    color:#990000;
+    cursor:hand;
+}
+
+
+
+.RadMenu_TriLivingWell .separator .text
+{
+    color:#EEC78C;
+}
+

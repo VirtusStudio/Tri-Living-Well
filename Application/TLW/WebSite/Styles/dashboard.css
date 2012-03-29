@@ -1,0 +1,97 @@
+/*************************************************************
+/    Copyright 2007 Blue Grotto Technologies, Inc.          /
+/    This code is owned by Blue Grotto Technologies, Inc    /
+/    It may not be copied, shared or modified.              /
+/************************************************************/
+div.divTitle{color:#004867;font-weight:bold;font-size:12px;font-weight:bold;padding:5px;white-space:nowrap;}
+div.divBorder{background-color:#BBD1E6;padding:5px;}
+
+table.tblItems
+{
+       width:auto;
+}
+
+
+
+table.tblItems td
+{
+    font-weight: normal;
+    width:auto;
+    vertical-align:top;  white-space:nowrap;
+    padding: 5px;
+}
+table.tblDataItems td
+{
+    font-weight:bolder;
+    width:auto;
+    vertical-align:top;  white-space:nowrap;
+    padding: 5px;
+}
+table.tblItems td span
+{
+
+  /*  line-height:100%; vertical-align:middle;  white-space:nowrap;  */
+
+}
+
+
+.bgtTable /**/ {   /*done to avoid affecting rad controls popups*/
+    border-spacing:0px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border-collapse: collapse;
+                width:100%;
+    border:0px solid silver;
+
+}
+
+.bgtTable td /**/ {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border-collapse: collapse;
+}
+
+.divHeader
+{
+    color:#0e4268;
+    font-weight:bold;
+    font-size:12px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+.divItems
+{
+    color:#0e4268;
+    font-weight:bold;
+    font-size:12px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+.divKeyItem
+{
+	text-align:center; 
+    color:#0e4268;
+    font-weight:bold;
+    font-size:20px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+.divDataItem
+{
+    color:#0e4268;
+    font-weight:bold;
+    font-size:15px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+.divBorderItems
+{
+    border:solid 2px #557799;
+    text-align:center; 
+}
+
+table.tblBorder td
+{
+	border:solid 1px #999999;
+}
+

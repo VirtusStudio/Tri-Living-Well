@@ -1,0 +1,50 @@
+﻿.Round2{
+  border:solid 1px #FFFFFF;
+  background-color:#ffffff;
+  margin-bottom:10px;
+}
+.Round2 center{
+
+  text-align:left;/*margin:0px auto 0px 0px;    */   border:solid 0px red;
+  background-repeat:repeat-x;
+  background-image:url(../images/table/round2/T.gif);
+  background-position:top;
+}
+.Round2 center center{     border:solid 0px #000000;
+  background-image:url(../images/table/round2/B.gif);
+  background-repeat:repeat-x;
+  background-position:bottom;
+}
+.Round2 center center center{
+  background-image:url(../images/table/round2/L.gif);
+  background-repeat:repeat-y;
+  background-position:left;
+}
+.Round2 center center center center{
+  background-image:url(../images/table/round2/R.gif);
+  background-repeat:repeat-y;
+  background-position:right;
+}
+.Round2 center center center center center{
+  background-repeat:no-repeat;
+  background-image:url(../images/table/round2/TL.gif);
+  background-position:top left;
+}
+.Round2 center center center center center center{
+  background-image:url(../images/table/round2/TR.gif);
+  background-position:top right;
+}
+.Round2 center center center center center center center{
+  background-image:url(../images/table/round2/BL.gif);
+  background-position:bottom left;
+}
+.Round2 center center center center center center center center{
+  background-image:url(../images/table/round2/BR.gif);
+  background-position:bottom right;
+}
+.Round2 center center center center center center center center center{
+  background-image:none;
+  background-position:inherit;
+  padding:4px 3px 3px 5px;
+}
+                                                                    

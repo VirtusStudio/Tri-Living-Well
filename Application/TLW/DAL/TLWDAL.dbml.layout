@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TLWDAL">
+  <DataContextMoniker Name="/TLWDALDataContext" />
+  <nestedChildShapes>
+    <classShape Id="32ce2ee1-06bf-4582-bf39-4806add57030" isExpanded="false" absoluteBounds="0.5, 1, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/aspnet_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf220a03-54ae-4701-ab8a-5436e6d841b9" absoluteBounds="0.51499999999999968, 1.46, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2c613dc5-0008-4538-8501-75b69b5c3212" isExpanded="false" absoluteBounds="2.875, 2.25, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/aspnet_Membership" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56c15a54-d64c-4407-b126-cf693540b63b" absoluteBounds="2.89, 2.71, 1.9700000000000002, 3.65875244140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.45); (2.875 : 2.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TLWDALDataContext/aspnet_User/aspnet_User_aspnet_Membership" />
+      <nodes>
+        <classShapeMoniker Id="32ce2ee1-06bf-4582-bf39-4806add57030" />
+        <classShapeMoniker Id="2c613dc5-0008-4538-8501-75b69b5c3212" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6a69c862-7d16-4c61-bd28-1661030f4f55" isExpanded="false" absoluteBounds="2.875, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/Questionnaire" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c1593484-6db1-45d1-9366-805aff4dac18" absoluteBounds="2.8899999999999997, 3.335, 1.9700000000000002, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="da2a890e-0868-4314-993a-8d6d9d2e656b" isExpanded="false" absoluteBounds="0.5, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/ContentPage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d25df0a-7ee4-4579-a04a-8ecf998503bd" absoluteBounds="0.51500000000000012, 3.335, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c8502c4f-248e-4e4f-8438-560b898ed890" isExpanded="false" absoluteBounds="0.5, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/Newsletter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="339dbd72-8934-42a5-92cd-9fc2bcea4b6a" absoluteBounds="0.51499999999999968, 3.96, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="216baec3-bfa7-4564-a2be-3241bd768623" isExpanded="false" absoluteBounds="2.875, 4.125, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/Event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d97c5474-f1cf-4688-9ced-74d3287e913b" absoluteBounds="2.89, 4.585, 1.9700000000000002, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="615c7a13-dd6e-489d-bb53-95e704da4291" isExpanded="false" absoluteBounds="0.5, 2.25, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/NewsandAnnouncement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c5dac8d-2e27-4d5f-8c41-85b0ec996bc0" absoluteBounds="0.51499999999999968, 2.71, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="671ae83f-428a-4217-a5a4-c5ad7d90d089" isExpanded="false" absoluteBounds="0.5, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/Library" />
+      <nestedChildShapes>
+        <elementListCompartment Id="008c59ba-13eb-4318-abf1-af3cb6e1670e" absoluteBounds="0.51499999999999968, 4.71, 1.9700000000000002, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="45bc1c53-182d-4f1d-836e-c5fa5cd8e4d7" isExpanded="false" absoluteBounds="2.875, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/List_StateCountry" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74516386-185a-460a-8bc2-5e379970af4d" absoluteBounds="2.8899999999999997, 5.96, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9d9e357d-26b2-43ae-80ac-32c60769cf6e" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/CompanyInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5a38e2fb-436b-47fe-89ba-d8ed2f711f7c" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 3.3300577799479165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa8f6692-f522-4ef5-81ff-c9540df67200" isExpanded="false" absoluteBounds="2.875, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/UserRiskStratificationDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="05d2b7da-99b7-4c76-a526-2813d4050919" absoluteBounds="2.8899999999999997, 5.335, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e6d26e62-0d7c-4468-95f2-5920e5a6fd22" isExpanded="false" absoluteBounds="5, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/USER_ASSESSMENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b61d916-9834-40ca-8da3-bd31cf3d0e74" absoluteBounds="5.015, 2.085, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6bc0957c-c31a-4604-9cd6-a3a5f6143997" isExpanded="false" absoluteBounds="2.875, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/aspnet_UsersInRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f049d53-316f-426c-8b4d-4b7be4bced81" absoluteBounds="2.8899999999999997, 1.21, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.1); (2.875 : 1.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TLWDALDataContext/aspnet_User/aspnet_User_aspnet_UsersInRole" />
+      <nodes>
+        <classShapeMoniker Id="32ce2ee1-06bf-4582-bf39-4806add57030" />
+        <classShapeMoniker Id="6bc0957c-c31a-4604-9cd6-a3a5f6143997" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e3971923-5395-430d-bca3-9081c968dc86" isExpanded="false" absoluteBounds="2.875, 1.375, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/aspnet_Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8563c7e6-e5b1-437a-ae3f-cc7d9de26ac1" absoluteBounds="2.89, 1.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.875 : 1.375); (3.875 : 1.2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TLWDALDataContext/aspnet_Role/aspnet_Role_aspnet_UsersInRole" />
+      <nodes>
+        <classShapeMoniker Id="e3971923-5395-430d-bca3-9081c968dc86" />
+        <classShapeMoniker Id="6bc0957c-c31a-4604-9cd6-a3a5f6143997" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b4c04f42-ad85-4d42-84dd-119fdd326888" isExpanded="false" absoluteBounds="5.75, 4.125, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/UsersPrivateAnswer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="05dc85cc-91f9-4fa6-9fd2-aaac0124eda0" absoluteBounds="5.765, 4.585, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5de26090-be23-48c7-87a5-5c5e66ba621e" isExpanded="false" absoluteBounds="6.875, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/QuestionsForHealthCoach" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdb4e1cd-42d1-4d44-b82e-4180326f483d" absoluteBounds="6.89, 3.96, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5fedb0ba-88d8-451c-9690-be9c34e87272" isExpanded="false" absoluteBounds="5.75, 4.75, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/SectionVisited" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6e09625e-e739-477c-a87a-7aae72220d2c" absoluteBounds="5.765, 5.21, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="39f8736e-30a6-44dc-a621-1ae18206e276" isExpanded="false" absoluteBounds="6.25, 6.125, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/FAQ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b5869c9-9fe3-4c5e-843c-c6e6d5e2baa4" absoluteBounds="6.265, 6.585, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="491e6576-a3b5-4d67-883b-6c01267ec47a" isExpanded="false" absoluteBounds="6, 5.375, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/FaqTopic" />
+      <nestedChildShapes>
+        <elementListCompartment Id="31646e40-dc69-4235-8e0d-50bf8caa4ed7" absoluteBounds="6.015, 5.835, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4152141d-3899-43a9-a4f0-b42ac0fc5126" isExpanded="false" absoluteBounds="5, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/UserFavoriteDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57fe123c-aab4-4c4f-9657-2ff09d407358" absoluteBounds="5.015, 2.835, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0087e999-4ff0-40b1-bf06-5215a38ec115" isExpanded="false" absoluteBounds="0.5, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/CompanyRequestedUsersList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="003200a5-b502-44cb-afd8-b1ef914c0e12" absoluteBounds="0.51500000000000057, 2.085, 1.9700000000000002, 2.8370157877604165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc338cb5-e3a5-4071-a118-ef8929c6c36b" isExpanded="false" absoluteBounds="6.625, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/USER_INFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8ab6129-b17f-4a9a-8b5a-58cd92434d28" absoluteBounds="6.64, 1.585, 1.9700000000000002, 5.959615071614583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.875 : 2.28125); (7.84375 : 2.28125); (7.84375 : 1.575)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TLWDALDataContext/aspnet_Membership/aspnet_Membership_USER_INFO" />
+      <nodes>
+        <classShapeMoniker Id="2c613dc5-0008-4538-8501-75b69b5c3212" />
+        <classShapeMoniker Id="dc338cb5-e3a5-4071-a118-ef8929c6c36b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="824ad4dc-c20c-4b9c-902d-bb13cfc4d641" isExpanded="false" absoluteBounds="0.5, 5, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/METActivity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00a4c09a-79c0-489c-a0f2-8dc0490e30d4" absoluteBounds="0.51499999999999968, 5.46, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="980f6dd6-40a8-4f9c-9ee9-9463be2a92ab" isExpanded="false" absoluteBounds="0.5, 5.75, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/FoodIntakeLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3bd069b2-3902-401b-9075-cf6251cd3110" absoluteBounds="0.51499999999999968, 6.2100000000000009, 1.9700000000000002, 2.508321126302083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9801a760-1d29-439c-921f-24892cbbc8a5" isExpanded="false" absoluteBounds="2.875, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/GlobalCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e324faf-9a89-4936-9d32-c31264c53958" absoluteBounds="2.8899999999999997, 3.96, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fd526a20-59c9-4859-8911-161388060c1f" isExpanded="false" absoluteBounds="6.875, 3, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/HotSectionDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="952c98f7-8d56-4cf8-8815-620507cafee3" absoluteBounds="6.89, 3.46, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4b0c825c-fd16-4716-800b-4f97880643bd" isExpanded="false" absoluteBounds="7.25, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/PersonalSummary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="79231506-eeae-451b-afbd-6cc7eee77f67" absoluteBounds="7.265, 0.96, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,58 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ManageEmails.aspx.cs" Inherits="BackOffice_ManageEmails_ManageEmails" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Manage Emails</title>
+</head>
+<body onload="top.setIframeHeight();" style="padding:15px;">
+    <form id="form1" runat="server">
+  <div>
+    
+        Email:&nbsp;<asp:DropDownList ID="ddlEmail" runat="server" AutoPostBack="true" onselectedindexchanged="ddlEmail_SelectedIndexChanged">
+        <asp:ListItem Value="Email_Account_Create.htm">User Registration</asp:ListItem>
+        <asp:ListItem Value="Email_ForgotPassword.htm">Forgot Password</asp:ListItem>
+        <asp:ListItem Value="Email_ContactUs.htm">Contact Us</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Submitted.htm">Synopsis - Submitted</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Approved.htm">Synopsis - Accepted</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Decline_Funding.htm">Synopsis - Decline - funding</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Decline_Safety.htm">Synopsis - Decline - safety</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Decline_NovelOrBuildsOnPriorResearch.htm">Synopsis - Decline - novel or builds on prior research</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Decline_Power.htm">Synopsis - Decline - power</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Decline_FlawedStudyDesign.htm">Synopsis - Decline - flawed study design</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Decline_InsufficientInformation.htm">Synopsis - Decline - insufficient information</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Decline_InsufficientResources.htm">Synopsis - Decline - insufficient resources</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Decline_InsufficientResearchExperience.htm">Synopsis - Decline - insufficient research experience</asp:ListItem>
+        <asp:ListItem Value="Email_Synopsis_Decline_Custom.htm">Synopsis - Decline - Custom (non-conforming)</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Submitted.htm">Proposal - Submitted</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Approved.htm">Proposal - Approved</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Decline_Funding.htm">Proposal - Decline - funding</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Decline_Safety.htm">Proposal - Decline - safety</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Decline_NovelOrBuildsOnPriorResearch.htm">Proposal - Decline - novel or builds on prior research</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Decline_Power.htm">Proposal - Decline - power</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Decline_FlawedStudyDesign.htm">Proposal - Decline - flawed study design</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Decline_InsufficientInformation.htm">Proposal - Decline - insufficient information</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Decline_InsufficientResources.htm">Proposal - Decline - insufficient resources</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Decline_InsufficientResearchExperience.htm">Proposal - Decline - insufficient research experience</asp:ListItem>
+        <asp:ListItem Value="Email_Proposal_Decline_Custom.htm">Proposal - Decline - Custom (non-conforming)</asp:ListItem>
+
+    </asp:DropDownList><br />
+    
+    <br />
+    Assigned To(Signature):&nbsp;<asp:DropDownList ID="ddlSignatureID" 
+        runat="server" AutoPostBack="true" 
+        onselectedindexchanged="ddlSignatureID_SelectedIndexChanged">
+    </asp:DropDownList><br />
+    <br />
+    From: <asp:Label ID="lblFrom" runat="server"></asp:Label><br />
+    To: <asp:Label ID="lblTo" runat="server"></asp:Label><br />
+    Subject: <asp:Label ID="lblSubject" runat="server"></asp:Label><br />
+    <br />
+    Body:<br />
+    <br />
+    <asp:Label ID="lblBody" runat="server"></asp:Label>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,72 @@
+body,table,p,div,span {	font:normal 12px arial;}
+body {margin:5px 0 0 0;padding:0;}
+hr { color: dimgrey; height:1px; text-align:left}
+p { margin:0px;}
+h1 { font:bold 17px verdana; margin-bottom:10px; color: navy;}
+a:link {color: navy; text-decoration: underline}
+a:visited {	color: navy; text-decoration: underline}
+a:active { color: navy; text-decoration: underline}
+a:hover { color: #0000cc; text-decoration: none}
+ 
+/*----Example CSS Class --*/ 
+img.greyborder {
+	border: 1px solid #c0c0c0;
+}
+td.module {
+	background-color: #efefef;
+}
+td.content {
+	color: black; 
+	font-family: tahoma, arial, helvetica; 
+	font-weight: bold; 
+}
+.subtabbg {
+	background-color: #efefef;
+}
+.redcolor{
+	color:red;
+}
+.boldgreen
+{
+	color: green; font-weight: bold;
+}
+.highlight
+{
+	background-color: yellow;
+}
+/*----End of Example CSS Class --*/ 
+
+/* Toolbar */
+#LocalToolbar {
+	vertical-align:baseline; padding:0px; background-color:#004B96;margin:0 0 24px 0; 
+}
+
+.SectionMenu {
+   font:normal 11px verdana; 
+}
+
+A.SectionMenu:link, A.SectionMenu:visited, A.SectionMenu:active   {
+    text-decoration:    underline;
+    color:white;
+}
+
+A.SectionMenu:hover, A.SectionMenu:hover  {
+    text-decoration:    underline;
+    color:yellow;
+}
+.Accent 
+{
+	height:15px;vertical-align:middle;margin-left:3px; margin-right:3px;
+}
+
+#leftcolumn
+{
+	width: 150px;
+	padding-left:0px;
+}
+#leftcolumn ul {padding:0 0 4px 10px; list-style-position: outside; margin: 0; margin-bottom: 5px; list-style: none;}
+#leftcolumn li {padding-top: 1px;padding-bottom: 1px;padding-left: 2px; }
+#leftcolumn li a{color:#333333;text-decoration: none; }
+#leftcolumn li a:hover{color:navy;text-decoration: underline; }
+.leftcolumntitle {padding:0 0 4px 10px;color:navy;}
+#footer { clear: both;	padding: 1em;	text-align: center;	border-top:solid 2px #ECECF6; width:850; }	

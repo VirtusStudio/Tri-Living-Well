@@ -1,0 +1,161 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Copy of Contact.aspx.cs" Inherits="Contact" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--########################################################
+    Copyright 2007 Blue Grotto Technologies, Inc.
+    This code is owned by Blue Grotto Technologies, Inc
+    It may not be copied, shared or modified.
+###########################################################-->
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <link href="../Styles/Corporate.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Table.css" rel="stylesheet" type="text/css" />
+   <link href="/Styles/centerRound5.css" rel="stylesheet" type="text/css" />
+     <link href="/Styles/centerRound1.css" rel="stylesheet" type="text/css" />
+   
+<title>Contact Us</title>
+<script type="text/javascript">
+    bIsPostBack = false;
+    function Page_Load()//
+    {
+        if (!bIsPostBack)//
+        {
+            bIsPostBack = true;
+        }
+        top.setIframeHeight();
+    }
+</script>
+</head>
+<body>
+<form id="form1" runat="server">      
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+<script type="text/javascript">
+    Sys.Application.add_load(Page_Load);
+</script> 
+
+    
+
+                    <center class="Round5"><center><center><center><center><center><center><center><center><center>
+                    <table class="Round5_tblHeader"><tr><td>Contact Us</td><td style="text-align:right;"></td></tr></table> 
+		            </center></center></center></center></center></center></center></center></center></center>   
+
+<div style="width:765px;">
+                    <div class="demoContent" style="padding:0px 15px 15px 15px;  text-align:left; font-size:14px;">
+                    For more information about Tri Living Well programs or services, please use the form box below to submit any questions,
+                    comments, or to request more information on our services.  A representative will contact you shortly.<br /><br />
+                    
+                    
+                    <center class="Round1"><center><center><center><center><center><center><center><center><center><br /><br />
+                    <table>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td class="demoContent top" style="padding-right:15px;">
+                                        First&nbsp;Name:&nbsp;&nbsp;&nbsp;
+                                        </td>
+                                        <td class="demoContent" style="padding-bottom:7px;">
+                                           <asp:TextBox ID="txtFirstName" runat="server" Width="220px"></asp:TextBox> 
+                                        </td>
+                                        <td style="width:100%; padding-left:15px;" rowspan="8">
+                                            <asp:Label class="demoContent"  ID="lblThankYou" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="demoContent top" style="padding-right:15px;">
+                                        Last Name:
+                                        </td>
+                                        <td class="demoContent" style="padding-bottom:7px;">
+                                           <asp:TextBox ID="txtLastName" runat="server" Width="220px"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="demoContent top" style="padding-right:15px;">
+                                        City:
+                                        </td>
+                                        <td class="demoContent" style="padding-bottom:7px;">
+                                           <asp:TextBox ID="txtCity" runat="server" Width="220px"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="demoContent top" style="padding-right:15px;">
+                                        State:
+                                        </td>
+                                        <td class="demoContent" style="padding-bottom:7px;">
+                                           <asp:TextBox ID="txtState" runat="server" Width="220px"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="demoContent top" style="padding-right:15px;">
+                                        Phone:
+                                        </td>
+                                        <td class="demoContent" style="padding-bottom:7px;">
+                                           <asp:TextBox ID="txtPhone" runat="server" Width="220px" ></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="demoContent top" style="padding-right:15px;">
+                                        Email:
+                                        </td>
+                                        <td class="demoContent" style="padding-bottom:7px;">
+                                           <asp:TextBox ID="txtEmail" runat="server" Width="220px"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="demoContent top" style="padding-right:15px;">
+                                        Email Verify:
+                                        </td>
+                                        <td class="demoContent" style="padding-bottom:7px;">
+                                           <asp:TextBox ID="txtEmailVerify" runat="server" Width="220px"></asp:TextBox><asp:CompareValidator ID="cvEmail" ControlToValidate="txtEmailVerify" ControlToCompare="txtEmail" ErrorMessage="Email address do not match." CssClass="required" runat="server"></asp:CompareValidator>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td class="demoContent top" style=" padding-right:15px;">
+                                        Subject:
+                                        </td>
+                                        <td class="demoContent" style="width:100%;padding-bottom:7px;">
+                                           <asp:TextBox ID="txtSubject" runat="server" Width="580px" ReadOnly="true"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="demoContent" style="padding-right:15px;" colspan="2">
+                                           <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine" Width="650px" Height="250px"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    
+                        <div  style="text-align:right; padding-right:30px; padding-top:15px;">
+                        <a class="aButton" href="javascript:document.getElementById('btnSubmit').click();">Send Email</a>
+                        </div>
+                        <br /><br />
+		            </center></center></center></center></center></center></center></center></center></center> 
+                        
+                        <br />
+                        Tri Living Well – Contact Information<br />
+                        Phone Number: 484-367-7016<br />
+                        Email: info@trilivingwell.com <br />
+                        Corporate Offices:<br />
+                        1008 Upper Gulph Road<br />
+                        Suite 300<br />
+                        Wayne, PA 19087<br /><br />
+
+                        For directions to our offices, please visit the following link: (link to MapQuest)
+
+                        
+                    </div>
+</div>
+   
+    
+    <div style="visibility:hidden;">
+        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="btnSubmit" />
+    </div>
+</form>
+</body>
+</html>

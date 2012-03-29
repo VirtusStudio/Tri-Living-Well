@@ -1,0 +1,138 @@
+<html>
+	<head>
+		<title>ASP and ASP.NET HTML Editor - Deployment the Cute Editor for .NET</title>
+		<link rel="stylesheet" href="example.css" type="text/css">
+	</head>
+	<body bottomMargin="0" leftMargin="0" topMargin="5" rightMargin="0" marginwidth="0" marginheight="0">
+		<table id="Table3" cellSpacing="0" cellPadding="0" width="100%" border="0">
+			<tr>
+				<td vAlign="middle" width="250" height="60" nowrap>&nbsp; <a href="default.htm"><IMG alt="CuteEditor" src="sampleimage/logo.gif" border="0"></a>
+				</td>
+				<td align="center" valign="bottom" width="100%"></td>
+				<td class="normal" align="center" nowrap width="200" height="16">
+					<a href="http://cutesoft.net/asp/">CuteEditor for ASP </a>
+				</td>
+			</tr>
+		</table>		
+		<div id="LocalToolbar">
+			<table height="21" cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table2">
+				<tr>
+					<td noWrap>&nbsp;&nbsp;
+					<a class="SectionMenu" href="default.htm">Home</a><span class="Accent">|</span>
+					<a class="SectionMenu" href="cs/">Demo(C#)</a><span class="Accent">|</span>
+					<a class="SectionMenu" href="vb/">Demo(VB)</a><span class="Accent">|</span>
+					<a class="SectionMenu" href="Deployment.htm">Deployment</a><span class="Accent">|</span>	
+					<a class="SectionMenu" href="CommonTasks.htm">Common Tasks</a><span class="Accent">|</span>	
+					<a class="SectionMenu" href="AdvancedTopics.htm">Advanced Topics</a><span class="Accent">|</span>	
+					<a class="SectionMenu" href="http://cutesoft.net/developer+guide/index.html">Developer's Guide</a><span class="Accent">|</span>	
+					<a class="SectionMenu" href="http://cutesoft.net/Forums/">Forums</a><span class="Accent">|</span>	
+					<a class="SectionMenu" href="Feature-Comparison-Chart.htm">Feature Comparison Chart</a><span class="Accent">|</span>	
+					<a class="SectionMenu" href="http://cutesoft.net/ASP.NET+WYSIWYG+Editor/Purchase+CuteEditor+for+.NET/default.aspx">Order</a>	
+					</td>
+					<td width="100%"></td>
+				</tr>
+			</table>
+		</div>
+		<table cellSpacing="0" cellPadding="3" width="800" align="left" border="0" ID="Table1">
+			<tr>
+				<td width="10">&nbsp;</td>
+				<td vAlign="top">
+					<table id="Table5" cellSpacing="0" cellPadding="0" width="100%" align="center" border="0">
+						<tr>
+							<td width="3"></td>
+							<td vAlign="top">
+								<h1>Deployment the Cute Editor for .NET
+								</h1>
+								The following guide shows the steps to implement a CuteEditor for .NET Control 
+								into ASP.NET applications. If you haven't downloaded the software, please 
+								download the software copy from:&nbsp;&nbsp;<a href="http://cutesoft.net/download/CuteEditor_for_NET4.5.zip">
+									http://cutesoft.net/download/CuteEditor_for_NET5.zip</a>.
+							</td>
+						</tr>
+					</table>
+					<br>
+					<table id="Table6" cellSpacing="0" cellPadding="5" width="100%" border="0">
+						<tr>
+							<td vAlign="top" noWrap><IMG src="sampleimage/xp1.gif"></td>
+							<td vAlign="top">
+								<P><B>Deploying the CuteEditor.dll assembly and license file </B>
+								</P>
+								<br>
+								<P>The following files should be deployed to the \bin directory for the web 
+									application that uses the CuteEditor.
+								</P>
+								<UL>
+									<LI>
+									CuteEditor.dll
+									<LI>
+									NetSpell.SpellChecker.dll
+									<LI>
+										CuteEditor.lic
+										<BR>
+										<br>
+									</LI>
+								</UL>
+								<P></P>
+								<div><IMG src="sampleimage/copydllandlicenses.gif" align="baseline" border="0">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td vAlign="top" noWrap><IMG src="sampleimage/xp2.gif"></td>
+							<td vAlign="top">
+								<P><B>Deploying the CuteEditor Client files. </B>
+								</P>
+								<br>
+								<P>The "CuteSoft_Client/CuteEditor" folder and all file it contains (located in the 
+									archive) should be deployed to http://{your site}/{your 
+									application}/CuteSoft_Client/CuteEditor/ on your web site.
+								</P>
+								<br>
+								<P>If you want to deploy the CuteEditor Client file to a different location, you 
+									will have to make sure that you set your editor FilesPath property correctly. 
+									The control expects to find the all the files and images in the files directory 
+									specified by the control FilesPath property.</P>
+								<P></P>
+								<br>
+								<div><IMG src="sampleimage/copyfiles.gif" align="baseline" border="0">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td vAlign="top" noWrap><IMG src="sampleimage/xp3.gif"></td>
+							<td vAlign="top">
+								<P><B>Copying the sample files </B>
+								</P>
+								<br>
+								<P>If you want to launch the sample right away, place the cs/default.aspx or 
+									vb/default.aspx in your application folder.
+								</P>
+								<br>
+								<div><IMG src="sampleimage/copysamples.gif" align="baseline" border="0">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td vAlign="top" noWrap><IMG src="sampleimage/xp4.gif"></td>
+							<td vAlign="top">
+								<P><B>Running the samples </B>
+								</P>
+								<br>
+								<P>Access the editor via http://localhost/webapplication1/cs/default.aspx or 
+									http://localhost/webapplication1/vb/default.aspx
+								</P>
+								<br>
+								<div><IMG src="sampleimage/defaultaspx.gif" align="baseline" border="0">
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<div id="footer">
+			<p><a href="http://cutesoft.net">Copyright 2005 CuteSoft.Net. All rights reserved.</a></p>
+		</div>
+		</FORM>
+	</body>
+</html>

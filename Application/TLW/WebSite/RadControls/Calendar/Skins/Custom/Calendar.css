@@ -1,0 +1,184 @@
+/* r.a.d.calendar Web 2.0 skin */
+
+
+
+.calendarWrapper,
+.radCalPreviewDefault
+{
+	background: #e7f1ff url('Img/calendarBg.gif') repeat-x;
+	border: solid 2px #6f9dd9;
+	cursor: default;
+    font-size:10px;
+
+    width:125px;
+
+}
+
+
+
+.TableLayout td
+{
+font-size:10px;
+	text-align: center;
+	color: #7f7f7f;
+	cursor: default;
+    border-width:0px;
+font-family:Arial;
+
+}
+
+/* all links in the calendar */
+.TableLayout td a
+{
+font-size:8px;
+	width: 14px;
+	line-height: 12px;
+	text-decoration: none;
+	display: block;
+  font-weight: bold ;
+}
+
+.radCalWeekendDefault,
+.radCalWeekendHover,
+.radCalWeekendSelect,
+.radCalDefault,
+.radCalHover,
+.radCalSelect,
+.otherMonth,
+.radCalToday
+{
+	border: solid 1px #dde1e4;
+	background: white;
+}
+
+.radCalToday a
+{
+
+	color: black;
+	background-color: #bfdbff;
+}
+
+.radCalDefault a,
+.radCalWeekendDefault a
+{
+	color: #333;
+
+}
+
+.radCalWeekendHover a,
+.radCalHover a
+{
+
+	color: black;
+	background-color:#bfdbff;
+}
+
+.radCalWeekendSelect a,
+.radCalSelect a
+{
+	color: black;
+    font-weight:normal;
+	background: transparent url('Img/selectBg.gif') no-repeat;
+}
+
+.otherMonth a
+{
+	color: #ccc;
+	cursor: no-drop;
+}
+
+.outOfRange
+{
+	background-color: white;
+	color: #ccc;	
+	cursor: no-drop;
+	border: solid 1px #dde1e4;
+}
+
+
+.DaysOfWeek
+{
+	color: #333 !important;
+	font-weight: normal;
+	cursor: default;
+	background: white;
+	text-align: center;
+	line-height: 14px;
+	width: 24px;
+	border-width:0px;
+}
+
+.titlebar
+{
+	color: white;
+	font: bold 10px Arial, Verdana, Sans-serif;
+	background-color: #bfdbff;
+	line-height: 15px;
+    border:solid 0px red;
+
+
+}
+
+
+.titlebar    td
+{
+	color: #000000;
+	font: bold 10px Arial, Verdana, Sans-serif;
+	background-color: #bfdbff;
+	line-height: 15px;
+
+}
+
+.MonthYearFastNav
+{	
+	border: 0px solid #6788be;
+	background: white;
+	border-collapse: collapse;
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=140,color=#666666,strength=3);
+}
+
+.MonthYearFastNav td
+{
+	text-align: center;
+	vertical-align: middle;
+	border: 0px solid #d8dde0;
+	cursor: hand;
+	padding: 4px;
+	color: black;
+}
+
+.MonthYearFastNav td.selected
+{
+	background: #dcfc5c;
+	color: black;
+	border-color: #d8dde0;
+}
+
+.MonthYearFastNav td input
+{
+	background: transparent url('Img/ContextMenuInputBg.gif') repeat-x;
+	border: solid 1px #6788be;
+	font: bold 10px Arial, Verdana, Sans-Serif;
+	color: white;
+	float: left;
+	margin-right: 1px;
+	padding: 0px 2px;
+}
+
+.radPopupImage img
+{
+	vertical-align: middle;
+	_vertical-align: top; /* IE fix */	
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: -1px; /* IE margins fix */
+	_margin-top: 0px; 
+	border-width: 0px;
+}
+
+.radDisabled
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}

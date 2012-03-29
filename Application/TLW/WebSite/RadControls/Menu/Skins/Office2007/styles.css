@@ -1,0 +1,324 @@
+/* RadMenu Office2007 skin */
+
+.RadMenu_Office2007
+{
+	background: #bfdbff;
+	padding: 6px 6px 0px 6px;
+}
+
+.RadMenu_Office2007_Context
+{
+	background: transparent;
+	padding: 0px;
+}
+
+.RadMenu_Office2007 .link
+{
+	text-decoration: none;
+	color: #152b46;
+	font-size: 11px;
+	background: #bfdbff;
+	text-align: center;
+}
+
+.RadMenu_Office2007 .group .link img
+{
+	margin-top: 6px;
+	margin-left: 8px;
+	margin-right: 4px;
+}
+
+.RadMenu_Office2007 .group .first .link img
+{
+	margin-top: 16px;
+	margin-left: 8px;
+	margin-right: 4px;
+}
+
+.RadMenu_Office2007 .group .last .link img
+{
+	margin-top: 8px;
+	margin-left: 8px;
+	margin-right: 4px;
+}
+
+.RadMenu_Office2007 .last .link
+{
+	/**/
+}
+
+.RadMenu_Office2007 .vertical .link
+{
+	/**/
+}
+
+.RadMenu_Office2007 .link:hover,
+.RadMenu_Office2007 .focused,
+.RadMenu_Office2007 .expanded
+{
+	background: url('img/MainItemBackgroundHover.gif') repeat-x;
+	border: solid 1px #ffbd69;
+}
+
+.RadMenu_Office2007 .text
+{
+	color: #6b6f80;
+	font-family: Arial, Verdana;
+	padding: 2px 13px;
+	text-align: left;
+}
+
+.RadMenu_Office2007 .link:hover .text,
+.RadMenu_Office2007 .focused .text,
+.RadMenu_Office2007 .expanded .text
+{
+	padding: 1px 12px;
+}
+
+.RadMenu_Office2007 .group .text,
+.RadMenu_Office2007 .group .link:hover .text,
+.RadMenu_Office2007 .group .focused .text,
+.RadMenu_Office2007 .group .expanded .text
+{
+	padding: 0px;
+	padding-left: 16px;
+	color: #7a6ab8;
+}      
+
+.RadMenu_Office2007 .group .link
+{
+	background: transparent url('img/MenuItemBackground.gif') repeat-y;
+	width: 133px;
+	line-height: 44px;
+	text-align: left;
+	padding: 0px;
+	white-space: normal;
+}
+
+.RadMenu_Office2007 .group .first .link
+{
+	background: transparent url('img/MenuItemBgFirst.gif') no-repeat left bottom;
+	line-height: 58px;
+}
+
+/* needed for horizontal scrolling case*/
+.RadMenu_Office2007 .group  .horizontal .first .link,
+.RadMenu_Office2007 .group  .horizontal .first .link:hover,
+.RadMenu_Office2007 .group .horizontal .last .link
+{
+	line-height: 44px;
+}
+
+.RadMenu_Office2007 .group .first .link:hover,
+.RadMenu_Office2007 .group .first .focused,
+.RadMenu_Office2007 .group .first .expanded
+{
+	background: #d0d0d0 url('img/MenuItemBgHoverFirst.gif') no-repeat left bottom;
+	line-height: 58px;
+	border: 0px;
+	padding: 0px;
+}
+
+.RadMenu_Office2007 .group .link:hover,
+.RadMenu_Office2007 .group .focused,
+.RadMenu_Office2007 .group .expanded
+{
+	background: white url('img/MenuItemBackgroundHover.gif') no-repeat;
+	color: #cc6102;
+	line-height: 44px;
+	border: 0px;
+	padding: 0px;
+}
+
+.RadMenu_Office2007 .leftArrow,
+.RadMenu_Office2007 .rightArrow,
+.RadMenu_Office2007 .topArrow,
+.RadMenu_Office2007 .bottomArrow,
+.RadMenu_Office2007 .leftArrowDisabled,
+.RadMenu_Office2007 .rightArrowDisabled,
+.RadMenu_Office2007 .topArrowDisabled,
+.RadMenu_Office2007 .bottomArrowDisabled
+{
+	border-left:1px solid #a9a9a9;
+	border-top-color:threedhighlight;
+	border-left-color:threedhighlight;
+	background: #d7e9ff url('img/left.gif') center center no-repeat;
+	width:15px;
+	text-decoration:none;
+	color:#d7e9ff;
+}
+
+.RadMenu_Office2007 .topArrow,
+.RadMenu_Office2007 .topArrowDisabled
+{
+	background-image:url('img/top.gif');
+	width:100%;
+}
+
+.RadMenu_Office2007 .bottomArrow,
+.RadMenu_Office2007 .bottomArrowDisabled
+{
+	background-image:url('img/bottom.gif');
+	width:100%;
+}
+
+.RadMenu_Office2007 .rightArrow,
+.RadMenu_Office2007 .leftArrow
+{
+	height:100%;
+}
+
+.RadMenu_Office2007 .rightArrow,
+.RadMenu_Office2007 .rightArrowDisabled
+{
+	background-image: url('img/right.gif');
+}
+
+.RadMenu_Office2007 .vertical .separator .text
+{
+	padding-top: 3px;
+	background: white url('img/Separator.gif');
+	font-size: 1px;
+}
+
+.RadMenu_Office2007 .expandLeft,
+.RadMenu_Office2007 .expandRight
+{
+	background: transparent url(img/groupImage.gif) right center no-repeat;
+	margin-right: 6px;
+}
+
+.RadMenu_Office2007 .link:hover .expandLeft,
+.RadMenu_Office2007 .link:hover .expandRight,
+.RadMenu_Office2007 .focused .expandLeft,
+.RadMenu_Office2007 .focused .expandRight,
+.RadMenu_Office2007 .expanded .expandLeft,
+.RadMenu_Office2007 .expanded .expandRight
+{
+	background:transparent url(img/invertedGroupImage.gif) right center no-repeat;
+}
+
+.RadMenu_Office2007 .group .last .link
+{
+	background: transparent url('img/MenuItemBgLast.gif') no-repeat;
+	line-height: 58px;
+}
+
+.RadMenu_Office2007 .group .last .link:hover,
+.RadMenu_Office2007 .group .last .focused,
+.RadMenu_Office2007 .group .last .expanded
+{
+	background: transparent url('img/MenuItemBgLastHover.gif') no-repeat;
+	line-height: 58px;
+}
+
+/* level 2 items */
+.RadMenu_Office2007 .group .level2,
+.RadMenu_Office2007_Context .group .level1
+{
+	border-bottom: solid 1px #868686;
+}
+
+.RadMenu_Office2007 .group .level2 .link,
+.RadMenu_Office2007_Context .group .level1 .link
+{
+	background: transparent url('img/Leve2ItemBg.gif') repeat-y;
+	line-height: 44px;
+}
+
+.RadMenu_Office2007 .group .level2 .first .link,
+.RadMenu_Office2007 .group .level2 .first .link:hover,
+.RadMenu_Office2007 .group .level2 .first .focused,
+.RadMenu_Office2007 .group .level2 .first .expanded
+{
+	background: white url('img/Level2First.gif') no-repeat;
+	line-height: 24px;
+	width: 295px;
+}
+
+.RadMenu_Office2007 .group .level2 .first .link .text
+{
+	margin-left: 9px;
+}
+
+.RadMenu_Office2007 .group .level2 .link:hover,
+.RadMenu_Office2007 .group .level2 .focused,
+.RadMenu_Office2007 .group .level2 .expanded
+{
+	background: transparent url('img/Level2Hover.gif') repeat-y;
+	line-height: 44px;
+}
+
+.RadMenu_Office2007 .rootGroup .disabled,
+.RadMenu_Office2007 .rootGroup .disabled:hover
+{
+    background:transparent;
+    border-color:#bfdbff;
+}
+
+.RadMenu_Office2007 .group .disabled,
+.RadMenu_Office2007 .group .disabled:hover
+{
+    background: transparent url('img/MenuItemBackground.gif') repeat-y;
+}
+
+.RadMenu_Office2007 .rootGroup .disabled .text,
+.RadMenu_Office2007 .rootGroup .disabled:hover .text
+.RadMenu_Office2007 .group .disabled .text,
+.RadMenu_Office2007 .group .disabled:hover .text
+{
+    color:#ccc;
+}
+
+/*right-to-left support*/
+
+.RadMenu_Office2007_rtl,
+.RadMenu_Office2007_rtl *
+{
+    text-align:right !important;
+}
+
+.RadMenu_Office2007_rtl .expandLeft,
+.RadMenu_Office2007_rtl .expandRight
+{
+	background: transparent url(img/left.gif) left center no-repeat;
+	margin-left: 8px;
+}
+
+.RadMenu_Office2007_rtl .link:hover .expandLeft,
+.RadMenu_Office2007_rtl .link:hover .expandRight,
+.RadMenu_Office2007_rtl .focused .expandLeft,
+.RadMenu_Office2007_rtl .focused .expandRight,
+.RadMenu_Office2007_rtl .expanded .expandLeft,
+.RadMenu_Office2007_rtl .expanded .expandRight
+{
+	background:transparent url(img/invertedGroupImageRTL.gif) left center no-repeat;
+}
+
+.RadMenu_Office2007_rtl .group .text,
+.RadMenu_Office2007_rtl .group .link:hover .text,
+.RadMenu_Office2007_rtl .group .focused .text,
+.RadMenu_Office2007_rtl .group .expanded .text
+{
+	padding: 0px;
+	padding-right: 16px;
+}
+
+.RadMenu_Office2007_rtl .group .link:hover .expandLeft,
+.RadMenu_Office2007_rtl .group .link:hover .expandRight
+{
+	background:transparent url(img/invertedGroupImageRTL.gif) left center no-repeat;
+}
+
+
+.RadMenu_Office2007_rtl .leftArrow,
+.RadMenu_Office2007_rtl .rightArrow,
+.RadMenu_Office2007_rtl .topArrow,
+.RadMenu_Office2007_rtl .bottomArrow,
+.RadMenu_Office2007_rtl .leftArrowDisabled,
+.RadMenu_Office2007_rtl .rightArrowDisabled,
+.RadMenu_Office2007_rtl .topArrowDisabled,
+.RadMenu_Office2007_rtl .bottomArrowDisabled
+{
+	text-indent:-2000px;
+}

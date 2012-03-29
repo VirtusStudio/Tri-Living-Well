@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Temp_Temp : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+}
+
+
+public abstract class TempAbs
+{
+    public void add()
+    {
+
+    }
+
+}
+public class ChildAbs : TempAbs
+{
+   
+}
+
+

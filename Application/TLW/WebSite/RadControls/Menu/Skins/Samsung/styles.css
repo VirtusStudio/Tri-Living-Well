@@ -1,0 +1,194 @@
+
+/* r.a.d.menu CssBlue skin */
+
+.RadMenu_Samsung
+{
+
+}
+
+.RadMenu_Ivory .horizontal .link
+{
+
+}
+
+
+.RadMenu_Ivory .group, 
+.RadMenu_Ivory .rootGroup
+{
+
+}
+
+
+.RadMenu_Samsung_Context
+{
+
+}
+
+
+
+.RadMenu_Samsung .link
+{
+
+}
+
+
+.RadMenu_Samsung .link .text
+{
+
+}
+
+
+.RadMenu_Samsung .link:hover,
+.RadMenu_Samsung .focused,
+.RadMenu_Samsung .expanded
+{
+
+}
+
+.RadMenu_Samsung .link:hover .text,
+.RadMenu_Samsung .focused .text,
+.RadMenu_Samsung .expanded .text
+{
+
+}
+
+.RadMenu_Samsung .rootGroup .disabled:hover
+{
+
+}
+
+.RadMenu_Samsung .rootGroup .disabled:hover .text
+{
+
+}
+
+.RadMenu_Samsung .text
+{
+
+}
+
+.RadMenu_Samsung .group
+{
+
+}
+
+.RadMenu_Samsung .group .link
+{
+	background: #1428A0;
+	border: solid 1px white;
+	border-top-color: white;
+	text-align: left;
+	padding-right: 0px;
+}
+
+.RadMenu_Samsung .group .text
+{
+	padding-left:6px;
+	padding-right: 40px;
+}
+
+
+
+.RadMenu_Samsung .group .link:hover,
+.RadMenu_Samsung .group .focused,
+.RadMenu_Samsung .group .expanded
+{
+	background: ##1428A0;
+
+	border-bottom: 1px solid #1973c9;
+	border-top: 1px solid white;
+	font-weight: normal;
+}
+
+.RadMenu_Samsung .group .link:hover .text,
+.RadMenu_Samsung .group .focused .text,
+.RadMenu_Samsung .group .expanded .text
+{
+	border-top: 0;
+}
+
+.RadMenu_Samsung .leftArrow,
+.RadMenu_Samsung .rightArrow,
+.RadMenu_Samsung .topArrow,
+.RadMenu_Samsung .bottomArrow,
+.RadMenu_Samsung .leftArrowDisabled,
+.RadMenu_Samsung .rightArrowDisabled,
+.RadMenu_Samsung .topArrowDisabled,
+.RadMenu_Samsung .bottomArrowDisabled
+{
+	border-left: 1px solid #bfcde3;
+	border-right: 1px solid #bfcde3;
+	background: #a7cfe8 url('img/left.gif') center center no-repeat;
+	width:15px;
+}
+
+.RadMenu_Samsung .topArrow,
+.RadMenu_Samsung .topArrowDisabled
+{
+	background-image:url('img/top.gif');
+	width: 100%;
+}
+
+.RadMenu_Samsung .bottomArrow,
+.RadMenu_Samsung .bottomArrowDisabled
+{
+	background-image:url('img/bottom.gif');
+	width: 100%;
+}
+
+.RadMenu_Samsung .rightArrow,
+.RadMenu_Samsung .leftArrow
+{
+	height:100%;
+}
+
+.RadMenu_Samsung .rightArrow,
+.RadMenu_Samsung .rightArrowDisabled
+{
+	background-image:url('img/right.gif');
+}
+
+
+.RadMenu_Samsung .vertical .separator .text
+{
+	background: #d4e5eb;
+	font-size:1px;
+	padding-top: 2px;
+	border-left: solid 1px #bfcde3;
+	border-right: solid 1px #bfcde3;
+}
+
+
+.RadMenu_Samsung .expandLeft,
+.RadMenu_Samsung .expandRight
+{
+	background:transparent url(img/groupImage.gif) right center no-repeat;
+	margin: 0px;
+}
+
+
+.RadMenu_Samsung_rtl .group .link:hover .expandLeft,
+.RadMenu_Samsung_rtl .group .link:hover .expandRight
+{
+	background:transparent url(img/left.gif) left center no-repeat;
+	margin: 0px 1px;
+	padding-left: 8px;
+}
+
+.RadMenu_Samsung_rtl .expandLeft,
+.RadMenu_Samsung_rtl .expandRight
+{
+	background:transparent url(img/groupImageRTL.gif) left center no-repeat;
+}
+
+
+
+.RadMenu_Samsung .link:hover .expandLeft,
+.RadMenu_Samsung .link:hover .expandRight,
+.RadMenu_Samsung .focused .expandLeft,
+.RadMenu_Samsung .focused .expandRight,
+.RadMenu_Samsung .expanded .expandLeft,
+.RadMenu_Samsung .expanded .expandRight
+{
+	background:transparent url(img/invertedGroupImage.gif) right center no-repeat;
+}

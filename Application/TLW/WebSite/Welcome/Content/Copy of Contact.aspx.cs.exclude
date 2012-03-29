@@ -1,0 +1,50 @@
+//###########################################################//
+//    Copyright 2007 Blue Grotto Technologies, Inc.          //
+//    This code is owned by Blue Grotto Technologies, Inc    //
+//    It may not be copied, shared or modified.              //
+//###########################################################//
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class Contact : System.Web.UI.Page
+{
+    EmailClass objEmailClass = new EmailClass();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        txtSubject.Text = "Requesting More Information About Tri Living Well (TLW).";
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        
+        string sEmailContent = "";
+        sEmailContent += "Name: " + txtFirstName.Text +" " + txtLastName.Text;
+        sEmailContent += "<br /><br />Phone: " + txtPhone.Text;
+        sEmailContent += "<br /><br />Email: " + txtEmail.Text;
+        sEmailContent += "<br /><br />City: " + txtCity.Text;
+        sEmailContent += "<br /><br />State: " + txtState.Text;
+        sEmailContent += "<br /><br />Message: " + txtComment.Text;
+
+        objEmailClass.To = "myates@bluegrotto.com";
+        objEmailClass.Subject = txtSubject.Text;
+        objEmailClass.From = "SC_DEMO_FORM@bluegrotto.com";
+
+        objEmailClass.BodyTemplateText = sEmailContent;
+        //objEmailClass.Send();
+
+
+        if (txtFirstName.Text != "" || txtEmail.Text != "" || txtPhone.Text != "" || txtComment.Text != "")
+        {
+            lblThankYou.Text = "Thank you for submitting your informaiton.  <br />Someone from our staff will get in touch with you soon.";
+        }
+         
+    }
+}

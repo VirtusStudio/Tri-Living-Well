@@ -1,0 +1,88 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Home_032510.aspx.cs" Inherits="Home" %>
+
+<%@ Register src="~/Controls/UC_Login_Register.ascx" tagname="UC_Login_Register" tagprefix="uc1" %>
+
+<%@ Register src="~/Controls/UC_Announcements.ascx" tagname="UC_Announcements" tagprefix="uc2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--########################################################
+    Copyright 2007 Blue Grotto Technologies, Inc.
+    This code is owned by Blue Grotto Technologies, Inc
+    It may not be copied, shared or modified.
+###########################################################-->
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Home</title>
+
+    <link href="../Styles/Corporate.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Table.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/centerRound4.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/centerRound5.css" rel="stylesheet" type="text/css" />
+    
+<script type="text/javascript">
+    bIsPostBack = false;
+    function Page_Load()//
+    {
+        if (!bIsPostBack)//
+        {
+            bIsPostBack = true;
+        }
+        
+        top.setIframeHeight();
+    }
+</script>
+</head>
+<body>
+<form id="form1" runat="server">      
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+<script type="text/javascript">
+    Sys.Application.add_load(Page_Load);
+</script> 
+
+    <div style="border-top:solid 7px #1e242b;border-bottom:solid 7px #1e242b;">
+        <table style="border-top:solid 1px #ffffff;border-bottom:solid 1px #ffffff;">
+        <tr>
+            <td>
+                <a class="aImageButton" style="width:315px;height:216px;background-image:url(/images/corporate/buttons/aImgBtn/aImgBtnFitness.jpg);" href="javascript:alert('needs link');"></a>
+            </td>
+            <td style="width:100%;padding:0px 2px 0px 3px;">
+                <a class="aImageButton" style="width:315px;height:216px;background-image:url(/images/corporate/buttons/aImgBtn/aImgBtnNutrition.jpg);" href="javascript:alert('needs link');"></a>
+            </td>
+            <td>
+                <a class="aImageButton" style="width:315px;height:216px;background-image:url(/images/corporate/buttons/aImgBtn/aImgBtnWellness.jpg);" href="javascript:alert('needs link');"></a>
+            </td>
+        </tr>
+        </table>
+    </div>
+    
+    <table>
+    <tr>
+        <td class="top Round4Container">
+            <div>
+                <uc1:UC_Login_Register ID="UC_Login_Register1" runat="server" />
+            </div>
+            <div>
+                <uc2:UC_Announcements ID="UC_Announcements1" runat="server" />
+            </div>
+        </td>
+        <td class="top Round5Container" style="width:100%;">
+            <center class="Round5"><center><center><center><center><center><center><center><center><center>
+                <table class="Round5_tblHeader"><tr><td>Tri Living Well</td><td style="text-align:right;"></td></tr></table>         
+                Maecenas cursus nisl nec metus sollicitudin tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer sem sapien, lacinia sed volutpat sit amet, vehicula et lacus. Nam sollicitudin nisi eu mi cursus quis placerat nunc adipiscing. Curabitur in magna est. Vestibulum convallis lacus in lectus volutpat aliquet. Sed non arcu vitae tellus eleifend vehicula id ut est. Quisque tincidunt rhoncus lacus, non cursus purus imperdiet quis. Vestibulum porta pretium condimentum. Maecenas auctor vulputate diam. Curabitur vel sem nec turpis rhoncus laoreet. Donec quis diam ligula, sit amet bibendum purus. 
+            </center></center></center></center></center></center></center></center></center></center>
+            <br />
+            <center class="Round5"><center><center><center><center><center><center><center><center><center>
+                <table class="Round5_tblHeader"><tr><td>Why Wellness</td><td style="text-align:right;"></td></tr></table>         
+                Maecenas cursus nisl nec metus sollicitudin tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer sem sapien, lacinia sed volutpat sit amet, vehicula et lacus. Nam sollicitudin nisi eu mi cursus quis placerat nunc adipiscing. Curabitur in magna est. Vestibulum convallis lacus in lectus volutpat aliquet. Sed non arcu vitae tellus eleifend vehicula id ut est. Quisque tincidunt rhoncus lacus, non cursus purus imperdiet quis. Vestibulum porta pretium condimentum. Maecenas auctor vulputate diam. Curabitur vel sem nec turpis rhoncus laoreet. Donec quis diam ligula, sit amet bibendum purus. 
+            </center></center></center></center></center></center></center></center></center></center>
+            <br />
+            <img src="/images/Corporate/content/HomeFooter.jpg" />
+            
+        </td>
+    </tr>
+    </table>
+
+</form>
+</body>
+</html>

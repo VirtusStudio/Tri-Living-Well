@@ -1,0 +1,124 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:innovasys xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="history" name="save" />
+    <meta name="GENERATOR" content="Innovasys HelpStudio (http://www.innovasys.com)" />
+    <title>TLW - Accounts and UserTypes</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/helpstudio.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="stylesheets/customstyles.css"></link>
+    <script src="script/helpstudio.js" type="text/javascript"></script>
+    
+    
+    
+    
+    
+</head>
+<body id="hsbody">
+	
+    <div style="display: none">
+        <input type="hidden" id="userDataCache" class="userDataStyle" name="userDataCache" />
+        <input type="hidden" id="hiddenScrollOffset" name="hiddenScrollOffset" />
+    </div>
+    <img id="collapseImage" style="display:none; height:0; width:0;" src="images/collapse.gif">
+    <img id="expandImage" style="display:none; height:0; width:0;" src="images/expand.gif"/>
+    <img id="copyImage" style="display:none; height:0; width:0;" src="images/copycode.gif"/>
+    <img id="copyHoverImage" style="display:none; height:0; width:0;" src="images/copycodeHighlight.gif">
+    <img id="dropDownImage" style="display:none; height:0; width:0;" src="images/drpdown.gif"/>
+    <img id="dropDownHoverImage" style="display:none; height:0; width:0;" src="images/drpdown_orange.gif"/>
+    <div id="pagetop">
+        
+        <table width="100%" id="pagetoptable2" cellspacing="0" cellpadding="0">
+        	<tr>
+        		<td></td>
+        	</tr>
+        </table>
+        <table width="100%" id="pagetoptable1">
+            <tr id="pagetoptable1row1">
+                <td align="left">
+                    <span id="projecttitle">
+                        TLW_Site
+                    </span>
+                </td>
+            </tr>
+            <tr id="pagetoptable1row2">
+                <td align="left" colspan="2">
+                    <span id="pagetitle">
+                        TLW - Accounts and UserTypes
+                    </span>
+                </td>
+            </tr>
+            <tr id="pagetoptable1row3">
+            	<td colspan="2">
+            		
+            		<span id="feedbacklink"><a href="mailto:support@company.com?subject=Documentation Feedback: TLW_-_Accounts_and_UserTypes">Send Feedback</a></span>
+            	</td>
+            </tr>
+        </table>
+        <table width="100%" id="pagetopbreadcrumbs" cellspacing="0" cellpadding="0"><tr><td>
+Site OVerview > TLW - Accounts and UserTypes</td></tr></table>
+        
+    </div>
+    <div class="hspopupbubble" id="hsglossaryitembox">
+        <p>Glossary Item Box</p>
+    </div>
+    <div id="pagebody">
+        <div id="mainbody">
+<DIV class=Section1>
+<P class=MsoNormal><B>Project: </B>TLW FMS</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><B>Module:</B> Account Database Relationships</P>
+<P class=MsoNormal><B></B>&nbsp;</P>
+<P class=MsoNormal><B>Purpose:</B> Describes how a user is in an account, and their user type and if they are the ‘Main’ holder.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><U>‘Main’ vs. ‘Extended’</U></P>
+<UL type=disc>
+<LI class=MsoNormal>How Users connect to a single participant. 
+<LI class=MsoNormal>USER_INFO.ACCOUNT_FROM is the USER_ID of the ‘Main’ Account 
+<UL type=circle>
+<LI class=MsoNormal>Example: John Pretzel is a ‘Main’ account holder because he works for Pretzels. And Johnny Jr is an ‘Extended’ member as John’s dependant. 
+<UL type=square>
+<LI class=MsoNormal>If(USER_INFO.USER_ID == USER_INFO.ACCOUNT_FROM) 
+<UL type=disc>
+<LI class=MsoNormal>‘Main’ </LI></UL>
+<LI class=MsoNormal>Else 
+<UL type=disc>
+<LI class=MsoNormal>‘Extended’ </LI></UL></LI></UL>
+<LI class=MsoNormal>Note: ACCOUNT_FROM_RELATIONSHIP_ID links in LIST_ITEMS, and stores the relationship. IE Spouse, Dependant, etc. </LI></UL></LI></UL>
+<P class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </P>
+<P class=MsoNormal><B>&nbsp;</B><IMG hspace=12 align=left src="Images/Image008.jpg" width=231 height=147></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG hspace=12 align=left src="Images/Image009.jpg" width=180 height=303></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><U>Accounts and Users</U></P>
+<UL type=disc>
+<LI class=MsoNormal>User’s USER_TYPE_ID (Currently) 
+<UL type=circle>
+<LI class=MsoNormal>When a user is placed in an account, he is given a USER_TYPE_ID 
+<UL type=square>
+<LI class=MsoNormal>0 = None 
+<LI class=MsoNormal>1 = Manager 
+<UL type=disc>
+<LI class=MsoNormal>Can see reports </LI></UL>
+<LI class=MsoNormal>2 = User </LI></UL></LI></UL></LI></UL>
+<P class=MsoNormal>&nbsp;</P></DIV>
+            <a name="seealsobookmark"></a>
+            
+        </div>
+        
+        <div id="pagefooter">
+            
+        </div>
+        
+    </div>
+    <div id=nonscrollingpagefooter>&copy;2009. All Rights Reserved.</div>
+</body>
+</html>

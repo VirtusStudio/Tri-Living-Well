@@ -1,0 +1,115 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TEST.aspx.cs" Inherits="aspnetforum.FORUM_upload_Default" %>
+
+<%@ Register Assembly="RadGrid.Net2" Namespace="Telerik.WebControls" TagPrefix="radG" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<link rel="stylesheet" type="text/css" href="/Styles/Forums.css" />
+<link href="/Styles/Grid.css" rel="stylesheet" type="text/css" />
+<link href="/Styles/centerRound1.css" rel="stylesheet" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+                                          <radG:RadGrid id="RadGrid1" runat="server" ShowHeader="False" AutoGenerateColumns="False" Skin="na" BorderWidth="0px" GridLines="None" OnNeedDataSource="RadGrid1_NeedDataSource" OnDetailTableDataBind="RadGrid1_DetailTableDataBind">
+                                               <mastertableview DataKeyNames="MessageGroupID">         
+                                                    <Columns>
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageID" UniqueName="MessageID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="UserName" UniqueName="UserName" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="Signature" UniqueName="Signature" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="CreationDate" UniqueName="CreationDate" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="Body" UniqueName="Body" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="UserID" UniqueName="UserID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageID" UniqueName="MessageID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageGroupID" UniqueName="MessageGroupID" ></radG:GridBoundColumn>  
+                                                         <radG:GridTemplateColumn>
+                                                            <ItemTemplate>
+                                                            <div style="border:solid 1px red;">
+                                                                <div class="Header<%# ( (DataBinder.Eval(Container.DataItem, "UserName").ToString()) == "1" ? "1" : "N")%>">
+                                                                    <table>
+                                                                    <tr>
+                                                                        <td style="vertical-align:middle;">
+                                                                             <b><%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%> <%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%></b>
+                                                                        </td>
+                                                                         <td style="text-align:right;padding-right:5px;white-space:nowrap;">
+                                                                           <a href="javascript:addComment(0,'<%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%>');"><img src='/images/icons/iconAddComment.gif' title='Add Comment' />Add Comment</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:<%# DataBinder.Eval(Container.DataItem, "USERNAME").ToString()%>?subject=Reference Code:">sadfasdfasdf</a>
+                                                                        </td>
+                                                                        
+                                                                    </tr>
+                                                                    </table>    
+                                                                </div>                         
+                                                                </div>                                   
+                                                            </ItemTemplate>
+                                                         </radG:GridTemplateColumn>   
+                                                                                                     
+                                                    </Columns>
+                                                    <HeaderStyle CssClass="gridHeader" />
+                                                    <ItemStyle  />
+                                                    <AlternatingItemStyle />
+                                                
+                                                    
+                                                    <DetailTables>
+                                                        <radG:GridTableView ShowHeader="False" AllowSorting="False" Width="100%" runat="server" NoDetailRecordsText="No Comments">
+                                                        <Columns>
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageID" UniqueName="MessageID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="UserName" UniqueName="UserName" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="Signature" UniqueName="Signature" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="CreationDate" UniqueName="CreationDate" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="Body" UniqueName="Body" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="UserID" UniqueName="UserID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageID" UniqueName="MessageID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageGroupID" UniqueName="MessageGroupID" ></radG:GridBoundColumn>  
+                                                  
+                                                            <radG:GridTemplateColumn>
+                                                                <ItemTemplate>
+                                                                    <div class="Body<%# ( (DataBinder.Eval(Container.DataItem, "UserName").ToString()) == "1" ? "1" : "N")%>" 
+                                                                            style="padding:10px 5px 10px 15px;">
+                                                                        
+                                                                        <table>
+                                                                        <tr>
+                                                                            <td style="padding-right:5px;">
+                                                                               <img title="<%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%>" src="/images/icons/iconUserType<%# ( (DataBinder.Eval(Container.DataItem, "UserName").ToString()) == "1" ? "1" : "N")%>.gif" />
+                                                                            </td>
+                                                                            <td style="width:100%;">
+                                                                                    <table>
+                                                                                    <tr>
+                                                                                        <td class="top">
+                                                                                            <b><%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%> <%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%></b>
+                                                                                        </td>
+                                                                                        <td class="top" style="text-align:right;">
+                                                                                            <span class="small"><%# (DataBinder.Eval(Container.DataItem, "UserName").ToString() != "" ? "Attachment[<a href=\"javascript:top.popUpWin('/library/ACCOUNT_" + DataBinder.Eval(Container.DataItem, "UserName").ToString() + "/PROJECT_" + DataBinder.Eval(Container.DataItem, "UserName").ToString() + "/bin/REVISION_" + DataBinder.Eval(Container.DataItem, "UserName").ToString() + "/ITEMS/ITEM_" + DataBinder.Eval(Container.DataItem, "UserName").ToString() + "/COMMENT_" + DataBinder.Eval(Container.DataItem, "UserName").ToString() + "/" + DataBinder.Eval(Container.DataItem, "UserName").ToString() + "',300,300);\">" + DataBinder.Eval(Container.DataItem, "UserName").ToString() + "</a>]</span>" : "")%>
+                                                                                            <span class="small"><%# Convert.ToDateTime(DataBinder.Eval(Container.DataItem, "CreationDate").ToString()).ToString("MM/dd/yyyy hh:mm:ss tt")%></span>
+                                                                                         </td>
+                                                                                    </tr>
+                                                                                    </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <a name="tag<%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%>" class="tag" href="javascript:showTagComment(<%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%>);" ondblclick="addComment(<%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%>,'<%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%>');" /><%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%></a>   
+                                                                            </td>
+                                                                            <td>
+                                                                                <%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%>
+                                                                            </td>
+                                                                        </tr>
+                                                                        </table>
+                                                                        
+                                                               
+                                                                    </div>
+                                                                 </ItemTemplate>
+                                                            </radG:GridTemplateColumn>   
+                                                        </Columns>
+                                                        <HeaderStyle Wrap="False" CssClass="gridDetailHeader" />
+                                                        <AlternatingItemStyle  CssClass="gridDetailAltItem"  />
+                                                        <ItemStyle CssClass="gridDetailItem"  />
+                                                        </radG:GridTableView>
+                                                     </DetailTables>
+                                                </mastertableview>
+                                            </radG:RadGrid>   
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<%@ Page language="c#" CodeFile="privateinboxArchive.aspx.cs" AutoEventWireup="True" Inherits="privateinbox" MasterPageFile="AspNetForumMaster.Master" %>
+
+<%--
+ Commented by Netsmartz for resolving compile time issues
+<%@ Register Assembly="RadGrid.Net2" Namespace="Telerik.WebControls" TagPrefix="radG" %>
+<%@ Register Assembly="RadAjax.Net2" Namespace="Telerik.WebControls" TagPrefix="radA" %>--%>
+ <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<asp:Content ContentPlaceHolderID="AspNetForumContentPlaceHolder" ID="AspNetForumContent" runat="server">
+
+
+<style type="text/css">
+
+.gridDetailAltItem td{color:#666666;font-size:11px;padding:4px 5px 4px 7px;border:solid 0px blue;background-color:Transparent;/*background-color:#ccddff;*/}
+.gridDetailAltItem td td{width:auto;padding:0px;}
+
+.gridDetailItem td{background-color:#eeeeee;color:#666666;font-size:11px;padding:4px 5px 4px 7px;border:solid 0px blue;}
+.gridDetailItem td td{width:auto;padding:0px;}
+
+</style>
+
+
+<script type="text/javascript">
+
+window.setInterval(move_box, 100);
+
+
+    var MessageGroupID;
+	var FromUserID;
+	var ToUserID;
+	var btnSaveComment;
+	var btnArchiveMessages;
+	var Message;
+	//var txtComment;
+
+function move_box() {
+    if(bWaiting)
+    {
+        var offset = 000; // set offset (likely equal to your css top)
+        var element = document.getElementById('divAddComment');
+
+        element.style.top = ( parseInt(divAddCommentTop_Original) + parseInt(top.document.documentElement.scrollTop + offset) ) + 'px';
+    }
+}
+
+var mousex = 0;
+var mousey = 0;
+var grabx = 0;
+var graby = 0;
+var orix = 0;
+var oriy = 0;
+var elex = 0;
+var eley = 0;
+var algor = 0;
+
+var dragobj = null;
+
+function falsefunc() { return false; } // used to block cascading events
+
+function initDrag()
+{
+    document.onmousemove = update; // update(event) implied on NS, update(null) implied on IE
+}
+
+function getMouseXY(e) // works on IE6,FF,Moz,Opera7
+{ 
+  if (!e) e = window.event; // works on IE, but not NS (we rely on NS passing us the event)
+
+  if (e)
+  { 
+    if (e.pageX || e.pageY)
+    { // this doesn't work on IE6!! (works on FF,Moz,Opera7)
+      mousex = e.pageX;
+      mousey = e.pageY;
+      algor = '[e.pageX]';
+      if (e.clientX || e.clientY) algor += ' [e.clientX] '
+    }
+    else if (e.clientX || e.clientY)
+    { // works on IE6,FF,Moz,Opera7
+      mousex = e.clientX + document.body.scrollLeft;
+      mousey = e.clientY + document.body.scrollTop;
+      algor = '[e.clientX]';
+      if (e.pageX || e.pageY) algor += ' [e.pageX] '
+    }  
+  }
+}
+
+function update(e)
+{
+  getMouseXY(e); // NS is passing (event), while IE is passing (null)
+/*
+  document.getElementById('span_browser').innerHTML = navigator.appName;
+  document.getElementById('span_winevent').innerHTML = window.event ? window.event.type : '(na)';
+  document.getElementById('span_autevent').innerHTML = e ? e.type : '(na)';
+  document.getElementById('span_mousex').innerHTML = mousex;
+  document.getElementById('span_mousey').innerHTML = mousey;
+  document.getElementById('span_grabx').innerHTML = grabx;
+  document.getElementById('span_graby').innerHTML = graby;
+  document.getElementById('span_orix').innerHTML = orix;
+  document.getElementById('span_oriy').innerHTML = oriy;
+  document.getElementById('span_elex').innerHTML = elex;
+  document.getElementById('span_eley').innerHTML = eley;
+  document.getElementById('span_algor').innerHTML = algor;
+  document.getElementById('span_dragobj').innerHTML = dragobj ? (dragobj.id ? dragobj.id : 'unnamed object') : '(null)';
+*/  
+}
+
+function getTag()
+{
+    var tagTemp = document.getElementById("tag0");
+    tagTemp.style.display = "block";
+    tagTemp.style.left = mousex-25 + "px";
+    tagTemp.style.top = mousey-25 + "px";
+    grab(tagTemp);
+    hide('divAddComment');
+}
+function grab(context)
+{
+  document.onmousedown = falsefunc; // in NS this prevents cascading of events, thus disabling text selection
+  dragobj = context;
+  dragobj.style.zIndex = 100; // move it to the top
+  document.onmousemove = drag;
+  document.onmouseup = drop;
+  grabx = mousex;
+  graby = mousey;
+  elex = orix = dragobj.offsetLeft;
+  eley = oriy = dragobj.offsetTop;
+  update();
+}
+
+function drag(e) // parameter passing is important for NS family 
+{
+  if (dragobj)
+  {
+    elex = orix + (mousex-grabx);
+    eley = oriy + (mousey-graby);
+    dragobj.style.position = "absolute";
+    //dragobj.style.left = (elex).toString(10) + 'px';
+    //dragobj.style.top  = (eley).toString(10) + 'px';
+    
+    dragobj.style.left = (elex).toString() + 'px';
+    dragobj.style.top  = (eley).toString() + 'px';
+  }
+  update(e);
+  return false; // in IE this prevents cascading of events, thus text selection is disabled
+}
+
+var bSetTag = false;
+function setTag()
+{
+    bSetTag = true;
+    if (dragobj)
+    {
+        drop();
+    }
+}
+function drop()
+{
+  if (dragobj)
+  {
+    //dragobj.style.zIndex = 0;
+    dragobj = null;
+  }
+  //update();
+  if(bSetTag)
+  {
+        var divOffset = document.getElementById('divOffset');
+        document.getElementById('MOUSE_X').value = parseInt(document.getElementById("tag0").style.left) -  parseInt(divOffset.style.left);
+        document.getElementById('MOUSE_Y').value = parseInt(document.getElementById("tag0").style.top) - parseInt(divOffset.style.top);
+  }
+  else
+  {
+        document.getElementById('tag0').style.display = "none";
+        document.getElementById('MOUSE_X').value = "-1";
+        document.getElementById('MOUSE_Y').value = "-1";
+  }
+  bSetTag = false;
+        
+  document.onmousemove = update;
+  document.onmouseup = null;
+  document.onmousedown = null;   // re-enables text selection on NS
+  
+  show('divAddComment');
+ // document.getElementById("tag0").style.display = "none";
+}
+
+
+function showHideDiv(div,img)
+{
+    var node = document.getElementById(div);
+    var icon = document.getElementById(img);
+    if (node != null && icon != null)
+    {
+        var string = icon.src;
+        if (string.substring(icon.src.lastIndexOf('/') + 1, string.length) == "iconExpand_OFF.gif")
+        {
+            icon.src = "/images/buttons/iconCollapse_OFF.gif";
+            node.style.display = "block";
+        }
+        else
+        {
+            icon.src = "/images/buttons/iconExpand_OFF.gif";
+            node.style.display = "none";
+        }
+    }
+    
+}
+function hide(objElementID)
+{
+    document.getElementById(objElementID).style.display = "none";
+}
+function show(objElementID)
+{
+    document.getElementById(objElementID).style.display = "";
+}
+
+var bWaiting = false;
+var view = "comment";
+var divThumbnails;
+var divSlide;
+var ifNotes;
+var divComments;
+
+var thumbnail_selected = "thumbnail_selected";
+var thumbnail_over = "thumbnail_over";
+var thumbnail_out = "thumbnail_out";
+var lastSelectedDiv = null;
+ 
+
+
+var divAddCommentTop_Original;
+function init()
+{
+    /*
+    divThumbnails = document.getElementById("divThumbnails");
+    divSlide = document.getElementById("divSlide");
+    ifNotes = document.getElementById("ifNotes");
+    divComments = document.getElementById("divComments");
+    */
+   // viewMode(0);
+    
+   // selectThumbnail(ITEM_ID);
+    
+    divAddCommentTop_Original = document.getElementById('divAddComment').style.top;
+    hoverTransparency("divAddCommentTransparent");
+}
+
+function addComment(iFromUserID, iToUserID, sMessageGroupID)
+{
+        
+        MessageGroupID.value = sMessageGroupID;
+        FromUserID.value = iFromUserID;
+        ToUserID.value = iToUserID;
+   // document.getElementById('TAG_ID').value = iTagID;
+    
+
+        show("divAddCommentTag1");
+        document.getElementById('divAddCommentTag0').innerHTML = "";
+
+    show('divAddComment');
+    bWaiting = true; 
+}
+
+function insertComment()
+{
+   // Message.value = txtComment.Text;
+  // alert(txtComment.Text);
+    btnSaveComment.click();
+}
+
+function archiveMessage(sMessageGroupID)
+{
+        MessageGroupID.value = sMessageGroupID;
+        btnArchiveMessages.click();
+}
+
+var saTagAlreadySelected = new Array();
+
+function formatItemID(i)
+{
+    var result = i.toString();
+    while(result.length < 3)
+    {
+        result = "0" + result;
+    }
+    return result;
+}
+function hoverTransparency(sElementName)
+{
+    var obj = document.getElementById(sElementName);
+    obj.onmouseover = function(){this.className = "";}
+    obj.onmouseout = function(){this.className = "transparent";}
+    obj.onmouseenter = function(){this.onmouseover = null; this.onmouseout = null; this.className = "";}
+    obj.onmouseleave = function(){this.className = "transparent";}
+}
+
+</script>
+
+
+	<div class="location">
+		<b><a href="default.aspx"><asp:Label ID="lblHome" runat="server" EnableViewState="False" meta:resourcekey="lblHomeResource1">Home</asp:Label></a>
+		»
+		<a href="editprofile.aspx"><asp:Label ID="lblProfile" runat="server" EnableViewState="False" meta:resourcekey="lblProfileResource1">Profile</asp:Label></a>
+		»
+		<a href="privateinbox.aspx"><asp:Label ID="lblInbox" runat="server" EnableViewState="False" meta:resourcekey="lblInboxResource1">Personal messages - Inbox</asp:Label></a>
+		»
+		<asp:Label ID="Label1" runat="server" EnableViewState="False" meta:resourcekey="lblInboxResource1">Archived Messages</asp:Label></b></div>
+	<asp:Label ID="lblNotLoggedIn" runat="server" Visible="False" Font-Bold="True" ForeColor="Red" meta:resourcekey="lblNotLoggedInResource1">You are not signed in as a member. Please sign in to access your private messages.</asp:Label>
+
+
+                                        <%--
+                                         Commented by Netsmartz for resolving compile time issues
+                                           <radG:RadGrid id="RadGrid1" runat="server" ShowHeader="False" Width="800" AutoGenerateColumns="False" Skin="na" BorderWidth="0px" GridLines="None" OnNeedDataSource="RadGrid1_NeedDataSource" OnDetailTableDataBind="RadGrid1_DetailTableDataBind">
+                                               <mastertableview DataKeyNames="MessageGroupID">         
+                                                    <Columns>
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageID" UniqueName="MessageID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="UserName" UniqueName="UserName" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="Signature" UniqueName="Signature" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="CreationDate" UniqueName="CreationDate" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="Subject" UniqueName="Subject" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="Body" UniqueName="Body" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="UserID" UniqueName="UserID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="FromUserID" UniqueName="FromUserID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="ToUserID" UniqueName="ToUserID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageID" UniqueName="MessageID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageGroupID" UniqueName="MessageGroupID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="NewMessageCount" UniqueName="NewMessageCount" ></radG:GridBoundColumn>  
+                                                 
+                                                         
+                                                              <radG:GridTemplateColumn>
+                                                            <ItemTemplate>
+                                                                <div class="Header<%# ( (DataBinder.Eval(Container.DataItem, "MessageID").ToString()) == "1" ? "1" : "N")%>">
+                                                                    <table style="padding:5px 5px 5px 5px; width:850px; " class="bgtTable">
+                                                                    <tr>
+                                                                        <td style="vertical-align:middle; color:Black; white-space:nowrap; width:195px; padding-left:3px;">
+                                                                             <b><%# DataBinder.Eval(Container.DataItem, "UserName").ToString()%> <%#    (DataBinder.Eval(Container.DataItem, "NewMessageCount").ToString()) != "0" ? "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + DataBinder.Eval(Container.DataItem, "NewMessageCount").ToString() + " New Message(s)" : ""%></b>
+                                                                        </td>
+                                                                        <td style="vertical-align:middle; color:Black; padding-left:5px; ">
+                                                                             <b><%#  DataBinder.Eval(Container.DataItem, "Subject").ToString()%></b>
+                                                                        </td>
+                                                                         <td style="text-align:right;padding-right:5px;white-space:nowrap; width:100px; ">
+                                                                             <a href="javascript:archiveMessage('<%# DataBinder.Eval(Container.DataItem, "MessageGroupID").ToString()%>');"><div style="color:Orange;">UnArchive Message</div></a><br />
+                                                                          </td>
+                                                                    </tr>
+                                                                    </table>    
+                                                                </div>                                    
+                                                            </ItemTemplate>
+                                                         </radG:GridTemplateColumn> 
+                                                                                                     
+                                                    </Columns>
+                                                    <HeaderStyle CssClass="gridHeader" />
+                                                   
+                                                    <ItemStyle  />
+                                                    <AlternatingItemStyle />
+                                                
+                                                    
+                                                    <DetailTables>
+                                                        <radG:GridTableView ShowHeader="False" AllowSorting="False" Width="100%" runat="server" NoDetailRecordsText="No Comments" ShowFooter="true">
+                                                        <Columns>
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageID" UniqueName="MessageID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="UserName" UniqueName="UserName" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="Signature" UniqueName="Signature" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="CreationDate" UniqueName="CreationDate" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="Body" UniqueName="Body" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="UserID" UniqueName="UserID" ></radG:GridBoundColumn>  
+                                                            <radG:GridBoundColumn Visible="false" DataField="MessageGroupID" UniqueName="MessageGroupID" ></radG:GridBoundColumn>  
+                                                  
+                                                            <radG:GridTemplateColumn>
+                                                                <ItemTemplate>
+                                                                    <div>
+                                                                        <table class="bgtTable" style="padding:5px 5px 5px 5px;">
+                                                                            <tr>
+                                                                                <td style="vertical-align:top; white-space:nowrap; width:200px;">
+                                                                                     <%#  DataBinder.Eval(Container.DataItem, "UserName").ToString()%>    
+                                                                                </td>
+                                                                                <td style="vertical-align:top; ">
+                                                                                     <%#  DataBinder.Eval(Container.DataItem, "Body").ToString()%>  
+                                                                                </td>
+                                                                                <td style=" text-align:right;">
+                                                                                    <%# Convert.ToDateTime(DataBinder.Eval(Container.DataItem, "CreationDate").ToString()).ToString("MM/dd/yyyy hh:mm tt" )%>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                   </ItemTemplate>
+                                                            </radG:GridTemplateColumn>  
+                                                  
+                                                  
+                                                         
+                                                            
+                                                        </Columns>
+                                                        <HeaderStyle Wrap="False" CssClass="gridDetailHeader" />
+                                                        <AlternatingItemStyle  CssClass="gridDetailAltItem"  />
+                                                        <ItemStyle CssClass="gridDetailItem"  />
+                                                        </radG:GridTableView>
+                                                     </DetailTables>
+                                                </mastertableview>
+                                            </radG:RadGrid>   --%>
+                                            
+                                            
+                   <div style="visibility:hidden;" id="HiddenVariables">
+                       <input id="MessageGroupID" type="text" runat="server"  value=""/>
+                       <input id="FromUserID" type="text" runat="server"  value=""/>
+                       <input id="ToUserID" type="text" runat="server"  value=""/>
+                       <input id="Message" type="text" runat="server" value="" />   
+                       <asp:Button ID="btnSaveComment" runat="server" OnClick="btnSaveComment_Click" />
+                       <asp:Button ID="btnArchiveMessages" runat="server" Text="Archive" OnClick="btnArchiveMessages_Click" />
+                   </div>   
+                                
+                              
+    <div id="divAddComment" class="fixed" style="left:100px;top:150px;width:746px;z-index:100;display:none;">
+        <div id="divAddCommentTransparent" style="background-color:White;">
+             <center class="Round1"><center><center><center><center><center><center><center><center><center>
+                    <table style="background-color:White;">
+                        <tr>
+                            <td><div class="subTitle">Add Comment</div></td>
+                            <td style="text-align:right;"><a href="javascript:bWaiting=false; hide('divAddComment'); hide('tag0');">Cancel</a></td></tr>
+                    </table>
+                    <br />
+                            
+                    <table style="background-color:White; display:none;">
+                    <tr>
+                        <td>
+                            <div id="divAddCommentTag1"><a onmousedown="getTag();" href="javascript:var i;">Place Tag on Slide</a></div>
+                            <div id="divAddCommentTag0"></div>
+                        </td>
+                        <td style="text-align:right;">Add an Attachment (optional): <asp:FileUpload ID="fuAttachment" runat="server" /></td>
+                    </tr>
+                    </table>
+                    <br />  
+                     <telerik:RadEditor ID="txtComment" runat="server"></telerik:RadEditor>
+                    <br />
+                      
+                    
+                    <br />
+                    <a class="aButton" href="javascript:bWaiting=false;insertComment();hide('divAddComment');">Save Comment</a>
+                    <br />
+                    <br />
+            </center></center></center></center></center></center></center></center></center></center>
+        </div>
+    </div>
+    
+     
+	<script type="text/javascript">
+	    MessageGroupID = document.getElementById(<%= '"' + MessageGroupID.ClientID + '"' %>);
+	    FromUserID = document.getElementById(<%= '"' + FromUserID.ClientID + '"' %>);
+	    ToUserID = document.getElementById(<%= '"' + ToUserID.ClientID + '"' %>);
+	    btnSaveComment = document.getElementById(<%= '"' + btnSaveComment.ClientID + '"' %>);
+	    btnArchiveMessages = document.getElementById(<%= '"' + btnArchiveMessages.ClientID + '"' %>);
+	    
+	   // Message = document.getElementById(<%= '"' + Message.ClientID + '"' %>);
+	   // txtComment = document.getElementById(<%= '"' + txtComment.ClientID + '"' %>);
+	</script>
+
+</asp:Content>

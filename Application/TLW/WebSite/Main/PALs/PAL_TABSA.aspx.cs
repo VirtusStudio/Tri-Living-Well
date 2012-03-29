@@ -1,0 +1,47 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using Telerik.Web.UI;
+
+public partial class PAL_TABS : System.Web.UI.Page
+{
+    SqlConnClass objSqlConnClass = new SqlConnClass();
+    PALClass objPalClass;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        objPalClass = new PALClass(objSqlConnClass.OpenConnection());
+    }
+    protected void Page_PreRender(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            fillOutForm();
+        }
+
+        objSqlConnClass.CloseConnection();
+    }
+
+    private void fillOutForm()
+    {
+        RadTabStrip1 = objSqlConnClass.fillTabs(RadTabStrip1, "PAL");
+        
+        DataSet DS = objPalClass.PAL_GET_PalStarts(Membership.GetUser().ProviderUserKey.ToString(), "1", "0");
+        if (DS.Tables[0].Rows.Count > 0 )
+        {
+            string sProgramID = DS.Tables[0].Rows[0]["PROGRAM_ID"].ToString();
+            string sProgramNumber = (Convert.ToInt32(sProgramID) / 100).ToString();
+
+            lblProgramForum.Text = "<a href='/FORUM/topics.aspx?ForumID=" + DS.Tables[0].Rows[0]["FORUM_PROGRAM_ID"].ToString() + "'><img src='" + AppConfig.GetBaseSiteUrl() + "Images/icons/iconProgram" + sProgramNumber + ".jpg' /> " + DS.Tables[0].Rows[0]["PROGRAM_NAME"].ToString() + " Forum</a>";
+            lblEmailCoach.Text = "<a href='/FORUM/addprivatemsg.aspx?ToUserID=" + DS.Tables[0].Rows[0]["COACH_ID"].ToString() + "'><img src='" + AppConfig.GetBaseSiteUrl() + "Images/icons/iconEmail.gif' /> Private Message Coach</a>";
+       }
+    }
+
+}

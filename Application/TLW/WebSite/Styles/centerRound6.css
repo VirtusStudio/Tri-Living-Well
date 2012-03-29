@@ -1,0 +1,69 @@
+﻿.Round6Container
+{
+  background-color:#ffffff;
+  padding:0px;
+  padding-top:4px;
+}
+
+.Round6{
+  width:304px;/*this is done for this special case*/
+  border:solid 1px #FFFFFF;
+  background-color:#ffffff;
+  background-image:url(../images/table/round6/MC.gif);
+  background-repeat:repeat-y;
+  margin-bottom:1px;
+}
+.Round6 center{
+    background-repeat:no-repeat;
+  background-image:url(../images/table/round6/T.gif);
+  background-position:top;
+  text-align:left;/*margin:0px auto 0px 0px;    */   border:solid 0px red;
+}
+.Round6 center center{     
+  background-image:url(../images/table/round6/B.gif);
+  background-repeat:repeat-x;
+  background-position:bottom;
+}
+.Round6 center center center{
+  background-image:url(../images/table/round6/L.gif);
+  background-repeat:repeat-y;
+  background-position:left;
+}
+.Round6 center center center center{
+  background-image:url(../images/table/round6/R.gif);
+  background-repeat:repeat-y;
+  background-position:right;
+}
+.Round6 center center center center center{
+  background-repeat:no-repeat;
+  background-image:url(../images/table/round6/TL.gif);
+  background-position:top left;
+}
+.Round6 center center center center center center{
+  background-image:url(../images/table/round6/TR.gif);
+  background-position:top right;
+}
+.Round6 center center center center center center center{
+  background-image:url(../images/table/round6/BL.gif);
+  background-position:bottom left;
+}
+.Round6 center center center center center center center center{
+  background-image:url(../images/table/round6/BR.gif);
+  background-position:bottom right;
+}
+.Round6 center center center center center center center center center{
+
+  padding:4px 20px 6px 15px;
+}
+       
+.Round6_tblHeader{margin-bottom:10px;height:26px;font-weight:normal;font-size:26px;white-space:nowrap;text-transform:uppercase;
+color:#323e4b;font-style:normal;
+
+ position:relative;left:-15px;top:-4px;
+}
+.Round6_tblHeader a{font-weight:normal;font-size:11px;white-space:nowrap;text-transform:none;color:#ffffff;text-decoration:none;
+}
+.Round6_tblHeader a:hover{font-weight:normal;font-size:11px;white-space:nowrap;text-transform:none;color:#ffffff;text-decoration:underline;
+}
+
+                                                             

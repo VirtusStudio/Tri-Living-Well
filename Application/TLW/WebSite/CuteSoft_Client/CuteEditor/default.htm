@@ -1,0 +1,761 @@
+<html>
+<head>
+	<title>ASP.NET WYSIWYG Editor</title>
+	<link rel="stylesheet" href="example.css" type="text/css" />
+	<script language="JavaScript" id="code">
+		<!--
+		function swapDisplay(element) {     
+			// Make sure a child element exists
+			if(element)
+			{
+				var child = element.getAttribute("child");
+				if (child) {
+					var el = document.getElementById(child);
+					if (null!=el)
+						el.style.display = ""==el.style.display ? "block" : ""
+				}
+			}	
+		}
+		// -->
+	</script>
+	<style type="text/css">
+		.child { DISPLAY: none }
+		.parent { cursor: hand; COLOR: blue; TEXT-DECORATION: underline }
+	</style>
+</head>
+
+<body bottomMargin=0 leftMargin=0 topMargin=5 rightMargin=0 marginwidth="0" marginheight="0">	
+	<table cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+		<tr>
+			<td vAlign=center width=250 height=60 nowrap valign="bottom">&nbsp;
+				<a href="default.htm"><img alt=CuteEditor src="sampleimage/logo.gif" border=0></a>
+			</td>
+			<td align=center valign="bottom" width=100%></td>
+			<td class=normal vAlign=center align=center nowrap width=200 height=16>
+				<a href="http://cutesoft.net/asp/">CuteEditor for ASP </a>
+			</td>
+		</tr>
+	</table>
+	<div id="LocalToolbar">
+		<table height="21" cellSpacing="0" cellPadding="0" width="100%" border="0" ID="Table1">
+			<tr>
+				<td noWrap>&nbsp;&nbsp;
+				<a class="SectionMenu" href="default.htm">Home</a><span class="Accent">|</span>
+				<a class="SectionMenu" href="cs/">Demo(C#)</a><span class="Accent">|</span>
+				<a class="SectionMenu" href="vb/">Demo(VB)</a><span class="Accent">|</span>
+				<a class="SectionMenu" href="Deployment.htm">Deployment</a><span class="Accent">|</span>	
+				<a class="SectionMenu" href="CommonTasks.htm">Common Tasks</a><span class="Accent">|</span>	
+				<a class="SectionMenu" href="AdvancedTopics.htm">Advanced Topics</a><span class="Accent">|</span>	
+				<a class="SectionMenu" href="http://cutesoft.net/developer+guide/index.html">Developer's Guide</a><span class="Accent">|</span>	
+				<a class="SectionMenu" href="http://cutesoft.net/Forums/">Forums</a><span class="Accent">|</span>	
+				<a class="SectionMenu" href="Feature-Comparison-Chart.htm">Feature Comparison Chart</a><span class="Accent">|</span>	
+				<a class="SectionMenu" href="http://cutesoft.net/ASP.NET+WYSIWYG+Editor/Purchase+CuteEditor+for+.NET/default.aspx">Order</a>	
+				</td>
+				<td width="100%"></td>
+			</tr>
+		</table>
+	</div>
+
+	<table cellSpacing="0" cellPadding="3" width="800" align="left" border="0">
+		<tr>
+			<td width="10">&nbsp;</td>
+			<td vAlign="top" width=740>
+				<table cellSpacing="0" cellPadding="3" width="100%" align="center" border="0">
+					<tr>
+						<td vAlign="top">
+							<img hspace="10" src="sampleimage/cuteeditorbox.jpg">
+						</td>
+						<td width="3"></td>
+						<td vAlign="top">
+							<h1>The leader of Online HTML Editors</h1>
+							Cute Editor for ASP.NET is the most powerful WYSIWYG (What You See Is What You 
+							Get) browser-based HTML content management component for ASP.NET.
+							<br>
+							<br>
+							It enables ASP.NET Web developers to replace the Textarea in your existing 
+							content management system with a powerful, reliable and easy to use WYSIWYG Editor.
+							<br>
+							<br>
+							<a href="cs/">Try Demo(C#)</a> | <a href="vb/">Try Demo(VB)</a> | <a href="http://cutesoft.net/ASP.NET+WYSIWYG+Editor/Purchase+CuteEditor+for+.NET/default.aspx">Purchase</a>
+						</td>
+					</tr>
+				</table>
+				<H1>Top features and Benefits</H1>
+				<div style="MARGIN: 5px 0px 5px 10px">What makes Cute Editor the leading online HTML 
+					Editor on the market? Aside from its powerful features and ease to use, here 
+					are some of the top reasons that make the Cute Editor your best choice for 
+					creating and publishing web content:
+				</div>
+				<table cellSpacing="0" cellPadding="5" width="100%" border="0">
+					<tr>
+					<td vAlign="top" noWrap><img src="sampleimage/xp1.gif"></td>
+					<td vAlign="top">
+						<P><B>A cross-browser, cross-platform WYSIWYG online HTML editor. </B>
+						</P>
+						<P>Compatible with the most important browsers available in the market: IE 5.5+, 
+							Firefox 1.0+, Mozilla 1.3+, Netscape 7+ and Safari (1.3+). This includes Macintosh and Linux.
+						</P>
+					</td>
+					<td vAlign="top" noWrap>
+						<img src="sampleimage/small-cross-browser-support.gif" width="80" border="0" alt="cross browser support">
+					</td>
+				</tr>
+				<tr>
+					<td vAlign="top" noWrap><img src="sampleimage/xp2.gif"></td>
+					<td vAlign="top">
+						<P><B>Compliant with the web standards, no deprecated tags such as &lt;FONT&gt; anymore </B>
+						</P>
+						<P>Does your online html editor still use deprecated tags such as &lt;FONT&gt;? 
+							Cute Editor will help you build sites that adhere to the latest HTML standards, 
+							generates clean HTML/XHTML code with no deprecated tags. <span class="parent" onclick="swapDisplay(this)" child="standard">
+								Why use web standards?</span>
+						</P>
+						<div class="child childBox" id="standard">
+							<P>There are many benefits to learning and using web standards. A few examples:</P>
+							<UL>
+								<LI>
+									<b>Better search engine rankings:</b>
+								The separation of content and presentation makes the content represent a larger 
+								part of the total file size. Combined with semantic markup this will improve 
+								search engine rankings.
+								<LI>
+									<b>Faster download and rendering of web pages:</b>
+								Less HTML results in smaller file sizes and quicker downloads. Modern web 
+								browsers render pages faster when they are in their standards mode than when 
+								they are in their backwards compatible mode.
+								<LI>
+									<b>Compatibility with future web browsers:</b>
+								When you use defined standards and valid code you future-proof your documents 
+								by reducing the risk of future web browsers not being able to understand the 
+								code you have used.
+								<LI>
+									<b>Simpler development and maintenance:</b>
+								Using more semantic and structured HTML makes it easier and quicker to 
+								understand code created by somebody else.
+								<LI>
+									<b>Better accessibility:</b>
+								Semantic HTML, where structure is separated from presentation, makes it easier 
+								for screen readers and alternative browsing devices to interpret the content.
+								<LI>
+									<b>Simpler adaptation:</b> A semantically marked up document can be 
+									easily adapted to print and alternative browsing devices, like handheld 
+									computers and cellular phones, just by linking to a different CSS file. You can 
+									also make site-wide changes to presentation by editing a single file.
+								</LI>
+							</UL>
+							<H5>Read more:</H5>
+							<A href="http://www.w3.org/QA/2002/04/Web-Quality">My Web site is standard! And 
+								yours?</A></div>
+					</td>
+					<td vAlign="top" noWrap><img src="sampleimage/nofont.gif"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp3.gif"></td>
+					<td vAlign="top">
+						<P><b>Insert clean HTML from Microsoft Word.</b>
+						</P>
+						<p>When text is pasted from Microsoft Word allot of unnecessary word specific 
+							markup is carried across. This can result in web pages that take an 
+							unnecessarily long time to download. The Paste from Word button solves this by 
+							removing word markup before pasting the text into your page.
+						</p>
+					</td>
+					<td vAlign="top"><img title="Section 508 accessibility support"	src="sampleimage/icon_doc.gif" border="0">
+					</td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp4.gif"></td>
+					<td vAlign="top">
+						<P><b>Support accessibility according to W3C WAI and section 508 accessibility 
+								guidelines.</b>
+						</P>
+						<P>Cute Editor optional accessibility settings ensure your site complies with 
+							Section 508, so people with disabilities can have full access to your content.</P>
+					</td>
+					<td vAlign="top"><img src="sampleimage/section_508.gif">
+					</td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp5.gif"></td>
+					<td vAlign="top">
+						<P><B>Output HTML or well-formed XHTML to your choice</B> (<A href="http://cutesoft.net/example/xmloutput.aspx">Demo</A>)</P>
+						<P>Cute Editor supports output well-formed XHTML. Your choice of XHTML 1.0 or HTML 
+							4.01 output.
+							<br>
+						</P>
+					</td>
+					<td vAlign="top"><img src="sampleimage/wellformedxhtml.gif">
+					</td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp6.gif"></td>
+					<td vAlign="top">
+						<P><B>Unlimited levels of the undo/redo feature</B></P>
+						<P>Many of the other editors on the market cannot undo or redo certain actions, and 
+							certain table operations - such as cell merge or column deletion. Cute Editor 
+							4.0 has a new custom undo/redo implementation to make you can now safely undo 
+							those actions.
+							<br>
+						</P>
+					</td>
+					<td vAlign="top"><img src="sampleimage/redoundo.gif">
+					</td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp7.gif"></td>
+					<td vAlign="top">
+						<P><B>Multi-culture support, Easy localization through XML</B> (<A href="http://cutesoft.net/example/localization.aspx">Demo</A>)</P>
+						<P>All labels, buttons, tooltips and messages are located in external XML files, so 
+							that the language of the editor can be switched with a single property. You can 
+							also create a new language in a matter of minutes.
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp8.gif"></td>
+					<td vAlign="top">
+						<P><b>Support complete page editing (from &lt;HTML&gt; to &lt;/HTML&gt;) </b>
+							(<A href="http://cutesoft.net/example/Edithtml.aspx">Demo</A>)</P>
+						<P>Cute Editor 4.0 allows you to edit a full HTML page, including &lt;title&gt;, 
+							&lt;!DOCTYPE...&gt; and some other options. You can also insert Form elements 
+							(checkbox, button, textarea, etc.) and modify certain properties of the 
+							element.</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp9.gif"></td>
+					<td vAlign="top">
+						<P><b>Single line returns on enter Key press</b> (<A href="http://cutesoft.net/example/oncarriagereturn.aspx">Demo</A>)</P>
+						<P>Most other editors insert double line returns which can be annoying for clients 
+							who are used to editing in Microsoft Word. CuteEditor can be configured to use 
+							&lt;div&gt;, &lt;br&gt; or &lt;p&gt; tags when you press enter. In either mode 
+							&lt;br&gt; tags can be created by using shift+enter.</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp10.gif"></td>
+					<td vAlign="top">
+						<P><b>Support HTML code indentation and Tags appear in lower case</b></P>
+						<P>Cute Editor displays nicely indented code in the HTML mode and the generating 
+							HTML tags and Attributes are in lower case. This is very convenient and 
+							important for the advanced users.
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp11.gif"></td>
+					<td vAlign="top">
+						<P><b>Full-Screen editing support</b> (<A href="http://cutesoft.net/example/FullScreen.aspx">Demo</A>)</P>
+						<P>It does not open a new window, instead it will resize to fit the browser screen. 
+							Edit in full screen mode, maximizing your available space.
+							<br>
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp12.gif"></td>
+					<td vAlign="top">
+						<P><B>No slow Java or ActiveX components</B></P>
+						<P>100% DHTML, JavaScript ASP.Net code. There are no slow Java or ActiveX 
+							components to worry about and everything is handled in the browser!
+							<br>
+						</P>
+					</td>
+					<td vAlign="top"><img src="sampleimage/nojava.gif"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp13.gif"></td>
+					<td vAlign="top">
+						<P><b>Relative and Absolute URLs support </b>(<A href="http://cutesoft.net/example/Relative-or-Absolute-URLs.aspx">Demo</A>)</P>
+						<P>With Cute Editor, you have the choice of using either a relative or absolute 
+							URL.
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp14.gif"></td>
+					<td vAlign="top">
+						<P><B>Easy Implementation for Developers</B></P>
+						<P>The perfect addition to your content management system! Only a couple lines of 
+							code , you don't need to be an expert. Allows you to add an online HTML editing 
+							functionality that works with standard HTML form.</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp15.gif"></td>
+					<td vAlign="top">
+						<P><b>Easy to use API to hide buttons and tabs</b>
+						</P>
+						<P>Cute Editor allows developers to set the image directory, set the controls 
+							width, disable image uploading and deleting, restrict access to the 
+							source/preview tabs, hide buttons and lists that you don't want your clients to 
+							see or access.
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp16.gif"></td>
+					<td vAlign="top">
+						<P><b>Wrap text around images</b>
+						</P>
+						<P>Locate the image you want to wrap text around, and&nbsp;click any justify 
+							button&nbsp;in the toolbar. The image will float to the desired direction. Text 
+							will be positioned around the image.
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp17.gif"></td>
+					<td vAlign="top">
+						<P><b>Downloadable files support</b>
+						</P>
+						<P>You can upload document files, create a link from your HTML content to the 
+							document files (zip files, ppt files...).
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp18.gif"></td>
+					<td vAlign="top">
+						<P><b>CSS-based Skinning</b> (<A href="http://cutesoft.net/example/ThemeSupport.aspx">Demo</A>)</P>
+						<P>Cute Editor provides several built in themes that are ready to use. Developers 
+							can completely change the appearance of the toolbar and the dialogs by simply 
+							modifying the supplied classes and images.
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp19.gif"></td>
+					<td vAlign="top">
+						<P><B>Advanced table manager</B></P>
+						<P>Create and modify tables and table cells. Set their border color, alignment, 
+							cellspacing and more! Once you've created a table, simply right click inside of 
+							it and use the handy popup menu to change its attributes.&nbsp; 
+							&lt;caption&gt;,&lt;summary&gt;,&lt;thead&gt;,&lt;tfoot&gt;,&lt;th&gt; tags are 
+							supported.
+							<br>
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp20.gif"></td>
+					<td vAlign="top">
+						<P><B>Image insertion and automatic upload</B></P>
+						<P>Built-in thumbnail generator. Thumbnail images are dynamically created; Supports 
+							upload new images. Paging - specify how many images. Support auto resize 
+							images.</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp21.gif"></td>
+					<td vAlign="top">
+						<P><b>Style Builder Dialog Box</b></P>
+						<P>With Style builder dialog box you can&nbsp;apply CSS style attributes directly 
+							to any HTML elements on your Web page.</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp22.gif"></td>
+					<td vAlign="top">
+						<P><b>Content management with templates</b> (<A href="http://cutesoft.net/example/templates.aspx">Demo</A>)</P>
+						<P>The basic idea behind a Content Management System (CMS) is to separate the 
+							management of content from design. Cute Editor allows the site designer to 
+							easily create and establish templates to give the site a uniform look. 
+							Templates may be modified when desired.
+						</P>
+					</td>
+					<td vAlign="top"><img src="sampleimage/Conten_management_with_templates.gif" width="80">
+					</td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp23.gif"></td>
+					<td vAlign="top">
+						<P><b>Use MaxHTMLLength or MaxTextLength to Protect Your Database</b> (<A href="http://cutesoft.net/example/maxlength.aspx">Demo</A>)</P>
+						<P>If you tried to insert a record whose text length is greater than allowed by 
+							your table, an error will be reported. To prevent this type of error from 
+							occurring, developers can use MaxHTMLLength or MaxTextLength in the Cute Editor 
+							to limit the length of the user’s input.
+						</P>
+					</td>
+					<td vAlign="top"></td>
+				</tr>
+				<tr>
+					<td vAlign="top"><img src="sampleimage/xp24.gif"></td>
+					<td style="WIDTH: 600px" vAlign="top">
+						<P><b>Apply security to control user access to resources</b>
+						</P>
+						<P>Cute Editor allows developers to assign a pre-defined set of 
+							permissions&nbsp;by&nbsp;group&nbsp;or individual. This prevents a normal user 
+							to access the administration functionality.
+						</P>
+						<P>The details of permissions are specified by an XML security policy file. Each 
+							level maps to a specific file. The default mappings:
+						</P>
+						<UL type="disc">
+							<LI>
+								<B>admin</B>—maps to admin.config
+							<LI>
+								<B>default</B>—maps to default.config
+							<LI>
+								<b>guest</b>—maps to guest.config</LI></UL>
+						<P>You can customize and extend each policy file by editing the XML security policy 
+							file. You can also create your own policy files that define arbitrary 
+							permission sets.</P>
+						<span class="parent" onclick="swapDisplay(this)" child="Security">Comparison of the 
+							sample security policy file</span>
+						<P></P>
+						<div class="child childBox" id="Security">
+							<table id="Table3" cellSpacing="0" borderColorDark="#999999" cellPadding="3" width="100%"
+								borderColorLight="#ffffff" border="1" frame="below">
+								<tr>
+									<td colSpan="4"></td>
+								</tr>
+								<tr>
+									<td><B>Permissions/Resource Setting</B></td>
+									<td><B>Admin</B></td>
+									<td><B>Default</B></td>
+									<td><B>Guest</B></td>
+								</tr>
+								<tr>
+									<td>AllowUpload
+									</td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+									<td align="center" width="120"></td>
+								</tr>
+								<tr>
+									<td>AllowDelete
+									</td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+									<td align="center" width="120"></td>
+									<td align="center" width="120"></td>
+								</tr>
+								<tr>
+									<td>AllowCopy
+									</td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+									<td align="center" width="120"></td>
+									<td align="center" width="120"></td>
+								</tr>
+								<tr>
+									<td>AllowMove
+									</td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+									<td align="center" width="120"></td>
+									<td align="center" width="120"></td>
+								</tr>
+								<tr>
+									<td>AllowCreateFolder
+									</td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+									<td align="center" width="120"></td>
+									<td align="center" width="120"></td>
+								</tr>
+								<tr>
+									<td>AllowDeleteFolder
+									</td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+									<td align="center" width="120"></td>
+									<td align="center" width="120"></td>
+								</tr>
+								<tr>
+									<td>RestrictUploadedImageDimension
+									</td>
+									<td align="center" width="120"></td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+								</tr>
+								<tr>
+									<td>AutoResizeUploadedImages
+									</td>
+									<td align="center" width="120"></td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+									<td align="center" width="120"><img height="16" alt="Marked" src="sampleimage/check.gif" width="16" border="0"></td>
+								</tr>
+								<tr>
+									<td>MaxImageWidth
+									</td>
+									<td align="center" width="120">6400</td>
+									<td align="center" width="120">640</td>
+									<td align="center" width="120">640</td>
+								</tr>
+								<tr>
+									<td>MaxImageHeight
+									</td>
+									<td align="center" width="120">4800</td>
+									<td align="center" width="120">480</td>
+									<td align="center" width="120">480</td>
+								</tr>
+								<tr>
+									<td>MaxImageSize
+									</td>
+									<td align="center" width="120">10000</td>
+									<td align="center" width="120">100</td>
+									<td align="center" width="120">100</td>
+								</tr>
+								<tr>
+									<td>MaxMediaSize
+									</td>
+									<td align="center" width="120">10000</td>
+									<td align="center" width="120">100</td>
+									<td align="center" width="120">100</td>
+								</tr>
+								<tr>
+									<td>MaxFlashSize
+									</td>
+									<td align="center" width="120">10000</td>
+									<td align="center" width="120">100</td>
+									<td align="center" width="120">100</td>
+								</tr>
+								<tr>
+									<td>MaxDocumentSize
+									</td>
+									<td align="center" width="120">10000</td>
+									<td align="center" width="120">100</td>
+									<td align="center" width="120">100</td>
+								</tr>
+								<tr>
+									<td>ImageGalleryPath</td>
+									<td align="center" width="120">~/uploads</td>
+									<td align="center" width="120">~/uploads/member</td>
+									<td align="center" width="120">~/uploads/guest</td>
+								</tr>
+								<tr>
+									<td>MediaGalleryPath</td>
+									<td align="center" width="120">~/uploads</td>
+									<td align="center" width="120">~/uploads/member</td>
+									<td align="center" width="120">~/uploads/guest</td>
+								</tr>
+								<tr>
+									<td>FlashGalleryPath</td>
+									<td align="center" width="120">~/uploads</td>
+									<td align="center" width="120">~/uploads/member</td>
+									<td align="center" width="120">~/uploads/guest</td>
+								</tr>
+								<tr>
+									<td>FilesGallaryPath</td>
+									<td align="center" width="120">~/uploads</td>
+									<td align="center" width="120">~/uploads/member</td>
+									<td align="center" width="120">~/uploads/guest</td>
+								</tr>
+								<tr>
+									<td>ImageFilters</td>
+									<td align="center" width="120">.jpg
+										<br>
+										.jpeg
+										<br>
+										.gif
+										<br>
+										.png</td>
+									<td align="center" width="120">.jpg
+										<br>
+										.jpeg
+										<br>
+										.gif
+										<br>
+									</td>
+									<td align="center" width="120">.jpg
+										<br>
+										.jpeg
+										<br>
+										.gif
+										<br>
+									</td>
+								</tr>
+								<tr>
+									<td>MediaFilters</td>
+									<td align="center" width="120">.avi
+										<br>
+										.mpg
+										<br>
+										.mpeg
+										<br>
+										.mp3</td>
+									<td align="center" width="120">.avi
+										<br>
+										.mpg
+										<br>
+										.mpeg
+										<br>
+									</td>
+									<td align="center" width="120">.avi
+										<br>
+										.mpg
+										<br>
+										.mpeg
+										<br>
+									</td>
+								</tr>
+								<tr>
+									<td>DocumentFilters</td>
+									<td vAlign="top" align="center" width="120">.txt, .doc<br>
+										.pdf, .zip<br>
+										.rar, .avi<br>
+										.mpg, .mpeg<br>
+										.mp3, .jpg<br>
+										.jpeg,.gif<br>
+										.png
+									</td>
+									<td vAlign="top" align="center" width="120">.pdf, .doc<br>
+									</td>
+									<td vAlign="top" align="center" width="120">.txt, .doc<br>
+										.pdf, .zip<br>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top"><img src="sampleimage/xp25.gif"></td>
+						<td vAlign="top">
+							<P><b>Online Image Editor</b></P>
+							<P>People that input content on a website are generally not web designers, so most 
+don't have that design &amp; technical fibre in them. With online image editor, 
+you can now edit image file with no image editing software to download or 
+install! Easy drag and drop familiar interface. <B>Resize, change dimensions, 
+scale, crop, add text, optimize, rotate, flip, mirror and add watermark.</B> 
+							</P>
+						</td>
+						<td vAlign="top">
+						<img title="asp.net online image editor" alt="asp.net online image editor"
+							src="sampleimage/80x-online-image-editor.jpg">
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top"><img src="sampleimage/xp26.gif"></td>
+						<td vAlign="top">
+							<P><b>Max Upload Folder size</b></P>
+							<P>Max Upload Folder size(Including all subfolders and files. A must have 
+feature for people who have limited hosting space.) Dynamic display of available 
+free space in the Upload Folder.Limits the size of your upload folder. If the 
+max is reached uploads will be disabled. </P>
+							</P>
+						</td>
+						<td vAlign="top">
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top"><img src="sampleimage/xp27.gif"></td>
+						<td vAlign="top">
+							<P><b>Clickable Image Maps </b></P>
+							<P>Image maps are pictures with clickable regions also known as "hotspots." When 
+users click on one of the hotspots, they're directed to the page you designate. 
+CuteEditor 5.0 lets you easily create image maps to add fun and excitement to a 
+page</P>
+							</P>
+						</td>
+						<td vAlign="top">
+						<img title="Clickable Image Maps" alt="Clickable Image Maps"
+							src="sampleimage/80x-image-map.jpg">
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top"><img src="sampleimage/xp28.gif"></td>
+						<td vAlign="top">
+							<P><b>&lt;div&gt; Box Formatting </b></P>
+							<P>&lt;div&gt; boxes offer a much greater ability to control the layout of a page. 
+With CuteEditor, you can put any content between &lt;div&gt; tags and then use 
+CSS to style all sorts of borders, backgrounds, etc. </P>
+							</P>
+						</td>
+						<td vAlign="top">
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top"><img src="sampleimage/xp29.gif"></td>
+						<td vAlign="top">
+							<P><b>Universal and Virtual keyboard</b></P>
+							<P>Virtual Keyboard does not require changes to language settings of your system 
+and even speeds up the entire text input process for your customers. It lets 
+your native speaking clients to access your web resources from any location in 
+the world without changing national keyboard layouts and fonts on their 
+machines. </P>
+							</P>
+						</td>
+						<td vAlign="top">
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top"><img src="sampleimage/xp30.gif"></td>
+						<td vAlign="top">
+							<P><b>Store images in a Database</b></P>
+							<P>With CuteEditor you can easily use a Sql Server database or access database as 
+the file storage. </P>
+							</P>
+						</td>
+						<td vAlign="top">
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top"><img src="sampleimage/xp31.gif"></td>
+						<td vAlign="top">
+							<P><b>RTF to HTML, HTML to RTF</b></P>
+							<P>With CuteEditor you can easily convert an HTML document into an RTF file and RTF file into HTML or XHTML document. </P>
+							</P>
+						</td>
+						<td vAlign="top">
+							<img title="RTF to HTML, HTML to RTF" alt="RTF to HTML, HTML to RTF" src="sampleimage/RTF.gif">
+						</td>
+					</tr>
+					<tr>
+						<td vAlign="top"><img src="sampleimage/xp32.gif"></td>
+						<td vAlign="top">
+							<P><b>Create PDF files</b></P>
+							<P>CuteEditor also allows you dynamically create Adobe PDF documents from ASP.NET.</P>
+							</P>
+						</td>
+						<td vAlign="top">
+							<img title="Create PDF files" alt="Create PDF files" src="sampleimage/pdfbig.gif" border="0">
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width=10></td>
+			<td id="rightcolumn" vAlign="top" width="160">
+				<div style="padding: 8px; border: solid 1px #999999;width:160;">
+					<a href="http://cutesoft.net/ASP.NET+WYSIWYG+Editor/Requirements/default.aspx">Compatibility</a><br/>
+					<br/>
+					<img src="sampleimage/small-cross-browser-support.gif" border=0  alt="cross browser support" width="145">
+					Compatible with IE 5.5+, Firefox 1.0+, Mozilla 1.3+, Netscape 7+ and Safari (1.3+). This includes Macintosh and Linux. 
+				</div>
+				<br/>
+				<br/>
+				<div style="padding: 11px;	border: solid 1px #999999;width:160;">
+					<a href="Competitive_Upgrade.htm">Competitive Upgrade Discount</a><br>
+					<br>
+					Thinking of switching from your online html editor to Cute Editor for .NET? 
+					Competitive Crossgrade program&nbsp;are a good way to switch to a new program, 
+					without having to pay full price.
+				</div>
+				<br>
+				<br>
+				<div align=center>
+					<b>Selected Clients</b><br><br>
+					<a href="http://microsoft.com" alt="microsoft"><img border=0 src="sampleimage/microsoft.gif"></a>
+					<a href="http://intel.com"  alt="intel"><img border=0 src="sampleimage/intel.gif"></a>
+					<a href="http://www.hp.com/"  alt="HP"><img border=0 src="sampleimage/hp_logo.gif"></a>
+					<a href="http://www.investopedia.com/"  alt="investopedia.com"><img border=0 src="sampleimage/investopedia.gif"></a>
+					<a href="http://www.liberal.ca/"  alt="Liberal Party of Canada"><img border=0 src="sampleimage/liberalca.gif"></a>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div id="footer">
+		<p><a href="http://cutesoft.net">Copyright 2005 CuteSoft.Net. All rights reserved.</a></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+/*************************************************************
+/    Copyright 2007 Blue Grotto Technologies, Inc.          /
+/    This code is owned by Blue Grotto Technologies, Inc    /
+/    It may not be copied, shared or modified.              /
+/************************************************************/
+.trAlt {background-color:#D6D5FF;}/*used for alt row color*/   
+
+.center{margin-left:auto; margin-right:auto;}
+.top{ vertical-align:top;}
+.middle{ vertical-align:middle;}
+.bottom{ vertical-align:bottom;}
+
+
+    .CONTENT  /**/
+    {
+        background-color:#ffffff;
+        height:auto;
+    }
+
+        .BANNER  /**/
+    {
+    border:solid 0px red;
+        background-image:url(/images/back/back_top.jpg);
+        background-repeat:no-repeat;
+        background-position:left top;
+        /*padding-top:77px;*/
+        text-align:left;
+
+    }
+    .FRAME
+    {
+    padding-top:30px;
+    border-width:0px;
+    background-color:Transparent;
+       /* margin-left:auto; margin-right:auto;
+       background-color:#ffffff;
+       padding:0px; ;
+          */
+        width:923px;
+
+
+        border:solid 0px blue;
+    }
+
+body  {
+    font-family:Verdana, Arial, verdana,helvetica;
+    font-size:12px;
+  margin: 0px;
+  padding: 0px;
+
+  color:#333333;
+}
+.body2  {
+    
+    /*background-image:url(/images/back/back_middle.gif);
+    padding:40px 1.5% 0px 1.5%;*/
+    padding:30px 15px 0px 15px;
+    background-color:#ffffff;
+}
+
+form table /**/ {   /*done to avoid affecting rad controls popups*/
+    border-spacing:0px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border-collapse: collapse;
+                width:100%;
+    border:0px solid silver;
+
+}
+
+td /**/ {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border-collapse: collapse;
+}
+
+img /**/ {
+    border-width:0px;
+    vertical-align:middle;
+    text-decoration:none;
+}
+iframe /**/ {
+    border-width:0px;
+      border-style: solid;
+     border-color: #DC143C;
+    overflow:hidden;
+    background-image:none;
+    background-repeat:no-repeat;
+    background-color:#ffffff;
+    height:500px;
+    padding:0%;
+    width:100%;
+}
+
+.IFRAME_CONTENT  {
+    border-width:0px;
+      border-style: solid;
+     border-color: #DC143C;
+    overflow:hidden;
+     background-image:none;
+    background-repeat:no-repeat;
+    background-color:#ffffff;
+    height:500px;
+    padding:0%;
+    width:100%;
+}
+.IFRAME_TAB  {
+    border:solid 1px #6788BE;
+    border-top-width:0px;
+    padding:0%;
+    width:99%;
+}
+
+
+
+
+
+
+input{
+font-family:Verdana, Arial, verdana,helvetica;
+
+  vertical-align:middle;
+                               font-weight:normal;
+  padding:0px; margin:0px;   border-collapse: collapse;
+  font-size:12px;
+}
+
+      textarea{
+           font-family:Verdana, Arial, verdana,helvetica;
+
+  vertical-align:middle;
+ 
+  padding:0px; margin:0px;   border-collapse: collapse;
+  font-size:12px;
+      }
+
+
+
+.menu1 {height:99px;color:#DAA520;text-align:right;display:block;cursor:default;padding-top:5px;padding-right:15px;}
+.menu1 a {color:#301410;font-size:13px;display:inline-table;padding-left:5px;padding-right:5px;text-align:center;}
+.menu1 a:visited {}
+.menu1 a:hover {color:#990000;}
+.menu1 .seperator{color:#1F000A;}
+
+
+.menu2 .seperator{color:#F1B247;}
+
+.menu2 a{color:#301410;font-style:normal;text-decoration:none;}
+.menu2 a:hover{text-decoration:underline;}
+
+.menu2 {font-weight:bold;padding-top:0px;padding-right:0px;line-height:25px;vertical-align:bottom;background-color:Transparent; font-size:14px;}
+.menu2 div a {/*display:inline-table;*/white-space:nowrap; vertical-align:middle; padding:0px 10px 0px 10px;text-decoration:none;font-weight:bold;color:#301410;font-size:11px;text-align:right;}
+.menu2 div a :visited {}
+.menu2 div a:hover {text-decoration:none;color:#990000;background-color:#CC8D00;}
+.menu2 label /*welcome __ !*/
+{
+    line-height:20px;
+    background-color:#BBD1E6;
+    font-size:12px;
+    display:block;
+    text-align:right;
+    padding:0px;
+    padding-right:15px;
+    color:#004867;
+    margin-top:0px;
+    background-image:none;
+    background-repeat:repeat-y;
+
+    font-style:italic;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.menu2 span {color:#004867;}    /*______ admin@backoffice.com _*/
+.menu2 div {display:block; padding:0px 0px 0px 0px; border: solid 0px #004477; background-color:#E1BB68;}    /*a:link group*/
+.menu2 div div{background-color:Transparent;}
+
+
+a {font-weight:normal;color:#000099;text-decoration:none;font-size:11px;}
+
+a:hover {text-decoration:underline;}
+
+  .RadGridInput input {
+    width:30px;
+  }
+
+  .RadGridInput2 input {
+    width:80px;
+  }
+
+.aButton
+{
+   display:inline-table;
+  padding:2px 15px 2px 15px;
+  border:solid 1px #1F000A;
+  text-align:center;
+  color:#1F000A;
+  text-decoration:none;
+  vertical-align:middle;
+  line-height:27px;
+  font-weight:bold;
+  font-size:14px;
+  background-color:#E1BB68;
+}
+.aButton:hover {
+    border:solid 1px #990000;
+  background-color:#CC8D00;
+  color:#990000;
+   text-decoration:none;
+ }
+
+
+.small{/*color:#6f7a7a; */font-size:10px;}
+
+.empty {font-style:italic; color:Gray; /*used for results that show as empty*/}
+.required {color:Red;font-weight:normal; /*used for required fields/errors */}
+.requiredInformation {color:Red;font-weight:normal; /*used for required fields/errors */}
+.copyright {display:none; color: #1b2b74; font-size:10px;}
+.title{font-size:16px;font-size:16px;padding:0px 0px 10px 0px; color:#990000; font-style:normal;font-weight:normal;}
+.description{font-size:12px;font-size:12px;font-style:normal;padding:0px 0px 15px 0px;}
+.subTitle{font-size:14px;color:#6788BE;font-weight:bold;padding-bottom:10px;line-height:16px;}
+.splitter{border-top:solid 2px #84b6e2;border-bottom:solid 1px #4892d5;/*c2daf1*/height:3px;}
+.money{color: #009900;}
+
+
+
+.CuteEditor table
+{
+width:auto;
+}
+.RadDatePicker
+{
+  width:auto;
+}
+
+.RadDatePicker table
+{          background-color:#E3E5F9;  
+    border-spacing:inherit;
+    padding: inherit;
+    margin: inherit;
+    border-collapse: inherit;
+    width:inherit;
+    border:inherit;
+    background-color:#E3E5F9;
+}
+
+.RadDatePicker table td
+{
+
+    background-color:#E3E5F9;
+}
+
+  .RadMenu1 li {
+    width:80px;
+    height:20px;
+	background-color:#1428a0;
+  }
+  .RadMenu1 :ul {
+    width:80px;
+    height:20px;
+    background-color:#1428a0;
+
+  }
+
+  .fixed {
+    position: absolute;
+  }
+
+.transparent {
+	opacity:.70;
+	filter:alpha(opacity=70);
+	width:100%;/*Note that an element must have layout for a filter to work.*/
+	}
+	
+.transparent *{
+	opacity:1.00;
+	filter:alpha(opacity=100);
+	}

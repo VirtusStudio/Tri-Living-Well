@@ -1,0 +1,76 @@
+.RadTabStrip_dnn
+{
+	font: 11px arial, tahoma, sans-serif;
+}
+
+
+.RadTabStrip_dnn li a
+{
+	padding-left: 8px;
+	background:transparent url('img/tabLeftFirstOff.gif') 0px 0px no-repeat;
+	height: 28px;
+	margin-right: -10px; 
+	color: #877560;
+	text-decoration:none;
+}
+
+
+.RadTabStrip_dnn li a .wrap
+{
+
+	padding-right: 8px;
+	height: 28px;
+	background:transparent url('img/tabRightLastOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_dnn li a:hover
+{
+	color: #877560;
+}
+
+.RadTabStrip_dnn li a .innerWrap
+{
+	line-height: 28px;
+	padding: 3px 5px;
+	background:transparent url('img/tabStripeOff.gif') 0px 0px repeat-x;
+	text-align: center;
+}
+
+.RadTabStrip_dnn li a.selected
+{
+	padding-top: 0px;
+	padding-left: 12px;
+	background: transparent url('img/tabLeftFirstOn.gif') 0px 0px no-repeat;
+	line-height: 28px;
+}
+
+.RadTabStrip_dnn li a.selected .wrap
+{
+	background-image:url('img/tabRightLastOn.gif');
+	line-height: 28px;
+	padding-right: 12px;
+	color: #877560;
+}
+
+
+.RadTabStrip_dnn li a.selected .innerWrap
+{
+	background-image:url('img/tabStripeOn.gif');
+	padding-top: 0px;
+}
+
+.RadTabStrip_dnn li a.disabled,
+.RadTabStrip_dnn li a.disabled .wrap,
+.RadTabStrip_dnn li a.disabled .innerWrap
+{
+	cursor: default;
+	text-decoration: line-through;
+}
+
+.RadTabStrip_dnn li a.red,
+.RadTabStrip_dnn li a.red .wrap,
+.RadTabStrip_dnn li a.red .innerWrap
+{
+	color: red;
+}
+

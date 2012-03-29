@@ -1,0 +1,50 @@
+/*************************************************************
+/    Copyright 2007 Blue Grotto Technologies, Inc.          /
+/    This code is owned by Blue Grotto Technologies, Inc    /
+/    It may not be copied, shared or modified.              /
+/************************************************************/
+.gridAltItem td{color:#666666;font-size:11px;padding:4px 5px 0px 7px;border:solid 0px blue;background-color:Transparent;/*background-color:#ccddff;*/}
+.gridAltItem td td{width:auto;padding:0px;}
+
+.gridItem td{background-color:#ffffff;background-color:#D6D5FF;color:#666666;font-size:11px;padding:4px 5px 0px 7px;border:solid 0px blue;}
+.gridItem td td{width:auto;padding:0px;}
+
+.gridHeader{white-space:nowrap;}
+
+.gridHeader a{text-decoration:none;color:#666666;font-weight:bold;font-size:11px;/*background-color:#9bc5e5;background-color:#1428A0;*/ display:block;}
+.gridHeader td{text-decoration:none;color:#666666;font-weight:bold;font-size:11px;/*background-color:#9bc5e5;background-color:#1428A0;*/ padding:2px 10px 2px 3px;}
+
+
+.gridHeader a:hover{text-decoration:underline;}
+
+
+
+.gridDetailHeader{color:#990000; font-size:10px; font-weight:normal; text-decoration:underline;}
+.gridDetailItem{font-size:10px;}
+.gridDetailItem a{color:green;}
+
+.gridEditForm{
+border:solid 2px #03A5C7;
+padding:10px 10px 10px 10px;
+margin:1px 0px 5px 3px;
+color:#000000;
+width:500px;
+}
+.gridEditForm span{color:#03A5C7;}
+
+
+
+.gridRow {padding-bottom:3px;margin-bottom:10px;font-weight:normal;border:solid 1px #0363ac; background-color:#eaf0f8;color:#000000;font-size:12px;}
+.gridRow strong{font-weight:bold;color:#0363ac; font-size:12px;}
+.gridRowlink{
+padding:3px 8px 2px 6px;
+
+color:#0000ff;
+border:solid 1px #0363ac;    border-top:solid 0px red;
+background-color:#ffffff;
+display:block;
+font-weight:normal;
+height:20px;
+white-space:nowrap;
+margin-right:20px;
+}
