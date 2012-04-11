@@ -3172,6 +3172,8 @@ namespace DAL
 		private System.Nullable<int> _intStateId;
 		
 		private string _strStateText;
+
+        private string _strZipCode;
 		
 		private string _strCity;
 		
@@ -3439,8 +3441,26 @@ namespace DAL
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strCity", DbType="VarChar(50)")]
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_strZipCode", DbType = "nvarchar(20)")]
+        public string strZipCode
+        {
+            get
+            {
+                return this._strZipCode;
+            }
+            set
+            {
+                if ((this._strZipCode != value))
+                {
+                    this.SendPropertyChanging();
+                    this._strZipCode = value;
+                    this.SendPropertyChanged("strZipCode");
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strCity", DbType="VarChar(50)")]
 		public string strCity
 		{
 			get
