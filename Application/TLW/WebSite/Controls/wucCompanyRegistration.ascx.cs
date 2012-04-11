@@ -127,9 +127,11 @@ for country.
 
             oCompanyInfo.StrCity = txtCity.Text.Trim();
             oCompanyInfo.StrCompanyAddress = txtAddress.Text.Trim();
-            oCompanyInfo.ChrIsPaid = 'Y';
+// David K. Bowers 04/10/12 changed default values of ChrIsPaid and ChrIsApproved from Y to N
+            oCompanyInfo.ChrIsPaid = 'N';
             oCompanyInfo.ChrIsActive = 'N';
-            oCompanyInfo.ChrIsApproved = 'Y';
+            oCompanyInfo.ChrIsApproved = 'N';
+
             oCompanyInfo.DtCreatedDate = DateTime.Now;
             oCompanyInfo.DtModifiedDate = oCompanyInfo.DtCreatedDate;
             oCompanyInfo.ChrIsDeleted = 'N';
