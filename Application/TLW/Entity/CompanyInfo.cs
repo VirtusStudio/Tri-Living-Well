@@ -12,7 +12,7 @@
 ///Modification History:
 ///Change No.   Changed By	    Date	    Version	    Raised By/SRS No	    Description
 ///
-/// 
+///  04/10/12 David K. Bowers added in zip code
 ///***********************************************************************
 using System;
 using System.Collections.Generic;
@@ -58,6 +58,7 @@ namespace Entity
         private int _intUserId;
         private string _strUserName;
         private string _strStateName;
+        private string _strZipCode;
 
         private int _intQuestionId;
         private string _strCategoryName;
@@ -166,6 +167,13 @@ namespace Entity
             get { return _strStateName; }
             set { _strStateName = value; }
         }
+
+        public string StrZipCode
+        {
+            get { return _strZipCode; }
+            set { _strZipCode = value; }
+        }
+
         public string StrCompanyPhone
         {
             get { return _strCompanyPhone; }
