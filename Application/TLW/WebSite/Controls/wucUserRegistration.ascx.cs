@@ -61,6 +61,33 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
         //Response.Write(AppLib.Encrypt("1"));
         try
         {
+            // David K. Bowers 04/12/12
+            // --- start validate invite id
+            // to be a valid instance of the registration page the user must have come in from the invite email link
+            // which contains the iid parameter.  The iid parenter is the intCompanyRequestedUsersListId column in
+            // the tbl_CompanyRequestedUsersList.  The iid is read from the url and stored in a hidden form field.  If
+            // its not in either place then its invalid so redirect them to the resend invite form 
+            string get_iid = "";
+            int iid = 0;
+            var giid = Request.QueryString["iid"];
+            if (giid != null)
+            {
+                get_iid = giid.ToString();
+                textIID.Value = get_iid;
+                iid = Convert.ToInt32(get_iid);
+            }
+            else
+            {
+
+                string hidden_iid = textIID.Value.Trim();
+                if (hidden_iid.Length > 0) iid = Convert.ToInt32(hidden_iid);
+            }
+            if (iid > 0)
+            {
+                if (!objUsersClass.USR_ValidateInvite(iid)) Response.Redirect(AppConfig.GetBaseSiteUrl() + "ResendInvite.aspx", true);
+            }
+            // --- end validate invite id
+
             //    Response.Write(AppLib.Encrypt("1"));
             /*DateTime dtTodayDate = DateTime.Now;
             DateTime dtBDate = Convert.ToDateTime("16/06/1983");

@@ -37,6 +37,7 @@ public partial class Controls_wucCompanyRegistration : System.Web.UI.UserControl
     Entity.CompanyInfo oCompanyInfo;
     protected void Page_Load(object sender, EventArgs e)
     {
+
         lblError.Text = "";
         try
         {

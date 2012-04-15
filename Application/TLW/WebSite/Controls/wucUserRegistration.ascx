@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wucUserRegistration.ascx.cs" Inherits="Controls_wucUserRegistration" %>
 <asp:Label ID="lblError" runat="server" CssClass="required"></asp:Label>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<asp:HiddenField ID="textIID" runat="server" />
 <asp:Label ID="Label1" runat="server" CssClass="required"></asp:Label>
 <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" BorderStyle="Solid" BorderWidth="0px"
     OnCreatedUser="CreateUserWizard1_CreatedUser" OnCreateUserError="CreateUserWizard1_CreatedUserError"
