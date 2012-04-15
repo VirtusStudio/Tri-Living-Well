@@ -73,6 +73,7 @@
                                                                                 <td align="left" valign="middle" style="width: 15%;">
                                                                                 </td>
                                                                                 <td align="left" valign="middle" style="white-space: nowrap;">
+                                                                                <a href="mailto://<%=ConfigurationSettings.AppSettings["SITE_EMAIL"] %>" >Email Admin About A User</a>
                                                                                 </td>
                                                                             </tr>
                                                                         </table>

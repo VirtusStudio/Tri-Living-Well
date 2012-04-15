@@ -23,7 +23,7 @@
                                                 </tr>
                                             </table>
                                             <asp:Login runat="server" ID="Login1"  OnLoggedIn="OnLoggedIn" OnLoginError="Login1_LoginError"
-                                                DestinationPageUrl="login/login_success.aspx">
+                                                DestinationPageUrl="/login/login_success.aspx">
                                                 <LayoutTemplate>
                                                     <span class="required">
                                                         <asp:Literal runat="server" ID="FailureText" EnableViewState="False">
@@ -35,7 +35,7 @@
                                                                 <span class="keyword">Username:</span>&nbsp;
                                                             </td>
                                                             <td style="white-space: nowrap;">
-                                                                <asp:TextBox runat="server" ID="UserName" onkeypress="return keyPress(event);" Width="150px"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="UserName" Width="150px"></asp:TextBox>
                                                             </td>
                                                             <td>
                                                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" Display="Static"
@@ -47,7 +47,7 @@
                                                                 <span class="keyword">Password:</span>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" Enabled="true" ID="Password" onkeypress="return keyPress(event);"
+                                                                <asp:TextBox runat="server" Enabled="true" ID="Password" 
                                                                     TextMode="Password" Width="150px"></asp:TextBox>
                                                             </td>
                                                             <td>
@@ -117,7 +117,7 @@
                                                                       href="<%=AppConfig.GetBaseSiteUrl() %>CompanyRegistration.aspx">Company Register</a>
                                                                 </td>
                                                                  <td align="center" >
-                                                                    <a class="aButtonSmall" href="<%=AppConfig.GetBaseSiteUrl() %>UserRegistration.aspx">User Register</a>
+                                                                    <a class="aButtonSmall" href="<%=AppConfig.GetBaseSiteUrl() %>ResendInvite.aspx">User Register</a>
                                                                 </td>
                                                             </tr>
                                                         </table>

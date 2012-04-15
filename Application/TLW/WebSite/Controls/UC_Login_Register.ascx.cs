@@ -164,6 +164,8 @@ public partial class UC_Login_Register : System.Web.UI.UserControl
 
         Response.Redirect(AppConfig.GetBaseSiteUrl() + "login/login_success.aspx");
     }
+
+
     private void sendOutConfirmationEmail(string sUsername)
     {
         try
