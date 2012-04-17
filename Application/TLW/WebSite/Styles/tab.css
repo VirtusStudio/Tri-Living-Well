@@ -1,0 +1,100 @@
+﻿   .html
+        {
+            background-color:silver;
+        }
+        .menuTabs
+        {
+            position:relative;
+            top:1px;
+            left:0px;
+            line-height:20px;
+        }
+      .tab
+        {
+            border:Solid 1px black;
+            border-bottom:none;
+            padding:0px 10px;
+            background-color:#eeeeee;
+ 
+        }
+        .selectedTab
+        {
+            border:Solid 1px black;
+            border-bottom:Solid 1px white;
+            padding:0px 10px;
+            background-color:white;
+        }
+        .tabBody
+        {
+            border:Solid 1px black;
+            padding:20px;
+            background-color:white;
+        }
+        
+        
+        
+        /******************************/
+/**Styling information specific to individual content pages**/
+
+/* Accordion */
+.accordionHeader
+{
+    border: 1px solid #2F4F4F;
+    color: white;
+    background-color: #2E4d7B;
+	font-family: Arial, Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#master_content .accordionHeader a
+{
+	color: #FFFFFF;
+	background: none;
+	text-decoration: none;
+}
+
+#master_content .accordionHeader a:hover
+{
+	background: none;
+	text-decoration: underline;
+}
+
+.accordionHeaderSelected
+{
+    border: 1px solid #2F4F4F;
+    color: white;
+    background-color: #5078B3;
+	font-family: Arial, Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#master_content .accordionHeaderSelected a
+{
+	color: #FFFFFF;
+	background: none;
+	text-decoration: none;
+}
+
+#master_content .accordionHeaderSelected a:hover
+{
+	background: none;
+	text-decoration: underline;
+}
+
+.accordionContent
+{
+    background-color: #D3DEEF;
+    border: 1px dashed #2F4F4F;
+    border-top: none;
+    padding: 5px;
+    padding-top: 10px;
+}
+

@@ -782,6 +782,54 @@ namespace BLL
         }
 
 
+        /// Function Header*******************************************************
+        /// Function Name: GetQuestion
+        /// Function Type: Function
+        /// Functionality:Get Health Coach Question for Admin
+        /// Input: 
+        /// Output: 
+        /// Return Value:
+        /// Note: 
+        /// *********************************************************************
+       
+        public int GetQuestion()
+        {
+            using (TLWDALDataContext _db = new TLWDALDataContext())
+            {
+                var res = (from c in _db.QuestionsForHealthCoaches
+                           where c.chrIsAnsweredGiven == Convert.ToChar('N')
+                           select c.chrIsAnsweredGiven).Count();
+
+                int result = Convert.ToInt32(res);
+                return result;
+            }
+        }
+
+        /// Function Header*******************************************************
+        /// Function Name: GetAnswers
+        /// Function Type: Function
+        /// Functionality:Get Health Coach Answer for User only
+        /// Input: 
+        /// Output: 
+        /// Return Value:
+        /// Note: 
+        /// *********************************************************************
+        public int GetAnswers(string useranme)
+        {
+
+
+
+            using (TLWDALDataContext _db = new TLWDALDataContext())
+            {
+                var res = (from c in _db.QuestionsForHealthCoaches
+                           where c.strUserName.Equals(useranme)
+                           && c.chrIsAnsweredGiven == Convert.ToChar('Y')
+                           select c.chrIsAnsweredGiven).Count();
+
+                int result = Convert.ToInt32(res);
+                return result;
+            }
+        }
 
 
         #endregion
