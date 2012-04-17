@@ -10,6 +10,7 @@
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="../Scripts/Common.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -120,7 +121,195 @@
                             </table>
                         </td>
                         <td valign="top" align="center">
-                            Physical Fitness
+                            <table width="200" border="1">
+                                <tr><td colspan="2"><h2>Physical Fitness</h2></td></tr>
+                                <tr><td>Current METS</td><td>500</td></tr>
+                                <tr><td>Last Workout Date</td><td>Monday April 14, 2012</td></tr>
+                                <tr><td>Last Workout METS</td><td>503</td></tr>
+                                <tr><td>Workout History (7 Days)</td><td>4/1/2012, 4/2/2012, 4/4/2012</td></tr
+                                <tr><td colspan="2">View Past 2 Weeks Workouts</td></tr>
+                                <tr><td>Current Stage</td><td>6</td></tr>
+                                <tr><td colspan="2"><asp:LinkButton CssClass="aButtonSmall" CausesValidation="false" ToolTip="Click here to record activity."
+                    ID="lnkBtnRecordActivity" runat="server">Record Activity</asp:LinkButton></td></tr>
+                                <tr>
+                                    <td colspan="2">
+                <asp:Panel ID="Panel1" runat="server" Style="display: none; background-color: Black;
+                    width: 500px;" CssClass="modalPopup">
+                    <table width="100%" cellpadding="3" cellspacing="3" border="0">
+                        <tr>
+                            <td style="display: none;" align="center">
+                                <asp:Button Style='display: none;' ID="OkButton" runat="server" Text="OK" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <center class="Round3">
+                                    <center>
+                                        <center>
+                                            <center>
+                                                <center>
+                                                    <center>
+                                                        <center>
+                                                            <center>
+                                                                <center>
+                                                                    <center>
+                                                                        <table>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <table class="Round3_tblHeader">
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Date:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox ID="textDate" runat="server" />
+                                                                                                <asp:ImageButton ID="buttonDate" runat="server" ImageUrl="../images/icons/iconcalendar.jpg" Width="32" height="32" />
+                                                                                                <ajaxToolkit:CalendarExtender ID="calendarButtonExtender" runat="server" TargetControlID="textDate" PopupButtonID="buttonDate" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Weight (lbs):
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox ID="textWeight" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Activity:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:DropDownList ID="ddlActivity" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Duration (minutes):
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox ID="textWeight" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                MET Minutes:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox ID="textMet" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Energy Expended:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox ID="textEnergy" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Intensity:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:DropDownList ID="ddlIntensity" />
+                                                                                                <asp:DropDownList ID="DropDownList1" runat="server">
+                                                                                                    <asp:ListItem Value="Male" Text="Male"></asp:ListItem>
+                                                                                                    <asp:ListItem Value="Female" Text="Female"></asp:ListItem>
+                                                                                                </asp:DropDownList>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                User Comments:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox id="textareaComments" TextMode="multiline" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr><td colspan="2">Weekly Cumulative</td></tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Duration:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox id="textWeeklyDuration" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                MET Minutes:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox id="textWeeklyMetMinutes" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Calories:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox id="textWeeklyCalories" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                        <tr><td colspan="2">Total Cumulative</td></tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Duration:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox id="TextBox1" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                MET Minutes:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox id="TextBox2" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: middle;">
+                                                                                                Calories:
+                                                                                            </td>
+                                                                                            <td align="right">
+                                                                                                <asp:TextBox id="TextBox3" runat="server" />
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                        <tr>
+                                                                                            <td style="display: none;" align="center">
+                                                                                                <asp:Button Style='display: none;' ID="buttonOK" runat="server" Text="OK" />
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </center>
+                                                                </center>
+                                                            </center>
+                                                        </center>
+                                                    </center>
+                                                </center>
+                                            </center>
+                                        </center>
+                                    </center>
+                                </center>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender" runat="server" TargetControlID="lnkBtnRecordActivity"
+                    PopupControlID="Panel1" BackgroundCssClass="modalBackground" OkControlID="buttonOK"
+                    OnOkScript="onOk()" CancelControlID="imgClose" DropShadow="false" />
+                                
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                         <td valign="top">
                             Brain Power
