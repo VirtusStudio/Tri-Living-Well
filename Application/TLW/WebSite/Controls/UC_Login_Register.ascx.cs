@@ -20,7 +20,7 @@ public partial class UC_Login_Register : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         /*   Membership.CreateUser("pardeep@gmail.com", "abcabsf","pardeep@gmail.com");*/
-
+        Session["popup"] = true;
 
 
         objBackofficeClass = new BackofficeClass(objSqlConnClass.OpenConnection());
@@ -164,8 +164,6 @@ public partial class UC_Login_Register : System.Web.UI.UserControl
 
         Response.Redirect(AppConfig.GetBaseSiteUrl() + "login/login_success.aspx");
     }
-
-
     private void sendOutConfirmationEmail(string sUsername)
     {
         try

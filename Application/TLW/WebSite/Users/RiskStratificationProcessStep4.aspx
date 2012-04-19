@@ -2,11 +2,16 @@
     AutoEventWireup="true" CodeFile="RiskStratificationProcessStep4.aspx.cs" Inherits="Users_RiskStratificationProcessStep4" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+ <script src="../js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.alerts.js" type="text/javascript"></script>
+    <link href="../Styles/jquery.alerts.css" rel="stylesheet" type="text/css" />
       <script src="../Scripts/Common.js" type="text/javascript"></script>
     <link href="../Styles/Table.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/centerRound3.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/Main.css" rel="stylesheet" type="text/css" />
+     
     <link href="../Styles/Grid.css" rel="stylesheet" type="text/css" />
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table>
@@ -301,6 +306,7 @@
                                                                                 <asp:HiddenField ID="hfSecondCategoryName" Value="Walking" runat="server" />
                                                                             </td>
                                                                         </tr>
+
                                                                     </table>
                                                                 </td>
                                                             </tr>
@@ -319,6 +325,10 @@
         </tr>
     </table>
     <script language="javascript" type="text/javascript">
+
+       
+
+
         function ChangeImageOnMouseOver(objImgId, OriginalImg, HoverImage) {
             document.getElementById(objImgId).src = '<%=AppConfig.GetBaseSiteUrl() %>images/icons/' + HoverImage;
         }
@@ -335,6 +345,15 @@
             document.getElementById("trSecondSelectedCategoryDetails").style.display = '';
             document.getElementById("imgSecondCategory").src = '<%=AppConfig.GetBaseSiteUrl() %>images/icons/' + OriginalImg;
             document.getElementById('<%=ancAskQuestion.ClientID %>').href = '<%=AppConfig.GetBaseSiteUrl() %>AskQuestiontoHealthCoach.aspx?catid=' + CategoryId;
+
+            jConfirm('Are you sure want to Review Details?', 'Review Details', function (r) {
+
+                if (r == true) {
+                    OpenCMSPopupWindow(2);
+                }
+            });
+     
+     
         }
 
         function SelectCategory(objImgId, OriginalImg, CategoryId, CategoryName) {
@@ -344,6 +363,14 @@
             document.getElementById("trSelectedCategoryDetails").style.display = '';
             document.getElementById("imgSelected").src = '<%=AppConfig.GetBaseSiteUrl() %>images/icons/' + OriginalImg;
             document.getElementById('<%=ancAskQuestion.ClientID %>').href = '<%=AppConfig.GetBaseSiteUrl() %>AskQuestiontoHealthCoach.aspx?catid=' + CategoryId;
+
+            jConfirm('Are you sure want to Review Details?', 'Review Details', function (r) {
+
+                if (r == true) {
+                    OpenCMSPopupWindow(1);
+                }
+               
+            });
         }
 
         function OpenPopup() {

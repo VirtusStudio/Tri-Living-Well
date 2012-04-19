@@ -401,6 +401,31 @@ public class BackofficeClass
  This is to retreive the extra information of the user to the database
  *******************************************************************************/
 
+    //Function to get User's Role
+
+    public DataSet Mem_GET_Admin(string sUserEmail)
+    {
+        DataSet MyDataSet = new DataSet();
+        try
+        {
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.Connection = MyConnection;
+
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.CommandText = "spMem_GET_UserRole";
+            MyCommand.Parameters.AddWithValue("@UserEmail", sUserEmail);
+
+            MyDataAdapter = new SqlDataAdapter(MyCommand);
+            MyDataAdapter.Fill(MyDataSet);
+
+        }
+        catch (Exception ex)
+        {
+            HttpContext.Current.Response.Write(ex.Message);
+        }
+        return MyDataSet;
+    }
+
     public DataSet Mem_GET_UserInfo(string sUserEmail)
     {
         DataSet MyDataSet = new DataSet();

@@ -9,6 +9,7 @@ public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
 {
     BackofficeClass objBackOfficeClass;
     int intGenderID = 1;
+    public string category = null;
     protected void Page_Load(object sender, EventArgs e)
     {
         // HttpContext.Current.Session["strUserName"] = "ttt@ttt.com";
@@ -183,6 +184,7 @@ public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
 
             int intScore = 0;
             int intCategory = 0;
+
             //intScore = intNegativeRiskFactor - intPositiveRiskFactor;
             intScore = intNegativeRiskFactor;
             objBackOfficeClass = new BackofficeClass();
@@ -207,6 +209,13 @@ public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
                             {
                                 /*Well category Low Risk*/
                                 intCategory = 0;
+                                category = "Well";
+                            }
+                            if (intScore >= 2)
+                            {
+                                /*Living category Medium Risk*/
+                                intCategory = 2;
+                                category = "Living";
                             }
                         }
                         else if ((intGenderCode.Equals(1) && intPresentAge > 45) || (intGenderCode.Equals(2) && intPresentAge > 55))
@@ -215,11 +224,19 @@ public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
                             {
                                 /*Living category Medium Risk*/
                                 intCategory = 2;
+                                category = "Living";
+                            }
+                            if (intScore <= 1)
+                            {
+                                /*Well category Low Risk*/
+                                intCategory = 0;
+                                category = "Well";
                             }
                         }
                         else
                         {
                             intCategory = 1;
+                            category = "Tri";
                             //try and high risk 
                             /*if user given any yes answer at the step 1 questions*/
                         }
@@ -231,7 +248,10 @@ public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
             }
             else
             {  //try and high risk 
-                intCategory = 1;      /*Means user given any yes answer at the step 1 questions*/
+                intCategory = 1;
+                category = "Tri";
+                /*Means user given any yes answer at the step 1 questions*/
+                
             }
 
 
@@ -282,7 +302,7 @@ public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
                     oListQuestionnaireInfo = null;
                     DS1 = null;
                     oUserLib = null;
-                    Response.Redirect(AppConfig.GetBaseSiteUrl() + "Users/RiskStratificationProcessStep3.aspx?id=" + Request.QueryString["id"].ToString() + "&sc=" + AppLib.Encrypt(intScore.ToString()) + "&c=" + AppLib.Encrypt(intCategory.ToString()));
+                    Response.Redirect(AppConfig.GetBaseSiteUrl() + "Users/RiskStratificationProcessStep3.aspx?id=" + Request.QueryString["id"].ToString() + "&sc=" + AppLib.Encrypt(intScore.ToString()) + "&c=" + AppLib.Encrypt(intCategory.ToString()) + "&cat=" + category.ToString());
                 }
             }
         }
@@ -441,6 +461,14 @@ public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
                         {
                             /*Well category Low Risk*/
                             intCategory = 0;
+                            category = "Well";
+                        }
+
+                        if (intScore >= 2)
+                        {
+                            /*Living category Medium Risk*/
+                            intCategory = 2;
+                            category = "Living";
                         }
                     }
                     else if ((intGenderCode.Equals(1) && intPresentAge > 45) || (intGenderCode.Equals(2) && intPresentAge > 55))
@@ -449,11 +477,19 @@ public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
                         {
                             /*Living category Medium Risk*/
                             intCategory = 2;
+                            category = "Living";
+                        }
+                        if (intScore <= 1)
+                        {
+                            /*Well category Low Risk*/
+                            intCategory = 0;
+                            category = "Well";
                         }
                     }
                     else
                     {
                         intCategory = 1;
+                        category = "Tri";
                         //try and high risk 
                         /*if user given any yes answer at the step 1 questions*/
                     }
