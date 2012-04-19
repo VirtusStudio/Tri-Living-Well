@@ -453,4 +453,22 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
     }
     #endregion
 
+    protected void buttonOKClick(Object sender, EventArgs e)
+    {
+
+        string cycling = ddlCycling.SelectedValue;
+        string running = ddlRunning.SelectedValue;
+        string swimming = ddlSwimming.SelectedValue;
+        string conditioning = ddlConditioningExercises.SelectedValue;
+        string sports = ddlSports.SelectedValue;
+        string walking = ddlWalking.SelectedValue;
+        string activityDate = textRecordDate.Text.Trim();
+        int weight = Convert.ToInt32(textRecordWeight.Text.Trim());
+        int duration = Convert.ToInt32(textRecordDuration.Text.Trim());
+        int metMinutes = Convert.ToInt32(textRecordMet.Text.Trim());
+        int energy = Convert.ToInt32(textRecordEnergy.Text.Trim());
+        string intensity = ddlRecordIntensity.SelectedValue;
+        string comments = textareaRecordComments.Text.Trim();
+
+    }
 }
