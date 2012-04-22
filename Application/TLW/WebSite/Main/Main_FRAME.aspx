@@ -162,7 +162,7 @@
 
             <p>
             Cycling:<br />
-            <asp:DropDownList ID="ddlCycling" runat="server" Width="290" >
+            <asp:DropDownList ID="ddlCycling" runat="server" Width="290" OnSelectedIndexChanged="Cycling_Index_Changed" >
             <asp:ListItem Value="not selected" Text="not selected" Selected="True"></asp:ListItem>
             <asp:ListItem Value="bicycling, general" Text="bicycling, general"></asp:ListItem>
             <asp:ListItem Value="bicycling 10 mph, leisure, to work or for pleasure" Text="bicycling 10 mph, leisure, to work or for pleasure"></asp:ListItem>
@@ -173,10 +173,11 @@
             <asp:ListItem Value="bicycling > 20 mph, racing, not drafting" Text="bicycling > 20 mph, racing, not drafting"></asp:ListItem>
             <asp:ListItem Value="bicycling, BMX or mountain" Text="bicycling, BMX or mountain"></asp:ListItem>
             </asp:DropDownList>
+            <asp:CustomValidator runat="server" id="cusCustom" controltovalidate="ddlCycling" onservervalidate="ddlCustom_ServerValidate" errormessage="You must select and activity!" />
             </p>
             <p>
             Running:<br />
-            <asp:DropDownList ID="ddlRunning" runat="server" Width="290" >
+            <asp:DropDownList ID="ddlRunning" runat="server" Width="290" OnSelectedIndexChanged="Running_Index_Changed" >
             <asp:ListItem Value="not selected" Text="not selected" Selected="True"></asp:ListItem>
             <asp:ListItem Value="jogging, general" Text="jogging, general"></asp:ListItem>
             <asp:ListItem Value="running 5 mph (12 minute mile)" Text="running 5 mph (12 minute mile)"></asp:ListItem>
@@ -193,10 +194,11 @@
             <asp:ListItem Value="running cross country" Text="running cross country"></asp:ListItem>
             <asp:ListItem Value="running, general" Text="running, general"></asp:ListItem>
             </asp:DropDownList>
+            <asp:CustomValidator runat="server" id="CustomValidator1" controltovalidate="ddlRunning" onservervalidate="ddlCustom_ServerValidate" errormessage="You must select and activity!" />
             </p>
             <p>
             Swimming:<br />
-            <asp:DropDownList ID="ddlSwimming" runat="server" Width="290" >
+            <asp:DropDownList ID="ddlSwimming" runat="server" Width="290" OnSelectedIndexChanged="Swimming_Index_Changed" >
             <asp:ListItem Value="not selected" Text="not selected" Selected="True"></asp:ListItem>
             <asp:ListItem Value="swimming laps freestyle, slow, moderate or light effort" Text="swimming laps freestyle, slow, moderate or light effort"></asp:ListItem>
             <asp:ListItem Value="swimming laps freestyle, fast, vigorous effort" Text="swimming laps freestyle, fast, vigorous effort"></asp:ListItem>
@@ -210,10 +212,11 @@
             <asp:ListItem Value="swimming , leisurely, not lap swimming, general" Text="swimming , leisurely, not lap swimming, general"></asp:ListItem>
             <asp:ListItem Value="swimming, synchronized" Text="swimming, synchronized"></asp:ListItem>
             </asp:DropDownList>
+            <asp:CustomValidator runat="server" id="CustomValidator2" controltovalidate="ddlSwimming" onservervalidate="ddlCustom_ServerValidate" errormessage="You must select and activity!" />
             </p>
             <p>
             ConditioningExercises:<br />
-            <asp:DropDownList ID="ddlConditioningExercises" runat="server" Width="290" >
+            <asp:DropDownList ID="ddlConditioningExercises" runat="server" Width="290" OnSelectedIndexChanged="ConditioningExercises_Index_Changed" >
             <asp:ListItem Value="not selected" Text="not selected" Selected="True"></asp:ListItem>
             <asp:ListItem Value="aerobic, general" Text="aerobic, general"></asp:ListItem>
             <asp:ListItem Value="aerobic dancing, low impact" Text="aerobic dancing, low impact"></asp:ListItem>
@@ -245,11 +248,11 @@
             <asp:ListItem Value="stretching, hatha yoga" Text="stretching, hatha yoga"></asp:ListItem>
             <asp:ListItem Value="mild stretching" Text="mild stretching"></asp:ListItem>
             <asp:ListItem Value="water aerobics, water calisthenics" Text="water aerobics, water calisthenics"></asp:ListItem>
-            </asp:DropDownList>
+            </asp:DropDownList><asp:CustomValidator runat="server" id="CustomValidator3" controltovalidate="ddlConditioningExercises" onservervalidate="ddlCustom_ServerValidate" errormessage="You must select and activity!" />
             </p>
             <p>
             Sports:<br />
-            <asp:DropDownList ID="ddlSports" runat="server" Width="290" >
+            <asp:DropDownList ID="ddlSports" runat="server" Width="290" OnSelectedIndexChanged="Sports_Index_Changed" >
             <asp:ListItem Value="not selected" Text="not selected" Selected="True"></asp:ListItem>			
             <asp:ListItem Value="basketball game" Text="basketball game"></asp:ListItem>
             <asp:ListItem Value="basketball, non-game, general" Text="basketball, non-game, general"></asp:ListItem>
@@ -298,10 +301,11 @@
             <asp:ListItem Value="volleyball, non-competitive" Text="volleyball, non-competitive"></asp:ListItem>
             <asp:ListItem Value="water skiing" Text="water skiing"></asp:ListItem>
             </asp:DropDownList>
+            <asp:CustomValidator runat="server" id="CustomValidator4" controltovalidate="ddlSports" onservervalidate="ddlCustom_ServerValidate" errormessage="You must select and activity!" />
             </p>
             <p>
             Walking:<br />
-            <asp:DropDownList ID="ddlWalking" runat="server" Width="290" >
+            <asp:DropDownList ID="ddlWalking" runat="server" Width="290" OnSelectedIndexChanged="Walking_Index_Changed" >
             <asp:ListItem Value="not selected" Text="not selected" Selected="True"></asp:ListItem>
             <asp:ListItem Value="walking, less than 2.0 mph, level ground, strolling, very slow" Text="walking, less than 2.0 mph, level ground, strolling, very slow"></asp:ListItem>
             <asp:ListItem Value="walking, 2.0 mph, level, slow pace, firm surface" Text="walking, 2.0 mph, level, slow pace, firm surface"></asp:ListItem>
@@ -317,6 +321,7 @@
             <asp:ListItem Value="walking for pleasure" Text="walking for pleasure"></asp:ListItem>
             <asp:ListItem Value="hiking, cross country" Text="hiking, cross country"></asp:ListItem>
             </asp:DropDownList>
+            <asp:CustomValidator runat="server" id="CustomValidator5" controltovalidate="ddlWalking" onservervalidate="ddlCustom_ServerValidate" errormessage="You must select and activity!" />
             </p>
              
         </div> 
@@ -328,13 +333,26 @@
                 <asp:ImageButton ID="buttonRecordDate" runat="server" ImageUrl="../images/icons/iconcalendar.jpg" Width="20" height="20" />
                 <ajaxToolkit:CalendarExtender ID="calendarButtonExtender" runat="server" TargetControlID="textRecordDate" PopupButtonID="buttonRecordDate" />
             </p>
+            <p>Time:<br />
+                <asp:DropDownList ID="ddlPalEntryTime" runat="server">
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="required"
+                    ValidationGroup="PalEntries_PopUp" ErrorMessage="*Required" ControlToValidate="ddlPalEntryTime"
+                    SetFocusOnError="True"></asp:RequiredFieldValidator>            
+            </p>
+
+
             <p>
                 Weight (lbs):<br /><asp:TextBox ID="textRecordWeight" runat="server" />
                 <asp:RegularExpressionValidator  Runat="server" ID="valNumbersOnly" ControlToValidate="textRecordWeight" Display="Dynamic" ErrorMessage="Please enter numbers only." ValidationExpression="(^([0-9]*|\d*\d{1}?\d*)$)"></asp:RegularExpressionValidator>
             </p>
             <p>
-                Duration (minutes):<br /><asp:TextBox ID="textRecordDuration" runat="server" />
-                <asp:RegularExpressionValidator  Runat="server" ID="RegularExpressionValidator1" ControlToValidate="textRecordDuration" Display="Dynamic" ErrorMessage="Please enter numbers only." ValidationExpression="(^([0-9]*|\d*\d{1}?\d*)$)"></asp:RegularExpressionValidator>
+                Duration (minutes):<br />
+                <asp:DropDownList ID="ddlPalEntryDuration" runat="server">
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" CssClass="required"
+                    ValidationGroup="PalEntries_PopUp" ErrorMessage="*Required" ControlToValidate="ddlPalEntryDuration"
+                    SetFocusOnError="True"></asp:RequiredFieldValidator>
             </p>
             <p>
                 MET Minutes:<br /><asp:TextBox ID="textRecordMet" runat="server" />
@@ -345,15 +363,11 @@
                 <asp:RegularExpressionValidator  Runat="server" ID="RegularExpressionValidator3" ControlToValidate="textRecordEnergy" Display="Dynamic" ErrorMessage="Please enter numbers only." ValidationExpression="(^([0-9]*|\d*\d{1}?\d*)$)"></asp:RegularExpressionValidator>
             <p>
                 Intensity:<br />
-                <asp:DropDownList ID="ddlRecordIntensity" runat="server">
-                    <asp:ListItem Value="not selected" Text="not selected" Selected="True"></asp:ListItem>
-                    <asp:ListItem Value="Very Light" Text="Very Light"></asp:ListItem>
-                    <asp:ListItem Value="Light" Text="Light"></asp:ListItem>
-                    <asp:ListItem Value="Moderate" Text="Moderate"></asp:ListItem>
-                    <asp:ListItem Value="Hard (Vigorous)" Text="Hard (Vigorous)"></asp:ListItem>
-                    <asp:ListItem Value="Very Hard" Text="Very Hard"></asp:ListItem>
-                    <asp:ListItem Value="Maximum" Text="Maximum"></asp:ListItem>
+                <asp:DropDownList ID="ddlPalEntryIntensity" runat="server">
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" CssClass="required"
+                    ValidationGroup="PalEntries_PopUp" ErrorMessage="*Required" ControlToValidate="ddlPalEntryIntensity"
+                    SetFocusOnError="True"></asp:RequiredFieldValidator>
             </p>
             
         </div>
@@ -366,9 +380,9 @@
             <asp:Button ID="buttonOK" runat="server" Text="OK" Width="100" Height="25" OnClick="buttonOKClick"  />
             <asp:Button ID="buttonCancel" runat="server" Text="Cancel" Width="100" Height="25" />
         </div>
-    </div>
-                                        </asp:Panel>
-                                        <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender" runat="server" TargetControlID="lnkBtnRecordActivity" PopupControlID="Panel1" BackgroundCssClass="modalBackground" OkControlID="buttonOK" OnOkScript="onOk()" CancelControlID="imgClose" DropShadow="true" />
+    
+    </asp:Panel>
+    <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender" runat="server" TargetControlID="lnkBtnRecordActivity" PopupControlID="Panel1" BackgroundCssClass="modalBackground" OkControlID="buttonOK" OnOkScript="onOk()" CancelControlID="imgClose" DropShadow="true" />
                                 
                                     </td>
                                 </tr>

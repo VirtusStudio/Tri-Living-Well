@@ -57,6 +57,11 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
 
 
         objTemplateClass = new TemplateClass(objSqlConnClass.OpenConnection());
+
+        ddlPalEntryTime = objSqlConnClass.fillDropDown(ddlPalEntryTime, "Time", "LIST_PAL");
+        ddlPalEntryIntensity = objSqlConnClass.fillDropDown(ddlPalEntryIntensity, "Intensity", "LIST_PAL");
+        ddlPalEntryDuration = objSqlConnClass.fillDropDown(ddlPalEntryDuration, "Duration", "LIST_PAL");
+
     }
 
 
@@ -464,11 +469,82 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
         string walking = ddlWalking.SelectedValue;
         string activityDate = textRecordDate.Text.Trim();
         int weight = Convert.ToInt32(textRecordWeight.Text.Trim());
-        int duration = Convert.ToInt32(textRecordDuration.Text.Trim());
+        //int duration = Convert.ToInt32(textRecordDuration.Text.Trim());
         int metMinutes = Convert.ToInt32(textRecordMet.Text.Trim());
         int energy = Convert.ToInt32(textRecordEnergy.Text.Trim());
-        string intensity = ddlRecordIntensity.SelectedValue;
+        //string intensity = ddlRecordIntensity.SelectedValue;
         string comments = textareaRecordComments.Text.Trim();
 
+
+
     }
+
+    protected void Cycling_Index_Changed(Object sender, EventArgs e)
+    {
+        ddlRunning.SelectedIndex = 0;
+        ddlSwimming.SelectedIndex = 0;
+        ddlConditioningExercises.SelectedIndex = 0;
+        ddlSports.SelectedIndex = 0;
+        ddlWalking.SelectedIndex = 0;
+    }
+
+    protected void Running_Index_Changed(Object sender, EventArgs e)
+    {
+        ddlCycling.SelectedIndex = 0;
+        ddlSwimming.SelectedIndex = 0;
+        ddlConditioningExercises.SelectedIndex = 0;
+        ddlSports.SelectedIndex = 0;
+        ddlWalking.SelectedIndex = 0;
+    }
+
+    protected void Swimming_Index_Changed(Object sender, EventArgs e)
+    {
+        ddlCycling.SelectedIndex = 0;
+        ddlRunning.SelectedIndex = 0;
+        ddlConditioningExercises.SelectedIndex = 0;
+        ddlSports.SelectedIndex = 0;
+        ddlWalking.SelectedIndex = 0;
+    }
+
+    protected void ConditioningExercises_Index_Changed(Object sender, EventArgs e)
+    {
+        ddlCycling.SelectedIndex = 0;
+        ddlRunning.SelectedIndex = 0;
+        ddlSwimming.SelectedIndex = 0;
+        ddlSports.SelectedIndex = 0;
+        ddlWalking.SelectedIndex = 0;
+    }
+
+    protected void Sports_Index_Changed(Object sender, EventArgs e)
+    {
+        ddlCycling.SelectedIndex = 0;
+        ddlRunning.SelectedIndex = 0;
+        ddlSwimming.SelectedIndex = 0;
+        ddlConditioningExercises.SelectedIndex = 0;
+        ddlWalking.SelectedIndex = 0;
+    }
+
+    protected void Walking_Index_Changed(Object sender, EventArgs e)
+    {
+        ddlCycling.SelectedIndex = 0;
+        ddlRunning.SelectedIndex = 0;
+        ddlSwimming.SelectedIndex = 0;
+        ddlConditioningExercises.SelectedIndex = 0;
+        ddlSports.SelectedIndex = 0;
+    }
+
+    protected void ddlCustom_ServerValidate(object sender, ServerValidateEventArgs e)
+    {
+        if(ddlCycling.SelectedIndex == 0 &&
+            ddlRunning.SelectedIndex == 0 &&
+            ddlSwimming.SelectedIndex == 0 &&
+            ddlConditioningExercises.SelectedIndex == 0 &&
+            ddlSports.SelectedIndex == 0 &&
+            ddlWalking.SelectedIndex == 0)
+            e.IsValid = false;
+        else
+            e.IsValid = true;
+            
+    }
+
 }
