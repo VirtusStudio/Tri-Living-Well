@@ -152,7 +152,7 @@ public class PALClass
         return MyDataSet;
     }
 
-    public DataSet PAL_INSERT_PalEntries(string sUserID, string sPalEntryDate, string sPalEntryType, string sPalEntryTime, string sPalEntryDuration, string sPalEntryIntensity, string sPalEntryWeight, string sPalEntryComment)
+    public DataSet PAL_INSERT_PalEntries(string sUserID, string sPalEntryDate, int iPalEntryType, string sPalTypeText, int iPalEntryActivity, string sPalActivityText, string sPalEntryTime, string sPalEntryDuration, string sPalEntryIntensity, string sPalEntryWeight, string sPalEntryComment)
     {
         DataSet MyDataSet = new DataSet();
         try
@@ -164,7 +164,10 @@ public class PALClass
             MyCommand.CommandText = "spPAL_INSERT_PalEntries";
             MyCommand.Parameters.AddWithValue("@USER_ID", sUserID);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_DATE", sPalEntryDate);
-            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TYPE", sPalEntryType);
+            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TYPE", iPalEntryType);
+            MyCommand.Parameters.AddWithValue("@PAL_TYPE_TEXT", sPalTypeText);
+            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_ACTIVITY", iPalEntryActivity);
+            MyCommand.Parameters.AddWithValue("@PAL_ACTIVITY_TEXT", sPalActivityText);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TIME", sPalEntryTime);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_DURATION", sPalEntryDuration);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_INTENSITY", sPalEntryIntensity);
@@ -180,7 +183,7 @@ public class PALClass
         return MyDataSet;
     }
 
-    public DataSet PAL_UPDATE_PalEntries(string sPalEntryID, string sPalEntryDate, string sPalEntryType, string sPalEntryTime, string sPalEntryDuration, string sPalEntryIntensity, string sPalEntryWeight, string sPalEntryComment)
+    public DataSet PAL_UPDATE_PalEntries(string sPalEntryID, string sPalEntryDate, int iPalEntryType, string sPalTypeText, int iPalEntryActivity, string sPalActivityText, string sPalEntryTime, string sPalEntryDuration, string sPalEntryIntensity, string sPalEntryWeight, string sPalEntryComment)
     {
         DataSet MyDataSet = new DataSet();
         try
@@ -192,7 +195,10 @@ public class PALClass
             MyCommand.CommandText = "spPAL_UPDATE_PalEntries";
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_ID", sPalEntryID);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_DATE", sPalEntryDate);
-            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TYPE", sPalEntryType);
+            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TYPE", iPalEntryType);
+            MyCommand.Parameters.AddWithValue("@PAL_TYPE_TEXT", sPalTypeText);
+            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_ACTIVITY", iPalEntryActivity);
+            MyCommand.Parameters.AddWithValue("@PAL_ACTIVITY_TEXT", sPalActivityText);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TIME", sPalEntryTime);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_DURATION", sPalEntryDuration);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_INTENSITY", sPalEntryIntensity);
