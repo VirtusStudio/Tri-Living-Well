@@ -55,6 +55,22 @@
                                                     <asp:Label ID="lblPalEntryTypeText" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
+
+
+                                            <tr class="trAlt">
+                                                <td>
+                                                    Activity
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-left: 10px;">
+                                                    <asp:Label ID="lblPalEntryActivityText" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+
+
+
+
                                             <tr class="trAlt">
                                                 <td>
                                                     Time
