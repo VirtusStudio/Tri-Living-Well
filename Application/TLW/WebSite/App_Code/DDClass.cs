@@ -301,7 +301,7 @@ public class DDClass
             MyCommand.Connection = MyConnection;
 
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.CommandText = "sp_getlatestwell";
+            MyCommand.CommandText = "sp_getlatestwellnessDiaryRecords";
             MyCommand.Parameters.AddWithValue("@UserName", sUserEmail);
 
             MyDataAdapter = new SqlDataAdapter(MyCommand);
