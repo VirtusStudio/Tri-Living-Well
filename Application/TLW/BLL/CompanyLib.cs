@@ -180,6 +180,7 @@ namespace BLL
 
                  if (intRetVal.Equals(0))
                  {*/
+                
                 DAL.CompanyInfo oCompanyInfoDAL = new DAL.CompanyInfo();
                 oCompanyInfoDAL.strCompanyEmail = oCompanyInfo.StrCompanyEmail;
                 oCompanyInfoDAL.strPassword = oCompanyInfo.StrPassword;

@@ -101,7 +101,13 @@ Sys.Application.add_load(PAGE_LOAD);
             </td>
         </tr>
         </table>
-        
+        <br />
+          <div>
+        <asp:Label ID="lblActivitycalender" runat="server"></asp:Label>
+    </div>
+
+    <br />
+
         <div class="description">
             <div style="padding:0px 15px 0px 0px; text-align:right; vertical-align:middle;">
                         <asp:Label ID="lblEmailCoach" runat="server"></asp:Label>
