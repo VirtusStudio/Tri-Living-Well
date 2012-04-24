@@ -290,6 +290,30 @@ public class DDClass
         }
         return MyDataSet;
     }
+
+    //store procedure to get latest wellness
+    public DataSet GetwellnessDate(string sUserEmail)
+    {
+        DataSet MyDataSet = new DataSet();
+        try
+        {
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.Connection = MyConnection;
+
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.CommandText = "sp_getlatestwellnessDiaryRecords";
+            MyCommand.Parameters.AddWithValue("@UserName", sUserEmail);
+
+            MyDataAdapter = new SqlDataAdapter(MyCommand);
+            MyDataAdapter.Fill(MyDataSet);
+
+        }
+        catch (Exception ex)
+        {
+            HttpContext.Current.Response.Write(ex.Message);
+        }
+        return MyDataSet;
+    }
     
 
 

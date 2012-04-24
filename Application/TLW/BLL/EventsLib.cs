@@ -296,6 +296,34 @@ namespace BLL
                         }).ToList();
             }
         }
+
+        public List<Entity.EventInfo> GetWellnessData(string _strUserName)
+        {
+            using (TLWDALDataContext _db = new TLWDALDataContext())
+            {
+                //var result = from customer in _db.tbl_wellnessEntries
+                //             where customer.UserName.Equals(_strUserName)
+                //             select customer;
+
+                //return result.ToList();
+
+
+                return (from cust in _db.tbl_wellnessEntries
+                        where cust.UserName.Equals(_strUserName)
+                        select new Entity.EventInfo()
+                        {
+                            IntEventsId = cust.Id,
+                            UserName = cust.UserName,
+                            Sleep = Convert.ToInt32(cust.Sleep),
+                            Stress = Convert.ToInt32(cust.Stress),
+                            Outlook = Convert.ToInt32(cust.Outlook),
+                            Engagement = Convert.ToInt32(cust.Engagement),
+                            Energy = Convert.ToInt32(cust.Energy),
+                            Day = cust.Day,
+                            Dates = Convert.ToDateTime(cust.Dates)
+                        }).ToList();
+            }
+        }
         #endregion
     }
 }

@@ -224,6 +224,13 @@ function RadCalendar1_SelectDate(sender, eventArgs)
                     </telerik:RadCalendar>
                 </td>
             </tr>
+             <tr>
+            <td colspan="2" class="top" style="padding-left:10px;" >
+             <div style="text-align:right;">
+                        <a href="javascript:popUpWin('Welcome/Content/WellnessDairy.aspx',900,1200);">Diary Metrics</a>
+                    </div>
+            </td>
+            </tr>
             </table>
         </div>
     

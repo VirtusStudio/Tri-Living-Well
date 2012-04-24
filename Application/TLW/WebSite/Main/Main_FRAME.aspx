@@ -197,6 +197,15 @@
                                  
                                     </td>
                                 </tr>
+                                 <tr>
+                                    <td align="center">
+                                       <a href='<%=AppConfig.GetBaseSiteUrl() %>Users/ViewToolsResources.aspx'>
+                                       <%-- <img alt="newsletter" src='<%=AppConfig.GetBaseSiteUrl() %>images/Dashboard_newsLetter.bmp'
+                                         border="0" />--%>
+                                        Tools/Resources
+                                       </a> 
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td align="center">
                                       <a href='<%=AppConfig.GetBaseSiteUrl() %>Forum/default.aspx'>
