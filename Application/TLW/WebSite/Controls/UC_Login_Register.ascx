@@ -67,7 +67,7 @@
                                                                 <a href="javascript:popUpWin('Login/ForgotPassword.aspx',510,350);">Forgot password</a>
                                                             </td>
                                                             <td style="padding-right: 14px;">
-                                                                <asp:LinkButton CssClass="aButtonSmall" ID="LoginButton" runat="server"  CommandName="Login"
+                                                                <asp:LinkButton CssClass="aButtonSmall" ID="LoginButton" runat="server" CommandName="Login"
                                                                     ValidationGroup="ctl00$Login1" Text="Login"></asp:LinkButton>
                                                             </td>
                                                         </tr>

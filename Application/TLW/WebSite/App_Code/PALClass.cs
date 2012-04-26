@@ -345,5 +345,34 @@ public class PALClass
         return MyDataSet;
     }
 
+    public int DurationTextToMinutes(string duration)
+    {
+        duration = duration.Trim();
+        if(duration == "-Select Duration-") return 0;
+        if(duration == "15 min") return 15;
+        if(duration == "30 min") return 30;
+        if(duration == "45 min") return 45;
+        if(duration == "1 hr") return 60;
+        if(duration == "1 h 15 min") return 75;
+        if(duration == "1 h 30 min") return 90;
+        if(duration == "1 h 45 min") return 105;
+        if(duration == "2 hr") return 120;
+        if(duration == "2 h 15 min") return 135;
+        if(duration == "2 h 30 min") return 150;
+        if(duration == "2 h 45 min") return 165;
+        if (duration == "3 hr") return 180;
+        return 0;
+    }
+
+    public decimal GetCaloriesExpended(string weight, string met, string duration)
+    {
+        // calculate energy expended
+        decimal dCalories = 0.0M;
+        decimal dWeight = Convert.ToDecimal(weight);
+        decimal dMET = Convert.ToDecimal(met);
+        decimal dDuration = Convert.ToDecimal(DurationTextToMinutes(duration));
+        dCalories = (((dMET - 1.0M) * 3.5M * (dWeight / 2.2M)) / 200.0M) * dDuration;
+        return dCalories;
+    }
 
 }
