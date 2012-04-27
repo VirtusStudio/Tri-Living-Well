@@ -20,10 +20,15 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         MembershipUser currentUser = Membership.GetUser();
+        
+        
+
+
         if (!AppLib.IsLoggedinSessionExists() || currentUser == null)
             Response.Redirect(AppConfig.GetBaseSiteUrl() + "Welcome/main_frame.aspx", true);
 
-        
+
+
 
         AccountClass objAccountClass;
         objAccountClass = new AccountClass(objSqlConnClass.sqlConnection);
@@ -57,7 +62,49 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
 
 
         objTemplateClass = new TemplateClass(objSqlConnClass.OpenConnection());
-    }
+
+    
+
+        //if (!HttpContext.Current.User.IsInRole("Administrator"))
+        //{
+
+        //    if (Session["popup"] != null)
+        //    {
+        //        bool pop = (bool)Session["popup"];
+
+        //        if (pop)
+        //        {
+        //            BLL.CompanyManager oCompanyManager = new BLL.CompanyManager();
+        //            int no = oCompanyManager.GetQuestion();
+        //            string Script = "jConfirm('You have " + no + " unanswered HealthCoach Message !  Click Ok to answer them', 'HealthCoach Message',function(r) { if(r) {window.location.href = '../Backoffice/UserUtilities/ManageQuestionforHealthCoach.aspx';}});";
+        //            ScriptManager.RegisterStartupScript(this, this.GetType(), "CloseWindow", Script, true);
+        //            Session["popup"] = false;
+        //        }
+        //        else
+        //        {
+        //            Session.Remove(Session["popup"].ToString());
+        //        }
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //}
+
+      }
+
+    
+
+    //private  void ShowQuestion(string val)
+    //{
+        
+    //    Entity.CompanyInfo oCompanyInfo = new Entity.CompanyInfo();
+    //    BLL.CompanyManager oCompanyManager = new BLL.CompanyManager();
+    //    int q = oCompanyManager.GetQuestion(val);
+    //    return q;
+        
+    //}
+
 
 
     //protected void GVNewsLetter_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -266,20 +313,20 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
         {
 
             if (DS.Tables[0].Rows.Count > 0)
-                lblCaloriesAmount.Text = DS.Tables[0].Rows[0]["CALORIE_NUMBER"].ToString();
+                //lblCaloriesAmount.Text = DS.Tables[0].Rows[0]["CALORIE_NUMBER"].ToString();
 
 
 
             oUserInfo = oUserLib.GetFoodExchangeChartByCalories(Convert.ToInt32(DS.Tables[0].Rows[0]["CALORIE_NUMBER"]));
             if (oUserInfo != null)
             {
-                lblDairyAmount.Text = oUserInfo.IntMilk.ToString();
-                lblFruitAmount.Text = oUserInfo.IntFruit.ToString();
-                lblVegetableAmount.Text = oUserInfo.IntVegetable.ToString();
-                lblStarchAmount.Text = oUserInfo.IntStarch.ToString();
-                lblProteinAmount.Text = oUserInfo.IntProtein.ToString();
-                lblFATAmount.Text = oUserInfo.IntFat.ToString();
-                lblWaterAmount.Text = oUserInfo.IntWater.ToString();
+                //lblDairyAmount.Text = oUserInfo.IntMilk.ToString();
+                //lblFruitAmount.Text = oUserInfo.IntFruit.ToString();
+                //lblVegetableAmount.Text = oUserInfo.IntVegetable.ToString();
+                //lblStarchAmount.Text = oUserInfo.IntStarch.ToString();
+                //lblProteinAmount.Text = oUserInfo.IntProtein.ToString();
+                //lblFATAmount.Text = oUserInfo.IntFat.ToString();
+                //lblWaterAmount.Text = oUserInfo.IntWater.ToString();
             }
 
         }
@@ -303,7 +350,7 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
         try
         {
             oHotSectionDetailsLib = new BLL.HotSectionDetailsLib();
-           
+
             dlHotLinks.DataSource = oHotSectionDetailsLib.GetAllHotSections();
             dlHotLinks.DataBind();
 
@@ -401,8 +448,8 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
         try
         {
             oQuestionnaireLib = new BLL.QuestionnaireLib();
-            dlLinks.DataSource = oQuestionnaireLib.GetGlobalCodesByCategoryName("SocialNetworkingLink");
-            dlLinks.DataBind();
+            //dlLinks.DataSource = oQuestionnaireLib.GetGlobalCodesByCategoryName("SocialNetworkingLink");
+            //dlLinks.DataBind();
         }
         catch (Exception ex) { throw ex; }
         finally { oQuestionnaireLib = null; }

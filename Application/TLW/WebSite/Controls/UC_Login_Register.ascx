@@ -2,7 +2,8 @@
     Inherits="UC_Login_Register" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register Src="UC_Visitlog_Visitlog.ascx" TagName="UC_Visitlog_Visitlog" TagPrefix="uc1" %>
-<div>
+<div style="float:left; width:700px;">
+ <div style="float:left; width:300px; padding-right:20px;">
     <center class="Round4">
         <center>
             <center>
@@ -22,6 +23,8 @@
                                                     </td>
                                                 </tr>
                                             </table>
+
+                                           
                                             <asp:Login runat="server" ID="Login1"  OnLoggedIn="OnLoggedIn" OnLoginError="Login1_LoginError"
                                                 DestinationPageUrl="login/login_success.aspx">
                                                 <LayoutTemplate>
@@ -74,6 +77,7 @@
                                                     </table>
                                                 </LayoutTemplate>
                                             </asp:Login>
+ 
                                         </center>
                                     </center>
                                 </center>
@@ -84,6 +88,8 @@
             </center>
         </center>
     </center>
+    </div>
+     <div style="float:left; width:300px;">
     <center class="Round4">
         <center>
             <center>
@@ -134,6 +140,7 @@
             </center>
         </center>
     </center>
+    </div>
 </div>
 <uc1:UC_Visitlog_Visitlog ID="UC_Visitlog_Visitlog1" runat="server" />
 <%--<telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">--%>

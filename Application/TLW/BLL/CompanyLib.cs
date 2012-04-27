@@ -20,6 +20,7 @@ using System.Linq;
 using System.Text;
 using DAL;
 using Entity;
+
 namespace BLL
 {
     public class CompanyManager
@@ -772,6 +773,37 @@ namespace BLL
                                       StrUserFullName = _ci.FNAME + " " + _ci.LNAME
                                   }).SingleOrDefault();
                 return _varRetVal;
+            }
+        }
+
+
+        public int GetQuestion()
+        {
+            using (TLWDALDataContext _db = new TLWDALDataContext())
+            {
+                var res = (from c in _db.QuestionsForHealthCoaches
+                           where c.chrIsAnsweredGiven == Convert.ToChar('N')
+                           select c.chrIsAnsweredGiven).Count();
+
+                int result = Convert.ToInt32(res);
+                return result;
+            }
+        }
+
+        public int GetAnswers(string useranme)
+        {
+
+           
+
+            using (TLWDALDataContext _db = new TLWDALDataContext())
+            {
+                var res = (from c in _db.QuestionsForHealthCoaches
+                           where c.strUserName.Equals(useranme)
+                           && c.chrIsAnsweredGiven == Convert.ToChar('Y') 
+                           select c.chrIsAnsweredGiven).Count();
+
+                int result = Convert.ToInt32(res);
+                return result;
             }
         }
 

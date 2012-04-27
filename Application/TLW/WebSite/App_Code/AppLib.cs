@@ -591,6 +591,8 @@ Note:
  *********************************************************************/
     public static void SendMailToUser(string mailTo, string emailSubject, string emailBody, string mailFrom)
     {
+        //Code commented and put our code
+      
         try
         {
             //int UserId = AppLib.GetUserIDByEmail(mailTo);
@@ -610,6 +612,9 @@ Note:
             myMail.Body = emailBody;
             SmtpMail.Host = AppConfig.GetSMTPserver();
             SmtpMail.Port = 25;
+            SmtpMail.EnableSsl = true;
+            SmtpMail.DeliveryMethod = SmtpDeliveryMethod.Network;
+            
             SmtpMail.Send(myMail);
         }
         catch (Exception exc)
@@ -618,6 +623,37 @@ Note:
             //msg = Resources.Resource.strErrorMSGTryAgain;
             //throw new RentAlpsException(msg, exc);
         }
+        
+        //SmtpClient client = new SmtpClient();
+        //client.DeliveryMethod = SmtpDeliveryMethod.Network;
+        //client.EnableSsl = true;
+        //client.Host = "smtp.gmail.com";
+        //client.Port = 587;
+        //System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("mytransithome@gmail.com", "Test1234");
+        //client.UseDefaultCredentials = false;
+        //client.Credentials = credentials;
+        //try
+        //{
+        //    MailMessage msg = new MailMessage();
+        //    msg.From = new MailAddress(mailFrom);
+
+        //    msg.To.Add(new MailAddress(mailTo.ToLower()));
+        //    msg.Subject = emailSubject;
+        //    msg.IsBodyHtml = true;
+
+        //    msg.Body = string.Format(emailBody);
+
+
+        //    client.Send(msg);
+            
+        //}
+
+        //catch (Exception exc)
+        //{
+        //    string msg;
+        //    //msg = Resources.Resource.strErrorMSGTryAgain;
+        //    //throw new RentAlpsException(msg, exc);
+        //}
     }
 
     /*Sub Header***********************************************************
@@ -747,15 +783,50 @@ Note:
 *********************************************************************/
     public static string GetSubString(string _strString, int _intRetCharacter)
     {
-        if (_intRetCharacter < _strString.Length)
+        if (_strString.Trim() == "-1")
         {
-            return "<span title='" + _strString + "'>" + _strString.Substring(0, _intRetCharacter) + "..." + "</span>";
+            return "<span title='" + _strString + "'> - </span>";
+
         }
         else
         {
-            return "<span title='" + _strString + "'>" + _strString + "</span>";
+            if (_intRetCharacter < _strString.Length)
+            {
+                return "<span title='" + _strString + "'>" + _strString.Substring(0, _intRetCharacter) + "..." + "</span>";
+            }
+            else
+            {
+                return "<span title='" + _strString + "'>" + _strString + "</span>";
+            }
         }
     }
+
+    public static string GetDayOfWeek(string dayNo)
+    {
+
+
+        switch (dayNo)
+        {
+            case "1":
+                return "Sunday";
+            case "2":
+                return "Monday";
+            case "3":
+                return "Tuesday";
+            case "4":
+                return "Wednesday";
+            case "5":
+                return "Thursday";
+            case "6":
+                return "Friday";
+            case "7":
+                return "Saturday";
+            // ...
+        }
+
+        return "";
+    }
+
     /*Sub Header***********************************************************
 Function Name: InsertVisitedSectionDetails
 Functionality: This function is used to insert the section visited by user.

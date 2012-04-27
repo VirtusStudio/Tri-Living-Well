@@ -424,6 +424,31 @@ public class BackofficeClass
         return MyDataSet;
     }
 
+    //code to get Administrator
+
+    public DataSet Mem_GET_Admin(string sUserEmail)
+    {
+        DataSet MyDataSet = new DataSet();
+        try
+        {
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.Connection = MyConnection;
+
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.CommandText = "sp_type";
+            MyCommand.Parameters.AddWithValue("@UserEmail", sUserEmail);
+
+            MyDataAdapter = new SqlDataAdapter(MyCommand);
+            MyDataAdapter.Fill(MyDataSet);
+
+        }
+        catch (Exception ex)
+        {
+            HttpContext.Current.Response.Write(ex.Message);
+        }
+        return MyDataSet;
+    }
+
     public DataSet Mem_GET_UserInfo_BY_UserId(string sUserID)
     {
         DataSet MyDataSet = new DataSet();

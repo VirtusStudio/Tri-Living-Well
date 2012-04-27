@@ -21,6 +21,7 @@ public partial class Users_ViewLibraries : System.Web.UI.Page
         if (!IsPostBack)
         {
             BindLibrary();
+            BindCMSText();
             #region Insert visited log details
 
             AppLib.InsertVisitedSectionDetails("User View library");
@@ -89,6 +90,18 @@ public partial class Users_ViewLibraries : System.Web.UI.Page
         GVLibrary.DataSource = oNewsLib.GetUserFavoriteLibrary(AppLib.GetLoggedInUserName(), "User");
         GVLibrary.DataBind();
         oNewsLib = null;
+    }
+    private void BindCMSText()
+    {
+        TextAreaClass objTextAreaClass;
+        SqlConnClass objSqlConnClass = new SqlConnClass();
+        objTextAreaClass = new TextAreaClass(objSqlConnClass.OpenConnection());
+        DataSet DS = objTextAreaClass.TxA_Get_TextAreas("Libraries", "1");
+        lbltextcontent.Text = DS.Tables[0].Rows[0]["TextAreaHTML"].ToString();
+
+        DS = null;
+        objTextAreaClass = null;
+        objSqlConnClass = null;
     }
 
 }

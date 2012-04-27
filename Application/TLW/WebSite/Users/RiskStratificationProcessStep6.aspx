@@ -8,6 +8,7 @@
     <link href="../Styles/Grid.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">
     <table>
         <tr id="trContent" runat="server">
             <td>
@@ -216,10 +217,11 @@
             </td>
         </tr>
     </table>
+    </div>
     <script language="javascript" type="text/javascript">
         function OpenPopup(strPageName) {
             var FullUrl = '<%=AppConfig.GetBaseSiteUrl() %>Welcome/Content/' + strPageName + '.aspx';
-            var newwindow = window.open(FullUrl, 'AskQuestion', 'height=400,width=600,status=no,toolbar=no,location=no,menubar=no,titlebar=no,scrollbars=yes');
+            var newwindow = window.open(FullUrl, 'AskQuestion', 'height=600,width=900,status=no,toolbar=no,location=no,menubar=no,titlebar=no,scrollbars=yes');
 
             if (window.focus) { newwindow.focus() }
 

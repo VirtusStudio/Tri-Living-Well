@@ -42,7 +42,7 @@ function RadCalendar1_SelectDate(sender, eventArgs)
 }
 </script>
 </telerik:RadCodeBlock>
-
+<div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">
         <table>
             <tr>
                 <td>
@@ -114,6 +114,7 @@ function RadCalendar1_SelectDate(sender, eventArgs)
                             <td><asp:Label ID="lblField_04Friday" Text="12" runat="server"></asp:Label></td>
                             <td><asp:Label ID="lblField_04Saturday" Text="12"  runat="server"></asp:Label></td>
                             <td></td>
+                            
                         </tr>
                         <tr class="trAlt">
                             <td><asp:Label id="lblField_05Type" runat="server"></asp:Label></td>
@@ -224,6 +225,13 @@ function RadCalendar1_SelectDate(sender, eventArgs)
                     </telerik:RadCalendar>
                 </td>
             </tr>
+          <%--  <tr>
+            <td colspan="2" class="top" style="padding-left:10px;" >
+             <div style="text-align:right;">
+                        <a href="javascript:popUpWin('Welcome/Content/WellnessDairy.aspx',900,1200);">Diary Metrics</a>
+                    </div>
+            </td>
+            </tr>--%>
             </table>
         </div>
     
@@ -516,6 +524,6 @@ function RadCalendar1_SelectDate(sender, eventArgs)
     <br />
       
         <uc2:UC_DD_DdEntries_PopUp id="UC_DD_DdEntries_PopUp1" runat="server"></uc2:UC_DD_DdEntries_PopUp>
-    
+    </div>
 
         </asp:Content>

@@ -11,6 +11,9 @@
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<script src="../js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.alerts.js" type="text/javascript"></script>
+    <link href="../Styles/jquery.alerts.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/Common.js" type="text/javascript"></script>
     <script type="text/javascript">
         function popupOpen(path, x, y) {
@@ -20,193 +23,99 @@
             try { windownew.focus(); } catch (err) { }
         }
     </script>
+
+    <style type = "text/css">
+    
+    .right_quicklinks ul li a 
+    {
+        font-size: 12px;
+        }
+    
+    
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_CONTENT" runat="server"
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
-    <table>
-        <tr>
-            <td>
-                <table width="100%">
-                    <tr>
-                        <td>
-                            <table width="20%" border="1">
-                                <tr>
-                                    <td align="center" valign="top">
-                                        Water
-                                    </td>
-                                    <td align="center" valign="top">
-                                        <asp:Label ID="lblWaterAmount" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" valign="top">
-                                        <a href='#' onclick="javascript:ShowPopup('Welcome/Content/MilkDairy.aspx')" class="lnkBtn">
-                                            Milk/ Dairy</a>
-                                    </td>
-                                    <td align="center" valign="top">
-                                        <asp:Label ID="lblDairyAmount" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" valign="top">
-                                        <a href='#' onclick="javascript:ShowPopup('Welcome/Content/Fruit.aspx')" class="lnkBtn">
-                                            Fruit</a>
-                                    </td>
-                                    <td align="center" valign="top">
-                                        <asp:Label ID="lblFruitAmount" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" valign="top">
-                                        <a href='#' onclick="javascript:ShowPopup('Welcome/Content/Vegetables.aspx')" class="lnkBtn">
-                                            Vegetables</a>
-                                    </td>
-                                    <td align="center" valign="top">
-                                        <asp:Label ID="lblVegetableAmount" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" valign="top">
-                                        <a href='#' onclick="javascript:ShowPopup('Welcome/Content/Starch.aspx')" class="lnkBtn">
-                                            Starch</a>
-                                    </td>
-                                    <td align="center" valign="top">
-                                        <asp:Label ID="lblStarchAmount" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" valign="top">
-                                        <a href='#' onclick="javascript:ShowPopup('Welcome/Content/Protein.aspx')" class="lnkBtn">
-                                            Protein</a>
-                                    </td>
-                                    <td align="center" valign="top">
-                                        <asp:Label ID="lblProteinAmount" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" valign="top">
-                                        <a href='#' onclick="javascript:ShowPopup('Welcome/Content/Fats.aspx')" class="lnkBtn">
-                                            Fats</a>
-                                    </td>
-                                    <td align="center" valign="top">
-                                        <asp:Label ID="lblFATAmount" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" valign="top">
-                                        Calories
-                                    </td>
-                                    <td align="center" valign="top">
-                                        <asp:Label ID="lblCaloriesAmount" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" colspan="2" valign="top">
-                                        <a href='<%=AppConfig.GetBaseSiteUrl() %>Users/FoodJournal.aspx' class="lnkBtn">Food
-                                            Journal</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" colspan="2" valign="top">
-                                        <a href='<%=AppConfig.GetBaseSiteUrl() %>Main/MyNutrition.aspx' class="lnkBtn">My Nutrition</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center" colspan="2" valign="top">
-                                        <a href="javascript:editCalorie();" class="lnkBtn">Re-Calculate</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" align="center">
-                            Physical Fitness
-                        </td>
-                        <td valign="top">
-                            Brain Power
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top">
-                            <table><tr style="height:15px;"><td align="center">&nbsp;</td></tr>
-                                <tr><td align="center"><b>Information Portal</b></td></tr><tr style="height:15px;"><td align="center">&nbsp;</td></tr>
-                                <tr>
-                                    <td align="center">
-                                       <a href='<%=AppConfig.GetBaseSiteUrl() %>Users/ViewNewsletters.aspx'>
-                                        <img alt="newsletter" src='<%=AppConfig.GetBaseSiteUrl() %>images/Dashboard_newsLetter.bmp'
-                                       
-                                         border="0" />
-                                       </a> 
-                                    </td>
-                                </tr>
-                                <tr style="height:50px; vertical-align:middle;">
-                                    <td align="center">
-                                        Current Icon
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                          <a href='<%=AppConfig.GetBaseSiteUrl() %>Users/ViewLibraries.aspx'>
-                                            <img alt="library" src='<%=AppConfig.GetBaseSiteUrl() %>images/Dashboard_library.bmp'
-                                       
-                                         border="0" />
-                                          </a> 
-                                 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                      <a href='<%=AppConfig.GetBaseSiteUrl() %>Forum/default.aspx'>
-                                           <img alt="forum" src='<%=AppConfig.GetBaseSiteUrl() %>images/Dashboard_forum.bmp'
-                                       
-                                         border="0" /><a></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        Visit us on
-                                        <br />
-                                        <asp:DataList ID="dlLinks" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
-                                            <ItemTemplate>
-                                                <table cellpadding="2" cellspacing="2" border="0">
-                                                    <tr>
-                                                        <td>
-                                                            <a href='<%#Eval("StrValue") %>' target="_blank">
-                                                                <img runat="server" id="imgLinks" src='<%#GetImagePath(Eval("StrValueCode").ToString()) %>'
-                                                                    alt="" height="30" width="30" border="0" /></a>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </ItemTemplate>
-                                        </asp:DataList>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td colspan="2" align="left">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <center class="Round5">
-                                            <center>
-                                                <center>
-                                                    <center>
-                                                        <center>
-                                                            <center>
-                                                                <center>
-                                                                    <center>
-                                                                        <center>
-                                                                            <center>
-                                                                                <table class="Round5_tblHeader">
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            What's Hot
-                                                                                        </td>
-                                                                                        <td style="text-align: right;">
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </table>
-                                                                                <div class="gridItem">
+    <div role="main" class="contentarea">
+        <%--<div class="topmainheadings">
+            <h1>
+                <img src="images/mydashbordhead.png" alt="" border="0"></h1>
+        </div>--%>
+        <div class="clear">
+        </div>
+        <!-- Graph start here -->
+        <div class="graphwrapper">
+            <div class="mid_box">
+                <div class="mid_boxhead">
+                    Nutritional Journal</div>
+                <div class="mid_boxbody">
+                    <img src="images/graph1.png" alt="" border="0">
+                </div>
+            </div>
+            <div class="mid_box">
+                <div class="mid_boxhead">
+                    Physical Fitness</div>
+                <div class="mid_boxbody">
+                    <img src="images/graph2.png" alt="" border="0">
+                </div>
+            </div>
+            <div class="mid_box">
+                <div class="mid_boxhead">
+                    Brain Power</div>
+                <div class="mid_boxbody">
+                   <%-- <a href="../Welcome/Content/WellnessDairy.aspx"><img src="images/graph3.png"  alt="" border="0" /></a>--%>
+                   <%-- <a href="javascript:popUpWin('Welcome/Content/WellnessDairy.aspx',900,1200);"><img src="images/graph3.png"  alt="" border="0" /></a>--%>
+                  <%--  <a href="javascript:OpenPopup();"><img src="images/graph3.png"  alt="" border="0" /></a>--%>
+
+                    <a href="../Welcome/Content/WellnessDairy.aspx" onclick="basicPopup(this.href);return false"><img src="images/graph3.png"  alt="" border="0" /></a>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Graph End here -->
+        <div class="clear">
+        </div>
+        <!-- left area start here -->
+        <div class="left_informations">
+            <h1>
+                Information Portal</h1>
+            <ul>
+                <li class="news"><a href="../Users/ViewNewsletters.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Newsletters</p></a></li>
+                <li class="current"><a href="#"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Current</p></a></li>
+                <li class="library"><a href="../Users/ViewLibraries.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Library</p></a></li>
+                <li class="forum"><a href="../Forum/default.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Forum</p></a></li>
+            </ul>
+            <div class="visitusicons">
+                <h1>
+                    Visit Us on:</h1>
+                <ul>
+                    <li class="facebookicon"><a href="#"><img src="../images/visitusiconsimg.png" alt="" border="0">Facebook</a></li>
+                    <li class="twittericon"><a href="#"><img src="../images/visitusiconsimg.png" alt="" border="0">twitter</a></li>
+                    <li class="blogicon"><a href="#"><img src="../images/visitusiconsimg.png" alt="" border="0">blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- left area End here -->
+        <!-- right area start here -->
+        <div class="rightwrapper">
+            <div class="rightwatshot">
+                <div class="rightwatshothead">
+                </div>
+                <div class="rightwatshotcenter">
+                   <%-- <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                        unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                    <p>
+                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially unchanged. It was popularised in the 1960s with the release
+                        of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>--%>
+
+                         <%-- <div class="gridItem">--%>
                                                                                     <asp:DataList ID="dlHotLinks" runat="server" RepeatColumns="1" RepeatDirection="Horizontal">
                                                                                         <ItemTemplate>
                                                                                             <table cellpadding="2" cellspacing="2" border="0">
@@ -220,213 +129,72 @@
                                                                                             </table>
                                                                                         </ItemTemplate>
                                                                                     </asp:DataList>
-                                                                                </div>
-                                                                            </center>
-                                                                        </center>
-                                                                    </center>
-                                                                </center>
-                                                            </center>
-                                                        </center>
-                                                    </center>
-                                                </center>
-                                            </center>
-                                        </center>
-                                    </td>
+                                                                           <%--     </div>--%>
 
 
-                                </tr>
 
-                                <tr><td>
-                                    <table>
 
-                                        <tr><td colspan="4">
-                                            <center class="Round5">
-                                            <center>
-                                                <center>
-                                                    <center>
-                                                        <center>
-                                                            <center>
-                                                                <center>
-                                                                    <center>
-                                                                        <center>
-                                                                            <center>
-                                                                                <table class="Round5_tblHeader">
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            Quick Links
-                                                                                        </td>
-                                                                                        <td style="text-align: right;">
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </table>
-                                                                                 </center>
-                                                                        </center>
-                                                                    </center>
-                                                                </center>
-                                                            </center>
-                                                        </center>
-                                                    </center>
-                                                </center>
-                                            </center>
-                                        </center>
 
-                                        </td></tr>
-                                        <tr><td valign="top" align="center">
-                                              <a href="javascript:popupOpen('MyProgram/MyProgram.aspx',700,600);">
-                                              <img src='<%=AppConfig.GetBaseSiteUrl() %>images/myProgram.bmp' alt="" border="0" /></a>
-                                      
-                                        </td>
-                                        <td valign="top" align="center"><a href="javascript:popupOpen('MyNutrition/MyNutrition.aspx',700,600);"><img src='<%=AppConfig.GetBaseSiteUrl() %>images/myNutrition.bmp' alt="" border="0" /></a>
-                                        </td><td valign="top" align="center">
-                                            Activity Icon
-                                        </td>
-                                        <td valign="top" align="center">
-                                        <a href="javascript:popupOpen('DDs/MealExchange/HTML_MealExchange.aspx',700,600);"><img src='<%=AppConfig.GetBaseSiteUrl() %>images/meal_exchange.bmp' alt="" border="0" /></a>
-                                        </td>
-                                        </tr>
-                                    </table>
-                                </td></tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr><td>      <uc5:UC_DD_Nutrition_Caluclator_PopUp id="UC_DD_Nutrition_Caluclator_PopUp1" runat="server"></uc5:UC_DD_Nutrition_Caluclator_PopUp>
-         </td></tr>
-        <tr style="display:none;">
-            <td class="top">
-                <div class="title">
-                    What's New?</div>
-                <div class="description">
-                     
-                    <center class="Round3">
-                        <center>
-                            <center>
-                                <center>
-                                    <center>
-                                        <center>
-                                            <center>
-                                                <center>
-                                                    <center>
-                                                        <center>
-                                                            <table class="Round3_tblHeader">
-                                                                <tr>
-                                                                    <td>
-                                                                        Announcements
-                                                                    </td>
-                                                                    <td style="text-align: right;">
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        <%--      <div class="gridItem">
-                                                                <asp:GridView ID="GVAnnouncements" AutoGenerateColumns="False" runat="server" EmptyDataText="<br /><br />No Record Found.<br /><br />"
-                                                                    EmptyDataRowStyle-CssClass="required" EmptyDataRowStyle-HorizontalAlign="Center"
-                                                                    Width="100%" AllowPaging="false" AllowSorting="false" ShowHeader="false" CellSpacing="1"
-                                                                    CellPadding="0" BorderWidth="1" GridLines="None" OnRowCommand="GVAnnouncements_RowCommand"
-                                                                    OnRowDataBound="GVAnnouncements_RowDataBound">
-                                                                    <RowStyle BackColor="White" />
-                                                                    <Columns>
-                                                                        <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Title"
-                                                                            ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblNewsLetterId" runat="server" Visible="false" Text='<%#Eval("IntNewsLetterId") %>'></asp:Label>
-                                                                                <span title='<%#Eval("StrTitle").ToString() %>'>
-                                                                                    <%#AppLib.GetSubString(Eval("StrTitle").ToString(), 30)%></span>
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Title"
-                                                                            ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
-                                                                            <ItemTemplate>
-                                                                                <asp:LinkButton ID="lnkFavoriteNewsLetter" CssClass="lnkBtn" runat="server" Text='<%#Eval("AddRemoveFromFavorite") %>'
-                                                                                    CommandArgument='<%#Eval("IntNewsLetterId") %>' CommandName="AddToFavorite"></asp:LinkButton>
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                    </Columns>
-                                                                </asp:GridView>
-                                                            </div>--%>
-                                                        </center>
-                                                    </center>
-                                                </center>
-                                            </center>
-                                        </center>
-                                    </center>
-                                </center>
-                            </center>
-                        </center>
-                    </center>
-                    <center class="Round3">
-                        <center>
-                            <center>
-                                <center>
-                                    <center>
-                                        <center>
-                                            <center>
-                                                <center>
-                                                    <center>
-                                                        <center>
-                                                            <table class="Round3_tblHeader">
-                                                                <tr>
-                                                                    <td>
-                                                                        Events
-                                                                    </td>
-                                                                    <td style="text-align: right;">
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <div class="gridItem">
-                                                             <%--   <asp:GridView ID="GVEvents" AutoGenerateColumns="False" runat="server" EmptyDataText="<br /><br />No Record Found.<br /><br />"
-                                                                    EmptyDataRowStyle-CssClass="required" EmptyDataRowStyle-HorizontalAlign="Center"
-                                                                    Width="100%" AllowPaging="false" AllowSorting="false" ShowHeader="false" CellSpacing="1"
-                                                                    CellPadding="0" BorderWidth="1" GridLines="None" OnRowCommand="GVEvents_RowCommand"
-                                                                    OnRowDataBound="GVEvents_RowDataBound">
-                                                                    <RowStyle BackColor="White" />
-                                                                    <Columns>
-                                                                        <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Title"
-                                                                            ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblNewsLetterId" runat="server" Visible="false" Text='<%#Eval("IntNewsLetterId") %>'></asp:Label>
-                                                                                <span title='<%#Eval("StrTitle").ToString() %>'>
-                                                                                    <%#AppLib.GetSubString(Eval("StrTitle").ToString(), 30)%></span>
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Title"
-                                                                            ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
-                                                                            <ItemTemplate>
-                                                                                <asp:LinkButton ID="lnkFavoriteNewsLetter" CssClass="lnkBtn" runat="server" Text='<%#Eval("AddRemoveFromFavorite") %>'
-                                                                                    CommandArgument='<%#Eval("IntNewsLetterId") %>' CommandName="AddToFavorite"></asp:LinkButton>
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                    </Columns>
-                                                                </asp:GridView>--%>
-                                                            </div>
-                                                        </center>
-                                                    </center>
-                                                </center>
-                                            </center>
-                                        </center>
-                                    </center>
-                                </center>
-                            </center>
-                        </center>
-                    </center>
-                     
+
+
+
+
+
                 </div>
-            </td>
-            <td style="width: 3px;">
-            </td>
-            <td style="display: none;" class="top">
-               <%-- <asp:LoginView ID="LoginView1" runat="server">
-                    <LoggedInTemplate>
-                        <uc3:UC_Home_1_Control ID="UC_Home_1_Control1" runat="server" />
-                    </LoggedInTemplate>
-                    <AnonymousTemplate>
-                        <uc2:UC_Login_Register ID="UC_Login_Register1" runat="server" />
-                    </AnonymousTemplate>
-                </asp:LoginView>--%>
-            </td>
-        </tr>
-    </table>
+                <div class="rightwatshotdown">
+                </div>
+            </div>
+            <div class="right_quicklinks">
+                <div class="right_quicklinkshead">
+                </div>
+                <div class="right_quicklinkscenter">
+                    <ul>
+                        <li class="myprogram"><a href="javascript:popUpWin('Main/MyProgram/MyProgram.aspx',900,650);">
+                            <img src ="../Images/iconssetimg.png" alt="" border="0"><p>My program</p></a></li>
+                        <li class="nutrition"><a href="javascript:popUpWin('Main/MyNutrition/MyNutrition.aspx',900,650);">
+                            <img src="../Images/iconssetimg.png" alt="" border="0"><p>Nutrition</p></a></li>
+                        <li class="activity_calendar"><a href="../Main/PALs/PAL_TABS.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Activity Calendar</p></a></li>
+                        <li class="mealexchange"><a href="javascript:popUpWin('Main/DDs/MealExchange/HTML_MealExchange.aspx',900,650);">
+                            <img src="../images/iconssetimg.png" alt="" border="0"><p>Meal Exchange</p></a></li>
+                    </ul>
+                   
+                </div>
+                <div class="right_quicklinksdown">
+                </div>
+            </div>
+        </div>
+        <!-- right area End here -->
+    </div>
+    <div class="clear">
+    </div>
+    <!-- footer start here -->
+    <footer>
+		<div class="footer_left">
+			<p>Tri-Living Well</p>
+			<p>1008 Upper Gulph Road</p>
+			<p>Suite 300</p>
+			<p>Wayne, PA 19087</p>
+		</div>
+		
+		<div class="footer_right">
+			<p>(484) 367-7016</p>
+			<p>Email: <a href="mailto:support@TriLivingWell.com">support@TriLivingWell.com</a></p>
+		</div>
+		
+  </footer>
+    <!-- footer End here -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>        window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+        (function (d, t) {
+            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s)
+        } (document, 'script'));
+    </script>
     <script language="javascript" type="text/javascript">
         function ShowPopup(varPagePath) {
             var varPath = '<%=AppConfig.GetBaseSiteUrl() %>' + varPagePath;
@@ -434,4 +202,35 @@
         }
        
     </script>
+
+
+    <script type="text/javascript">
+        function popUpWin(path, x, y) {
+
+            var sURL = '<%=AppConfig.GetBaseSiteUrl() %>' + path;
+            var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width=' + x + ',height=' + y + ',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
+            var windownew = window.open(sURL, "new_window", features);
+            try { windownew.focus(); } catch (err) { }
+        }
+        function load(Filepath) {
+            if (Filepath.indexOf("//") > -1) {
+                window.location = Filepath;
+            }
+            else {
+                window.location = '<%=AppConfig.GetBaseSiteUrl() %>' + Filepath;
+            }
+        }
+        </script>
+
+    <script language="javascript" type="text/javascript">
+        function basicPopup(url) {
+            popupWindow = window.open(url, 'popUpWindow', 'height=700,width=900,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+        }
+
+
+</script>
+
+
+
+
 </asp:Content>

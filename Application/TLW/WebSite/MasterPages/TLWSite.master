@@ -7,6 +7,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<script src="../js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.alerts.js" type="text/javascript"></script>
+    <link href="../Styles/jquery.alerts.css" rel="stylesheet" type="text/css" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
         <script src="<%=AppConfig.GetBaseSiteUrl() %>Scripts/Common.js" type="text/javascript"></script>
@@ -61,14 +64,14 @@
                     </div>
                     <table style="width: 950px;">
                         <tr>
-                            <td class="top Round4Container">
+                            <%--<td class="top Round4Container">
                                 <div>
                                     <uc1:UC_Login_Register ID="UC_Login_Register1" runat="server" />
                                 </div>
                                 <div>
                                     <uc2:UC_Announcements ID="UC_Announcements1" runat="server" />
                                 </div>
-                            </td>
+                            </td>--%>
                             <td class="top Round5Container" style="width: 100%;">
                                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                                 </asp:ContentPlaceHolder>

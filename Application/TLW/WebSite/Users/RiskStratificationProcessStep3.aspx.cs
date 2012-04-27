@@ -16,10 +16,26 @@ public partial class Users_RiskStratificationProcessStep3 : System.Web.UI.Page
             return;
         }
 
-
         if (Request.QueryString["sc"] != null)
         {
-            lblScore.Text = AppLib.Decrypt(Request.QueryString["sc"].ToString());
+            lblScore.Text = AppLib.Decrypt(Request.QueryString["sc"].ToString()) + " and " + "Category is" + Request.QueryString["cat"].ToString();
+        }
+
+        if (Request.QueryString["cat"].ToString() == "Tri")
+        {
+            multiTabs.ActiveViewIndex = 0;
+            menuTabs.Items[0].Selected = true;
+            
+        }
+        else if (Request.QueryString["cat"].ToString() == "Living")
+        {
+            multiTabs.ActiveViewIndex = 1;
+            menuTabs.Items[1].Selected = true;
+        }
+        else
+        {
+            multiTabs.ActiveViewIndex = 2;
+            menuTabs.Items[2].Selected = true;
         }
 
         //AppLib.GetLoggedInUserName());

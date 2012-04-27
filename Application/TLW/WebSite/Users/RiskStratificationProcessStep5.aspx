@@ -8,6 +8,7 @@
     <link href="../Styles/Grid.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">
     <table border="0">
         <tr>
             <td align="center">
@@ -215,6 +216,7 @@
             </td>
         </tr>
     </table>
+    </div>
     <script language="javascript" type="text/javascript">
         function calcActivityFactor() {
             var sActivityLevel = document.getElementById('<%=ddlActivity.ClientID %>').value;

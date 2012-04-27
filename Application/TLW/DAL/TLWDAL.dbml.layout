@@ -87,7 +87,7 @@
         <elementListCompartment Id="8f049d53-316f-426c-8b4d-4b7be4bced81" absoluteBounds="2.8899999999999997, 1.21, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 1.1); (2.875 : 1.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 1.1); (2.875 : 1.1)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TLWDALDataContext/aspnet_User/aspnet_User_aspnet_UsersInRole" />
       <nodes>
         <classShapeMoniker Id="32ce2ee1-06bf-4582-bf39-4806add57030" />
@@ -190,6 +190,12 @@
       <DataClassMoniker Name="/TLWDALDataContext/PersonalSummary" />
       <nestedChildShapes>
         <elementListCompartment Id="79231506-eeae-451b-afbd-6cc7eee77f67" absoluteBounds="7.265, 0.96, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8d20f24f-2348-4d36-b2f1-3d2b07b0b896" isExpanded="false" absoluteBounds="4.875, 6.75, 2, 0.45">
+      <DataClassMoniker Name="/TLWDALDataContext/tbl_wellnessEntry" />
+      <nestedChildShapes>
+        <elementListCompartment Id="386ee64a-2180-42de-b43d-230422636b7c" absoluteBounds="4.89, 7.21, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

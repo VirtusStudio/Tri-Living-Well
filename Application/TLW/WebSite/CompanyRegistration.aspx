@@ -5,7 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">
     <uc1:UC_USER_CreateAccount ID="UC_USER_CreateAccount3" runat="server" />
+    </div>
 </asp:Content>
 
 
