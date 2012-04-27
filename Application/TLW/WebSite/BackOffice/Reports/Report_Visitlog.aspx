@@ -217,15 +217,7 @@
                                                                                             <%#Eval("StrSectionVisited").ToString()%>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <%--
-                                                                                    <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Action"
-                                                                                        ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Center">
-                                                                                        <ItemTemplate>
-                                                                                            <asp:LinkButton CssClass="lnkBtn" ID="lnkBtnAnswered" runat="server" CommandName="QuestionAnswered"
-                                                                                                CommandArgument='<%#Eval("IntQuestionId") %>'>
-                                                                                               <%#Eval("ChrIsAnsweredGiven").ToString().Equals("Y") ? "View / Provide Answer" : "Provide Answer"%></asp:LinkButton>
-                                                                                        </ItemTemplate>
-                                                                                    </asp:TemplateField>--%>
+                                                                                   
                                                                                 </Columns>
                                                                             </asp:GridView>
                                                                         </div>

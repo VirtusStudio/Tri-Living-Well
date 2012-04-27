@@ -5,10 +5,18 @@
     <Setting Name="TLW_FMSConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=192.168.10.15\sqlent2008;Initial Catalog=TLW_FMS;User ID=dev2008;Password=12345678&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.10.15;Initial Catalog=TLW_FMS;User ID=dev2008;Password=12345678&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=192.168.10.15\sqlent2008;Initial Catalog=TLW_FMS;User ID=dev2008;Password=12345678</Value>
+      <Value Profile="(Default)">Data Source=192.168.10.15;Initial Catalog=TLW_FMS;User ID=dev2008;Password=12345678</Value>
+    </Setting>
+    <Setting Name="TLWConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=FSTECH029\SQLEXPRESS;Initial Catalog=TLW;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=FSTECH029\SQLEXPRESS;Initial Catalog=TLW;Integrated Security=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

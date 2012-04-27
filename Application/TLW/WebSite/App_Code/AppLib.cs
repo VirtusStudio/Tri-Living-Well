@@ -747,21 +747,13 @@ Note:
 *********************************************************************/
     public static string GetSubString(string _strString, int _intRetCharacter)
     {
-        if (_strString.Trim() == "-1")
+        if (_intRetCharacter < _strString.Length)
         {
-            return "<span title='" + _strString + "'> - </span>";
-
+            return "<span title='" + _strString + "'>" + _strString.Substring(0, _intRetCharacter) + "..." + "</span>";
         }
         else
         {
-            if (_intRetCharacter < _strString.Length)
-            {
-                return "<span title='" + _strString + "'>" + _strString.Substring(0, _intRetCharacter) + "..." + "</span>";
-            }
-            else
-            {
-                return "<span title='" + _strString + "'>" + _strString + "</span>";
-            }
+            return "<span title='" + _strString + "'>" + _strString + "</span>";
         }
     }
     /*Sub Header***********************************************************

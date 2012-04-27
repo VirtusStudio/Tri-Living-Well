@@ -61,33 +61,6 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
         //Response.Write(AppLib.Encrypt("1"));
         try
         {
-            // David K. Bowers 04/12/12
-            // --- start validate invite id
-            // to be a valid instance of the registration page the user must have come in from the invite email link
-            // which contains the iid parameter.  The iid parenter is the intCompanyRequestedUsersListId column in
-            // the tbl_CompanyRequestedUsersList.  The iid is read from the url and stored in a hidden form field.  If
-            // its not in either place then its invalid so redirect them to the resend invite form 
-            string get_iid = "";
-            int iid = 0;
-            var giid = Request.QueryString["iid"];
-            if (giid != null)
-            {
-                get_iid = giid.ToString();
-                textIID.Value = get_iid;
-                iid = Convert.ToInt32(get_iid);
-            }
-            else
-            {
-
-                string hidden_iid = textIID.Value.Trim();
-                if (hidden_iid.Length > 0) iid = Convert.ToInt32(hidden_iid);
-            }
-            if (iid == 0)
-            {
-                Response.Redirect("ResendInvite.aspx");
-            }
-            // --- end validate invite id
-
             //    Response.Write(AppLib.Encrypt("1"));
             /*DateTime dtTodayDate = DateTime.Now;
             DateTime dtBDate = Convert.ToDateTime("16/06/1983");
@@ -102,18 +75,18 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
             }
 
 
-            //DropDownList ddlCompany = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("ddlCompany");
+            DropDownList ddlCompany = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("ddlCompany");
             TextBox txtOrganization = (TextBox)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("txtOrganization");
             if (Request.QueryString["cid"] != null && Request.QueryString["id"] != null)
             {
-                //ddlCompany.Visible = false;
+                ddlCompany.Visible = false;
                 BindCompanyDetails();
                 txtOrganization.Visible = true;
                 txtOrganization.Attributes.Add("Readonly", "true");
             }
             else
             {
-               // ddlCompany.Visible = true;
+                ddlCompany.Visible = true;
                 txtOrganization.Visible = false;
             }
 
@@ -144,6 +117,7 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
                 DropDownList ddlDegree = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlDegree");
                 DropDownList ddlYourRole = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlYourRole");
                 DropDownList ddlState = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlState");
+                DropDownList ddlCountry = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlCountry");
                 DropDownList ddlAccountFromRelationship = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlAccountFromRelationship");
                 DropDownList ddlGender = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlGender");
                 DropDownList ddlFamilyStatus = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlFamilyStatus");
@@ -159,6 +133,7 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
                 ddlFamilyStatus = objSqlConnClass.fillDropDown(ddlFamilyStatus, "Family Status", "List_Items");
 
                 BindDropDownList(ddlState, StateDS);
+                BindDropDownList(ddlCountry, CountryDS);
             }
         }
         catch (Exception ex) { }
@@ -316,7 +291,7 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
             TextBox txtStateText = (TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtStateText");
             TextBox txtZip = (TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtZip");
             TextBox txtPassword = (TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Password");
-            HiddenField hiddenCountry = (HiddenField)CreateUserWizardStep1.ContentTemplateContainer.FindControl("hiddenCountry");
+            DropDownList ddlCountry = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("ddlCountry");
             TextBox txtBphone = (TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtBphone");
             TextBox txtFax = (TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("txtFax");
             RadioButton rbtnYEmail = (RadioButton)CreateUserWizardStep1.ContentTemplateContainer.FindControl("rbtnYEmail");
@@ -328,7 +303,7 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
             DropDownList ddlAccountFromRelationship = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("ddlAccountFromRelationship");
             DropDownList ddlGender = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("ddlGender");
             DropDownList ddlFamilyStatus = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("ddlFamilyStatus");
-            //DropDownList ddlCompany = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("ddlCompany");
+            DropDownList ddlCompany = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("ddlCompany");
             //  Telerik.Web.UI.RadDatePicker rdpDateBirth = (Telerik.Web.UI.RadDatePicker)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("rdpDateBirth");
             TextBox rdpDateBirth = (TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("rdpDateBirth");
 
@@ -350,7 +325,7 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
             parameters[11] = txtCity.Text;
             parameters[12] = ddlState.SelectedValue;
             parameters[13] = txtZip.Text;
-            parameters[14] = hiddenCountry.Value;
+            parameters[14] = ddlCountry.SelectedValue;
             parameters[15] = txtBphone.Text;
             parameters[16] = txtFax.Text;
 
@@ -368,7 +343,7 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
 
             if (Request.QueryString["cid"] == null && Request.QueryString["id"] == null)
             {
-               // parameters[20] = ddlCompany.SelectedItem.Text; //organization
+                parameters[20] = ddlCompany.SelectedItem.Text; //organization
             }
             else
                 parameters[20] = txtOrganization.Text; //organization
@@ -379,6 +354,11 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
             parameters[22] = ddlYourRole.SelectedValue; //is accredited
 
             parameters[23] = txtStateText.Text.Trim(); //is accredited
+            if (ddlCountry.SelectedValue == "1" || ddlCountry.SelectedValue == "2")//USA || Canada
+            {
+                parameters[23] = ddlState.SelectedItem.Text;
+            }
+
             parameters[24] = "1";//REGISTRATION_FLG
             parameters[25] = "0";//ACCOUNT_CREDITS
             parameters[26] = "Test";//ACCOUNT_FROM
@@ -445,14 +425,39 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
         return (iRandomCode_PartA.ToString() + "-" + iRandomCode_PartB.ToString() + "-" + iRandomCode_PartC.ToString() + "-" + iRandomCode_PartD.ToString());
     }
 
+    protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DropDownList ddlCountry = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlCountry");
+        TextBox txtStateText = (TextBox)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("txtStateText");
+        DropDownList ddlState = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlState");
+        RequiredFieldValidator ddlStateRequired1 = (RequiredFieldValidator)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlStateRequired1");
+        CompareValidator ddlStateRequired2 = (CompareValidator)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlStateRequired2");
+
+        if (ddlCountry.SelectedItem.Text == "USA" || ddlCountry.SelectedItem.Text == "Canada")
+        {
+            txtStateText.Style.Add("display", "none");
+            ddlState.Style.Remove("display");
+            //ddlStateRequired1.ValidationGroup = "CreateUserWizard1";
+            // ddlStateRequired2.ValidationGroup = "CreateUserWizard1";
+        }
+        else
+        {
+            txtStateText.Style.Remove("display");
+            ddlState.Style.Add("display", "none");
+            //ddlStateRequired1.ValidationGroup = "na";
+            //ddlStateRequired2.ValidationGroup = "na";
+        }
+
+    }
+
     private void BindCompanyControl()
     {
         try
         {
-            //DropDownList ddlCompany = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlCompany");
+            DropDownList ddlCompany = (DropDownList)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("ddlCompany");
 
-            //if (ddlCompany != null)
-            //    AppLib.BindCompanyDropdown(ddlCompany, "");
+            if (ddlCompany != null)
+                AppLib.BindCompanyDropdown(ddlCompany, "");
         }
         catch (Exception ex) { string strTemp = ex.Message; }
         finally

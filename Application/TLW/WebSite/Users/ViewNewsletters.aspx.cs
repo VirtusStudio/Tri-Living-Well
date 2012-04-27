@@ -26,7 +26,6 @@ public partial class Users_ViewNewsletters : System.Web.UI.Page
 
             #endregion
             BindNewsLetters();
-            BindCMSText();
         }
     }
     protected void GVNewsLetter_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -87,18 +86,6 @@ public partial class Users_ViewNewsletters : System.Web.UI.Page
         GVNewsLetter.DataSource = oNewsLib.GetUserFavoriteNewsLetters(AppLib.GetLoggedInUserName(), "User");
         GVNewsLetter.DataBind();
         oNewsLib = null;
-    }
-
-    private void BindCMSText()
-    {
-        TextAreaClass objTextAreaClass;
-        SqlConnClass objSqlConnClass = new SqlConnClass();
-        objTextAreaClass = new TextAreaClass(objSqlConnClass.OpenConnection());
-        DataSet DS = objTextAreaClass.TxA_Get_TextAreas("Newsletters", "1");
-        lbltxtNewsletters.Text = DS.Tables[0].Rows[0]["TextAreaHTML"].ToString();
-        DS = null;
-        objTextAreaClass = null;
-        objSqlConnClass = null;
     }
 
 }

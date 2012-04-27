@@ -7,7 +7,6 @@
     TagPrefix="uc2" %>
 <%@ Register Src="~/Controls/UC_Home_1_Control.ascx" TagName="UC_Home_1_Control"
     TagPrefix="uc3" %>
-<%@ Register Src="~/Controls/UC_EnterActivity_PopUp.ascx" TagName="UC_EnterActivity_PopUp" TagPrefix="uc2" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
@@ -25,26 +24,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_CONTENT" runat="server"
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
-
-    <div>
-        <div style="float:left;width:310px;height:350px;background-image:url('../Images/dashboard/dashboard_nutrition.gif');background-repeat:no-repeat;"></div>
-        <div style="float:left;width:300px;height:350px;background-image:url('../Images/dashboard/dashboard_fitness.gif');background-repeat:no-repeat;"></div>
-        <div style="float:right;width:300px;height:350px;background-image:url('../Images/dashboard/dashboard_wellness.gif');background-repeat:no-repeat;"></div>
-    </div>
-    <div>
-        <div style="float:left;width:900px;height:50px;">
-            <a href="javascript:addEntry('');"><img src="<%=AppConfig.GetBaseSiteUrl() %>images/icons/iconPalEntryCreate.gif" /> Add a new Personal Activity Log Entry</a> 
-            <uc2:UC_EnterActivity_PopUp id="UC_EnterActivity_PopUp1" runat="server"></uc2:UC_EnterActivity_PopUp>         
-        </div>
-    </div>
-
     <table>
         <tr>
             <td>
-
                 <table width="100%">
-
-                <!--
                     <tr>
                         <td>
                             <table width="20%" border="1">
@@ -136,39 +119,13 @@
                                 </tr>
                             </table>
                         </td>
-                        <td valign="top" align="center" style="width:300px;height:340px;" >
-                            <table width="200" border="1">
-                                <tr><td colspan="2"><h2>Physical Fitness</h2></td></tr>
-                                <tr><td>Current METS</td><td>500</td></tr>
-                                <tr><td>Last Workout Date</td><td>Monday April 14, 2012</td></tr>
-                                <tr><td>Last Workout METS</td><td>503</td></tr>
-                                <tr><td>Workout History (7 Days)</td><td>4/1/2012, 4/2/2012, 4/4/2012</td></tr
-                                <tr><td colspan="2">View Past 2 Weeks Workouts</td></tr>
-                                <tr><td>Current Stage</td><td>6</td></tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <asp:LinkButton CssClass="aButtonSmall" CausesValidation="false" ToolTip="Click here to record activity." ID="lnkBtnRecordActivity" runat="server">
-                                            Record Activity
-                                        </asp:LinkButton>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        
-
-
-
-
-                                
-                                    </td>
-                                </tr>
-                            </table>
+                        <td valign="top" align="center">
+                            Physical Fitness
                         </td>
                         <td valign="top">
+                            Brain Power
                         </td>
                     </tr>
-                -->
-                
                     <tr>
                         <td valign="top">
                             <table><tr style="height:15px;"><td align="center">&nbsp;</td></tr>
@@ -195,15 +152,6 @@
                                          border="0" />
                                           </a> 
                                  
-                                    </td>
-                                </tr>
-                                 <tr>
-                                    <td align="center">
-                                       <a href='<%=AppConfig.GetBaseSiteUrl() %>Users/ViewToolsResources.aspx'>
-                                       <%-- <img alt="newsletter" src='<%=AppConfig.GetBaseSiteUrl() %>images/Dashboard_newsLetter.bmp'
-                                         border="0" />--%>
-                                        Tools/Resources
-                                       </a> 
                                     </td>
                                 </tr>
                                 <tr>
@@ -342,7 +290,6 @@
                         </td>
                     </tr>
                 </table>
-            
             </td>
         </tr>
         <tr><td>      <uc5:UC_DD_Nutrition_Caluclator_PopUp id="UC_DD_Nutrition_Caluclator_PopUp1" runat="server"></uc5:UC_DD_Nutrition_Caluclator_PopUp>

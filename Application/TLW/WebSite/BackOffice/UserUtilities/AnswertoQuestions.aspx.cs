@@ -85,12 +85,7 @@ public partial class BackOffice_UserUtilities_AnswertoQuestions : System.Web.UI.
                 GVAnswer.DataSource = oCompanyManager.GetAnswerofPrivateQuestionByQuestionId(Convert.ToInt32(Request.QueryString["qid"]));
                 GVAnswer.DataBind();
 
-                List<Entity.CompanyInfo> Info = oCompanyManager.GetAnswerofPrivateQuestionByQuestionId(Convert.ToInt32(Request.QueryString["qid"]));
-                if (Info.Count > 0)
-                {
-                    txtAnswer.Text = oCompanyManager.GetAnswerofPrivateQuestionByQuestionId(Convert.ToInt32(Request.QueryString["qid"])).ElementAt(0).StrAnswer;
-
-                }
+                txtAnswer.Text = oCompanyManager.GetAnswerofPrivateQuestionByQuestionId(Convert.ToInt32(Request.QueryString["qid"])).ElementAt(0).StrAnswer;
 
                 if (GVAnswer.Rows.Count > 0)
                     trAnswer.Visible = true;
@@ -137,8 +132,7 @@ public partial class BackOffice_UserUtilities_AnswertoQuestions : System.Web.UI.
         try
         {
 
-            // strContent = strContent.Replace("[Name]", oCompanyManager.GetUserDetailsByUsername(lblUserEmail.Text).StrUserFullName);
-            strContent = strContent.Replace("[Name]", oCompanyManager.GetUserDetailsByUsername(oCompanyInfo.StrUserId).StrUserFullName);
+            strContent = strContent.Replace("[Name]", oCompanyManager.GetUserDetailsByUsername(lblUserEmail.Text).StrUserFullName);
 
             strContent = strContent.Replace("[Category]", lblCategory.Text);
             strContent = strContent.Replace("[Question]", lblQuestion.Text);
@@ -149,9 +143,7 @@ public partial class BackOffice_UserUtilities_AnswertoQuestions : System.Web.UI.
             strContent = strContent.Replace("[SiteUrl]", AppConfig.GetBaseSiteUrl());
             strContent = strContent.Replace("[SiteName]", AppConfig.GetSiteName());
             strContent = strContent.Replace("[SitePhone]", AppConfig.GetSITEPHONE());
-            // AppLib.SendMailToUser(lblUserEmail.Text, lblSubject.Text, strContent, AppConfig.GetAdminEmail());
-            AppLib.SendMailToUser(oCompanyInfo.StrUserId, lblSubject.Text, strContent, AppConfig.GetAdminEmail());
-            // AppLib.SendMailToUser(oCompanyInfo.StrUserId, lblSubject.Text, strContent, "mytransithome@gmail.com");
+            AppLib.SendMailToUser(lblUserEmail.Text, lblSubject.Text, strContent, AppConfig.GetAdminEmail());
 
             //AppLib.SendMailToUser(AppConfig.GetAdminEmail(), lblSubject.Text, "Dear Admin, Following are the contents that were sent to the user. <br />" + strContent, lblUserEmail.Text);
         }

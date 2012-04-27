@@ -180,7 +180,6 @@ namespace BLL
 
                  if (intRetVal.Equals(0))
                  {*/
-                
                 DAL.CompanyInfo oCompanyInfoDAL = new DAL.CompanyInfo();
                 oCompanyInfoDAL.strCompanyEmail = oCompanyInfo.StrCompanyEmail;
                 oCompanyInfoDAL.strPassword = oCompanyInfo.StrPassword;
@@ -191,10 +190,6 @@ namespace BLL
                 oCompanyInfoDAL.intStateId = oCompanyInfo.IntStateId;
                 oCompanyInfoDAL.strStateText = oCompanyInfo.StrStateName;
 
-                // David K. Bowers 04/10/12 added in zip code
-                oCompanyInfoDAL.strZipCode = oCompanyInfo.StrZipCode;
-                // David K. Bowers 04/09/12 fixed a bug where company address was not getting stored in DB
-                oCompanyInfoDAL.strCompanyAddress = oCompanyInfo.StrCompanyAddress;
                 oCompanyInfoDAL.strCity = oCompanyInfo.StrCity;
                 oCompanyInfoDAL.chrIsPaid = oCompanyInfo.ChrIsPaid;
                 oCompanyInfoDAL.chrIsActive = oCompanyInfo.ChrIsActive;
@@ -583,7 +578,6 @@ namespace BLL
         /// Output: 
         /// Return Value:
         /// Note: 
-        /// 4/10/12 David K. Bowers added in zip code
         /// *********************************************************************
         public Entity.CompanyInfo GetCompanyDetailsById(int intCompanyId)
         {
@@ -598,7 +592,6 @@ namespace BLL
                                       IntCompanyId = _ci.intCompanyId,
                                       IntCountryId = _ci.intCountryId ?? 0,
                                       IntStateId = _ci.intStateId ?? 0,
-                                      StrZipCode = _ci.strZipCode ?? "",
                                       StrCity = _ci.strCity ?? "",
                                       StrCompanyAddress = _ci.strCompanyAddress ?? "",
                                       StrCompanyEmail = _ci.strCompanyEmail,
@@ -783,54 +776,6 @@ namespace BLL
         }
 
 
-        /// Function Header*******************************************************
-        /// Function Name: GetQuestion
-        /// Function Type: Function
-        /// Functionality:Get Health Coach Question for Admin
-        /// Input: 
-        /// Output: 
-        /// Return Value:
-        /// Note: 
-        /// *********************************************************************
-       
-        public int GetQuestion()
-        {
-            using (TLWDALDataContext _db = new TLWDALDataContext())
-            {
-                var res = (from c in _db.QuestionsForHealthCoaches
-                           where c.chrIsAnsweredGiven == Convert.ToChar('N')
-                           select c.chrIsAnsweredGiven).Count();
-
-                int result = Convert.ToInt32(res);
-                return result;
-            }
-        }
-
-        /// Function Header*******************************************************
-        /// Function Name: GetAnswers
-        /// Function Type: Function
-        /// Functionality:Get Health Coach Answer for User only
-        /// Input: 
-        /// Output: 
-        /// Return Value:
-        /// Note: 
-        /// *********************************************************************
-        public int GetAnswers(string useranme)
-        {
-
-
-
-            using (TLWDALDataContext _db = new TLWDALDataContext())
-            {
-                var res = (from c in _db.QuestionsForHealthCoaches
-                           where c.strUserName.Equals(useranme)
-                           && c.chrIsAnsweredGiven == Convert.ToChar('Y')
-                           select c.chrIsAnsweredGiven).Count();
-
-                int result = Convert.ToInt32(res);
-                return result;
-            }
-        }
 
 
         #endregion
@@ -846,8 +791,6 @@ namespace BLL
         /// Return Value:
         /// Note: 
         /// *********************************************************************
-        /// 04/09/12 David K. Bowers fixed a bug where address change was not getting stored in db
-        /// 04/10/12 David K Bowers added in zip code
         public int UpdateCompanyDetails(Entity.CompanyInfo oCompanyInfo)
         {
             using (TLWDALDataContext _db = new TLWDALDataContext())
@@ -863,10 +806,7 @@ namespace BLL
                     oCompanyInfoDAL.intCountryId = oCompanyInfo.IntCountryId;
                     oCompanyInfoDAL.intStateId = oCompanyInfo.IntStateId;
                     oCompanyInfoDAL.strStateText = oCompanyInfo.StrStateName;
-                    oCompanyInfoDAL.strZipCode = oCompanyInfo.StrZipCode;
                     oCompanyInfoDAL.strCity = oCompanyInfo.StrCity;
-                    //04/09/12 David K. Bowers fixed a bug where address change was not getting stored in db
-                    oCompanyInfoDAL.strCompanyAddress = oCompanyInfo.StrCompanyAddress;
                     oCompanyInfoDAL.chrIsActive = oCompanyInfo.ChrIsActive;
                     oCompanyInfoDAL.dtModifiedDate = oCompanyInfo.DtModifiedDate;
                     oCompanyInfoDAL.chrIsApproved = oCompanyInfo.ChrIsApproved;

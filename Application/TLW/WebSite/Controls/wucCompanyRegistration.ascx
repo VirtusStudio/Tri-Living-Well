@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wucCompanyRegistration.ascx.cs"
     Inherits="Controls_wucCompanyRegistration" %>
-<script src="../Scripts/Common.js" type="text/javascript"></script>
 <div>
     <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr style="height: 20px;">
@@ -87,15 +86,8 @@
                             <span class="keyword">Company Phone:</span>
                         </td>
                         <td align="left" valign="middle">
-
-<!-- 
-DKB 04/09/12                       
-TODO: fix the javascript mask error    
-                            <asp:TextBox runat="server" ID="TextBox1" CssClass="txtBox" onKeyUp="javascript:return mask(this.value,this,'3,7','-');"
-                                onBlur="javascript:return mask(this.value,this,'3,7','-');" MaxLength="12" Width="150px"></asp:TextBox> -->
-
-                            <asp:TextBox runat="server" ID="txtPhone" CssClass="txtBox" MaxLength="12" Width="150px"></asp:TextBox>
-
+                            <asp:TextBox runat="server" ID="txtPhone" CssClass="txtBox" onKeyUp="javascript:return mask(this.value,this,'3,7','-');"
+                                onBlur="javascript:return mask(this.value,this,'3,7','-');" MaxLength="12" Width="150px"></asp:TextBox>
                             <span class="required">(xxx-xxx-xxxx)</span>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalid Phone!"
                                 ValidationExpression="\d{3}\-\d{3}-\d{4}" Display="Dynamic" SetFocusOnError="true"
@@ -111,10 +103,6 @@ TODO: fix the javascript mask error
                         </td>
                     </tr>
                     <tr>
-<!--
-DKB 04/09/12
-Remove country from company reg page. I am adding in a hidden field for usa so the stored procs don't have to change
-for country.
                         <td align="left" valign="middle">
                             <span class="keyword">Country:</span>
                         </td>
@@ -123,22 +111,15 @@ for country.
                                 OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
--->
-                        <td align="left" valign="middle" colspan="2">
-                            <asp:HiddenField runat="server" ID="hiddenCountry" value="1" /> 
-                        </td>
                     </tr>
-                    
-                    
                     <tr>
                         <td align="left" valign="middle">
-                            <span class="keyword">Company Address:</span>
+                            <span class="keyword">State:</span>
                         </td>
                         <td align="left" valign="middle">
-                            <asp:TextBox runat="server" CssClass="txtBox" ID="txtAddress" Width="150px" TextMode="MultiLine"></asp:TextBox>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationGroup="CompanyRegistration"
-                                ControlToValidate="txtAddress" ValidationExpression="[a-zA-Z0-9:.,' ]*" ErrorMessage="Invalid Address"
-                                Display="Dynamic" SetFocusOnError="true"></asp:RegularExpressionValidator>
+                            <asp:DropDownList ID="ddlState" CssClass="txtBox" runat="server" AutoPostBack="false">
+                            </asp:DropDownList>
+                            <asp:TextBox CssClass="txtBox" ID="txtStateText" runat="server" Style="display: none;"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -154,26 +135,12 @@ for country.
                     </tr>
                     <tr>
                         <td align="left" valign="middle">
-                            <span class="keyword">State:</span>
+                            <span class="keyword">Company Address:</span>
                         </td>
                         <td align="left" valign="middle">
-                            <asp:DropDownList ID="ddlState" CssClass="txtBox" runat="server" AutoPostBack="false">
-                            </asp:DropDownList>
-                            <asp:TextBox CssClass="txtBox" ID="txtStateText" runat="server" Style="display: none;"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-<!--
-DKB 04/10/09
-Adding in zip code, validation is numeric and - maz 11 char, ie: 12345 or 12345-6789
--->
-                        <td align="left" valign="middle">
-                            <span class="keyword">Zip Code:</span>
-                        </td>
-                        <td align="left" valign="middle">
-                            <asp:TextBox runat="server" CssClass="txtBox" ID="txtZipCode" MaxLength="10" Width="150px"></asp:TextBox>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidatorZipCode" runat="server" ValidationGroup="CompanyRegistration"
-                                ControlToValidate="txtZipCode" ValidationExpression="^[0-9. ]{1,11}$" ErrorMessage="Invalid Zip Code"
+                            <asp:TextBox runat="server" CssClass="txtBox" ID="txtAddress" Width="150px" TextMode="MultiLine"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationGroup="CompanyRegistration"
+                                ControlToValidate="txtAddress" ValidationExpression="[a-zA-Z0-9:.,' ]*" ErrorMessage="Invalid Address"
                                 Display="Dynamic" SetFocusOnError="true"></asp:RegularExpressionValidator>
                         </td>
                     </tr>

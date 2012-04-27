@@ -57,9 +57,6 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
 
 
         objTemplateClass = new TemplateClass(objSqlConnClass.OpenConnection());
-
-
-
     }
 
 
@@ -455,7 +452,5 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
             return _strRetVal;
     }
     #endregion
-
-
 
 }

@@ -34,13 +34,6 @@
                 </center>
             </center>
         </center>
-
-        <br />
-          <div>
-                <asp:Label ID="lbltextcontent" runat="server"></asp:Label>
-            </div>
-            <br />
-
         <div class="demoContent" style="padding: 0px 15px 15px 15px;">
             <table>  <tr><td align="right">
             <a href='<%=AppConfig.GetBaseSiteUrl() %>Main/Main_Frame.aspx' >Back</a>

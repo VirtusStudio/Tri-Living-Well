@@ -42,7 +42,7 @@ form table /**/ {   /*done to avoid affecting rad controls popups*/
 }
 
 td /**/ {
-    padding: 0px 0px 0px 0px;
+    padding: 1px, 1px, 1px, 1px;
     margin: 0px 0px 0px 0px;
     border-collapse: collapse;
 }
@@ -128,11 +128,11 @@ a:hover {text-decoration:underline;}
 
 .aButtonSmall
 {
-   display:inline-table;
+  display:inline-table;
   padding:2px 5px 2px 5px;
   border:solid 1px #1F000A;
   text-align:center;
-  color:#ffffff;
+  color:#ffffff !important;
   text-decoration:none;
   vertical-align:middle;
   line-height:27px;

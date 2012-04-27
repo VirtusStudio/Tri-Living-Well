@@ -21,84 +21,12 @@ public partial class MasterPages_User : System.Web.UI.MasterPage
     {
         if (!AppLib.IsLoggedinSessionExists())
             Response.Redirect(AppConfig.GetBaseSiteUrl() + "Welcome/Main_Frame.aspx", true);
-        MembershipUser currentUser = Membership.GetUser();
 
-         
 
-        Roles.GetRolesForUser(HttpContext.Current.User.Identity.Name);
         //string strScript = "<script type='text/javascript'>function load(sUrl) { document.getElementById(iframeName).src = '" + AppConfig.GetBaseSiteUrl() + "' + sUrl; } </script>";
         //this.Page.RegisterClientScriptBlock("abc", strScript);
         objBackofficeClass = new BackofficeClass(objSqlConnClass.OpenConnection());
         objForumClass = new ForumClass(objSqlConnClass.sqlConnection);
-
-
-        BackofficeClass objBackOfficeClass;
-        objBackOfficeClass = new BackofficeClass(objSqlConnClass.OpenConnection());
-        DataSet DS = objBackOfficeClass.Mem_GET_Admin(currentUser.UserName);
-        if (DS != null)
-        {
-            if (DS.Tables[0].Rows.Count > 0)
-            {
-                if (DS.Tables[0].Rows[0]["ROLENAME"].ToString().Equals("Administrator"))
-                {
-                    if (Session["popup"] != null)
-                    {
-                        bool pop = (bool)Session["popup"];
-
-                        if (pop)
-                        {
-                            BLL.CompanyManager oCompanyManager = new BLL.CompanyManager();
-                            int no = oCompanyManager.GetQuestion();
-                           // string Script = "jConfirm('You have " + no + " unanswered HealthCoach Message !  Click Ok to answer them', 'HealthCoach Message',function(r) {alert(r);});";
-
-                            if (no != 0)
-                            {
-
-                                string Script = "jConfirm('You have " + no + " answered HealthCoach Message !  Click Ok to see them', 'HealthCoach Message',function(r) { if(r) {window.location.href = '../Backoffice/UserUtilities/ManageQuestionforHealthCoach.aspx';}});";
-                                ScriptManager.RegisterStartupScript(this, this.GetType(), "CloseWindow", Script, true);
-                                Session["popup"] = false;
-                            }
-                        }
-                        else
-                        {
-                            Session.Remove(Session["popup"].ToString());
-                        }
-                    }
-                    else
-                    {
-
-                    }
-                }
-
-                else
-                {
-                    if (Session["popup"] != null)
-                    {
-                        bool pop = (bool)Session["popup"];
-
-                        if (pop)
-                        {
-                            BLL.CompanyManager oCompanyManagers = new BLL.CompanyManager();
-                            int no = oCompanyManagers.GetAnswers(currentUser.UserName);
-                            if (no != 0)
-                            {
-                                string Script = "jConfirm('You have " + no + " answered HealthCoach Message !  Click Ok to see them', 'HealthCoach Message',function(r) { if(r) {window.location.href = '../Users/MyAskedQuestions.aspx';}});";
-                                ScriptManager.RegisterStartupScript(this, this.GetType(), "CloseWindow", Script, true);
-                                Session["popup"] = false;
-                            }
-                        }
-                        else
-                        {
-                            Session.Remove(Session["popup"].ToString());
-                        }
-                    }
-                    else
-                    {
-
-                    }
-                }
-            }
-        }
 
         //if (Request.QueryString["register"] != null)
         //{
@@ -111,41 +39,6 @@ public partial class MasterPages_User : System.Web.UI.MasterPage
         {
             fillOutForm();
         }
-       
-
-
-        //if (HttpContext.Current.User.IsInRole("Administrator"))
-        //{
-
-        //    if (Session["popup"] != null)
-        //    {
-        //        bool pop = (bool)Session["popup"];
-
-        //        if (pop)
-        //        {
-        //            BLL.CompanyManager oCompanyManager = new BLL.CompanyManager();
-        //            int no = oCompanyManager.GetQuestion();
-        //            string Script = "jConfirm('You have " + no + " unanswered HealthCoach Message !  Click Ok to answer them', 'HealthCoach Message',function(r) { if(r) {window.location.href = '../Backoffice/UserUtilities/ManageQuestionforHealthCoach.aspx';}});";
-        //            ScriptManager.RegisterStartupScript(this, this.GetType(), "CloseWindow", Script, true);
-        //            Session["popup"] = false;
-        //        }
-        //        else
-        //        {
-        //            Session.Remove(Session["popup"].ToString());
-        //        }
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //}
-        //else
-        //{
-
-        //}
-
-       
-
     }
 
     protected void Page_PreRender(object sender, EventArgs e)

@@ -22,7 +22,7 @@ using System.IO;
 
 		int _topicID = 0;
 		int _forumID = 0;
-		bool _addTopic;
+		bool _addTopic ;
         bool _changeTopic;
 		bool _isEditing;
 		int _messageId;
@@ -254,8 +254,8 @@ using System.IO;
 
 			if(_addTopic || _changeTopic) //creating a new topic or editing topic title
 			{
-				string subj = tbSubj.Text;
-				subj = subj.Trim();
+                string subj = tbSubj.Text;
+                subj = subj.Trim();
 				if(subj=="") return;
                 subj = aspnetforum.Utils.Formatting.FilterBadWords(subj);
 

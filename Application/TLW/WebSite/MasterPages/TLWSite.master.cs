@@ -13,6 +13,9 @@ public partial class MasterPages_TLWSite : System.Web.UI.MasterPage
 
 
         this.Page.RegisterClientScriptBlock("abc", strScript);*/
+
+       
+
     }
 
     /*Following functions is added by Netsmartz*/

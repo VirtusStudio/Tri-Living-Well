@@ -41,12 +41,6 @@ public partial class UC_PAL_PalEntries_PopUp : System.Web.UI.UserControl
     private void fillDropDowns()
     {
         ddlPalEntryType = objSqlConnClass.fillDropDown(ddlPalEntryType, "Type", "LIST_PAL");
-        ddlPalCycling = objSqlConnClass.fillDropDown(ddlPalCycling, "Cycling", "LIST_PAL");
-        ddlPalRunning = objSqlConnClass.fillDropDown(ddlPalRunning, "Running", "LIST_PAL");
-        ddlPalSwimming = objSqlConnClass.fillDropDown(ddlPalSwimming, "Swimming", "LIST_PAL");
-        ddlPalConditioningExercises = objSqlConnClass.fillDropDown(ddlPalConditioningExercises, "Conditioning Exercises", "LIST_PAL");
-        ddlPalSports = objSqlConnClass.fillDropDown(ddlPalSports, "Sports", "LIST_PAL");
-        ddlPalWalking = objSqlConnClass.fillDropDown(ddlPalWalking, "Walking", "LIST_PAL");                                                                                             
         ddlPalEntryTime = objSqlConnClass.fillDropDown(ddlPalEntryTime, "Time", "LIST_PAL");
         ddlPalEntryIntensity = objSqlConnClass.fillDropDown(ddlPalEntryIntensity, "Intensity", "LIST_PAL");
         ddlPalEntryDuration = objSqlConnClass.fillDropDown(ddlPalEntryDuration, "Duration", "LIST_PAL");
@@ -58,53 +52,7 @@ public partial class UC_PAL_PalEntries_PopUp : System.Web.UI.UserControl
 
         string sPalEntryID = txtPalEntryID.Text;
         string sPalEntryDate = Convert.ToDateTime(rdpPalEntryDate.SelectedDate).ToString("MM/d/yyyy");
-        int iPalEntryType = Convert.ToInt32(ddlPalEntryType.SelectedValue);
-        int iPalEntryActivity = 0;
-        string sPalEntryType = ddlPalEntryType.SelectedItem.Text;
-        string sPalEntryActivity = "";
-        switch (iPalEntryType)
-        {
-            case 1:
-                {
-                    iPalEntryActivity = Convert.ToInt32(ddlPalWalking.SelectedValue);
-                    sPalEntryActivity = ddlPalWalking.SelectedItem.Text;
-                    break;
-                }
-            case 2:
-                {
-                    iPalEntryActivity = Convert.ToInt32(ddlPalRunning.SelectedValue);
-                    sPalEntryActivity = ddlPalRunning.SelectedItem.Text;
-                    break;
-                }
-            case 3:
-                {
-                    iPalEntryActivity = Convert.ToInt32(ddlPalSwimming.SelectedValue);
-                    sPalEntryActivity = ddlPalSwimming.SelectedItem.Text;
-                    break;
-                }
-            case 4:
-                {
-                    iPalEntryActivity = Convert.ToInt32(ddlPalCycling.SelectedValue);
-                    sPalEntryActivity = ddlPalCycling.SelectedItem.Text;
-                    break;
-                }
-            case 5:
-                {
-                    iPalEntryActivity = Convert.ToInt32(ddlPalConditioningExercises.SelectedValue);
-                    sPalEntryActivity = ddlPalConditioningExercises.SelectedItem.Text;
-                    break;
-                }
-            case 6:
-                {
-                    iPalEntryActivity = Convert.ToInt32(ddlPalSports.SelectedValue);
-                    sPalEntryActivity = ddlPalSports.SelectedItem.Text;
-                    break;
-                }
-            default:
-                {
-                    break;
-                }
-        }
+        string sPalEntryType = ddlPalEntryType.SelectedValue;
         string sPalEntryTime = ddlPalEntryTime.SelectedValue;
         string sPalEntryDuration = ddlPalEntryDuration.SelectedValue;
         string sPalEntryIntensity = ddlPalEntryIntensity.SelectedValue;
@@ -114,11 +62,11 @@ public partial class UC_PAL_PalEntries_PopUp : System.Web.UI.UserControl
         DataSet DS;
         if (sPalEntryID == "")//insert
         {
-            DS = objPALClass.PAL_INSERT_PalEntries(sUserID, sPalEntryDate, iPalEntryType, sPalEntryType, iPalEntryActivity, sPalEntryActivity, sPalEntryTime, sPalEntryDuration, sPalEntryIntensity, sPalEntryWeight, sPalEntryComment);
+            DS = objPALClass.PAL_INSERT_PalEntries(sUserID, sPalEntryDate, sPalEntryType, sPalEntryTime, sPalEntryDuration, sPalEntryIntensity, sPalEntryWeight, sPalEntryComment);
         }
         else//update
         {
-            DS = objPALClass.PAL_UPDATE_PalEntries(sPalEntryID, sPalEntryDate, iPalEntryType, sPalEntryType, iPalEntryActivity,  sPalEntryActivity, sPalEntryTime, sPalEntryDuration, sPalEntryIntensity, sPalEntryWeight, sPalEntryComment);
+            DS = objPALClass.PAL_UPDATE_PalEntries(sPalEntryID, sPalEntryDate, sPalEntryType, sPalEntryTime, sPalEntryDuration, sPalEntryIntensity, sPalEntryWeight, sPalEntryComment);
         }
 
         if (DS.Tables.Count > 0)//success

@@ -882,8 +882,7 @@ public class aspnetforum
         {
             username = username.Replace("'", "''");
             this.cmd.Parameters.Clear();
-            //this.cmd.CommandText = string.Format("SELECT UserID, UserName FROM ForumUsers WHERE UserName='{0}' AND Disabled=0", username);
-            this.cmd.CommandText = string.Format("SELECT UserID, Email FROM ForumUsers WHERE Email='{0}' AND Disabled=0", username);
+            this.cmd.CommandText = string.Format("SELECT UserID, UserName FROM ForumUsers WHERE UserName='{0}' AND Disabled=0", username);
             this.cn.Open();
             DbDataReader dr = cmd.ExecuteReader();
             if (dr.Read()) //if user found if db (already exists)

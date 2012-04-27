@@ -27,7 +27,6 @@ public partial class PAL_TABS : System.Web.UI.Page
         if (!IsPostBack)
         {
             fillOutForm();
-            BindCMSText();
         }
 
         objSqlConnClass.CloseConnection();
@@ -66,17 +65,5 @@ public partial class PAL_TABS : System.Web.UI.Page
         
         base.OnInit(e);
 
-    }
-
-    private void BindCMSText()
-    {
-        TextAreaClass objTextAreaClass;
-        SqlConnClass objSqlConnClass = new SqlConnClass();
-        objTextAreaClass = new TextAreaClass(objSqlConnClass.OpenConnection());
-        DataSet DS = objTextAreaClass.TxA_Get_TextAreas("ActivityCalendar", "1");
-        lblActivitycalender.Text = DS.Tables[0].Rows[0]["TextAreaHTML"].ToString();
-        DS = null;
-        objTextAreaClass = null;
-        objSqlConnClass = null;
     }
 }

@@ -1,11 +1,11 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Contact.aspx.cs"      MasterPageFile="~/MasterPages/TLWSite.master"
- Title="Contact Us"
-Inherits="Contact" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Contact.aspx.cs" MasterPageFile="~/MasterPages/User.master" Title="Contact Us" Inherits="Contact" %>
 
 <%@ Register Src="~/Controls/UC_TextArea.ascx" TagName="UC_TextArea" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">    <center class="Round3">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">   
+ <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">
+<center class="Round3">
         <center>
             <center>
                 <center>
@@ -114,4 +114,6 @@ Inherits="Contact" %>
                 </center>
             </center>
         </center>
+        </center>
+        </div>
    </asp:Content>

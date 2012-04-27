@@ -385,32 +385,5 @@ public class UsersClass
         return iUserGroupID;
     }
 
-    // ______________________________________________________________________________
-
-    public bool USR_ValidateInvite(int inviteID)
-    {
-
-        try
-        {
-            SqlCommand MyCommand = new SqlCommand(); 
-            MyCommand.Connection = MyConnection;
-            MyCommand.CommandText = "spValidateInviteId";
-            MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.AddWithValue("@iid", inviteID);
-            var returnParameter = MyCommand.Parameters.Add("@ReturnVal", SqlDbType.SmallInt);
-            returnParameter.Direction = ParameterDirection.ReturnValue;
-            MyCommand.ExecuteNonQuery();
-            if (Convert.ToBoolean(returnParameter.Value) == false)
-                return false;
-            else
-                return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }
-    }
-
-
     // ______________________________________________________________________________}
 }

@@ -20,7 +20,7 @@ public partial class UC_Login_Register : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         /*   Membership.CreateUser("pardeep@gmail.com", "abcabsf","pardeep@gmail.com");*/
-        Session["popup"] = true;
+
 
 
         objBackofficeClass = new BackofficeClass(objSqlConnClass.OpenConnection());

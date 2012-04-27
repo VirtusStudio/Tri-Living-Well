@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wucEditCompanyDetails.ascx.cs"
     Inherits="Controls_wucEditCompanyDetails" %>
-<script src="../Scripts/Common.js" type="text/javascript"></script>
 <table width="90%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td>

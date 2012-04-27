@@ -16,31 +16,10 @@ public partial class Users_RiskStratificationProcessStep3 : System.Web.UI.Page
             return;
         }
 
+
         if (Request.QueryString["sc"] != null)
         {
-            lblScore.Text = AppLib.Decrypt(Request.QueryString["sc"].ToString()) + " and " + "Category is " + Request.QueryString["cat"].ToString();
-        }
-
-        if (Request.QueryString["cat"].ToString() == "Tri")
-        {
-            //multiTabs.ActiveViewIndex = 0;
-            //menuTabs.Items[0].Selected = true;
-            TabContainer1.ActiveTabIndex = 0;
-            
-
-            
-        }
-        else if (Request.QueryString["cat"].ToString() == "Living")
-        {
-            //multiTabs.ActiveViewIndex = 1;
-            //menuTabs.Items[1].Selected = true;
-            TabContainer1.ActiveTabIndex = 1;
-        }
-        else
-        {
-            //multiTabs.ActiveViewIndex = 2;
-            //menuTabs.Items[2].Selected = true;
-            TabContainer1.ActiveTabIndex = 2;
+            lblScore.Text = AppLib.Decrypt(Request.QueryString["sc"].ToString());
         }
 
         //AppLib.GetLoggedInUserName());
@@ -49,22 +28,8 @@ public partial class Users_RiskStratificationProcessStep3 : System.Web.UI.Page
         AppLib.InsertVisitedSectionDetails("Risk Stratification Process Step 3");
 
         #endregion
-        BindCMSText();
+
         imgCategory.Src = AppConfig.GetBaseSiteUrl() + "images/icons/iconPalLevel" + AppLib.Decrypt(Request.QueryString["c"].ToString()) + ".jpg";
-
-    }
-    private void BindCMSText()
-    {
-
-        BLL.TemplateLib oTemplateLib = new BLL.TemplateLib();
-        try
-        {
-            lblTriCMSText.Text = oTemplateLib.GetTemplateDetailsByTemplateTemplateName("RiskStratificationProcessStep3TriIntroduction").TextAreaHTML;
-            lblLivingCMSText.Text = oTemplateLib.GetTemplateDetailsByTemplateTemplateName("RiskStratificationProcessStep3LivingIntroduction").TextAreaHTML;
-            lblWellCMSText.Text = oTemplateLib.GetTemplateDetailsByTemplateTemplateName("RiskStratificationProcessStep3WellIntroduction").TextAreaHTML;
-        }
-        catch { }
-        finally { oTemplateLib = null; }
 
     }
     protected void lnkBack_Click(object sender, EventArgs e)

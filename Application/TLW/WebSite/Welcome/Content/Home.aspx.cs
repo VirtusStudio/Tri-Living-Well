@@ -27,10 +27,6 @@ public partial class Home : System.Web.UI.Page
              //Response.Write(Session.Contents["MODE_CURRENT"].ToString());
         }
 
-        
-
-
-
 
     }
 

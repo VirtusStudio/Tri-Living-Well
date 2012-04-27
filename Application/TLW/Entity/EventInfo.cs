@@ -27,17 +27,6 @@ namespace Entity
 
        private string _strUserName;
 
-
-       //Properties for wellness
-       private string _userName;
-       private int _sleep;
-       private int _stress;
-       private int _outlook;
-       private int _Engagement;
-       private int _energy;
-       private string _day;
-       private DateTime _dates;
-
        #endregion
 
        #region EVENTS INFO PROPERTY DECLARATION
@@ -130,48 +119,6 @@ namespace Entity
        {
            get { return _chrIsActive; }
            set { _chrIsActive = value; }
-       }
-
-       //wellness
-       public string UserName
-       {
-           get { return _userName; }
-           set { _userName = value; }
-       }
-       public int Sleep
-       {
-           get { return _sleep; }
-           set { _sleep = value; }
-       }
-       public int Stress
-       {
-           get { return _stress; }
-           set { _stress = value; }
-       }
-       public int Outlook
-       {
-           get { return _outlook; }
-           set { _outlook = value; }
-       }
-       public int Engagement
-       {
-           get { return _Engagement; }
-           set { _Engagement = value; }
-       }
-       public int Energy
-       {
-           get { return _energy; }
-           set { _energy = value; }
-       }
-       public string Day
-       {
-           get { return _day; }
-           set { _day = value; }
-       }
-       public DateTime Dates
-       {
-           get { return _dates; }
-           set { _dates = value; }
        }
        
        #endregion

@@ -72,6 +72,7 @@
 </head>
 <body onload="Init();" class="body2">
     <form id="form1" runat="server">
+     <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div style="text-align: right; padding-bottom: 5px;">
@@ -146,6 +147,7 @@
         </iframe>
     </div>
     <uc1:UC_Visitlog_Visitlog ID="UC_Visitlog_Visitlog1" runat="server" />
+    </div>
     </form>
 </body>
 </html>

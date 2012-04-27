@@ -135,8 +135,7 @@ public partial class Users_RiskStratificationProcessStep1 : System.Web.UI.Page
 
             else
             {
-               Response.Redirect(AppConfig.GetBaseSiteUrl() + "Users/RiskStratificationProcessStep1PartB.aspx?id=" + Request.QueryString["id"].ToString());
-               // Response.Redirect("RiskStratificationProcessStep1PartB.aspx?id=" + "raju.bot10@gmail.com");
+                Response.Redirect(AppConfig.GetBaseSiteUrl() + "Users/RiskStratificationProcessStep1PartB.aspx?id=" + Request.QueryString["id"].ToString());
             }
         }
 

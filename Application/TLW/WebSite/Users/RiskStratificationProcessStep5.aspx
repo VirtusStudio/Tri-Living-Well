@@ -161,7 +161,6 @@
                                                                                     <asp:ListItem Value="2">Lightly Active - light exercise/sports 1-3 days/week</asp:ListItem>
                                                                                     <asp:ListItem Value="3">Moderately Active - moderate exercise/sports 3-5 days/week</asp:ListItem>
                                                                                     <asp:ListItem Value="4">Very Active - hard exercise/sports 6-7 days/week</asp:ListItem>
-                                                                                    <asp:ListItem Value="5">Extremely Active: Hard daily exercise or sports 2x/day</asp:ListItem>
                                                                                 </asp:DropDownList>
                                                                             </td>
                                                                         </tr>

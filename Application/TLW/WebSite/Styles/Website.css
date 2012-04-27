@@ -3,7 +3,7 @@
 .WebsiteFooter{background-color:#1e242b;color:#ffffff;padding:5px 10px 5px 10px;margin-top:5px;}
 
 /* RadMenu CssClass="WebsiteHeaderMenu" */
-.WebsiteHeaderMenu .rmLink{vertical-align:bottom;height:22px;font-weight:normal;border-left:solid 1px #ffffff;color:#ffffff;font-size:15px;background-color:Transparent;text-decoration:none;}
+.WebsiteHeaderMenu .rmLink{vertical-align:bottom;height:19px;font-weight:normal;border-left:solid 1px #ffffff;color:#ffffff;font-size:15px;background-color:Transparent;text-decoration:none;}
 .WebsiteHeaderMenu .rmLink:hover{background-color:#0a1524;text-decoration:none;}
 
 .WebsiteHeaderMenu .rmSlide .rmLink {background-color:#B85B22;}

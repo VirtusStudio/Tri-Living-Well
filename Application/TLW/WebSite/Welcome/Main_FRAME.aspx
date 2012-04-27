@@ -1,22 +1,56 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Main_FRAME.aspx.cs" Title="Tri Living Well" Inherits="Main_Main_FRAME" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Main_Frame.aspx.cs" Title="Tri Living Well"
+    Inherits="Welcome_Main_Frame" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-
 <%@ Register Src="~/Controls/UC_TextArea.ascx" TagName="UC_TextArea" TagPrefix="uc3" %>
 <%@ Register Src="~/Controls/UC_Login_Register.ascx" TagName="UC_Login_Register"
     TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/UC_Announcements.ascx" TagName="UC_Announcements" TagPrefix="uc2" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>
-       </title>
+<head id="Head1" runat="server">
+    <style type="text/css">
+        .right_quicklinks ul li a
+        {
+            font-size: 12px;
+        }
+        
+    </style>
     <link href="../Styles/Corporate.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/Website.css" rel="stylesheet" type="text/css" />
     <!--popUpWin-->
-
     <!--iframe height resizing-->
+
+    <script type="text/javascript">
+        function popUpWin(path, x, y) {
+
+            var sURL = '<%=AppConfig.GetBaseSiteUrl() %>' + path;
+            var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width=' + x + ',height=' + y + ',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
+            var windownew = window.open(sURL, "new_window", features);
+            try { windownew.focus(); } catch (err) { }
+        }
+        function load(Filepath) {
+            if (Filepath.indexOf("//") > -1) {
+                window.location = Filepath;
+            }
+            else {
+                window.location = '<%=AppConfig.GetBaseSiteUrl() %>' + Filepath;
+            }
+        }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script type="text/javascript">
         // IFRAME HEIGHT STUFF
         var iframeName = "IFRAME_CONTENT";
@@ -111,196 +145,206 @@
             document.getElementById('btnRefresh').click();
         }
     </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--[if lte IE 8]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+    <!-- Menu -->
+    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu-v.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/ddsmoothmenu.js">
+    </script>
+    <script type="text/javascript">
+
+        ddsmoothmenu.init({
+            mainmenuid: "smoothmenu1", //menu DIV id
+            orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+            classname: 'ddsmoothmenu', //class added to menu's outer DIV
+            //customtheme: ["#1c5a80", "#18374a"],
+            contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+        })
+
+        ddsmoothmenu.init({
+            mainmenuid: "smoothmenu2", //Menu DIV id
+            orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+            classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+            //customtheme: ["#804000", "#482400"],
+            contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+        })
+	
+    </script>
 </head>
-<body class="WebsiteBody" >
+<body>
+    <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
     <form id="form1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-    <div style="position: absolute; left: 50%; margin-left: -450px; top: 10px; width: 200px;
-        height: 100px; border: solid 0px red;" onclick="Welcome/Main_Frame.aspx">
+    <!-- Header start here -->
+    <header>
+  	<div class="topwelcomeuser_wrapper">
+		<div class="topwelcomeuser">
+				<ul>
+					<li>Welcome Guest! </li>
+					<li><a href="Login.aspx">Login</a></li>
+				</ul>
+			</div>
+	</div>
+	<div class="topwrapper">
+		<div class="logo"><a href="#"><img src="images/logo.png" alt="" border="0"></a></div>
+		
+ 		<div class="clear"></div>
+		
+		<!-- Start main menu here -->
+		 <div class="mainmenu">
+		 	<ul>
+				<li><a href="main_frame.aspx"><span>H</span>ome</a></li>
+				<li><a href="Content/About.aspx"><span>A</span>bout<span> U</span>s</a></li>
+				<li><a href="Content/HowItWorks.aspx"><span>H</span>ow it<span> W</span>orks</a></li>
+				<li><a href="Content/Contact.aspx"><span>C</span>ontact<span> U</span>s</a></li>
+			</ul>
+		 </div>
+		<!-- Main menu End here -->
+				
+	</div>
+
+     
+
+	
+  </header>
+    <!-- Header End here -->
+    <div role="main" class="contentarea">
+        <div class="topmainheadings">
+            <h1>
+                <img src="images/mydashbordhead.png" alt="" border="0"></h1>
+        </div>
+        <div class="clear">
+        </div>
+        <!-- Graph start here -->
+        <div class="graphwrapper">
+            <div class="mid_box">
+                <div class="mid_boxhead">
+                    Nutritional Journal</div>
+                <div class="mid_boxbody">
+                    <img src="images/graph1.png" alt="" border="0">
+                </div>
+            </div>
+            <div class="mid_box">
+                <div class="mid_boxhead">
+                    Physical Fitness</div>
+                <div class="mid_boxbody">
+                    <img src="images/graph2.png" alt="" border="0">
+                </div>
+            </div>
+            <div class="mid_box">
+                <div class="mid_boxhead">
+                    Brain Power</div>
+                <div class="mid_boxbody">
+                    <img src="images/graph3.png" alt="" border="0">
+                </div>
+            </div>
+        </div>
+        <!-- Graph End here -->
+        <div class="clear">
+        </div>
+        <!-- left area start here -->
+        <div class="left_informations">
+            <h1>
+                Information Portal</h1>
+            <ul>
+                <li class="news"><a href="../Users/ViewNewsletters.aspx"><img src="../images/iconssetimg.png" alt="" border="0"><p>Newsletters</p></a></li>
+                <li class="current"><a href="#"><img src="../images/iconssetimg.png" alt="" border="0"><p>Current</p></a></li>
+                <li class="library"><a href="../Users/ViewLibraries.aspx"><img src="../images/iconssetimg.png" alt="" border="0"><p>Library</p></a></li>
+                <li class="forum"><a href="../Forum/default.aspx"><img src="../images/iconssetimg.png" alt="" border="0"><p>Forum</p></a></li>
+            </ul>
+            <div class="visitusicons">
+                <h1>
+                    Visit Us on:</h1>
+                <ul>
+                    <li class="facebookicon"><a href="#"><img src="../images/visitusiconsimg.png" alt="" border="0">Facebook</a></li>
+                    <li class="twittericon"><a href="#"><img src="../images/visitusiconsimg.png" alt="" border="0">twitter</a></li>
+                    <li class="blogicon"><a href="#"><img src="../images/visitusiconsimg.png" alt="" border="0">blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- left area End here -->
+        <!-- right area start here -->
+        <div class="rightwrapper">
+            <div class="rightwatshot">
+                <div class="rightwatshothead">
+                </div>
+                <div class="rightwatshotcenter">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                        unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                    <p>
+                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially unchanged. It was popularised in the 1960s with the release
+                        of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                </div>
+                <div class="rightwatshotdown">
+                </div>
+            </div>
+            <div class="right_quicklinks">
+                <div class="right_quicklinkshead">
+                </div>
+                <div class="right_quicklinkscenter">
+                    <ul>
+                        <li class="myprogram"><a href="javascript:popUpWin('Main/MyProgram/MyProgram.aspx',900,650);">
+                            <img src="../images/iconssetimg.png" alt="" border="0"><p>My program</p></a></li>
+                        <li class="nutrition"><a href="javascript:popUpWin('Main/MyNutrition/MyNutrition.aspx',900,650);">
+                            <img src="../images/iconssetimg.png" alt="" border="0"><p>Nutrition</p></a></li>
+                        <li class="activity_calendar"><a href="../Main/PALs/PAL_TABS.aspx"><img src="../images/iconssetimg.png" alt="" border="0"><p>Activity Calendar</p></a></li>
+                        <li class="mealexchange"><a href="javascript:popUpWin('Main/DDs/MealExchange/HTML_MealExchange.aspx',900,650);">
+                            <img src="../images/iconssetimg.png" alt="" border="0"><p>Meal Exchange</p></a></li>
+                    </ul>
+                   
+                </div>
+                <div class="right_quicklinksdown">
+                </div>
+            </div>
+        </div>
+        <!-- right area End here -->
     </div>
-    <table class="center" style="width: 950px;">
-        <tr>
-            <td>
-                <asp:HiddenField ID="hdSiteUrl" runat="server" />
-                <div class="WebsiteHeader" style="border: solid 0px red;">
-                    <div style="padding: 89px 0px 0px 450px; border: solid 0px green;">
-                        <telerik:RadMenu CssClass="WebsiteHeaderMenu" EnableScreenBoundaryDetection="False"
-                            ID="RadMenu1" runat="server" EnableEmbeddedSkins="False" Skin="Forest">
-                            <Items>
-                                <telerik:RadMenuItem runat="server" Text="Home" NavigateUrl="~/Welcome/main_frame.aspx">
-                                </telerik:RadMenuItem>
-                                <telerik:RadMenuItem runat="server" Text="About Us" NavigateUrl="~/Welcome/Content/About.aspx">
-                                </telerik:RadMenuItem>
-                                <telerik:RadMenuItem runat="server" Text="Why TLW" NavigateUrl="~/Welcome/Content/WhyTLW.aspx">
-                                </telerik:RadMenuItem>
-                                <telerik:RadMenuItem runat="server" Text="TLW Concept" NavigateUrl="~/Welcome/Content/HowItWorks.aspx">
-                                    <Items>
-                                        <telerik:RadMenuItem runat="server" Text="Fitness" NavigateUrl="~/Welcome/Content/TLWFitness.aspx">
-                                        </telerik:RadMenuItem>
-                                        <telerik:RadMenuItem runat="server" Text="Nutrition" NavigateUrl="~/Welcome/Content/TLWNutrition.aspx">
-                                        </telerik:RadMenuItem>
-                                        <telerik:RadMenuItem runat="server" Text="Wellness" NavigateUrl="~/Welcome/Content/TLWWellness.aspx">
-                                        </telerik:RadMenuItem>
-                                    </Items>
-                                </telerik:RadMenuItem>
-                                <telerik:RadMenuItem runat="server" Text="Contact Us" NavigateUrl="~/Welcome/Content/Contact.aspx">
-                                </telerik:RadMenuItem>
-                            </Items>
-                        </telerik:RadMenu>
-                    </div>
-                </div>
-                <div style="display: none;">
-                    <asp:Label ID="lblName" runat="server"></asp:Label>
-                    <asp:Label ID="lblEdit" runat="server"></asp:Label>
-                    <asp:Label ID="lblLogout" runat="server"></asp:Label>
-                </div>
-                <iframe style="width: 950px;" id="IFRAME_CONTENT" name="IFRAME_CONTENT" runat="server"
-                    frameborder="0" class="IFRAME_CONTENT" visible="false" src="Content/Home.aspx">
-                </iframe>
-                <div class="BarHorizontal" style="width: 950px;">
-                </div>
-                <table style="width: 950px; border-top: solid 1px #ffffff; border-bottom: solid 1px #ffffff;">
-                    <tr>
-                        <td>
-                            <a class="aImageButton" style="width: 315px; height: 216px; background-image: url(<%=AppConfig.GetBaseSiteUrl() %>images/corporate/buttons/aImgBtn/aImgBtnFitness.jpg);"
-                                href="<%=AppConfig.GetBaseSiteUrl() %>Welcome/Content/TLWFitness.aspx"></a>
-                        </td>
-                        <td style="width: 100%; padding: 0px 2px 0px 3px;">
-                            <a class="aImageButton" style="width: 315px; height: 216px; background-image: url(<%=AppConfig.GetBaseSiteUrl() %>images/corporate/buttons/aImgBtn/aImgBtnNutrition.jpg);"
-                                href="<%=AppConfig.GetBaseSiteUrl() %>Welcome/Content/TLWNutrition.aspx"></a>
-                        </td>
-                        <td>
-                            <a class="aImageButton" style="width: 315px; height: 216px; background-image: url(<%=AppConfig.GetBaseSiteUrl() %>images/corporate/buttons/aImgBtn/aImgBtnWellness.jpg);"
-                                href="<%=AppConfig.GetBaseSiteUrl() %>Welcome/Content/TLWWellness.aspx"></a>
-                        </td>
-                    </tr>
-                </table>
-                <div class="BarHorizontal" style="width: 950px;">
-                </div>
-                <table style="width: 950px;">
-                    <tr>
-                        <td class="top Round4Container">
-                            <div>
-                                <uc1:uc_login_register id="UC_Login_Register1" runat="server" />
-                            </div>
-                            <div>
-                                <uc2:uc_announcements id="UC_Announcements1" runat="server" />
-                            </div>
-                        </td>
-                        <td class="top Round5Container" style="width: 100%;">
-                            <center class="Round5">
-                                <center>
-                                    <center>
-                                        <center>
-                                            <center>
-                                                <center>
-                                                    <center>
-                                                        <center>
-                                                            <center>
-                                                                <center>
-                                                                    <table class="Round5_tblHeader">
-                                                                        <tr>
-                                                                            <td>
-                                                                                Tri Living Well
-                                                                            </td>
-                                                                            <td style="text-align: right;">
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
-                                                                    <uc3:uc_textarea id="UC_TextArea_TriLivingWell" runat="server" textarea_name="HOME_1" />
-                                                                </center>
-                                                            </center>
-                                                        </center>
-                                                    </center>
-                                                </center>
-                                            </center>
-                                        </center>
-                                    </center>
-                                </center>
-                            </center>
-                            <br />
-                            <center class="Round5">
-                                <center>
-                                    <center>
-                                        <center>
-                                            <center>
-                                                <center>
-                                                    <center>
-                                                        <center>
-                                                            <center>
-                                                                <center>
-                                                                    <table class="Round5_tblHeader">
-                                                                        <tr>
-                                                                            <td>
-                                                                                Why Wellness
-                                                                            </td>
-                                                                            <td style="text-align: right;">
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
-                                                                    <uc3:uc_textarea id="UC_TextArea_WhyWellness" runat="server" textarea_name="HOME_2" />
-                                                                </center>
-                                                            </center>
-                                                        </center>
-                                                    </center>
-                                                </center>
-                                            </center>
-                                        </center>
-                                    </center>
-                                </center>
-                            </center>
-                            <br />
-                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,30,0"
-                                width="650" height="275">
-                                <param name="movie" value="Content/swf/HomeFlash.swf" />
-                                <param name="quality" value="best" />
-                                <param name="LOOP" value="true" />
-                                <param name="menu" value="false" />
-                                <embed src="Content/swf/HomeFlash.swf" quality="best" pluginspage="https://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
-                                    type="application/x-shockwave-flash" width="650" height="275" loop="true"></embed>
-                            </object>
-                        </td>
-                    </tr>
-                </table>
-                <div class="WebsiteFooter" style="width: 930px;">
-                    <table>
-                        <tr>
-                            <td class="top">
-                                Tri-Living Well<br />
-                                1008 Upper Gulph Road<br />
-                                Suite 300<br />
-                                Wayne, PA 19087
-                            </td>
-                            <td class="top" style="text-align: right;">
-                                <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
-                                    <%=ConfigurationSettings.AppSettings["SITE_PHONE"] %><br />
-                                    Email:
-                                    <%=ConfigurationSettings.AppSettings["SITE_EMAIL"] %><br />
-                                </telerik:RadCodeBlock>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-    </table> 
+    <div class="clear">
+    </div>
+    <!-- footer start here -->
+    <footer>
+		<div class="footer_left">
+			<p>Tri-Living Well</p>
+			<p>1008 Upper Gulph Road</p>
+			<p>Suite 300</p>
+			<p>Wayne, PA 19087</p>
+		</div>
+		
+		<div class="footer_right">
+			<p>(484) 367-7016</p>
+			<p>Email: <a href="mailto:support@TriLivingWell.com">support@TriLivingWell.com</a></p>
+		</div>
+		
+  </footer>
+    <!-- footer End here -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>        window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+        (function (d, t) {
+            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s)
+        } (document, 'script'));
+    </script>
     </form>
-    <script type="text/javascript">
-        function popUpWin(path, x, y) {
-            var sURL = '<%=AppConfig.GetBaseSiteUrl() %>' + path;
-            var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width=' + x + ',height=' + y + ',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
-            var windownew = window.open(sURL, "new_window", features);
-            try { windownew.focus(); } catch (err) { }
-        }
-        function load(Filepath) {
-            if (Filepath.indexOf("//") > -1) {
-                window.location = Filepath;
-            }
-            else {
-                window.location = '<%=AppConfig.GetBaseSiteUrl() %>' + Filepath;
-            }
-        }
-        </script>
 </body>
 </html>
