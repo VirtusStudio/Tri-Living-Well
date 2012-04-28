@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TLW" Class="TLWDALDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=FSTECH029\SQLEXPRESS;Initial Catalog=TLW;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="TLWConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FSTECH043\SQLEXPRESS;Initial Catalog=TLW;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="TLWConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
     <Type Name="aspnet_User">
       <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />

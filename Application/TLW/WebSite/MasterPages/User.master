@@ -48,7 +48,7 @@
 	
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
-        <script src="<%=AppConfig.GetBaseSiteUrl() %>Scripts/Common.js" type="text/javascript"></script>
+        <script src="<%#AppConfig.GetBaseSiteUrl() %>Scripts/Common.js" type="text/javascript"></script>
         <!--popUpWin-->
         <!--refreshMenu is meant to refresh only certain fields every so often-->
 
@@ -230,7 +230,7 @@
             <div class="menu2_div">
                                                                         <telerik:RadMenu ID="rmMenu" runat="server" CssClass="WebsiteHeaderMenu" EnableEmbeddedSkins="false">
                                                                             <Items>
-                                                                                <telerik:RadMenuItem ID="RadMenuItem1" runat="server" NavigateUrl="~/Welcome/Main_Frame.aspx"
+                                                                                <telerik:RadMenuItem ID="RadMenuItem1" runat="server" NavigateUrl="~/Main/Main_Frame.aspx"
                                                                                     Text="Dashboard">
                                                                                 </telerik:RadMenuItem>
                                                                                 <telerik:RadMenuItem ID="RadMenuItem4" runat="server" NavigateUrl="~/Main/Main_Frame.aspx"

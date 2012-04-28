@@ -116,7 +116,7 @@ public partial class Welcome_Content_WellnessDairy : System.Web.UI.Page
             int engagement = Convert.ToInt32(ddlengagement.SelectedValue);
             int energ = Convert.ToInt32(ddlenergylevel.SelectedValue);
 
-             string sUsername = Membership.GetUser().UserName;
+            string sUsername = Membership.GetUser().UserName;
             BLL.UserLib oUserLib = new BLL.UserLib();
             Entity.UserInfo oUserInfo = new Entity.UserInfo();
             SqlConnClass objSqlConnClass = new SqlConnClass();
@@ -133,13 +133,13 @@ public partial class Welcome_Content_WellnessDairy : System.Web.UI.Page
                     DateTime maxdate = Convert.ToDateTime(DS.Tables[0].Rows[i]["Dates"].ToString());
                     if (maxdate == datee)
                     {
-                        this.cmd.CommandText = "Update tbl_wellnessEntry set UserName='" + sUsername+ "',Sleep='" + sleep + "',Stress='" + stress + "',Outlook='" + outlook + "',Engagement='" + engagement + "',Energy='" + energ + "',Day='" + dy + "',Dates='" + maxdate + "' where Dates='" + datee+ "'";
+                        this.cmd.CommandText = "Update tbl_wellnessEntry set UserName='" + sUsername + "',Sleep='" + sleep + "',Stress='" + stress + "',Outlook='" + outlook + "',Engagement='" + engagement + "',Energy='" + energ + "',Day='" + dy + "',Dates='" + maxdate + "' where Dates='" + datee + "'";
                         this.cmd.ExecuteNonQuery();
                         this.cn.Close();
                         BindEvents();
                         bindChart();
 
-                       // Page.Response.Redirect(Page.Request.Url.ToString(), true);
+                        // Page.Response.Redirect(Page.Request.Url.ToString(), true);
                         lblMsg.Text = "* Your wellness Diary is Updated Successfully";
                     }
                 }
@@ -153,7 +153,7 @@ public partial class Welcome_Content_WellnessDairy : System.Web.UI.Page
                 this.cn.Close();
                 BindEvents();
                 bindChart();
-              //  Page.Response.Redirect(Page.Request.Url.ToString(), true);
+                //  Page.Response.Redirect(Page.Request.Url.ToString(), true);
                 lblMsg.Text = "* Your wellness Diary is Inserted Successfully";
             }
             

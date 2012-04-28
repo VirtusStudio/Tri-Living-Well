@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HealthNews.aspx.cs" 
-MasterPageFile="~/MasterPages/TLWSite.master"  Title="Health News"
+MasterPageFile="~/MasterPages/User.master"  Title="Health News"
 Inherits="Welcome_Content_HealthNews" %>
 
   <%@ Register Src="~/Controls/UC_TextArea.ascx" TagName="UC_TextArea" TagPrefix="uc1" %>
