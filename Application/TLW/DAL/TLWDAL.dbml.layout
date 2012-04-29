@@ -87,7 +87,7 @@
         <elementListCompartment Id="8f049d53-316f-426c-8b4d-4b7be4bced81" absoluteBounds="3.5150000005960464, 1.9600000008940697, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.69374750018626); (3.5 : 1.69374750018626)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.69374750018626); (3.5 : 1.69374750018626)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TLWDALDataContext/aspnet_User/aspnet_User_aspnet_UsersInRole" />
       <nodes>
         <classShapeMoniker Id="32ce2ee1-06bf-4582-bf39-4806add57030" />
@@ -155,7 +155,7 @@
         <elementListCompartment Id="f8ab6129-b17f-4a9a-8b5a-58cd92434d28" absoluteBounds="6.2650000005960464, 3.2100000008940697, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 2.975); (6.25 : 2.975)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 2.975); (6.25 : 2.975)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TLWDALDataContext/aspnet_Membership/aspnet_Membership_USER_INFO" />
       <nodes>
         <classShapeMoniker Id="2c613dc5-0008-4538-8501-75b69b5c3212" />

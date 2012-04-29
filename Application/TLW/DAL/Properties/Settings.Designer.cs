@@ -26,21 +26,20 @@ namespace DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.10.15;Initial Catalog=TLW_FMS;User ID=dev2008;Password=123456" +
-            "78")]
-        public string TLW_FMSConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;database=TLW;Integrated Security=true;")]
+        public string TLWConnectionString {
             get {
-                return ((string)(this["TLW_FMSConnectionString"]));
+                return ((string)(this["TLWConnectionString"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=;database=TLW_FMS;uid=;pwd=;")]
-        public string TLWConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;database=TLW;Integrated Security=true;")]
+        public string TLW_FMSConnectionString {
             get {
-                return ((string)(this["TLWConnectionString"]));
+                return ((string)(this["TLW_FMSConnectionString"]));
             }
         }
     }

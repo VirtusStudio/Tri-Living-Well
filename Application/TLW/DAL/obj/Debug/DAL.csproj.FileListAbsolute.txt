@@ -10,3 +10,9 @@ D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\bin\Debug\DAL.pdb
 D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Debug\ResolveAssemblyReference.cache
 D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Debug\DAL.dll
 D:\Projects\TLW\APPLICATION\DEVELOPMENT\trunk\TLW\DAL\obj\Debug\DAL.pdb
+E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.dll.config
+E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.dll
+E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.pdb
+E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.dll
+E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.pdb
