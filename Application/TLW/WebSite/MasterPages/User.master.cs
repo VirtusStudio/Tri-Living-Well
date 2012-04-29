@@ -54,6 +54,7 @@ public partial class MasterPages_User : System.Web.UI.MasterPage
                                 string Script = "jConfirm('You have " + no + " unanswered HealthCoach Message !  Click Ok to see them', 'HealthCoach Message',function(r) { if(r) {window.location.href = '../Backoffice/UserUtilities/ManageQuestionforHealthCoach.aspx';}});";
                                 ScriptManager.RegisterStartupScript(this, this.GetType(), "CloseWindow", Script, true);
                                 Session["popup"] = false;
+                                Response.Redirect("../Backoffice/UserUtilities/ManageQuestionforHealthCoach.aspx");
                             }
                         }
                         else

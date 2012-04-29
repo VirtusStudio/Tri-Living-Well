@@ -82,9 +82,9 @@
             <h1>
                 Information Portal</h1>
             <ul>
-                <li class="news"><a href="../Users/ViewNewsletters.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Newsletters</p></a></li>
+                <li class="news"><a href="../Users/ViewNewsletters.aspx" onclick="newsletterpopup(this.href);return false"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Newsletters</p></a></li>
                 <li class="current"><a href="#"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Current</p></a></li>
-                <li class="library"><a href="../Users/ViewLibraries.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Library</p></a></li>
+                <li class="library"><a href="../Users/ViewLibraries.aspx" onclick="viewlibrarypopup(this.href);return false"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Library</p></a></li>
                 <li class="forum"><a href="../Forum/default.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Forum</p></a></li>
             </ul>
             <div class="visitusicons">
@@ -224,6 +224,13 @@
 
     <script language="javascript" type="text/javascript">
         function basicPopup(url) {
+            popupWindow = window.open(url, 'popUpWindow', 'height=700,width=900,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+        }
+
+        function newsletterpopup(url) {
+            popupWindow = window.open(url, 'popUpWindow', 'height=700,width=900,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+        }
+        function viewlibrarypopup(url) {
             popupWindow = window.open(url, 'popUpWindow', 'height=700,width=900,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
         }
 

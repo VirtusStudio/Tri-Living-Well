@@ -171,5 +171,13 @@
                 return true;
             }
         }
+
+        function popUpWin(path, x, y) {
+
+            var sURL = '<%=AppConfig.GetBaseSiteUrl() %>' + path;
+            var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width=' + x + ',height=' + y + ',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
+            var windownew = window.open(sURL, "new_window", features);
+            try { windownew.focus(); } catch (err) { }
+        }
     </script>
 <%--</telerik:RadScriptBlock>--%>

@@ -222,7 +222,8 @@
     <div role="main" class="contentarea">
         <div class="topmainheadings">
             <h1>
-                <img src="images/mydashbordhead.png" alt="" border="0"></h1>
+               <%-- <img src="images/mydashbordhead.png" alt="" border="0">--%>
+                </h1>
         </div>
         <div class="clear">
         </div>
