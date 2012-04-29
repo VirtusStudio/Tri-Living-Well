@@ -38,6 +38,8 @@ public partial class UC_Login_Register : System.Web.UI.UserControl
             if (cookie != null)
             {
                 // Response.Write("COOKIES");
+
+                //git test
                 string emailID = cookie.Values["Email"].ToString();
                 UserName.Text = emailID;
                 cbRememberMe.Checked = true;
