@@ -193,9 +193,6 @@ public partial class MasterPages_User : System.Web.UI.MasterPage
         else
         {
             //rmMenu.Items[7].Items[2].Visible = true;
-
-
-
             // rmMenu.Items[7].Items[1].Visible = false;
             //rmMenu.Items[7].Items[0].Visible = false;
             //rmMenu.Items[7].Visible = false;
@@ -204,8 +201,6 @@ public partial class MasterPages_User : System.Web.UI.MasterPage
 
         oCompanyInfo = null;
         oCompanyManager = null;
-
-
         lblLogout.Text = " ";
         lblLogout.Text = "<a class='small' href='" + AppConfig.GetBaseSiteUrl() + "login/logout.aspx'>Log Out</a> ";
         //lblEdit.Text = " ";
