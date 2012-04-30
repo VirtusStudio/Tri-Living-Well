@@ -77,7 +77,7 @@ function resizeNow(h)
                             <asp:Label ID="lblNavigation" runat="server"></asp:Label>
                         </td>
                         <td>
-                            <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_TAB" style="overflow-y:auto;overflow-x:hidden;width:500px;" runat="server" frameborder="0" src="HTML/MealExchange.html"></iframe>
+                            <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_TAB" style="overflow-y:auto;overflow-x:hidden;width:500px;" runat="server" frameborder="0" src="HTML/MealExchange.aspx"></iframe>
                         </td>
                     </tr>
                     </table>
