@@ -12,7 +12,7 @@
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-<script src="../js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-1.4.2.min.js" type="text/javascript"></script>
     <script src="../js/jquery.alerts.js" type="text/javascript"></script>
     <link href="../Styles/jquery.alerts.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/Common.js" type="text/javascript"></script>
