@@ -152,7 +152,7 @@ public class PALClass
         return MyDataSet;
     }
 
-    public DataSet PAL_INSERT_PalEntries(string sUserID, string sPalEntryDate, string sPalEntryType, string sPalEntryTime, string sPalEntryDuration, string sPalEntryIntensity, string sPalEntryWeight, string sPalEntryComment)
+    public DataSet PAL_INSERT_PalEntries(string sUserID, string sPalEntryDate, int iPalEntryType, string sPalTypeText, int iPalEntryActivity, string sPalActivityText, string sPalEntryTime, string sPalEntryDuration, string sPalEntryIntensity, string sPalEntryWeight, string sPalEntryComment)
     {
         DataSet MyDataSet = new DataSet();
         try
@@ -164,7 +164,10 @@ public class PALClass
             MyCommand.CommandText = "spPAL_INSERT_PalEntries";
             MyCommand.Parameters.AddWithValue("@USER_ID", sUserID);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_DATE", sPalEntryDate);
-            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TYPE", sPalEntryType);
+            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TYPE", iPalEntryType);
+            MyCommand.Parameters.AddWithValue("@PAL_TYPE_TEXT", sPalTypeText);
+            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_ACTIVITY", iPalEntryActivity);
+            MyCommand.Parameters.AddWithValue("@PAL_ACTIVITY_TEXT", sPalActivityText);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TIME", sPalEntryTime);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_DURATION", sPalEntryDuration);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_INTENSITY", sPalEntryIntensity);
@@ -180,7 +183,7 @@ public class PALClass
         return MyDataSet;
     }
 
-    public DataSet PAL_UPDATE_PalEntries(string sPalEntryID, string sPalEntryDate, string sPalEntryType, string sPalEntryTime, string sPalEntryDuration, string sPalEntryIntensity, string sPalEntryWeight, string sPalEntryComment)
+    public DataSet PAL_UPDATE_PalEntries(string sPalEntryID, string sPalEntryDate, int iPalEntryType, string sPalTypeText, int iPalEntryActivity, string sPalActivityText, string sPalEntryTime, string sPalEntryDuration, string sPalEntryIntensity, string sPalEntryWeight, string sPalEntryComment)
     {
         DataSet MyDataSet = new DataSet();
         try
@@ -192,7 +195,10 @@ public class PALClass
             MyCommand.CommandText = "spPAL_UPDATE_PalEntries";
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_ID", sPalEntryID);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_DATE", sPalEntryDate);
-            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TYPE", sPalEntryType);
+            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TYPE", iPalEntryType);
+            MyCommand.Parameters.AddWithValue("@PAL_TYPE_TEXT", sPalTypeText);
+            MyCommand.Parameters.AddWithValue("@PAL_ENTRY_ACTIVITY", iPalEntryActivity);
+            MyCommand.Parameters.AddWithValue("@PAL_ACTIVITY_TEXT", sPalActivityText);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_TIME", sPalEntryTime);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_DURATION", sPalEntryDuration);
             MyCommand.Parameters.AddWithValue("@PAL_ENTRY_INTENSITY", sPalEntryIntensity);
@@ -339,5 +345,33 @@ public class PALClass
         return MyDataSet;
     }
 
+    public int DurationTextToMinutes(string duration)
+    {
+        duration = duration.Trim();
+        if(duration == "-Select Duration-") return 0;
+        if(duration == "15 min") return 15;
+        if(duration == "30 min") return 30;
+        if(duration == "45 min") return 45;
+        if(duration == "1 hr") return 60;
+        if(duration == "1 h 15 min") return 75;
+        if(duration == "1 h 30 min") return 90;
+        if(duration == "1 h 45 min") return 105;
+        if(duration == "2 hr") return 120;
+        if(duration == "2 h 15 min") return 135;
+        if(duration == "2 h 30 min") return 150;
+        if(duration == "2 h 45 min") return 165;
+        if (duration == "3 hr") return 180;
+        return 0;
+    }
 
+    public decimal GetCaloriesExpended(string weight, string met, string duration)
+    {
+        // calculate energy expended
+        decimal dCalories = 0.0M;
+        decimal dWeight = Convert.ToDecimal(weight);
+        decimal dMET = Convert.ToDecimal(met);
+        decimal dDuration = Convert.ToDecimal(DurationTextToMinutes(duration));
+        dCalories = (((dMET - 1.0M) * 3.5M * (dWeight / 2.2M)) / 200.0M) * dDuration;
+        return dCalories;
+    }
 }

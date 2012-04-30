@@ -191,6 +191,10 @@ namespace BLL
                 oCompanyInfoDAL.intStateId = oCompanyInfo.IntStateId;
                 oCompanyInfoDAL.strStateText = oCompanyInfo.StrStateName;
 
+                // David K. Bowers 04/10/12 added in zip code
+                oCompanyInfoDAL.strZipCode = oCompanyInfo.StrZipCode;
+                // David K. Bowers 04/09/12 fixed a bug where company address was not getting stored in DB
+                oCompanyInfoDAL.strCompanyAddress = oCompanyInfo.StrCompanyAddress;
                 oCompanyInfoDAL.strCity = oCompanyInfo.StrCity;
                 oCompanyInfoDAL.chrIsPaid = oCompanyInfo.ChrIsPaid;
                 oCompanyInfoDAL.chrIsActive = oCompanyInfo.ChrIsActive;
@@ -579,6 +583,7 @@ namespace BLL
         /// Output: 
         /// Return Value:
         /// Note: 
+        /// 4/10/12 David K. Bowers added in zip code
         /// *********************************************************************
         public Entity.CompanyInfo GetCompanyDetailsById(int intCompanyId)
         {
@@ -593,6 +598,7 @@ namespace BLL
                                       IntCompanyId = _ci.intCompanyId,
                                       IntCountryId = _ci.intCountryId ?? 0,
                                       IntStateId = _ci.intStateId ?? 0,
+                                      StrZipCode = _ci.strZipCode ?? "",
                                       StrCity = _ci.strCity ?? "",
                                       StrCompanyAddress = _ci.strCompanyAddress ?? "",
                                       StrCompanyEmail = _ci.strCompanyEmail,
@@ -808,8 +814,6 @@ namespace BLL
         }
 
 
-
-
         #endregion
 
         #region Update Functions
@@ -823,6 +827,8 @@ namespace BLL
         /// Return Value:
         /// Note: 
         /// *********************************************************************
+        /// 04/09/12 David K. Bowers fixed a bug where address change was not getting stored in db
+        /// 04/10/12 David K Bowers added in zip code
         public int UpdateCompanyDetails(Entity.CompanyInfo oCompanyInfo)
         {
             using (TLWDALDataContext _db = new TLWDALDataContext())
@@ -838,7 +844,10 @@ namespace BLL
                     oCompanyInfoDAL.intCountryId = oCompanyInfo.IntCountryId;
                     oCompanyInfoDAL.intStateId = oCompanyInfo.IntStateId;
                     oCompanyInfoDAL.strStateText = oCompanyInfo.StrStateName;
+                    oCompanyInfoDAL.strZipCode = oCompanyInfo.StrZipCode;
                     oCompanyInfoDAL.strCity = oCompanyInfo.StrCity;
+                    //04/09/12 David K. Bowers fixed a bug where address change was not getting stored in db
+                    oCompanyInfoDAL.strCompanyAddress = oCompanyInfo.StrCompanyAddress;
                     oCompanyInfoDAL.chrIsActive = oCompanyInfo.ChrIsActive;
                     oCompanyInfoDAL.dtModifiedDate = oCompanyInfo.DtModifiedDate;
                     oCompanyInfoDAL.chrIsApproved = oCompanyInfo.ChrIsApproved;

@@ -115,12 +115,29 @@
                                                         <td>
                                                             <asp:DropDownList ID="ddlPalEntryType" onchange="DisplayNutrition(this);" runat="server">
                                                             </asp:DropDownList>
-                                                            <a href="#" onclick="javascript:return OpenCMSPopupWindow();" id="ancViewNutrition" style="display: none;"
-                                                            
-                                                            >View Nutrition 101</a>
+                                                            <a href="#" onclick="javascript:return OpenCMSPopupWindow();" id="ancViewNutrition" style="display: none;">View Nutrition 101</a>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="required"
                                                                 ValidationGroup="PalEntries_PopUp" ErrorMessage="*Required" ControlToValidate="ddlPalEntryType"
                                                                 SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Activity
+                                                        </td>
+                                                        <td>
+                                                            <asp:DropDownList ID="ddlPalCycling" runat="server" Width="150">
+                                                            </asp:DropDownList>
+                                                            <asp:DropDownList ID="ddlPalRunning" style="display:none;" runat="server" Width="150">
+                                                            </asp:DropDownList>
+                                                            <asp:DropDownList ID="ddlPalSwimming" style="display:none;" runat="server" Width="150">
+                                                            </asp:DropDownList>
+                                                            <asp:DropDownList ID="ddlPalConditioningExercises" style="display:none;" runat="server" Width="150">
+                                                            </asp:DropDownList>
+                                                            <asp:DropDownList ID="ddlPalSports" style="display:none;" runat="server" Width="150">
+                                                            </asp:DropDownList>
+                                                            <asp:DropDownList ID="ddlPalWalking" style="display:none;" runat="server" Width="150">
+                                                            </asp:DropDownList>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -241,6 +258,49 @@
                 document.getElementById("ancViewNutrition").style.display = "none";
             }
 
+            // handle activity type change by showing the selected type
+            // hide them all first
+            document.getElementById('<%=ddlPalCycling.ClientID %>').style.display = 'none';
+            document.getElementById('<%=ddlPalRunning.ClientID %>').style.display = 'none';
+            document.getElementById('<%=ddlPalSwimming.ClientID %>').style.display = 'none';
+            document.getElementById('<%=ddlPalConditioningExercises.ClientID %>').style.display = 'none';
+            document.getElementById('<%=ddlPalSports.ClientID %>').style.display = 'none';
+            document.getElementById('<%=ddlPalWalking.ClientID %>').style.display = 'none';
+            // then display the activity that the user has selected
+            var sType = document.getElementById('<%=ddlPalEntryType.ClientID %>').value.toString();
+            switch (sType) {
+                case '1':
+                    {
+                        document.getElementById('<%=ddlPalWalking.ClientID %>').style.display = 'inline';
+                        break;
+                    }
+                case '2':
+                    {
+                        document.getElementById('<%=ddlPalRunning.ClientID %>').style.display = 'inline';
+                        break;
+                    }
+                case '3':
+                    {
+                        document.getElementById('<%=ddlPalSwimming.ClientID %>').style.display = 'inline';
+                        break;
+                    }
+                case '4':
+                    {
+                        document.getElementById('<%=ddlPalCycling.ClientID %>').style.display = 'inline';
+                        break;
+                    }
+                case '5':
+                    {
+                        document.getElementById('<%=ddlPalConditioningExercises.ClientID %>').style.display = 'inline';
+                        break;
+                    }
+                case '6':
+                    {
+                        document.getElementById('<%=ddlPalSports.ClientID %>').style.display = 'inline';
+                        break;
+                    }
+            }
+
         }
         function OpenCMSPopupWindow() {
             var varCMSTypeName = '';
@@ -254,6 +314,7 @@
         
             return false;
         }
+
     </script>
 </telerik:RadScriptBlock>
 <telerik:RadAjaxLoadingPanel ID="AjaxLoadingPanel1" runat="server" Height="75px"

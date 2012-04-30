@@ -29,7 +29,7 @@
 <script type="text/javascript">
 
     function Page_Load() {
-        top.log("Hello");
+        //top.log("Hello");
         //top.log(document.getElementById('txtMsgBoxLog'));
 
         var bIsPostBack;
@@ -49,7 +49,7 @@
     }
 
 </script>
-<body onload="top.setIframeHeight();" class="body2">
+<body onload="//top.setIframeHeight();" class="body2">
     <form id="form1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>

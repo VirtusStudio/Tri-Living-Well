@@ -41,6 +41,12 @@ public partial class UC_PAL_EntryView : System.Web.UI.UserControl
         ancDelete.Attributes.Add("onclick", "DeletePAL(" + drPalEntry["PAL_ENTRY_Id"] + ")");
         lblPalEntryDate.Text = Convert.ToDateTime(drPalEntry["PAL_ENTRY_DATE"]).ToString("MM/dd/yyyy");
         lblPalEntryTypeText.Text = drPalEntry["PAL_ENTRY_TYPE_TEXT"].ToString();
+        // Note: PAL_ENTRY_ACTIVITY could be null
+        if (drPalEntry["PAL_ENTRY_ACTIVITY_TEXT"] == null)
+            lblPalEntryActivityText.Text = "";
+        else
+            lblPalEntryActivityText.Text = drPalEntry["PAL_ENTRY_ACTIVITY_TEXT"].ToString();
+        
         lblPalEntryTimeText.Text = drPalEntry["PAL_ENTRY_TIME_TEXT"].ToString();
         lblPalEntryDurationText.Text = drPalEntry["PAL_ENTRY_DURATION_TEXT"].ToString();
         lblPalEntryIntensityText.Text = drPalEntry["PAL_ENTRY_INTENSITY_TEXT"].ToString();

@@ -7,6 +7,7 @@
     TagPrefix="uc2" %>
 <%@ Register Src="~/Controls/UC_Home_1_Control.ascx" TagName="UC_Home_1_Control"
     TagPrefix="uc3" %>
+<%@ Register Src="~/Controls/UC_EnterActivity_PopUp.ascx" TagName="UC_EnterActivity_PopUp" TagPrefix="uc2" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
@@ -44,6 +45,64 @@
         </div>--%>
         <div class="clear">
         </div>
+
+    <div>
+        <div style="float:left;width:310px;height:350px;background-image:url('../Images/dashboard/dashboard_nutrition.gif');background-repeat:no-repeat;"></div>
+        <div style="float:left;width:300px;height:350px;background-image:url('../Images/dashboard/dash_fitness_empty.jpg');background-repeat:no-repeat;padding-top:42px;padding-left:3px;padding-right:3px;padding-bottom:40px;">
+            <div style="text-align:center;height:265px;width:280px;background-image:url('../Images/dashboard/dash_fitness_bkgd.jpg');background-repeat:repeat;">
+            <span style="font-weight:bold;font-size:larger;">METABOLIC MINUTE PROGRESS</span>
+            <span><img src="../Images/dashboard/dash_fitness_triangle.jpg" /></span>
+            <hr style="margin-top:20px;margin-bottom:10px;" />
+            <span style="font-weight:bold;">Last Workout</span><br />
+            <span style="font-weight:normal;"><ASP:Label ID="labelLastWorkout" runat="server"></ASP:Label></span><br />
+            <span style="font-weight:bold;">Workout History: (7 days)</span><br />
+            <span style="font-weight:bold;">
+                <asp:HyperLink ID="LinkLast1" runat="server"></asp:HyperLink>&nbsp;
+                <asp:HyperLink ID="LinkLast2" runat="server"></asp:HyperLink>&nbsp;
+                <asp:HyperLink ID="LinkLast3" runat="server"></asp:HyperLink>&nbsp;
+                <asp:HyperLink ID="LinkLast4" runat="server"></asp:HyperLink>&nbsp;
+                <asp:HyperLink ID="LinkLast5" runat="server"></asp:HyperLink>&nbsp;
+                <asp:HyperLink ID="LinkLast6" runat="server"></asp:HyperLink>&nbsp;
+                <asp:HyperLink ID="LinkLast7" runat="server"></asp:HyperLink>
+            </span><br />
+            <hr style="margin-top:10px;margin-bottom:10px;" />
+            <span style="text-align:center;font-weight:bold;">CURRENT STAGE</span>
+            <table style="margin-left:10px;width:260px;">
+                <tr style="height:15px;">
+                    <td><asp:Literal ID="litStage1Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage2Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage3Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage4Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage5Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage6Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage7Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage8Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage9Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage10Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage11Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage12Row1" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage13Row1" runat="server"></asp:Literal></td>
+                </tr>
+                <tr style="height:15px;">
+                    <td><asp:Literal ID="litStage1Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage2Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage3Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage4Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage5Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage6Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage7Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage8Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage9Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage10Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage11Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage12Row2" runat="server"></asp:Literal></td>
+                    <td><asp:Literal ID="litStage13Row2" runat="server"></asp:Literal></td>
+                </tr>
+            </table>    
+            </div>
+        </div>
+
+
         <!-- Graph start here -->
         <div class="graphwrapper">
             <div class="mid_box">

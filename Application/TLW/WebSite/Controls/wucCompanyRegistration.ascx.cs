@@ -37,6 +37,7 @@ public partial class Controls_wucCompanyRegistration : System.Web.UI.UserControl
     Entity.CompanyInfo oCompanyInfo;
     protected void Page_Load(object sender, EventArgs e)
     {
+
         lblError.Text = "";
         try
         {
@@ -98,10 +99,15 @@ public partial class Controls_wucCompanyRegistration : System.Web.UI.UserControl
             oCompanyInfo.StrCompanyName = txtCompanyName.Text.Trim();
             oCompanyInfo.StrCompanyPhone = txtPhone.Text.Trim();
             oCompanyInfo.StrCompanyFax = txtFax.Text.Trim();
-            oCompanyInfo.IntCountryId = Convert.ToInt32(ddlCountry.SelectedValue);
+//DKB 04/09/12
+//Remove country from company reg page. I am adding in a hidden field for usa so the stored procs don't have to change
+//for country.
+            oCompanyInfo.IntCountryId = Convert.ToInt32(hiddenCountry.Value);
 
-            oCompanyInfo.StrStateName = txtStateText.Text.Trim();
-
+/*
+David K Bowers 04/09/12
+USA only so only display states
+for country.
             if (ddlCountry.SelectedValue == "1" || ddlCountry.SelectedValue == "2")//USA || Canada
             {
                 oCompanyInfo.IntStateId = Convert.ToInt32(ddlState.SelectedValue);
@@ -112,14 +118,21 @@ public partial class Controls_wucCompanyRegistration : System.Web.UI.UserControl
                 oCompanyInfo.IntStateId = 0;
                 oCompanyInfo.StrStateName = txtStateText.Text.Trim();
             }
+*/
 
+            oCompanyInfo.IntStateId = Convert.ToInt32(ddlState.SelectedValue);
+            oCompanyInfo.StrStateName = ddlState.SelectedItem.Text;
 
+// David K. Bowers 04/10/12 added in zip code
+            oCompanyInfo.StrZipCode = txtZipCode.Text.Trim();
 
             oCompanyInfo.StrCity = txtCity.Text.Trim();
             oCompanyInfo.StrCompanyAddress = txtAddress.Text.Trim();
-            oCompanyInfo.ChrIsPaid = 'Y';
+// David K. Bowers 04/10/12 changed default values of ChrIsPaid and ChrIsApproved from Y to N
+            oCompanyInfo.ChrIsPaid = 'N';
             oCompanyInfo.ChrIsActive = 'N';
-            oCompanyInfo.ChrIsApproved = 'Y';
+            oCompanyInfo.ChrIsApproved = 'N';
+
             oCompanyInfo.DtCreatedDate = DateTime.Now;
             oCompanyInfo.DtModifiedDate = oCompanyInfo.DtCreatedDate;
             oCompanyInfo.ChrIsDeleted = 'N';

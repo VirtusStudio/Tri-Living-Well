@@ -623,37 +623,6 @@ Note:
             //msg = Resources.Resource.strErrorMSGTryAgain;
             //throw new RentAlpsException(msg, exc);
         }
-        
-        //SmtpClient client = new SmtpClient();
-        //client.DeliveryMethod = SmtpDeliveryMethod.Network;
-        //client.EnableSsl = true;
-        //client.Host = "smtp.gmail.com";
-        //client.Port = 587;
-        //System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("mytransithome@gmail.com", "Test1234");
-        //client.UseDefaultCredentials = false;
-        //client.Credentials = credentials;
-        //try
-        //{
-        //    MailMessage msg = new MailMessage();
-        //    msg.From = new MailAddress(mailFrom);
-
-        //    msg.To.Add(new MailAddress(mailTo.ToLower()));
-        //    msg.Subject = emailSubject;
-        //    msg.IsBodyHtml = true;
-
-        //    msg.Body = string.Format(emailBody);
-
-
-        //    client.Send(msg);
-            
-        //}
-
-        //catch (Exception exc)
-        //{
-        //    string msg;
-        //    //msg = Resources.Resource.strErrorMSGTryAgain;
-        //    //throw new RentAlpsException(msg, exc);
-        //}
     }
 
     /*Sub Header***********************************************************

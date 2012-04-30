@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wucUserRegistration.ascx.cs" Inherits="Controls_wucUserRegistration" %>
 <asp:Label ID="lblError" runat="server" CssClass="required"></asp:Label>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<asp:HiddenField ID="textIID" runat="server" />
 <asp:Label ID="Label1" runat="server" CssClass="required"></asp:Label>
 <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" BorderStyle="Solid" BorderWidth="0px"
     OnCreatedUser="CreateUserWizard1_CreatedUser" OnCreateUserError="CreateUserWizard1_CreatedUserError"
@@ -197,7 +198,7 @@
                                                                     <table class="tblItems">
                                                                         <tr style="height:30px;vertical-align:middle;">
                                                                             <td>
-                                                                                Height:
+                                                                                Height (inches):
                                                                             </td>
                                                                             <td>
                                                                                 <asp:TextBox CssClass="txtBox" ID="txtHeight" runat="server"  MaxLength="3"  Width="30px"></asp:TextBox>
@@ -288,7 +289,6 @@
                                                                 </td>
                                                                 <td>
                                                                     <asp:TextBox CssClass="txtBox" ID="txtOrganization" runat="server" Width="400px"></asp:TextBox>
-                                                                    <asp:DropDownList ID="ddlCompany" runat ="server" CssClass="txtBox"></asp:DropDownList>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -324,19 +324,7 @@
                                                         <table class="tblItems">
                                                             <tr style="height:30px;vertical-align:middle;">
                                                                 <td>
-                                                                    Country:
-                                                                </td>
-                                                                <td>
-                                                                    <asp:DropDownList ID="ddlCountry" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
-                                                                    </asp:DropDownList>
-                                                                  
-                                                                    <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="ddlCountry"
-                                                                        CssClass="required" ErrorMessage="Please Select Country." Operator="GreaterThan" ValidationGroup="CreateUserWizard1"
-                                                                        ValueToCompare="0"></asp:CompareValidator>
-                                                                </td>
-                                                            </tr>
-                                                            <tr style="height:30px;vertical-align:middle;">
-                                                                <td>
+                                                                    <asp:HiddenField ID="hiddenCountry" runat="server" value="1" />
                                                                     Address:
                                                                 </td>
                                                                 <td>
@@ -367,7 +355,7 @@
                                                             </tr>
                                                             <tr style="height:30px;vertical-align:middle;">
                                                                 <td>
-                                                                    State/Prov./Terr.:
+                                                                    State:
                                                                 </td>
                                                                 <td style="height: 30px;">
                                                                     <asp:DropDownList ID="ddlState" runat="server">
@@ -377,7 +365,7 @@
                                                             </tr>
                                                             <tr style="height:30px;vertical-align:middle;">
                                                                 <td>
-                                                                    Zip/Postal Code:
+                                                                    Zip Code:
                                                                 </td>
                                                                 <td>
                                                                     <asp:TextBox CssClass="txtBox" ID="txtZip" runat="server" MaxLength="15" Width="75px"></asp:TextBox>

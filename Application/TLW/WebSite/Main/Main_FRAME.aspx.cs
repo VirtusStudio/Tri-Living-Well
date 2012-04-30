@@ -14,21 +14,17 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
 {
     SqlConnClass objSqlConnClass = new SqlConnClass();
     TemplateClass objTemplateClass;
+    PALClass objPALClass; 
 
     #region Events
 
     protected void Page_Load(object sender, EventArgs e)
     {
         MembershipUser currentUser = Membership.GetUser();
-        
-        
-
-
         if (!AppLib.IsLoggedinSessionExists() || currentUser == null)
             Response.Redirect(AppConfig.GetBaseSiteUrl() + "Welcome/main_frame.aspx", true);
 
-
-
+        
 
         AccountClass objAccountClass;
         objAccountClass = new AccountClass(objSqlConnClass.sqlConnection);
@@ -56,230 +52,51 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
                 }
             }
         }
-        BindNutritionalJournal();
-        BindSocialLinks();
+  
         DS = null;
 
 
         objTemplateClass = new TemplateClass(objSqlConnClass.OpenConnection());
 
-    
-
-        //if (!HttpContext.Current.User.IsInRole("Administrator"))
-        //{
-
-        //    if (Session["popup"] != null)
-        //    {
-        //        bool pop = (bool)Session["popup"];
-
-        //        if (pop)
-        //        {
-        //            BLL.CompanyManager oCompanyManager = new BLL.CompanyManager();
-        //            int no = oCompanyManager.GetQuestion();
-        //            string Script = "jConfirm('You have " + no + " unanswered HealthCoach Message !  Click Ok to answer them', 'HealthCoach Message',function(r) { if(r) {window.location.href = '../Backoffice/UserUtilities/ManageQuestionforHealthCoach.aspx';}});";
-        //            ScriptManager.RegisterStartupScript(this, this.GetType(), "CloseWindow", Script, true);
-        //            Session["popup"] = false;
-        //        }
-        //        else
-        //        {
-        //            Session.Remove(Session["popup"].ToString());
-        //        }
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //}
-
-      }
-
-    
-
-    //private  void ShowQuestion(string val)
-    //{
+        objPALClass = new PALClass(objSqlConnClass.OpenConnection());
+        string sLastWorkout = "";
+        labelLastWorkout.Text = sLastWorkout;
         
-    //    Entity.CompanyInfo oCompanyInfo = new Entity.CompanyInfo();
-    //    BLL.CompanyManager oCompanyManager = new BLL.CompanyManager();
-    //    int q = oCompanyManager.GetQuestion(val);
-    //    return q;
-        
-    //}
+        int iCurrentStage = 3;
+        string divStageRow1 = "<div style='border:1px solid white;background-color:#203956;'>&nbsp;</div>";
+        string divCurrentStageRow1 = "<div style='border:1px solid white;background-color:#7AB4F7;'>";
+        string divStageRow2 = "<div style='border:1px solid white;background-color:#FFFFFF;'>";
+        string divCurrentStageRow2 = "<div style='border:1px solid white;background-color:#52749B;color:white;text-align:center;font-weight:bold;'>" + iCurrentStage.ToString() + "</div>";
+   
+        litStage1Row1.Text = divStageRow1;
+        litStage2Row1.Text = divStageRow1;
+        litStage3Row1.Text = divCurrentStageRow1;
+        litStage4Row1.Text = divStageRow1;
+        litStage5Row1.Text = divStageRow1;
+        litStage6Row1.Text = divStageRow1;
+        litStage7Row1.Text = divStageRow1;
+        litStage8Row1.Text = divStageRow1;
+        litStage9Row1.Text = divStageRow1;
+        litStage10Row1.Text = divStageRow1;
+        litStage11Row1.Text = divStageRow1;
+        litStage12Row1.Text = divStageRow1;
+        litStage13Row1.Text = divStageRow1;
+        litStage1Row2.Text = divStageRow2;
+        litStage2Row2.Text = divStageRow2;
+        litStage3Row2.Text = divCurrentStageRow2;
+        litStage4Row2.Text = divStageRow2;
+        litStage5Row2.Text = divStageRow2;
+        litStage6Row2.Text = divStageRow2;
+        litStage7Row2.Text = divStageRow2;
+        litStage8Row2.Text = divStageRow2;
+        litStage9Row2.Text = divStageRow2;
+        litStage10Row2.Text = divStageRow2;
+        litStage11Row2.Text = divStageRow2;
+        litStage12Row2.Text = divStageRow2;
+        litStage13Row2.Text = divStageRow2;
+    }
 
 
-
-    //protected void GVNewsLetter_RowDataBound(object sender, GridViewRowEventArgs e)
-    //{
-    //    if (e.Row.RowType == DataControlRowType.DataRow)
-    //    {
-    //        LinkButton lnkFavoriteNewsLetter = (LinkButton)e.Row.FindControl("lnkFavoriteNewsLetter");
-    //        if (lnkFavoriteNewsLetter != null)
-    //        {
-    //            string strTemp = DataBinder.Eval(e.Row.DataItem, "AddRemoveFromFavorite").ToString();
-    //            if (strTemp.Equals("Remove from Favorite"))
-    //            {
-    //                lnkFavoriteNewsLetter.OnClientClick = "return ConfirmBid('remove newsletter from favorite list')";
-    //            }
-    //        }
-    //    }
-    //}
-
-    //protected void GVNewsLetter_RowCommand(object sender, GridViewCommandEventArgs e)
-    //{
-    //    if (e.CommandName.Equals("AddToFavorite"))
-    //    {
-    //        LinkButton lnkBtnFavorite = (LinkButton)e.CommandSource;
-    //        Entity.UserInfo oUserInfo = new Entity.UserInfo();
-    //        oUserInfo.IntFavoriteTypeId = 0;
-    //        oUserInfo.IntFavoriteId = 0;
-    //        if (lnkBtnFavorite.Text == "Remove from Favorite")
-    //            oUserInfo.IntFavoriteId = Convert.ToInt32(e.CommandArgument);
-
-
-
-    //        oUserInfo.StrUserId = AppLib.GetLoggedInUserName();
-    //        oUserInfo.StrTitle = "";
-    //        oUserInfo.StrFavoriteType = "Newsletter";
-    //        oUserInfo.DtCreatedOn = DateTime.Now;
-    //        oUserInfo.IntFavoriteTypeId = Convert.ToInt32(e.CommandArgument);
-    //        BLL.UserLib oUserLib = new BLL.UserLib();
-    //        oUserLib.NewsletterAddToFavorite(oUserInfo);
-
-    //        oUserInfo = null;
-    //        oUserLib = null;
-    //        //BindNewsLetters();
-    //    }
-
-    //}
-
-    //protected void GVLibrary_RowDataBound(object sender, GridViewRowEventArgs e)
-    //{
-    //    if (e.Row.RowType == DataControlRowType.DataRow)
-    //    {
-    //        LinkButton lnkFavoriteNewsLetter = (LinkButton)e.Row.FindControl("lnkFavoriteNewsLetter");
-    //        if (lnkFavoriteNewsLetter != null)
-    //        {
-    //            string strTemp = DataBinder.Eval(e.Row.DataItem, "AddRemoveFromFavorite").ToString();
-    //            if (strTemp.Equals("Remove from Favorite"))
-    //            {
-    //                lnkFavoriteNewsLetter.OnClientClick = "return ConfirmBid('remove Library from favorite list')";
-    //            }
-    //        }
-    //    }
-    //}
-
-    //protected void GVLibrary_RowCommand(object sender, GridViewCommandEventArgs e)
-    //{
-    //    if (e.CommandName.Equals("AddToFavorite"))
-    //    {
-    //        LinkButton lnkBtnFavorite = (LinkButton)e.CommandSource;
-    //        Entity.UserInfo oUserInfo = new Entity.UserInfo();
-    //        oUserInfo.IntFavoriteTypeId = 0;
-    //        oUserInfo.IntFavoriteId = 0;
-    //        if (lnkBtnFavorite.Text == "Remove from Favorite")
-    //            oUserInfo.IntFavoriteId = Convert.ToInt32(e.CommandArgument);
-
-
-
-    //        oUserInfo.StrUserId = AppLib.GetLoggedInUserName();
-    //        oUserInfo.StrTitle = "";
-    //        oUserInfo.StrFavoriteType = "Library";
-    //        oUserInfo.DtCreatedOn = DateTime.Now;
-    //        oUserInfo.IntFavoriteTypeId = Convert.ToInt32(e.CommandArgument);
-    //        BLL.UserLib oUserLib = new BLL.UserLib();
-    //        oUserLib.LibraryAddToFavorite(oUserInfo);
-
-    //        oUserInfo = null;
-    //        oUserLib = null;
-    //        BindLibrary();
-    //    }
-
-    //}
-
-
-    //protected void GVAnnouncements_RowDataBound(object sender, GridViewRowEventArgs e)
-    //{
-    //    if (e.Row.RowType == DataControlRowType.DataRow)
-    //    {
-    //        LinkButton lnkFavoriteNewsLetter = (LinkButton)e.Row.FindControl("lnkFavoriteNewsLetter");
-    //        if (lnkFavoriteNewsLetter != null)
-    //        {
-    //            string strTemp = DataBinder.Eval(e.Row.DataItem, "AddRemoveFromFavorite").ToString();
-    //            if (strTemp.Equals("Remove from Favorite"))
-    //            {
-    //                lnkFavoriteNewsLetter.OnClientClick = "return ConfirmBid('remove News & Announcement from favorite list')";
-    //            }
-    //        }
-    //    }
-    //}
-
-    //protected void GVAnnouncements_RowCommand(object sender, GridViewCommandEventArgs e)
-    //{
-    //    if (e.CommandName.Equals("AddToFavorite"))
-    //    {
-    //        LinkButton lnkBtnFavorite = (LinkButton)e.CommandSource;
-    //        Entity.UserInfo oUserInfo = new Entity.UserInfo();
-    //        oUserInfo.IntFavoriteTypeId = 0;
-    //        oUserInfo.IntFavoriteId = 0;
-    //        if (lnkBtnFavorite.Text == "Remove from Favorite")
-    //            oUserInfo.IntFavoriteId = Convert.ToInt32(e.CommandArgument);
-
-
-    //        oUserInfo.StrUserId = AppLib.GetLoggedInUserName();
-    //        oUserInfo.StrTitle = "";
-    //        oUserInfo.StrFavoriteType = "NewsAnnouncements";
-    //        oUserInfo.DtCreatedOn = DateTime.Now;
-    //        oUserInfo.IntFavoriteTypeId = Convert.ToInt32(e.CommandArgument);
-    //        BLL.UserLib oUserLib = new BLL.UserLib();
-    //        oUserLib.NewsletterAndannoucementsAddToFavorite(oUserInfo);
-
-    //        oUserInfo = null;
-    //        oUserLib = null;
-    //        BindAnnouncements();
-    //    }
-
-    //}
-
-
-    //protected void GVEvents_RowDataBound(object sender, GridViewRowEventArgs e)
-    //{
-    //    if (e.Row.RowType == DataControlRowType.DataRow)
-    //    {
-    //        LinkButton lnkFavoriteNewsLetter = (LinkButton)e.Row.FindControl("lnkFavoriteNewsLetter");
-    //        if (lnkFavoriteNewsLetter != null)
-    //        {
-    //            string strTemp = DataBinder.Eval(e.Row.DataItem, "AddRemoveFromFavorite").ToString();
-    //            if (strTemp.Equals("Remove from Favorite"))
-    //                lnkFavoriteNewsLetter.OnClientClick = "return ConfirmBid('remove Event from favorite list')";
-    //        }
-    //    }
-    //}
-
-    //protected void GVEvents_RowCommand(object sender, GridViewCommandEventArgs e)
-    //{
-    //    if (e.CommandName.Equals("AddToFavorite"))
-    //    {
-    //        LinkButton lnkBtnFavorite = (LinkButton)e.CommandSource;
-    //        Entity.UserInfo oUserInfo = new Entity.UserInfo();
-    //        oUserInfo.IntFavoriteTypeId = 0;
-    //        oUserInfo.IntFavoriteId = 0;
-    //        if (lnkBtnFavorite.Text == "Remove from Favorite")
-    //            oUserInfo.IntFavoriteId = Convert.ToInt32(e.CommandArgument);
-
-
-    //        oUserInfo.StrUserId = AppLib.GetLoggedInUserName();
-    //        oUserInfo.StrTitle = "";
-    //        oUserInfo.StrFavoriteType = "Event";
-    //        oUserInfo.DtCreatedOn = DateTime.Now;
-    //        oUserInfo.IntFavoriteTypeId = Convert.ToInt32(e.CommandArgument);
-    //        BLL.UserLib oUserLib = new BLL.UserLib();
-    //        oUserLib.EventAddToFavorite(oUserInfo);
-
-    //        oUserInfo = null;
-    //        oUserLib = null;
-    //        BindEvents();
-    //    }
-
-    //}
 
     protected void Page_PreRender(object sender, EventArgs e)
     {

@@ -137,29 +137,6 @@
       <Column Name="ITEM_TEXT" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_CompanyInfo" Member="CompanyInfos">
-    <Type Name="CompanyInfo">
-      <Column Name="intCompanyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="strUserID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="strCompanyEmail" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="strPassword" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="strCompanyName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="strCompanyPhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="strCompanyFax" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="intCountryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="intStateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="strStateText" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="strCity" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="strCompanyAddress" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
-      <Column Name="chrIsPaid" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Column Name="chrIsActive" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="chrIsApproved" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="dtCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="dtModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="chrCreatedBy" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tbl_UserRiskStratificationDetails" Member="UserRiskStratificationDetails">
     <Type Name="UserRiskStratificationDetail">
       <Column Name="intUserRiskStratificationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -404,6 +381,30 @@
       <Column Name="Energy" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Day" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Dates" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_CompanyInfo" Member="CompanyInfos">
+    <Type Name="CompanyInfo">
+      <Column Name="intCompanyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strUserID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="strCompanyEmail" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="strPassword" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="strCompanyName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="strCompanyPhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="strCompanyFax" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="intCountryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intStateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="strStateText" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="strCity" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="strCompanyAddress" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="chrIsPaid" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="chrIsActive" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="chrIsApproved" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dtCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="chrIsDeleted" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="chrCreatedBy" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="strZipCode" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.ms_UpdateUserINRoles" Method="ms_UpdateUserINRoles">

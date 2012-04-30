@@ -27,6 +27,7 @@ namespace Entity
 
        private string _strUserName;
 
+
        //Properties for wellness
        private string _userName;
        private int _sleep;
@@ -36,7 +37,6 @@ namespace Entity
        private int _energy;
        private string _day;
        private DateTime _dates;
-
 
        #endregion
 
@@ -132,6 +132,7 @@ namespace Entity
            set { _chrIsActive = value; }
        }
 
+       //wellness
        public string UserName
        {
            get { return _userName; }
