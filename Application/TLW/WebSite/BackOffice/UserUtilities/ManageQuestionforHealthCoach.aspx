@@ -186,7 +186,9 @@
                                                                                     <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Category"
                                                                                         ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
                                                                                         <ItemTemplate>
-                                                                                            <%#AppLib.GetSubString(Eval("StrCategoryName").ToString(), 30)%> - <%#AppLib.GetSubString(Eval("StrCategoryLevel").ToString(), 30)%>
+                                                                                            <%#AppLib.GetSubString(Eval("StrCategoryName").ToString(), 30)%>
+                                                                                            -
+                                                                                            <%#AppLib.GetSubString(Eval("StrCategoryLevel").ToString(), 30)%>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
                                                                                     <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Submitted By"
@@ -219,6 +221,12 @@
                                                                                             <asp:LinkButton CssClass="lnkBtn" ID="lnkBtnAnswered" runat="server" CommandName="QuestionAnswered"
                                                                                                 CommandArgument='<%#Eval("IntQuestionId") %>'>
                                                                                                <%#Eval("ChrIsAnsweredGiven").ToString().Equals("Y") ? "View / Provide Answer" : "Provide Answer"%></asp:LinkButton>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="TimeSpan"
+                                                                                        ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Center">
+                                                                                        <ItemTemplate>
+                                                                                            <%#AppLib.GetTimespan(Eval("DtCreatedOn").ToString())%>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
                                                                                 </Columns>

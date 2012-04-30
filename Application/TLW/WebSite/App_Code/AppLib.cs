@@ -770,6 +770,52 @@ Note:
         }
     }
 
+    /// <summary>
+    /// Code to get the timeElasped
+    /// </summary>
+    /// <param name="dayNo"></param>
+    /// <returns></returns>
+    public static string GetTimespan(string _strtime)
+    {
+        string day = "0", hrs = "0", min = "0";
+
+        DateTime totaltime = System.DateTime.Now;
+        TimeSpan dt = totaltime - Convert.ToDateTime(_strtime);
+
+        // TimeSpan tsp=totaltime.Subtract(_strtime);
+        //11.01:42:20.9098716
+        string tim = dt.ToString();
+        int i = tim.LastIndexOf('.');
+        string lhs = i < 0 ? tim : tim.Substring(0, i),
+        rhs = i < 0 ? "" : tim.Substring(i + 1);
+
+        string[] dy = lhs.Split('.');
+        if (dy.Length > 1)
+        {
+            day = dy[0].ToString() + "Days ";
+
+            string str = dy[1].ToString();
+            string[] hms = str.Split(':');
+
+            if (hms.Length == 3)
+            {
+                hrs = hms[0].ToString() + "Hrs ";
+                min = hms[1].ToString() + "Min ";
+
+            }
+            else if (hms.Length == 2)
+            {
+                min = hms[0].ToString() + "Min ";
+            }
+
+        }
+
+        lhs = day + hrs + min;
+        return lhs;
+
+    }
+
+
     public static string GetDayOfWeek(string dayNo)
     {
 
