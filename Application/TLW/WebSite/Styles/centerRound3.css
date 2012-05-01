@@ -1,5 +1,5 @@
 ﻿.Round3{
-  border:solid 1px #e8e6e7;
+  /*border:solid 1px #e8e6e7;*/
   background-color:#ffffff;
   margin-bottom:10px;
 }
@@ -45,10 +45,10 @@
 .Round3 center center center center center center center center center{
   background-image:none;
   background-position:inherit;
+  background-color: #FFFFFF;
   padding:3px 8px 17px 15px;
 }
-.Round3_tblHeader{margin-bottom:10px;height:26px;font-weight:bold;font-size:12px;white-space:nowrap;text-transform:uppercase;
-color:#FDFEFE;font-style:normal;
+.Round3_tblHeader{margin-bottom:10px;height:26px;font-weight:bold;font-size:12px;white-space:nowrap;text-transform:uppercase;font-style:normal;
 }
 .Round3_tblHeader a{font-weight:normal;font-size:11px;white-space:nowrap;text-transform:none;color:#ffffff;text-decoration:none;
 }
