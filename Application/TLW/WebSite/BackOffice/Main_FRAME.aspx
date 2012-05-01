@@ -5,39 +5,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:HiddenField ID="hfBaseUrl" runat="server" Value="test" />
-     <div style="padding-left: 300px;">
+     <div style="width:550px">
         <table>
-              <tr>
-                <td>
-                    <br />
-                </td>
-            </tr>  <tr>
-                <td>
-                    <br />
-                </td>
-            </tr>  <tr>
-                <td>
-                    <br />
-                </td>
-            </tr>
             <tr>
                 <td>
-                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/iconTemplates.gif" />
+                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/cms-icon.jpg" />
                 </td>
-                <td align="left">
-                    <a href="Templates/ManageCMS.aspx">Templates</a><br />
-                    <span class="small">View/edit website templates</span>
-                </td>
-            </tr>
-
-            <tr>
                 <td>
-                    <br />
-                </td>
+                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/member-icon.png" />
+                </td>             
             </tr>
             <tr>
-                <td>
-                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/iconUsers.gif" />
+                 <td align="left">
+                    <a href="Templates/ManageCMS.aspx">CMS</a><br />
+                    <span class="small">View/edit website pages</span>
                 </td>
                 <td align="left">
                     <a href="UserUtilities/UserUtilities.aspx">Manage Users</a><br />
@@ -46,31 +27,20 @@
             </tr>
             <tr>
                 <td>
-                    <br />
+                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/metrics-icon.jpg" />
+                </td>
+                 <td>
+                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/risk-icon.png" />
                 </td>
             </tr>
             <tr>
-                <td>
-                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/iconReports.gif" />
-                </td>
-                <td align="left">
-                    <a href="Reports/Report_VisitLog.aspx">Visit Log</a><br />
+               <td align="left">
+                    <a href="Reports/Report_VisitLog.aspx">Site Metrics</a><br />
                     <span class="small">Tracks usage of the website</span>
                 </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/iconUsers.gif" />
-                </td>
                 <td align="left">
-                    <a id="A1" runat="server"  href="~/BackOffice/ManageQuestionnaires.aspx">Manage Questionnaires</a><br />
-                    <span class="small">Add, edit, delete, activate and deactivate the questionnaires.</span>
+                    <a id="A1" runat="server"  href="~/BackOffice/ManageQuestionnaires.aspx">Manage Questions</a><br />
+                    <span class="small">Manage Risk Stratification Questions</span>
                 </td>
             </tr><tr>
                 <td>
