@@ -192,6 +192,7 @@ namespace BLL
                 oCompanyInfoDAL.strStateText = oCompanyInfo.StrStateName;
 
                 // David K. Bowers 04/10/12 added in zip code
+                
                 oCompanyInfoDAL.strZipCode = oCompanyInfo.StrZipCode;
                 // David K. Bowers 04/09/12 fixed a bug where company address was not getting stored in DB
                 oCompanyInfoDAL.strCompanyAddress = oCompanyInfo.StrCompanyAddress;

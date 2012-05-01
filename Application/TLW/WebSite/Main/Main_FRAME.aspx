@@ -47,8 +47,8 @@
         </div>
 
     <div>
-        <div style="float:left;width:310px;height:350px;background-image:url('../Images/dashboard/dashboard_nutrition.gif');background-repeat:no-repeat;"></div>
-        <div style="float:left;width:300px;height:350px;background-image:url('../Images/dashboard/dash_fitness_empty.jpg');background-repeat:no-repeat;padding-top:42px;padding-left:3px;padding-right:3px;padding-bottom:40px;">
+        <div style="float:left;width:310px;height:350px;background-image:url('../Images/dashboard/dashboard_nutrition.gif');background-repeat:no-repeat; display:none;"></div>
+        <div style="float:left;width:300px;height:350px;background-image:url('../Images/dashboard/dash_fitness_empty.jpg');background-repeat:no-repeat;padding-top:42px;padding-left:3px;padding-right:3px;padding-bottom:40px; display:none;">
             <div style="text-align:center;height:265px;width:280px;background-image:url('../Images/dashboard/dash_fitness_bkgd.jpg');background-repeat:repeat;">
             <span style="font-weight:bold;font-size:larger;">METABOLIC MINUTE PROGRESS</span>
             <span><img src="../Images/dashboard/dash_fitness_triangle.jpg" /></span>
