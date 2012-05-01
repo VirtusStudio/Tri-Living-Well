@@ -18,3 +18,8 @@ E:\updated TLW\Tri-Living-Well\Application\TLW\Entity\bin\Debug\Entity.pdb
 E:\updated TLW\Tri-Living-Well\Application\TLW\Entity\obj\Debug\ResolveAssemblyReference.cache
 E:\updated TLW\Tri-Living-Well\Application\TLW\Entity\obj\Debug\Entity.dll
 E:\updated TLW\Tri-Living-Well\Application\TLW\Entity\obj\Debug\Entity.pdb
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\Entity\bin\Debug\Entity.dll
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\Entity\bin\Debug\Entity.pdb
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\Entity\obj\Debug\ResolveAssemblyReference.cache
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\Entity\obj\Debug\Entity.dll
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\Entity\obj\Debug\Entity.pdb

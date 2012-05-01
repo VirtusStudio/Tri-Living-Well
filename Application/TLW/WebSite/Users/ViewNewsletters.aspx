@@ -79,8 +79,10 @@
                                             ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblNewsLetterId" runat="server" Visible="false" Text='<%#Eval("IntNewsLetterId") %>'></asp:Label>
-                                                <span title='<%#Eval("StrTitle").ToString() %>'>
-                                                    <%#AppLib.GetSubString(Eval("StrTitle").ToString(), 30)%></span>
+
+                                                 <asp:LinkButton ID = "lnkNewsletters" CssClass="lnkBtn"  runat="server"  Text='<%#Eval("StrTitle").ToString() %>'  
+                                           CommandArgument='<%#Eval("IntNewsLetterId") %>' CommandName="PathNewslettersFile" ></asp:LinkButton>
+
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Title"

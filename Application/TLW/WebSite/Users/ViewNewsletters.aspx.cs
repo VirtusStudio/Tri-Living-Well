@@ -70,7 +70,22 @@ public partial class Users_ViewNewsletters : System.Web.UI.Page
             oUserLib = null;
             BindNewsLetters();
         }
+        else if (e.CommandName.Equals("PathNewslettersFile"))
+        {
+            Entity.NewsInfo oNewsInfo = new Entity.NewsInfo();
+            BLL.NewsLib oNewsLib = new BLL.NewsLib();
 
+            oNewsInfo = oNewsLib.GetNewsLettersById(Convert.ToInt32(e.CommandArgument));
+            if (oNewsInfo != null)
+            {
+
+                GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
+                LinkButton lnkNewslettes = (LinkButton)row.FindControl("lnkNewsletters");
+                ViewState["strOldFileName"] = oNewsInfo.StrPDFFilename;
+                string Path = AppConfig.GetBaseSiteUrl() + AppConfig.GetNewsLettersPDFPath() + oNewsInfo.StrPDFFilename;
+                Response.Write("<script type='text/javascript'>detailedresults=window.open('" + Path + "', 'popUpWindow', 'height=700,width=900,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');</script>");
+            }
+        }
     }
     /// Function Header*******************************************************
     /// Function Name: BindNewsLetters

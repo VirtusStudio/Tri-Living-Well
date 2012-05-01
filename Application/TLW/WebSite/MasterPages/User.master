@@ -218,6 +218,8 @@
 			<ul>
 				<li><span style="white-space: nowrap;">Welcome:&nbsp;<asp:Label ID="lblName" runat="server"></asp:Label>
                                                                             &nbsp;&nbsp;&nbsp;</span></li>
+                                                                             <li>  
+                                                                                        <asp:Label ID="lblEdit" runat="server"></asp:Label></li>
 				<li>  <asp:Label ID="lblLogout" runat="server"></asp:Label></li>
  			</ul>
 		</div>

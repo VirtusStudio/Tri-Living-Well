@@ -71,7 +71,34 @@ public partial class Users_ViewLibraries : System.Web.UI.Page
             oUserLib = null;
             BindLibrary();
         }
+        else if (e.CommandName.Equals("PathViewlabrariesFile"))
+        {
 
+            Entity.LibraryInfo oLibraryInfo = new Entity.LibraryInfo();
+            BLL.LibraryLib oLibraryLib = new BLL.LibraryLib();
+
+            oLibraryInfo = oLibraryLib.GetLibraryByLibraryId(Convert.ToInt32(e.CommandArgument));
+
+            if (oLibraryInfo.StrLocationType.ToLower().Equals("pdf") || oLibraryInfo.StrLocationType.ToLower().Equals("video"))
+            {
+                GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
+                LinkButton lnkNewslettes = (LinkButton)row.FindControl("lnkViewLabraries");
+
+                string path = AppConfig.GetBaseSiteUrl() + AppConfig.GetLibrariesFilePath() + oLibraryInfo.StrLocation;
+
+                Response.Write("<script type='text/javascript'>detailedresults=window.open('" + path + "', 'popUpWindow', 'height=700,width=900,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');</script>");
+
+
+
+
+            }
+            else
+            {
+
+            }
+
+
+        }
     }
 
 
