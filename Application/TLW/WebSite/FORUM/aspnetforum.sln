@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Web Developer Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aspnetforum", "aspnetforum.csproj", "{4C6835F3-7E60-4E96-BC01-32150E619BBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Full (Debug)|Any CPU = Full (Debug)|Any CPU
+		Full (Release)|Any CPU = Full (Release)|Any CPU
+		Trial|Any CPU = Trial|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C6835F3-7E60-4E96-BC01-32150E619BBE}.Full (Debug)|Any CPU.ActiveCfg = Full (Debug)|Any CPU
+		{4C6835F3-7E60-4E96-BC01-32150E619BBE}.Full (Debug)|Any CPU.Build.0 = Full (Debug)|Any CPU
+		{4C6835F3-7E60-4E96-BC01-32150E619BBE}.Full (Release)|Any CPU.ActiveCfg = Full (Release)|Any CPU
+		{4C6835F3-7E60-4E96-BC01-32150E619BBE}.Full (Release)|Any CPU.Build.0 = Full (Release)|Any CPU
+		{4C6835F3-7E60-4E96-BC01-32150E619BBE}.Trial|Any CPU.ActiveCfg = Trial|Any CPU
+		{4C6835F3-7E60-4E96-BC01-32150E619BBE}.Trial|Any CPU.Build.0 = Trial|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
