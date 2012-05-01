@@ -16,7 +16,7 @@
                 <table class="title">
                     <tr>
                         <td align="left">
-                            Manage CMS
+                           Page & Email Content Management
                         </td>
                     </tr>
                 </table>
@@ -42,19 +42,6 @@
                                                         <center>
                                                             <table>
                                                                 <tr>
-                                                                    <td>
-                                                                        <table class="Round3_tblHeader">
-                                                                            <tr>
-                                                                                <td>
-                                                                                    CMS Details
-                                                                                </td>
-                                                                                <td style="text-align: right;">
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
                                                                     <td align="left">
                                                                         <asp:Label ID="lblResultMsg" runat="server"></asp:Label>
                                                                     </td>
@@ -65,14 +52,14 @@
                                                                             <table border="0" width="100%" cellpadding="2" cellspacing="2">
                                                                                 <tr>
                                                                                     <td align="left" valign="middle" style="width: 20%;">
-                                                                                        <span class="keyword">Select Template Type:</span>&nbsp;
+                                                                                        <span class="keyword">Content Type:</span>&nbsp;
                                                                                     </td>
                                                                                     <td align="left" valign="middle" style="white-space: nowrap;">
                                                                                         <asp:DropDownList ID="ddlTemplateName" AutoPostBack="true" runat="server" CssClass="form"
                                                                                             OnSelectedIndexChanged="ddlTemplateName_SelectedIndexChanged">
-                                                                                            <asp:ListItem Text="---Select Template Type---" Value="0"></asp:ListItem>
+                                                                                            <asp:ListItem Text="---Select Content Type---" Value="0"></asp:ListItem>
                                                                                             <asp:ListItem Text="Email Templates" Value="2"></asp:ListItem>
-                                                                                            <asp:ListItem Text="Static Pages" Value="1"></asp:ListItem>
+                                                                                            <asp:ListItem Text="Website Pages" Value="1"></asp:ListItem>
                                                                                         </asp:DropDownList>
                                                                                     </td>
                                                                                 </tr>
@@ -83,7 +70,7 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td align="left" valign="middle">
-                                                                                        <span class="keyword">Select Template Name:</span>&nbsp;
+                                                                                        <span class="keyword">Content Name:</span>&nbsp;
                                                                                     </td>
                                                                                     <td align="left" valign="middle" style="white-space: nowrap;">
                                                                                         <asp:DropDownList ID="ddlPage" AutoPostBack="true" runat="server" CssClass="form"

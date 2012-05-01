@@ -9,10 +9,10 @@
         <table>
             <tr>
                 <td>
-                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/cms-icon.jpg" />
+                    <a href="Templates/ManageCMS.aspx"><img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/cms-icon.jpg" /></a>
                 </td>
                 <td>
-                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/member-icon.png" />
+                    <a href="UserUtilities/UserUtilities.aspx"><img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/member-icon.png" /></a>
                 </td>             
             </tr>
             <tr>
@@ -27,10 +27,10 @@
             </tr>
             <tr>
                 <td>
-                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/metrics-icon.jpg" />
+                    <a href="Reports/Report_VisitLog.aspx"><img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/metrics-icon.jpg" /></a>
                 </td>
                  <td>
-                    <img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/risk-icon.png" />
+                    <a id="A2" runat="server"  href="~/BackOffice/ManageQuestionnaires.aspx"><img alt="" src="<%=AppConfig.GetBaseSiteUrl()  %>images/icons/risk-icon.png" /></a>
                 </td>
             </tr>
             <tr>

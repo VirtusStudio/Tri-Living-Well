@@ -70,7 +70,7 @@
                                                                 <a href="javascript:popUpWin('Login/ForgotPassword.aspx',510,350);">Forgot password</a>
                                                             </td>
                                                             <td style="padding-right: 14px;">
-                                                                <asp:LinkButton CssClass="aButtonSmall" ID="LoginButton" runat="server"  CommandName="Login"
+                                                                <asp:LinkButton CssClass="loginButton" ID="LoginButton" runat="server"  CommandName="Login"
                                                                     ValidationGroup="ctl00$Login1" Text="Login"></asp:LinkButton>
                                                             </td>
                                                         </tr>
@@ -109,8 +109,8 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <div>
-                                                <span class="keyword">Click Below to Registration.</span>
+                                            <div style="text-align:center">
+                                                <span class="keyword">Who Are You?</span>
                                             </div>
                                             <br />
                                             <table width="100%">
@@ -119,11 +119,11 @@
                                                         <table width="90%" >
                                                             <tr>
                                                                 <td align="center" >
-                                                                    <a class="aButtonSmall" 
-                                                                      href="<%=AppConfig.GetBaseSiteUrl() %>CompanyRegistration.aspx">Company Register</a>
+                                                                    <a class="regButton" 
+                                                                      href="<%=AppConfig.GetBaseSiteUrl() %>CompanyRegistration.aspx">A Company</a>
                                                                 </td>
                                                                  <td align="center" >
-                                                                    <a class="aButtonSmall" href="<%=AppConfig.GetBaseSiteUrl() %>UserRegistration.aspx">User Register</a>
+                                                                    <a class="regButton" href="<%=AppConfig.GetBaseSiteUrl() %>UserRegistration.aspx">An Individual</a>
                                                                 </td>
                                                             </tr>
                                                         </table>
