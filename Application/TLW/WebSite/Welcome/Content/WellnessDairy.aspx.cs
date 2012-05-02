@@ -165,92 +165,109 @@ public partial class Welcome_Content_WellnessDairy : System.Web.UI.Page
     }
     private void BindEvents()
     {
-        string sUsername = Membership.GetUser().UserName;
-        BLL.UserLib oUserLib = new BLL.UserLib();
-        Entity.UserInfo oUserInfo = new Entity.UserInfo();
-        SqlConnClass objSqlConnClass = new SqlConnClass();
-        DDClass objDDClass = new DDClass(objSqlConnClass.OpenConnection());
-        DataSet DS = objDDClass.GetwellnessDate(sUsername);
-        if (DS.Tables[0].Rows.Count>0)
+        string sUsername = "";
+        try
         {
-            DataTable dt = new DataTable();
-            DateTime datee = DateTime.Now;
-            DateTime dl = datee.AddDays(-6); 
-
-            string[] dateArr = new string[ DS.Tables[0].Rows.Count] ;
-            for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
-            {
-                dateArr[i] = DS.Tables[0].Rows[i]["Dates"].ToString();
-            }
-
-            DateTime maxdate = Convert.ToDateTime( DS.Tables[0].Rows[0]["Dates"]);
-            DateTime mindate = Convert.ToDateTime(DS.Tables[0].Rows[DS.Tables[0].Rows.Count - 1]["Dates"]);
-            for (int i = 0, k = 0; i < dateArr.Length; i++, k++, maxdate.AddDays(-k))
-            {
-                if (Convert.ToDateTime(dateArr[i]) != maxdate.AddDays(-k))
-                {
-
-                    for (int j = 0; Convert.ToDateTime(dateArr[i]) < maxdate.AddDays(-k); j++)
-                    {
-                        if (DS.Tables[0].Rows.Count < 7)
-                        {
-                            DS.Tables[0].Rows.Add(100, oCompanyInfo.StrUserName, -1, -1, -1, -1, -1, maxdate.AddDays(-k).ToString("dddd"), maxdate.AddDays(-k), mindate.AddDays(-k).DayOfWeek);
-                            k = k + j + 1;
-                        }
-                    }
-
-
-                }
-
-            }
-
-            int rcount = DS.Tables[0].Rows.Count;
-
-            if (rcount < 7)
-            {
-
-                for (int j = 0; j < 7 - rcount; j++)
-                {
-                    int x = j + 1;
-                    if (j == 0)
-                    {
-
-                        DS.Tables[0].Rows.Add(100, oCompanyInfo.StrUserName, -1, -1, -1, -1, -1, mindate.AddDays(-1).ToString("dddd"), mindate.AddDays(-1), mindate.AddDays(-1).DayOfWeek);
-                    }
-                    else
-                    {
-                        DS.Tables[0].Rows.Add(100, oCompanyInfo.StrUserName, -1, -1, -1, -1, -1, mindate.AddDays(-x).ToString("dddd"), mindate.AddDays(-x), mindate.AddDays(-x).DayOfWeek);
-                    }
-
-                }
-
-            }
-
-            DS.AcceptChanges();
-
-            dt = DS.Tables[0];
-
-            // Sorting DataTable
-
-            DataView dataView = new DataView(dt);
-
-            dataView.Sort = " DayOfWeeks ASC";
-            
-
-            string expression = "Dates > '1/1/00'";
-
-            // Sort descending by column named CompanyName.
-            string sortOrder = "DayOfWeeks ASC";
-            DataRow[] dr = dt.Select(expression, sortOrder);
-
-            DateTime date = Convert.ToDateTime(dt.Rows[0]["Dates"]);
-
-
-            GVdiary.DataSource = dataView;
-            GVdiary.DataBind();
-          
-            
+            sUsername = Membership.GetUser().UserName;
         }
+        catch
+        {
+        }
+        if (sUsername == "")
+        {
+            Response.Redirect("../Main_Frame.aspx");
+        }
+        else
+        {
+
+            BLL.UserLib oUserLib = new BLL.UserLib();
+            Entity.UserInfo oUserInfo = new Entity.UserInfo();
+            SqlConnClass objSqlConnClass = new SqlConnClass();
+            DDClass objDDClass = new DDClass(objSqlConnClass.OpenConnection());
+            DataSet DS = objDDClass.GetwellnessDate(sUsername);
+            if (DS.Tables[0].Rows.Count > 0)
+            {
+                DataTable dt = new DataTable();
+                DateTime datee = DateTime.Now;
+                DateTime dl = datee.AddDays(-6);
+
+                string[] dateArr = new string[DS.Tables[0].Rows.Count];
+                for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                {
+                    dateArr[i] = DS.Tables[0].Rows[i]["Dates"].ToString();
+                }
+
+                DateTime maxdate = Convert.ToDateTime(DS.Tables[0].Rows[0]["Dates"]);
+                DateTime mindate = Convert.ToDateTime(DS.Tables[0].Rows[DS.Tables[0].Rows.Count - 1]["Dates"]);
+                for (int i = 0, k = 0; i < dateArr.Length; i++, k++, maxdate.AddDays(-k))
+                {
+                    if (Convert.ToDateTime(dateArr[i]) != maxdate.AddDays(-k))
+                    {
+
+                        for (int j = 0; Convert.ToDateTime(dateArr[i]) < maxdate.AddDays(-k); j++)
+                        {
+                            if (DS.Tables[0].Rows.Count < 7)
+                            {
+                                DS.Tables[0].Rows.Add(100, oCompanyInfo.StrUserName, -1, -1, -1, -1, -1, maxdate.AddDays(-k).ToString("dddd"), maxdate.AddDays(-k), mindate.AddDays(-k).DayOfWeek);
+                                k = k + j + 1;
+                            }
+                        }
+
+
+                    }
+
+                }
+
+                int rcount = DS.Tables[0].Rows.Count;
+
+                if (rcount < 7)
+                {
+
+                    for (int j = 0; j < 7 - rcount; j++)
+                    {
+                        int x = j + 1;
+                        if (j == 0)
+                        {
+
+                            DS.Tables[0].Rows.Add(100, oCompanyInfo.StrUserName, -1, -1, -1, -1, -1, mindate.AddDays(-1).ToString("dddd"), mindate.AddDays(-1), mindate.AddDays(-1).DayOfWeek);
+                        }
+                        else
+                        {
+                            DS.Tables[0].Rows.Add(100, oCompanyInfo.StrUserName, -1, -1, -1, -1, -1, mindate.AddDays(-x).ToString("dddd"), mindate.AddDays(-x), mindate.AddDays(-x).DayOfWeek);
+                        }
+
+                    }
+
+                }
+
+                DS.AcceptChanges();
+
+                dt = DS.Tables[0];
+
+                // Sorting DataTable
+
+                DataView dataView = new DataView(dt);
+
+                dataView.Sort = " DayOfWeeks ASC";
+
+
+                string expression = "Dates > '1/1/00'";
+
+                // Sort descending by column named CompanyName.
+                string sortOrder = "DayOfWeeks ASC";
+                DataRow[] dr = dt.Select(expression, sortOrder);
+
+                DateTime date = Convert.ToDateTime(dt.Rows[0]["Dates"]);
+
+
+                GVdiary.DataSource = dataView;
+                GVdiary.DataBind();
+
+
+            }
+
+        }
+
        
     }
 
