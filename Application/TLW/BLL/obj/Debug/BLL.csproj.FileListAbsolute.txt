@@ -25,3 +25,21 @@ E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\BL
 E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\BLL\obj\Debug\ResolveAssemblyReference.cache
 E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.dll
 E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.pdb
+E:\updated TLW\Tri-Living-Well\Application\TLW\BLL\obj\Debug\ResolveAssemblyReference.cache
+E:\updated TLW\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.dll
+E:\updated TLW\Tri-Living-Well\Application\TLW\BLL\bin\Debug\BLL.dll
+E:\updated TLW\Tri-Living-Well\Application\TLW\BLL\bin\Debug\BLL.pdb
+E:\updated TLW\Tri-Living-Well\Application\TLW\BLL\bin\Debug\DAL.dll
+E:\updated TLW\Tri-Living-Well\Application\TLW\BLL\bin\Debug\Entity.dll
+E:\updated TLW\Tri-Living-Well\Application\TLW\BLL\bin\Debug\DAL.pdb
+E:\updated TLW\Tri-Living-Well\Application\TLW\BLL\bin\Debug\Entity.pdb
+E:\updated TLW\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.pdb
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\BLL.dll
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\BLL.pdb
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\DAL.dll
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\Entity.dll
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\DAL.pdb
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\Entity.pdb
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\obj\Debug\ResolveAssemblyReference.cache
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.dll
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.pdb

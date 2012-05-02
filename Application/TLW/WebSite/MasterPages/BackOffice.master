@@ -6,6 +6,30 @@
 <head id="Head1" runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+
+
+
+ <script type="text/javascript">
+     function popUpWin(path, x, y) {
+
+
+         var sURL = '<%=AppConfig.GetBaseSiteUrl() %>' + path;
+         var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width=' + x + ',height=' + y + ',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
+         var windownew = window.open(sURL, "new_window", features);
+         try { windownew.focus(); } catch (err) { }
+     }
+     function load(Filepath) {
+         if (Filepath.indexOf("//") > -1) {
+             window.location = Filepath;
+         }
+         else {
+             window.location = '<%=AppConfig.GetBaseSiteUrl() %>' + Filepath;
+         }
+     }
+        </script>
+
+
+
         <script src="<%=AppConfig.GetBaseSiteUrl() %>Scripts/Common.js" type="text/javascript"></script>
         <!--popUpWin-->
         <!--iframe height resizing-->
@@ -99,7 +123,6 @@
                                                             <div class="BANNER">
                                                                 <img style="display: none;" src="../Images/back/back_top.jpg" />
                                                                 <div class="menu1">
-                                                                    <a target="_top" runat="server" href="~/Main/Main_Frame.aspx">Home</a>
                                                                 </div>
                                                                 <div class="menu2">
                                                                     <div class="menu2_div">
@@ -107,11 +130,56 @@
                 -->
                                                                         <telerik:RadMenu ID="RadMenu1" runat="server" SkinID="na" Skin="TriLivingWell" EnableEmbeddedSkins="false">
                                                                             <Items>
-                                                                                <telerik:RadMenuItem ID="RadMenuItem1" runat="server" NavigateUrl="~/BackOffice/Main_Frame.aspx"
-                                                                                    Text="Admin Area">
+                                                                                <telerik:RadMenuItem ID="RadMenuItemDashboard" runat="server" NavigateUrl="~/BackOffice/Main_Frame.aspx"
+                                                                                    Text="Admin Dashboard">
+                                                                                </telerik:RadMenuItem>
+                                                                                <telerik:RadMenuItem ID="RadMenuItemCMS" runat="server" NavigateUrl="~/BackOffice/ManageNewsAnnouncements.aspx"
+                                                                                    Text="Page CMS">
+                                                                                    <Items>
+                                                                                        <telerik:RadMenuItem ID="rmiManageHotLinks" runat="server" NavigateUrl="~/BackOffice/UserUtilities/ManageHotLinks.aspx"
+                                                                                            Text="What's Hot">
+                                                                                        </telerik:RadMenuItem>
+                                                                                        <telerik:RadMenuItem ID="rmiManageTmplates" runat="server" NavigateUrl="~/BackOffice/Templates/ManageCMS.aspx"
+                                                                                            Text="Page & Email Content">
+                                                                                        </telerik:RadMenuItem>
+                                                                                        <telerik:RadMenuItem ID="rminewsannouncements" runat="server" NavigateUrl="~/BackOffice/ManageNewsAnnouncements.aspx"
+                                                                                            Text="News & Announcements">
+                                                                                        </telerik:RadMenuItem>
+                                                                                        <telerik:RadMenuItem ID="rminewsletters" runat="server" NavigateUrl="~/BackOffice/ManageNewsLetters.aspx"
+                                                                                            Text="Newsletters">
+                                                                                        </telerik:RadMenuItem>
+                                                                                        <telerik:RadMenuItem ID="rmiManagelibrary" runat="server" NavigateUrl="~/BackOffice/ManageLibrary.aspx"
+                                                                                            Text="Library">
+                                                                                        </telerik:RadMenuItem>
+                                                                                        <telerik:RadMenuItem ID="rmiEvents" runat="server" NavigateUrl="~/BackOffice/ManageEvents.aspx"
+                                                                                            Text="Events">
+                                                                                        </telerik:RadMenuItem>
+                                                                                        <telerik:RadMenuItem ID="rmiManageFAQ" runat="server" NavigateUrl="~/BackOffice/Templates/ManageFAQ.aspx"
+                                                                                            Text="FAQs">
+                                                                                        </telerik:RadMenuItem>
+                                                                                        <telerik:RadMenuItem ID="rmiManageFAQTopic" runat="server" NavigateUrl="~/BackOffice/Templates/ManageFAQTopics.aspx"
+                                                                                            Text="FAQ Topics">
+                                                                                        </telerik:RadMenuItem>
+                                                                                          <telerik:RadMenuItem ID="rmiManageSNL" runat="server" NavigateUrl="~/BackOffice/UserUtilities/ManageSocialNetworkingLinks.aspx"
+                                                                                            Text="Social Networking Links">
+                                                                                        </telerik:RadMenuItem>
+                                                                                        <telerik:RadMenuItem ID="rmiManageEmails" runat="server" NavigateUrl="~/BackOffice/ManageEmails.aspx"
+                                                                                            Text="Email">
+                                                                                        </telerik:RadMenuItem>
+                                                                                    </Items>
+                                                                                </telerik:RadMenuItem>
+                                                                                <telerik:RadMenuItem ID="RadMenuItemQuestions" runat="server" NavigateUrl="#" Text="Manage Questions">
+                                                                                    <Items>
+                                                                                        <telerik:RadMenuItem ID="rmiRiskQuestions" runat="server" NavigateUrl="~/BackOffice/ManageQuestionnaires.aspx"
+                                                                                                    Text="Risk Stratification Questions">
+                                                                                        </telerik:RadMenuItem>
+                                                                                        <telerik:RadMenuItem ID="rmiQuestionToHealthCoach" runat="server" NavigateUrl="~/BackOffice/UserUtilities/ManageQuestionforHealthCoach.aspx"
+                                                                                                    Text="Health Coach Questions">
+                                                                                        </telerik:RadMenuItem>
+                                                                                    </Items>
                                                                                 </telerik:RadMenuItem>
                                                                                 <telerik:RadMenuItem ID="rmiManageCompany" runat="server" NavigateUrl="~/BackOffice/ManageCompany/ManageCompanies.aspx"
-                                                                                    Text="Manage Companies">
+                                                                                    Text="Manage Users">
                                                                                     <Items>
                                                                                         <telerik:RadMenuItem ID="rmiInnerAddNewCompanies" runat="server" NavigateUrl="~/BackOffice/ManageCompany/AddNewCompany.aspx?src=a"
                                                                                             Text="Add New Company">
@@ -121,21 +189,14 @@
                                                                                         </telerik:RadMenuItem>
                                                                                         <telerik:RadMenuItem ID="rmiInnerManageCompaniesRequestForUserRegistration" runat="server"
                                                                                             NavigateUrl="~/BackOffice/ManageCompany/ManageCompanyRequestForUserRegistration.aspx"
-                                                                                            Text="User Registration Request">
+                                                                                            Text="Manage User Request">
                                                                                         </telerik:RadMenuItem>
-                                                                                    </Items>
-                                                                                </telerik:RadMenuItem>
-                                                                                <telerik:RadMenuItem ID="RadMenuItem4" runat="server" NavigateUrl="~/BackOffice/UserUtilities/UserUtilities.aspx"
-                                                                                    Text="Manage Users">
-                                                                                    <Items>
                                                                                         <telerik:RadMenuItem ID="RadMenuItem3" runat="server" NavigateUrl="~/BackOffice/UserUtilities/UserUtilities.aspx"
-                                                                                            Text="Manage Users">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rmiQuestionToHealthCoach" runat="server" NavigateUrl="~/BackOffice/UserUtilities/ManageQuestionforHealthCoach.aspx"
-                                                                                            Text="Manage Questions For Health Coach">
+                                                                                            Text="Manage User Account">
                                                                                         </telerik:RadMenuItem>
                                                                                     </Items>
                                                                                 </telerik:RadMenuItem>
+                                                                                
                                                                                 <telerik:RadMenuItem ID="RadMenuItem5" runat="server" NavigateUrl="~/BackOffice/Reports/Report_CompanyMonthlyDetail.aspx"
                                                                                     Text="Reports">
                                                                                     <Items>
@@ -145,49 +206,8 @@
                                                                                         <telerik:RadMenuItem ID="RadMenuItem8" runat="server" NavigateUrl="~/BackOffice/Reports/Report_CompanyMonthlyDetail.aspx"
                                                                                             Text="Company Monthly Detail">
                                                                                         </telerik:RadMenuItem>
-                                                                                    </Items>
-                                                                                </telerik:RadMenuItem>
-                                                                                <telerik:RadMenuItem ID="RadMenuItem2" runat="server" NavigateUrl="~/BackOffice/Reports/Report_Visitlog.aspx"
-                                                                                    Text="Visitlog">
-                                                                                </telerik:RadMenuItem>
-                                                                                <telerik:RadMenuItem ID="RadMenuItemMiscellaneous" runat="server" NavigateUrl="~/BackOffice/ManageNewsAnnouncements.aspx"
-                                                                                    Text="Utilities">
-                                                                                    <Items>
-                                                                                        <telerik:RadMenuItem ID="rminewsannouncements" runat="server" NavigateUrl="~/BackOffice/ManageNewsAnnouncements.aspx"
-                                                                                            Text="Manage News & Announcements">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rminewsletters" runat="server" NavigateUrl="~/BackOffice/ManageNewsLetters.aspx"
-                                                                                            Text="Manage Newsletters">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rmiEvents" runat="server" NavigateUrl="~/BackOffice/ManageEvents.aspx"
-                                                                                            Text="Manage Events">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rmiManageEmails" runat="server" NavigateUrl="~/BackOffice/ManageEmails.aspx"
-                                                                                            Text="Manage Emails">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rmiManagequesttion" runat="server" NavigateUrl="~/BackOffice/ManageQuestionnaires.aspx"
-                                                                                            Text="Manage Questionnaires">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rmiManageTmplates" runat="server" NavigateUrl="~/BackOffice/Templates/ManageCMS.aspx"
-                                                                                            Text="Manage Templates">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rmiManagelibrary" runat="server" NavigateUrl="~/BackOffice/ManageLibrary.aspx"
-                                                                                            Text="Manage Library">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rmiManageFAQ" runat="server" NavigateUrl="~/BackOffice/Templates/ManageFAQ.aspx"
-                                                                                            Text="Manage FAQ">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rmiAddFAQ" runat="server" NavigateUrl="~/BackOffice/Templates/AddEditFAQ.aspx"
-                                                                                            Text="Add FAQ">
-                                                                                        </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="rmiManageFAQTopic" runat="server" NavigateUrl="~/BackOffice/Templates/ManageFAQTopics.aspx"
-                                                                                            Text="Manage FAQ Topics">
-                                                                                        </telerik:RadMenuItem>
-                                                                                          <telerik:RadMenuItem ID="rmiManageSNL" runat="server" NavigateUrl="~/BackOffice/UserUtilities/ManageSocialNetworkingLinks.aspx"
-                                                                                            Text="Manage Social Networking Links">
-                                                                                        </telerik:RadMenuItem>
-                                                                                          <telerik:RadMenuItem ID="rmiManageHotLinks" runat="server" NavigateUrl="~/BackOffice/UserUtilities/ManageHotLinks.aspx"
-                                                                                            Text="What's Hot">
+                                                                                        <telerik:RadMenuItem ID="RadMenuItem2" runat="server" NavigateUrl="~/BackOffice/Reports/Report_Visitlog.aspx"
+                                                                                            Text="Visitlog">
                                                                                         </telerik:RadMenuItem>
                                                                                     </Items>
                                                                                 </telerik:RadMenuItem>

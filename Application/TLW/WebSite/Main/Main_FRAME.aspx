@@ -47,8 +47,8 @@
         </div>
 
     <div>
-        <div style="float:left;width:310px;height:350px;background-image:url('../Images/dashboard/dashboard_nutrition.gif');background-repeat:no-repeat;"></div>
-        <div style="float:left;width:300px;height:350px;background-image:url('../Images/dashboard/dash_fitness_empty.jpg');background-repeat:no-repeat;padding-top:42px;padding-left:3px;padding-right:3px;padding-bottom:40px;">
+        <div style="float:left;width:310px;height:350px;background-image:url('../Images/dashboard/dashboard_nutrition.gif');background-repeat:no-repeat; display:none;"></div>
+        <div style="float:left;width:300px;height:350px;background-image:url('../Images/dashboard/dash_fitness_empty.jpg');background-repeat:no-repeat;padding-top:42px;padding-left:3px;padding-right:3px;padding-bottom:40px; display:none;">
             <div style="text-align:center;height:265px;width:280px;background-image:url('../Images/dashboard/dash_fitness_bkgd.jpg');background-repeat:repeat;">
             <span style="font-weight:bold;font-size:larger;">METABOLIC MINUTE PROGRESS</span>
             <span><img src="../Images/dashboard/dash_fitness_triangle.jpg" /></span>
@@ -107,21 +107,21 @@
         <div class="graphwrapper">
             <div class="mid_box">
                 <div class="mid_boxhead">
-                    Nutritional Journal</div>
+                    Nutritional Center</div>
                 <div class="mid_boxbody">
                     <img src="images/graph1.png" alt="" border="0">
                 </div>
             </div>
             <div class="mid_box">
                 <div class="mid_boxhead">
-                    Physical Fitness</div>
+                    Personal Fitness</div>
                 <div class="mid_boxbody">
                     <img src="images/graph2.png" alt="" border="0">
                 </div>
             </div>
             <div class="mid_box">
                 <div class="mid_boxhead">
-                    Brain Power</div>
+                    Wellness Diary</div>
                 <div class="mid_boxbody">
                    <%-- <a href="../Welcome/Content/WellnessDairy.aspx"><img src="images/graph3.png"  alt="" border="0" /></a>--%>
                    <%-- <a href="javascript:popUpWin('Welcome/Content/WellnessDairy.aspx',900,1200);"><img src="images/graph3.png"  alt="" border="0" /></a>--%>
@@ -141,9 +141,9 @@
             <h1>
                 Information Portal</h1>
             <ul>
-                <li class="news"><a href="../Users/ViewNewsletters.aspx" onclick="newsletterpopup(this.href);return false"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Newsletters</p></a></li>
-                <li class="current"><a href="#"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Current</p></a></li>
-                <li class="library"><a href="../Users/ViewLibraries.aspx" onclick="viewlibrarypopup(this.href);return false"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Library</p></a></li>
+                <li class="news"><a href="../Users/ViewNewsletters.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Newsletters</p></a></li>
+                <li class="current"><a href="#"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Resources</p></a></li>
+                <li class="library"><a href="../Users/ViewLibraries.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Library</p></a></li>
                 <li class="forum"><a href="../Forum/default.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Forum</p></a></li>
             </ul>
             <div class="visitusicons">
@@ -211,10 +211,10 @@
                         <li class="myprogram"><a href="javascript:popUpWin('Main/MyProgram/MyProgram.aspx',900,650);">
                             <img src ="../Images/iconssetimg.png" alt="" border="0"><p>My program</p></a></li>
                         <li class="nutrition"><a href="javascript:popUpWin('Main/MyNutrition/MyNutrition.aspx',900,650);">
-                            <img src="../Images/iconssetimg.png" alt="" border="0"><p>Nutrition</p></a></li>
+                            <img src="../Images/iconssetimg.png" alt="" border="0"><p>My Nutrition</p></a></li>
                         <li class="activity_calendar"><a href="../Main/PALs/PAL_TABS.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Activity Calendar</p></a></li>
                         <li class="mealexchange"><a href="javascript:popUpWin('Main/DDs/MealExchange/HTML_MealExchange.aspx',900,650);">
-                            <img src="../images/iconssetimg.png" alt="" border="0"><p>Meal Exchange</p></a></li>
+                            <img src="../images/iconssetimg.png" alt="" border="0"><p>Food Exchange</p></a></li>
                     </ul>
                    
                 </div>

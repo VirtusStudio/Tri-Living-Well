@@ -2,25 +2,26 @@
     Inherits="Controls_wucCompanyRegistration" %>
 <script src="../Scripts/Common.js" type="text/javascript"></script>
 <div>
-    <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0">
-        <tr style="height: 20px;">
-            <td class="tbl_MainHeader">
-                <table>
-                    <tr>
-                        <td align="left">
-                            Company Registration
-                        </td>
-                    </tr>
-                </table>
-            </td>
+<div style="float:left; width:300px; background-color:#FFFFFF;">
+    <table>
+        <tr>
+            <td><h1>Signup and Get</h1><br /><ul><li>Physical Activity Monitoring</li><li>Nutritional Guidance</li><li>Mental Wellness</li><li>Access to private Health Coaches</li></ul></td>
+        </tr>
+    </table>
+</div>
+<div style="float:right; width: 586px; background-color: #6b86a5;">
+    <table class="reg_table" align="left" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td rowspan="13"><img src="Images/registration-divider.jpg" /></td>
+            <td><h1>Register Today and Get Healthy</h1></td>
         </tr>
         <tr>
-            <td align="center">&nbsp;
+            <td colspan="2" align="center">&nbsp;
                 <asp:Label ID="lblError" runat="server" CssClass="required"></asp:Label>
             </td>
         </tr>
         <tr id="trControls" runat="server">
-            <td>
+            <td colspan="2">
                 <table class="tblItems" width="100%" border="0">
                     <tr>
                         <td style="width: 25%" align="left" valign="middle">
@@ -194,4 +195,5 @@ Adding in zip code, validation is numeric and - maz 11 char, ie: 12345 or 12345-
             </td>
         </tr>
     </table>
+</div>
 </div>

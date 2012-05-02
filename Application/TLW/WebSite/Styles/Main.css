@@ -335,8 +335,9 @@ a:hover
 .aButtonSmall
 {
     display: inline-table;
-    padding: 2px 5px 2px 5px;
-    border: solid 1px #1F000A;
+    margin: 5px 10px 5px 10px;
+    width: 75px;
+    border: none; 
     text-align: center;
     color: #ffffff;
     text-decoration: none;
@@ -345,6 +346,10 @@ a:hover
     font-weight: bold;
     font-size: 12px;
     background-color: #1581AE;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
 }
 .aButton:hover
 {
@@ -390,7 +395,7 @@ a:hover
     background-color: #484848;
     text-transform: uppercase;
     font-size: 16px;
-    padding: 2px 10px 0px 10px;
+    padding: 2px 10px 0px 20px;
     color: #F4F6F4;
     font-style: normal;
 }

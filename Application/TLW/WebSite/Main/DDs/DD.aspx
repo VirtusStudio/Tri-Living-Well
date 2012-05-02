@@ -5,6 +5,27 @@ Inherits="PAL_Recent" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+
+ <script type="text/javascript">
+     function popUpWin(path, x, y) {
+
+
+
+         var sURL = '<%=AppConfig.GetBaseSiteUrl() %>' + path;
+         var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width=' + x + ',height=' + y + ',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
+         var windownew = window.open(sURL, "new_window", features);
+         try { windownew.focus(); } catch (err) { }
+     }
+     function load(Filepath) {
+         if (Filepath.indexOf("//") > -1) {
+             window.location = Filepath;
+         }
+         else {
+             window.location = '<%=AppConfig.GetBaseSiteUrl() %>' + Filepath;
+         }
+     }
+        </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 

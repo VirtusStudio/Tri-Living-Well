@@ -53,6 +53,8 @@
         <!--refreshMenu is meant to refresh only certain fields every so often-->
 
 
+       
+
         <script type="text/javascript">
             function popUpWin(path, x, y) {
              
@@ -216,6 +218,8 @@
 			<ul>
 				<li><span style="white-space: nowrap;">Welcome:&nbsp;<asp:Label ID="lblName" runat="server"></asp:Label>
                                                                             &nbsp;&nbsp;&nbsp;</span></li>
+                                                                             <li>  
+                                                                                        <asp:Label ID="lblEdit" runat="server"></asp:Label></li>
 				<li>  <asp:Label ID="lblLogout" runat="server"></asp:Label></li>
  			</ul>
 		</div>

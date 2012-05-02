@@ -19,6 +19,7 @@ public partial class MasterPages_User : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        fillNames();
         if (!AppLib.IsLoggedinSessionExists())
             Response.Redirect(AppConfig.GetBaseSiteUrl() + "Welcome/Main_Frame.aspx", true);
         MembershipUser currentUser = Membership.GetUser();
@@ -310,5 +311,48 @@ public partial class MasterPages_User : System.Web.UI.MasterPage
         Page.Header.Controls.Add(new LiteralControl("<link type=\"text/css\" rel=\"Stylesheet\" href=\"" + AppConfig.GetBaseSiteUrl() + "Styles/Grid.css\" />"));
         Page.Header.Controls.Add(new LiteralControl("<link type=\"text/css\" rel=\"Stylesheet\" href=\"" + AppConfig.GetBaseSiteUrl() + "Styles/Website.css\" />"));
         base.OnInit(e);
+    }
+    private void fillNames()
+    {
+        string usr = "";
+        try
+        {
+            MembershipUser currentUsers = Membership.GetUser();
+            BackofficeClass objBackOfficeClass;
+            objBackOfficeClass = new BackofficeClass(objSqlConnClass.OpenConnection());
+            DataSet DS = objBackOfficeClass.Mem_GET_Admin(currentUsers.UserName);
+            if (DS != null)
+            {
+                if (DS.Tables[0].Rows.Count > 0)
+                {
+                    usr = DS.Tables[0].Rows[0]["ROLENAME"].ToString().Equals("User").ToString();
+                    if (usr == "True")
+                    {
+                        usr = "User";
+                    }
+                }
+            }
+
+
+
+
+            lblName.Text = "Guest";
+
+            lblLogout.Text = "<a style='text-decoration: underline;color:white;' href='" + AppConfig.GetBaseSiteUrl() + "login/logout.aspx'>Logout</a>";
+            if (Membership.GetUser() != null)
+            { //lblEdit.Text = "<a class='small' href=\"javascript:load('/main/UserUtilities/EditUser.aspx');\">My Account</a> <span style=font-weight:normal;>|</span> ";
+                lblEdit.Text = "<a style='text-decoration: underline;color:white;'   href=\"" + AppConfig.GetBaseSiteUrl() + "BackOffice/UserUtilities/UserAccount.aspx?src=" + usr + "\">My Account</a> <span style=font-weight:normal;>|</span> ";
+                /* Above line is commented by Netsmartz*/
+                //lblLogout.Text = "<a class='small' href='/login/logout.aspx'>Logout</a>"; /*Commented By Netsmartz*/
+                lblLogout.Text = "<a style='text-decoration: underline;color:white;' href='" + AppConfig.GetBaseSiteUrl() + "login/logout.aspx'>Logout</a>";
+
+                string sUsername = Membership.GetUser().UserName;
+                DS = objBackofficeClass.Mem_GET_UserInfo(sUsername);
+                if (DS != null)
+                    lblName.Text = DS.Tables[0].Rows[0]["FNAME"].ToString() + " " + DS.Tables[0].Rows[0]["LNAME"].ToString();
+
+            }
+        }
+        catch { }
     }
 }

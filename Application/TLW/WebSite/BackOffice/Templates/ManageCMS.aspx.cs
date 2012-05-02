@@ -39,6 +39,19 @@ public partial class BackOffice_Templates_ManageCMS : System.Web.UI.Page
             ddlPage.Items.Insert(0, new ListItem("Select", "0"));
             oTemplateLib = null;
             reContent.Content = string.Empty;
+
+            List<ListItem> li = new List<ListItem>();
+            foreach (ListItem list in ddlPage.Items)
+            {
+                li.Add(list);
+            }
+            li.Sort((x, y) => string.Compare(x.Text, y.Text));
+            ddlPage.Items.Clear();
+            ddlPage.DataSource = li;
+            ddlPage.DataTextField = "Text";
+            ddlPage.DataValueField = "Value";
+            ddlPage.DataBind();
+
         }
         else
         {
@@ -66,7 +79,7 @@ public partial class BackOffice_Templates_ManageCMS : System.Web.UI.Page
         }
         else
         {
-            lblMsg.Text = "Please Select Page";
+            lblMsg.Text = "Please Select Content";
             reContent.Content = string.Empty;
         }
     }

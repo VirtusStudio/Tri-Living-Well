@@ -16,3 +16,15 @@ E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DA
 E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DAL\obj\Debug\ResolveAssemblyReference.cache
 E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.dll
 E:\DotNet\TriLivingWell\27April\27April_Part2\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.pdb
+E:\updated TLW\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.dll.config
+E:\updated TLW\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.dll
+E:\updated TLW\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.pdb
+E:\updated TLW\Tri-Living-Well\Application\TLW\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\updated TLW\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.dll
+E:\updated TLW\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.pdb
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.dll.config
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.dll
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.pdb
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.dll
+E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.pdb

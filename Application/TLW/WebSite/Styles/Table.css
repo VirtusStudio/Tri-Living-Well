@@ -12,7 +12,8 @@ table.tblItems td
 {                   
     width:auto;
     vertical-align:middle;  white-space:nowrap;
-    padding: 2px;
+    padding: 5px;
+    margin-top: 5px;
 }
 
 
@@ -36,3 +37,8 @@ table.tblBorder td
 	border:solid 1px #999999;
 }
 
+.reg_table 
+{
+    background-color: #6b86a5;
+    width: 100%:
+}
