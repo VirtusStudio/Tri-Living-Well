@@ -196,31 +196,6 @@
                                                                 Operator="GreaterThan" ValueToCompare="0" Type="Integer"></asp:CompareValidator>
                                                         </td>
                                                     </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            MET Minutes
-                                                        </td>
-                                                        <td>
-                                                            <asp:TextBox ID="TextBox1" runat="server" Width="50"></asp:TextBox>&nbsp;<span
-                                                                class="small">lbs.</span>
-                                                            <asp:CompareValidator ID="CompareValidator1" runat="server" CssClass="required" ValidationGroup="PalEntries_PopUp"
-                                                                ErrorMessage="*Must be > 0" ControlToValidate="txtPalEntryWeight" SetFocusOnError="True"
-                                                                Operator="GreaterThan" ValueToCompare="0" Type="Integer"></asp:CompareValidator>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Energy Expended
-                                                        </td>
-                                                        <td>
-                                                            <asp:TextBox ID="TextBox2" runat="server" Width="50"></asp:TextBox>&nbsp;<span
-                                                                class="small">lbs.</span>
-                                                            <asp:CompareValidator ID="CompareValidator3" runat="server" CssClass="required" ValidationGroup="PalEntries_PopUp"
-                                                                ErrorMessage="*Must be > 0" ControlToValidate="txtPalEntryWeight" SetFocusOnError="True"
-                                                                Operator="GreaterThan" ValueToCompare="0" Type="Integer"></asp:CompareValidator>
-                                                        </td>
-                                                    </tr>
                                                     <tr>
                                                         <td style="vertical-align: top;">
                                                             Comment

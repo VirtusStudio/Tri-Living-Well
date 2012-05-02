@@ -125,6 +125,7 @@ public partial class UC_EnterActivity_PopUp : System.Web.UI.UserControl
         {
             lblMessage.Text = "<span style='color:#009900;'>*Success!";
             txtPostback.Text = "1";//if (!= "") postback
+            Response.Redirect(AppConfig.GetBaseSiteUrl() + "Main/PersonalFitness.aspx");
         }
         else//failure
         {

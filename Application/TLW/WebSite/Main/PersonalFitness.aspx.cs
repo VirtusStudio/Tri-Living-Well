@@ -69,89 +69,118 @@ public partial class PersonalFitness : System.Web.UI.Page
 
         // have to get last activity
         DataSet DS = objPALClass.PAL_GET_PalEntries_BY_UserId(gsUserID, "", "");
-        DataRow drLastEntry = DS.Tables[0].Rows[DS.Tables[0].Rows.Count - 1];
-        string lastEntryDate = Convert.ToDateTime(drLastEntry["PAL_ENTRY_DATE"]).ToString("MM/dd/yyyy");
-        string lastEntryType = drLastEntry["PAL_ENTRY_TYPE_TEXT"].ToString();
-        string lastEntryActivity = drLastEntry["PAL_ENTRY_ACTIVITY_TEXT"].ToString();
-        string lastEntryTimeText = drLastEntry["PAL_ENTRY_TIME_TEXT"].ToString();
-        string lastEntryDuration = Convert.ToString(objPALClass.DurationTextToMinutes(drLastEntry["PAL_ENTRY_DURATION_TEXT"].ToString()));
-        string lastEntryWeight = drLastEntry["PAL_ENTRY_WEIGHT"].ToString();
-        string lastEntryIntensity = drLastEntry["PAL_ENTRY_INTENSITY_TEXT"].ToString();
-        string lastEntryComment = drLastEntry["PAL_ENTRY_COMMENT"].ToString();
-        string lastMetEquivalent = drLastEntry["MET_EQUIVALENT"].ToString();
 
-        // calculate energy expended
-        decimal dCalories = objPALClass.GetCaloriesExpended(lastEntryWeight, lastMetEquivalent, lastEntryDuration);
-        string lastCaloriesExpended = decimal.Round(dCalories, 2).ToString();
-
-        // put together the last 7 days of dates
-        string lastDates = "";
-
-        // have to get past weeks
-        int iWeekTotalMets = 0;
-        decimal dWeekCaloriesExpended = 0.0M;
-        int iWeekDuration = 0;
-        int iRowCount = DS.Tables[0].Rows.Count;
-        for (int i = 1; i <= 7; i++)
+        if (DS.Tables.Count > 0 && DS.Tables[0].Rows.Count > 0)
         {
-            if (i <= iRowCount)
-            {
-                DataRow dr = DS.Tables[0].Rows[i-1];
-                iWeekTotalMets +=  Convert.ToInt32(dr["MET_EQUIVALENT"]);
-                iWeekDuration += objPALClass.DurationTextToMinutes(dr["PAL_ENTRY_DURATION_TEXT"].ToString());
-                dWeekCaloriesExpended += objPALClass.GetCaloriesExpended(dr["PAL_ENTRY_WEIGHT"].ToString(), dr["MET_EQUIVALENT"].ToString(), dr["PAL_ENTRY_DURATION_TEXT"].ToString());
-                lastDates += Convert.ToDateTime(dr["PAL_ENTRY_DATE"]).ToString("MM/dd/yyyy");
-                lastDates += " ";
-            }
-        }
-        string weekTotalMetEquivalent = iWeekTotalMets.ToString();
-        string weekCaloriesExpended = decimal.Round(dWeekCaloriesExpended, 2).ToString();
-        string weekDuration = iWeekDuration.ToString();
+            DataRow drLastEntry = DS.Tables[0].Rows[DS.Tables[0].Rows.Count - 1];
+            string lastEntryDate = Convert.ToDateTime(drLastEntry["PAL_ENTRY_DATE"]).ToString("MM/dd/yyyy");
+            string lastEntryType = drLastEntry["PAL_ENTRY_TYPE_TEXT"].ToString();
+            string lastEntryActivity = drLastEntry["PAL_ENTRY_ACTIVITY_TEXT"].ToString();
+            string lastEntryTimeText = drLastEntry["PAL_ENTRY_TIME_TEXT"].ToString();
+            string lastEntryDuration = Convert.ToString(objPALClass.DurationTextToMinutes(drLastEntry["PAL_ENTRY_DURATION_TEXT"].ToString()));
+            string lastEntryWeight = drLastEntry["PAL_ENTRY_WEIGHT"].ToString();
+            string lastEntryIntensity = drLastEntry["PAL_ENTRY_INTENSITY_TEXT"].ToString();
+            string lastEntryComment = drLastEntry["PAL_ENTRY_COMMENT"].ToString();
+            string lastMetEquivalent = drLastEntry["MET_EQUIVALENT"].ToString();
 
-        // have to get cumulative
-        int iCumulativeTotalMets = 0;
-        decimal dCumulativeCaloriesExpended = 0.0M;
-        int iCumulativeDuration = 0;
-        iRowCount = DS.Tables[0].Rows.Count;
-        for (int i = 1; i <= iRowCount; i++)
+            // calculate energy expended
+            decimal dCalories = objPALClass.GetCaloriesExpended(lastEntryWeight, lastMetEquivalent, lastEntryDuration);
+            string lastCaloriesExpended = decimal.Round(dCalories, 2).ToString();
+
+            // put together the last 7 days of dates
+            string lastDates = "";
+
+            // have to get past weeks
+            int iWeekTotalMets = 0;
+            decimal dWeekCaloriesExpended = 0.0M;
+            int iWeekDuration = 0;
+            int iRowCount = DS.Tables[0].Rows.Count;
+            for (int i = 1; i <= 7; i++)
+            {
+                if (i <= iRowCount)
+                {
+                    DataRow dr = DS.Tables[0].Rows[i - 1];
+                    iWeekTotalMets += Convert.ToInt32(dr["MET_EQUIVALENT"]);
+                    iWeekDuration += objPALClass.DurationTextToMinutes(dr["PAL_ENTRY_DURATION_TEXT"].ToString());
+                    dWeekCaloriesExpended += objPALClass.GetCaloriesExpended(dr["PAL_ENTRY_WEIGHT"].ToString(), dr["MET_EQUIVALENT"].ToString(), dr["PAL_ENTRY_DURATION_TEXT"].ToString());
+                    lastDates += Convert.ToDateTime(dr["PAL_ENTRY_DATE"]).ToString("MM/dd/yyyy");
+                    lastDates += " ";
+                }
+            }
+            string weekTotalMetEquivalent = iWeekTotalMets.ToString();
+            string weekCaloriesExpended = decimal.Round(dWeekCaloriesExpended, 2).ToString();
+            string weekDuration = iWeekDuration.ToString();
+
+            // have to get cumulative
+            int iCumulativeTotalMets = 0;
+            decimal dCumulativeCaloriesExpended = 0.0M;
+            int iCumulativeDuration = 0;
+            iRowCount = DS.Tables[0].Rows.Count;
+            for (int i = 1; i <= iRowCount; i++)
+            {
+                if (i <= iRowCount)
+                {
+                    DataRow dr = DS.Tables[0].Rows[i - 1];
+                    iCumulativeTotalMets += Convert.ToInt32(dr["MET_EQUIVALENT"]);
+                    iCumulativeDuration += objPALClass.DurationTextToMinutes(dr["PAL_ENTRY_DURATION_TEXT"].ToString());
+                    dCumulativeCaloriesExpended += objPALClass.GetCaloriesExpended(dr["PAL_ENTRY_WEIGHT"].ToString(), dr["MET_EQUIVALENT"].ToString(), dr["PAL_ENTRY_DURATION_TEXT"].ToString());
+                }
+            }
+            string cumulativeTotalMetEquivalent = iCumulativeTotalMets.ToString();
+            string cumulativeCaloriesExpended = decimal.Round(dCumulativeCaloriesExpended, 2).ToString();
+            string cumulativeDuration = iCumulativeDuration.ToString();
+
+            labelLastDate.Text = lastEntryDate;
+            labelWeekDate.Text = "";
+            LabelCumulativeDate.Text = "";
+            labelLastWeight.Text = lastEntryWeight;
+            labelWeekWeight.Text = "";
+            labelCumulativeWeight.Text = "";
+            labelLastActivity.Text = lastEntryActivity;
+            labelWeekActivity.Text = "";
+            labelCumulativeActivity.Text = "";
+            labelLastDuration.Text = lastEntryDuration;
+            labelWeekDuration.Text = weekDuration;
+            labelCumulativeDuration.Text = cumulativeDuration;
+            labelLastIntensity.Text = lastEntryIntensity;
+            labelWeekIntensity.Text = "";
+            labelCumulativeIntensity.Text = "";
+            labelLastMet.Text = lastMetEquivalent;
+            labelWeekMet.Text = weekTotalMetEquivalent;
+            labelCumulativeMet.Text = cumulativeTotalMetEquivalent;
+            labelLastEnergy.Text = lastCaloriesExpended;
+            labelWeekEnergy.Text = weekCaloriesExpended;
+            labelCumulativeEnergy.Text = cumulativeCaloriesExpended;
+
+            labelLastWorkout.Text = Convert.ToDateTime(drLastEntry["PAL_ENTRY_DATE"]).ToString("dddd MMMM dd, yyyy");
+            labelHistory.Text = lastDates;
+        }
+        else
         {
-            if (i <= iRowCount)
-            {
-                DataRow dr = DS.Tables[0].Rows[i - 1]; 
-                iCumulativeTotalMets += Convert.ToInt32(dr["MET_EQUIVALENT"]);
-                iCumulativeDuration += objPALClass.DurationTextToMinutes(dr["PAL_ENTRY_DURATION_TEXT"].ToString());
-                dCumulativeCaloriesExpended += objPALClass.GetCaloriesExpended(dr["PAL_ENTRY_WEIGHT"].ToString(), dr["MET_EQUIVALENT"].ToString(), dr["PAL_ENTRY_DURATION_TEXT"].ToString());
-            }
+            labelLastDate.Text = "";
+            labelWeekDate.Text = "";
+            LabelCumulativeDate.Text = "";
+            labelLastWeight.Text = "";
+            labelWeekWeight.Text = "";
+            labelCumulativeWeight.Text = "";
+            labelLastActivity.Text = "";
+            labelWeekActivity.Text = "";
+            labelCumulativeActivity.Text = "";
+            labelLastDuration.Text = "";
+            labelWeekDuration.Text = "";
+            labelCumulativeDuration.Text = "";
+            labelLastIntensity.Text = "";
+            labelWeekIntensity.Text = "";
+            labelCumulativeIntensity.Text = "";
+            labelLastMet.Text = "";
+            labelWeekMet.Text = "";
+            labelCumulativeMet.Text = "";
+            labelLastEnergy.Text = "";
+            labelWeekEnergy.Text = "";
+            labelCumulativeEnergy.Text = "";
+            labelLastWorkout.Text = "";
+            labelHistory.Text = "";
         }
-        string cumulativeTotalMetEquivalent = iCumulativeTotalMets.ToString();
-        string cumulativeCaloriesExpended = decimal.Round(dCumulativeCaloriesExpended, 2).ToString();
-        string cumulativeDuration = iCumulativeDuration.ToString();
-
-        labelLastDate.Text = lastEntryDate;
-        labelWeekDate.Text = "";
-        LabelCumulativeDate.Text = "";
-        labelLastWeight.Text = lastEntryWeight;
-        labelWeekWeight.Text = "";
-        labelCumulativeWeight.Text = "";
-        labelLastActivity.Text = lastEntryActivity;
-        labelWeekActivity.Text = "";
-        labelCumulativeActivity.Text = "";
-        labelLastDuration.Text = lastEntryDuration;
-        labelWeekDuration.Text = weekDuration;
-        labelCumulativeDuration.Text = cumulativeDuration;
-        labelLastIntensity.Text = lastEntryIntensity;
-        labelWeekIntensity.Text = "";
-        labelCumulativeIntensity.Text = "";
-        labelLastMet.Text = lastMetEquivalent;
-        labelWeekMet.Text = weekTotalMetEquivalent;
-        labelCumulativeMet.Text = cumulativeTotalMetEquivalent;
-        labelLastEnergy.Text = lastCaloriesExpended;
-        labelWeekEnergy.Text = weekCaloriesExpended;
-        labelCumulativeEnergy.Text = cumulativeCaloriesExpended;
-
-        labelLastWorkout.Text = Convert.ToDateTime(drLastEntry["PAL_ENTRY_DATE"]).ToString("dddd MMMM dd, yyyy"); ;
-        labelHistory.Text = lastDates;
-
     }
 
 
