@@ -153,7 +153,7 @@ public partial class BackOffice_ManageLibrary : System.Web.UI.Page
         if (ViewState["strOldFileName"] != null)
             oLibraryInfo.StrLocation = ViewState["strOldFileName"].ToString();
 
-        if (oLibraryInfo.StrLocation.ToString().ToLower().Equals("pdf") || oLibraryInfo.StrLocation.ToString().ToLower().Equals("video"))
+        if (oLibraryInfo.StrLocationType.ToString().ToLower().Equals("pdf") || oLibraryInfo.StrLocationType.ToString().ToLower().Equals("video"))
         {
             string strpath = string.Empty;
             try

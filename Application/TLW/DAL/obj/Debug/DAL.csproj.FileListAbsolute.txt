@@ -28,3 +28,9 @@ E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.pdb
 E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\obj\Debug\ResolveAssemblyReference.cache
 E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.dll
 E:\Latest 2nd May\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.pdb
+E:\New TLW2May\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.dll.config
+E:\New TLW2May\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.dll
+E:\New TLW2May\Tri-Living-Well\Application\TLW\DAL\bin\Debug\DAL.pdb
+E:\New TLW2May\Tri-Living-Well\Application\TLW\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\New TLW2May\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.dll
+E:\New TLW2May\Tri-Living-Well\Application\TLW\DAL\obj\Debug\DAL.pdb

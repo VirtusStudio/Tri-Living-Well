@@ -118,6 +118,7 @@ header {
 	 text-decoration:none;
 	 border-right:1px #fff solid;
 	 padding:0px 10px;
+	font: inherit;
 }
 .topuser_nav ul li a:hover {
 	color:#ebebeb;

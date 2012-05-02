@@ -43,3 +43,12 @@ E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\Entity.pdb
 E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\obj\Debug\ResolveAssemblyReference.cache
 E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.dll
 E:\Latest 2nd May\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.pdb
+E:\New TLW2May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\BLL.dll
+E:\New TLW2May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\BLL.pdb
+E:\New TLW2May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\DAL.dll
+E:\New TLW2May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\Entity.dll
+E:\New TLW2May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\DAL.pdb
+E:\New TLW2May\Tri-Living-Well\Application\TLW\BLL\bin\Debug\Entity.pdb
+E:\New TLW2May\Tri-Living-Well\Application\TLW\BLL\obj\Debug\ResolveAssemblyReference.cache
+E:\New TLW2May\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.dll
+E:\New TLW2May\Tri-Living-Well\Application\TLW\BLL\obj\Debug\BLL.pdb

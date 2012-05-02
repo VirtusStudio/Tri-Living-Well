@@ -341,7 +341,7 @@ public partial class MasterPages_User : System.Web.UI.MasterPage
             lblLogout.Text = "<a style='text-decoration: underline;color:white;' href='" + AppConfig.GetBaseSiteUrl() + "login/logout.aspx'>Logout</a>";
             if (Membership.GetUser() != null)
             { //lblEdit.Text = "<a class='small' href=\"javascript:load('/main/UserUtilities/EditUser.aspx');\">My Account</a> <span style=font-weight:normal;>|</span> ";
-                lblEdit.Text = "<a style='text-decoration: underline;color:white;'   href=\"" + AppConfig.GetBaseSiteUrl() + "BackOffice/UserUtilities/UserAccount.aspx?src=" + usr + "\">My Account</a> <span style=font-weight:normal;>|</span> ";
+                lblEdit.Text = "<a style='color:white; Font:inherit;'   href=\"" + AppConfig.GetBaseSiteUrl() + "BackOffice/UserUtilities/UserAccount.aspx?src=" + usr + "\">My Account</a> <span style=font-weight:normal;></span> ";
                 /* Above line is commented by Netsmartz*/
                 //lblLogout.Text = "<a class='small' href='/login/logout.aspx'>Logout</a>"; /*Commented By Netsmartz*/
                 lblLogout.Text = "<a style='text-decoration: underline;color:white;' href='" + AppConfig.GetBaseSiteUrl() + "login/logout.aspx'>Logout</a>";
