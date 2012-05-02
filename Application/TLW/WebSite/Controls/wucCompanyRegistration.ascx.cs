@@ -131,7 +131,7 @@ for country.
 // David K. Bowers 04/10/12 changed default values of ChrIsPaid and ChrIsApproved from Y to N
             oCompanyInfo.ChrIsPaid = 'N';
             oCompanyInfo.ChrIsActive = 'N';
-            oCompanyInfo.ChrIsApproved = 'N';
+            oCompanyInfo.ChrIsApproved = 'Y';
 
             oCompanyInfo.DtCreatedDate = DateTime.Now;
             oCompanyInfo.DtModifiedDate = oCompanyInfo.DtCreatedDate;
