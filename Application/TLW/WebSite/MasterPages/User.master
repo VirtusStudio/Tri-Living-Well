@@ -237,7 +237,7 @@
                                                                                     Text="Nutrition Center">
                                                                                 </telerik:RadMenuItem>
 
-                                                                                 <telerik:RadMenuItem ID="RadMenuItem9" runat="server" NavigateUrl="~/Main/PALs/PAL_TABS.aspx"
+                                                                                 <telerik:RadMenuItem ID="RadMenuItem9" runat="server" NavigateUrl="~/Main/PersonalFitness.aspx"
                                                                                             Text="Personal Fitness">
                                                                                         </telerik:RadMenuItem>
                                                                                  <telerik:RadMenuItem ID="RadMenuItem12" runat="server" NavigateUrl="~/Main/DDs/DD.aspx"

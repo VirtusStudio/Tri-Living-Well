@@ -231,16 +231,6 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="2">
-                                                            <table>
-                                                                <tr><th>&nbsp;</th><th>Weekly</th><th>Total</th></tr>
-                                                                <tr><td>Duration</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-                                                                <tr><td>MET Minutes</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-                                                                <tr><td>Calories</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="2">
                                                             <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label><br />
                                                             <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
                                                                 <a class="aButton" href="javascript:document.getElementById('<%= btnSubmit.ClientID %>').click();">

@@ -22,8 +22,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_CONTENT" runat="server"
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
-<div style="background-color:Black;height:30px;width:960px;margin-left:-10px;margin-top:-5px;"><span style="text-align:center;margin-left:20px;color:White;font-weight:bold;font-size:large;">Personal Fitness</span></div>
+
+<div style="background: none repeat scroll 0% 0% rgb(255, 255, 255);   margin: 0px auto; padding: 10px; width:886px; overflow:hidden;" >
+
 <div style="height:100px;"></div>
+
+
+
+
+
     <table>
         <tr>
             <td>
