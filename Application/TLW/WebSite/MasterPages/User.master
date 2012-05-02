@@ -244,7 +244,7 @@
                                                                                  <telerik:RadMenuItem ID="RadMenuItem9" runat="server" NavigateUrl="~/Main/PersonalFitness.aspx"
                                                                                             Text="Personal Fitness">
                                                                                         </telerik:RadMenuItem>
-                                                                                 <telerik:RadMenuItem ID="RadMenuItem12" runat="server" NavigateUrl="~/Main/DDs/DD.aspx"
+                                                                                 <telerik:RadMenuItem ID="RadMenuItem12" runat="server" NavigateUrl="~/Main/WellnessDiary.aspx"
                                                                                             Text="Wellness Diary">
                                                                                         </telerik:RadMenuItem>
                                                                                 <telerik:RadMenuItem ID="RadMenuItem29" runat="server" NavigateUrl="javascript:popUpWin('Main/MyProgram/MyProgram.aspx',900,650);"
