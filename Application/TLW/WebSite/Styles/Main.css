@@ -322,7 +322,6 @@ a:hover
 {
     display: inline-table;
     padding: 2px 15px 2px 15px;
-    border: solid 1px #1F000A;
     text-align: center;
     color: #ffffff;
     text-decoration: none;
@@ -331,6 +330,10 @@ a:hover
     font-weight: bold;
     font-size: 13px;
     background-color: #1581AE;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
 }
 .aButtonSmall
 {
@@ -401,10 +404,23 @@ a:hover
 }
 .description
 {
-    border: solid 1px #999999;
     background-color: #e8e6e7;
-    padding: 8px;
+
 }
+
+.overview
+{
+    padding-top: 10px 0px 20px 15px;
+    font-size: larger;
+}
+
+.programBlock
+{
+    padding-top: 10px;
+    width: 100%;
+}
+
+
 .subTitle
 {
     font-size: 13px;

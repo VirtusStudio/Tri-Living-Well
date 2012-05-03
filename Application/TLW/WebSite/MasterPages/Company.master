@@ -1,0 +1,309 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Company.master.cs" Inherits="MasterPages_User" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register Src="~/Controls/UC_TextArea.ascx" TagName="UC_TextArea" TagPrefix="uc3" %>
+<%@ Register Src="~/Controls/UC_Login_Register.ascx" TagName="UC_Login_Register"
+    TagPrefix="uc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--[if lte IE 8]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+    <!-- Menu -->
+    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu-v.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/ddsmoothmenu.js">
+
+    </script>
+    <style type="text/css">
+        .ddsmoothmenu
+        {
+            padding: 48px 10px 0 0px;
+        }
+    </style>
+    <script type="text/javascript">
+        ddsmoothmenu.init({
+            mainmenuid: "smoothmenu1", //menu DIV id
+            orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+            classname: 'ddsmoothmenu', //class added to menu's outer DIV
+            //customtheme: ["#1c5a80", "#18374a"],
+            contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+        })
+
+        ddsmoothmenu.init({
+            mainmenuid: "smoothmenu2", //Menu DIV id
+            orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+            classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+            //customtheme: ["#804000", "#482400"],
+            contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+        })
+	
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <script src="<%#AppConfig.GetBaseSiteUrl() %>Scripts/Common.js" type="text/javascript"></script>
+        <!--popUpWin-->
+        <!--refreshMenu is meant to refresh only certain fields every so often-->
+
+
+       
+
+        <script type="text/javascript">
+            function popUpWin(path, x, y) {
+             
+                var sURL = '<%=AppConfig.GetBaseSiteUrl() %>' + path;
+                var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width=' + x + ',height=' + y + ',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
+                var windownew = window.open(sURL, "new_window", features);
+                try { windownew.focus(); } catch (err) { }
+            }
+            function load(Filepath) {
+                if (Filepath.indexOf("//") > -1) {
+                    window.location = Filepath;
+                }
+                else {
+                    window.location = '<%=AppConfig.GetBaseSiteUrl() %>' + Filepath;
+                }
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            function refreshMenu(sPrivateMessageInnerText) {
+                document.getElementById("<%=lblPrivateMessages.ClientID %>").innerHTML = sPrivateMessageInnerText;
+            }
+        </script>
+        <!--Debug Logger: top.log(obj)-->
+        <script type="text/javascript">
+            var bDebugMode = false;
+            var winDebugLog = null;
+            var gObj = null;
+            function log(obj) {
+                if (bDebugMode) {
+                    gObj = obj;
+                    /*if(winDebugLog == null)
+                    {
+                    openWinDebugLogger();
+                    }*/
+                    sendLog();
+                }
+            }
+
+            function refreshMessage() {
+                refresh();
+                //setTimeout("refreshMessage()", 30000);
+            }
+
+            function sendLog() {
+                try {
+                    winDebugLog.log(gObj);
+                    winDebugLog.focus();
+                }
+                catch (ex) {
+                    openWinDebugLogger();
+                    setTimeout("sendLog()", 500);
+                }
+            }
+            function openWinDebugLogger() {
+                var sURL = '<%=AppConfig.GetBaseSiteUrl() %>' + "PopUps/DebugLogger.aspx";
+                var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width=' + 600 + ',height=' + 600 + ',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
+                winDebugLog = window.open(sURL, "DEBUG_LOGGER", features);
+            }
+        </script>
+        <!--iframe height resizing-->
+        <script type="text/javascript">
+            // IFRAME HEIGHT STUFF
+            var iframeName = "IFRAME_CONTENT";
+
+            function getDocHeight(doc) {
+                var docHt = 0, sh, oh;
+                if (doc.height) docHt = doc.height;
+                else if (doc.body) {
+                    if (doc.body.scrollHeight) docHt = sh = doc.body.scrollHeight;
+                    if (doc.body.offsetHeight) docHt = oh = doc.body.offsetHeight;
+                    if (sh && oh) docHt = Math.max(sh, oh);
+                }
+                return docHt;
+            }
+
+            function setIframeHeight() {
+                refresh();
+                var iframeWin = window.frames[iframeName];
+                var iframeEl = document.getElementById ? document.getElementById(iframeName) : document.all ? document.all[iframeName] : null;
+                //alert("setIframeHeight() - iframeWin=" + iframeWin);
+                //alert("setIframeHeight() - iframeEl=" + iframeEl);
+                if (iframeEl && iframeWin) {
+                    if (bTopScroll) iframeEl.style.height = "auto"; //causes a top scroll to occur & help resize for some shorter content pages
+                    var docHt = getDocHeight(iframeWin.document);
+                    // need to add to height to be sure it will all show
+                    //alert("setIframeHeight() - docHt=" + docHt);
+                    if (docHt) {
+                        iframeEl.style.height = docHt + 50 + "px";
+                        iframeEl.style.width = '923px';
+                    }
+                }
+            }
+            var bTopScroll = true;
+            function setIframeHeight_NoTopScroll() {
+                bTopScroll = false;
+                setIframeHeight();
+                bTopScroll = true;
+            }
+
+            function setIframeHeightPlus(i) {
+                var iframeWin = window.frames[iframeName];
+                var iframeEl = document.getElementById ? document.getElementById(iframeName) : document.all ? document.all[iframeName] : null;
+                //alert("setIframeHeight() - iframeWin=" + iframeWin);
+                //alert("setIframeHeight() - iframeEl=" + iframeEl);
+                if (iframeEl && iframeWin) {
+                    iframeEl.style.height = "auto"; // helps resize (for some) if new doc shorter than previous  
+                    var docHt = getDocHeight(iframeWin.document);
+                    // need to add to height to be sure it will all show
+                    //alert("setIframeHeight() - docHt=" + docHt);
+                    if (docHt) {
+                        iframeEl.style.height = docHt + i + "px";
+                        iframeEl.style.width = '923px';
+                    }
+                    //iframeEl.style.width = "100%";
+                }
+            }
+
+        </script>
+        <script type="text/javascript">
+            function refresh() {
+                document.getElementById('btnRefresh').click();
+            }
+        </script>
+        <!--LoggedIn-->
+        <script type="text/javascript">
+            var bLoggedIn_Holder = "0";
+            function LoggedIn() {
+                if (document.getElementById('txtLoggedIn').value == "1")//they are logged on
+                {//hold client-side they they were at one point logged on
+                    bLoggedIn_Holder = "1";
+                }
+                if (document.getElementById('txtLoggedIn').value == "0")//not logged on
+                {
+                    if (bLoggedIn_Holder == "1")//they were ever logged on
+                    {//they must have timed out
+                        window.location.href = '<%=AppConfig.GetBaseSiteUrl() %>' + "login/logout_IMPORTANT.aspx";
+                    }
+                }
+            }
+        </script>
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <telerik:RadToolTip runat="server" ID="rttUnregisteredAccounts" Width="150px" ShowEvent="OnClick"
+        ShowDelay="0" TargetControlID="lblUnregisteredAccounts_rttWrapper" IsClientID="true"
+        HideEvent="LeaveToolTip" OffsetY="0" Animation="Slide" Position="BottomCenter"
+        RelativeTo="Element" Skin="Default">
+    </telerik:RadToolTip>
+    <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+    <!-- Header start here -->
+    <header>
+
+	<div class="topwrapper">
+		<div class="topuser_nav">
+			<ul>
+				<li><span style="white-space: nowrap;">Welcome:&nbsp;<asp:Label ID="lblName" runat="server"></asp:Label>
+                                                                            &nbsp;&nbsp;&nbsp;|</span></li>
+                                                                             <li>  
+                                                                                        <asp:Label ID="lblEdit" runat="server"></asp:Label></li>
+				<li>  <asp:Label ID="lblLogout" runat="server"></asp:Label></li>
+ 			</ul>
+		</div>
+		
+		<div class="clear"></div>
+		
+		<!-- Start main menu here -->
+		<div id="smoothmenu1" class="ddsmoothmenu">
+			
+
+
+            <div class="menu2_div">
+                <telerik:RadMenu ID="rmMenu" runat="server" CssClass="WebsiteHeaderMenu" EnableEmbeddedSkins="false">
+                    <Items>
+                        <telerik:RadMenuItem ID="RadMenuItem1" runat="server" NavigateUrl="~/company/uploadusersforregistration.aspx"
+                            Text="Dashboard">
+                        </telerik:RadMenuItem>
+                                                                           
+                    </Items>
+                </telerik:RadMenu>
+                <br />
+            </div>
+
+
+
+			<br style="clear: left" />
+			</div>
+           
+    
+		<!-- Main menu End here -->
+				
+	</div>
+	
+  </header>
+    <!-- Header End here -->
+    <div role="main" class="contentarea">
+        <div class="topmainheadings">
+            <h1>
+                EMPLOYEE UPLOAD CENTER</h1>
+        </div>
+
+
+    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    <div class="clear"></div>
+
+    
+
+        <div style="visibility: hidden;">
+        <asp:Button ID="btnRefresh" runat="server" Text="REFRESH" OnClick="btnRefresh_Click" />
+        <asp:TextBox ID="txtLoggedIn" runat="server" Text="0"></asp:TextBox>
+    </div>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" UpdatePanelsRenderMode="Inline">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="btnRefresh">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="rttUnregisteredAccounts" />
+                    <telerik:AjaxUpdatedControl ControlID="lblAdminArea" />
+                    <telerik:AjaxUpdatedControl ControlID="lblName" />
+                    <telerik:AjaxUpdatedControl ControlID="lblUnregisteredAccounts" />
+                    <telerik:AjaxUpdatedControl ControlID="lblEdit" />
+                    <telerik:AjaxUpdatedControl ControlID="lblLogout" />
+                    <telerik:AjaxUpdatedControl ControlID="txtLoggedIn" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
+      <asp:Label ID="lblPrivateMessages" runat="server"></asp:Label>
+      <footer>
+  </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>        window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+        (function (d, t) {
+            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s)
+        } (document, 'script'));
+    </script>
+    
+    </form>
+</body>
+</html>

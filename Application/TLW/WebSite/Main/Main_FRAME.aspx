@@ -116,20 +116,14 @@
                 <div class="mid_boxhead">
                     Personal Fitness</div>
                 <div class="mid_boxbody">
-                    <img src="images/graph2.png" alt="" border="0">
+                    <a href="../Main/PersonalFitness.aspx"><img src="images/graph2.png" alt="" border="0"></a>
                 </div>
             </div>
             <div class="mid_box">
                 <div class="mid_boxhead">
                     Wellness Diary</div>
                 <div class="mid_boxbody">
-                   <%-- <a href="../Welcome/Content/WellnessDairy.aspx"><img src="images/graph3.png"  alt="" border="0" /></a>--%>
-                   <%-- <a href="javascript:popUpWin('Welcome/Content/WellnessDairy.aspx',900,1200);"><img src="images/graph3.png"  alt="" border="0" /></a>--%>
-                  <%--  <a href="javascript:OpenPopup();"><img src="images/graph3.png"  alt="" border="0" /></a>--%>
-
-                    <a href="../Welcome/Content/WellnessDairy.aspx" onclick="basicPopup(this.href);return false"><img src="images/graph3.png"  alt="" border="0" /></a>
-
-
+                    <a href="../Main/WellnessDairy.aspx"><img src="images/graph3.png"  alt="" border="0" /></a>
                 </div>
             </div>
         </div>
@@ -138,11 +132,11 @@
         </div>
         <!-- left area start here -->
         <div class="left_informations">
-            <h1>
+            <h1 style="text-align:center">
                 Information Portal</h1>
             <ul>
                 <li class="news"><a href="../Users/ViewNewsletters.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Newsletters</p></a></li>
-                <li class="current"><a href="#"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Resources</p></a></li>
+                <li class="tools"><a href="../Users/ViewToolsResources.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Tools</p></a></li>
                 <li class="library"><a href="../Users/ViewLibraries.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Library</p></a></li>
                 <li class="forum"><a href="../Forum/default.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Forum</p></a></li>
             </ul>
@@ -175,20 +169,20 @@
                         publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>--%>
 
                          <%-- <div class="gridItem">--%>
-                                                                                    <asp:DataList ID="dlHotLinks" runat="server" RepeatColumns="1" RepeatDirection="Horizontal">
-                                                                                        <ItemTemplate>
-                                                                                            <table cellpadding="2" cellspacing="2" border="0">
-                                                                                                <tr>
-                                                                                                    <td>
-                                                                                                        <a href='<%#AppConfig.GetBaseSiteUrl() + "Users/hotsectiondetails.aspx#"+Eval("IntHotSectionId") %>'>
-                                                                                                            <%#AppLib.GetSubString(Eval("StrHeading").ToString(), 100)%>
-                                                                                                        </a>
-                                                                                                    </td>
-                                                                                                </tr>
-                                                                                            </table>
-                                                                                        </ItemTemplate>
-                                                                                    </asp:DataList>
-                                                                           <%--     </div>--%>
+                        <asp:DataList ID="dlHotLinks" runat="server" RepeatColumns="1" RepeatDirection="Horizontal">
+                            <ItemTemplate>
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                    <tr>
+                                        <td>
+                                            <a href='<%#AppConfig.GetBaseSiteUrl() + "Users/hotsectiondetails.aspx#"+Eval("IntHotSectionId") %>'>
+                                                <%#AppLib.GetSubString(Eval("StrHeading").ToString(), 100)%>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </ItemTemplate>
+                        </asp:DataList>
+                <%--     </div>--%>
 
 
 
@@ -208,12 +202,12 @@
                 </div>
                 <div class="right_quicklinkscenter">
                     <ul>
-                        <li class="myprogram"><a href="javascript:popUpWin('Main/MyProgram/MyProgram.aspx',900,650);">
+                        <li class="myprogram"><a href="../Main/MyProgram/MyProgram.aspx">
                             <img src ="../Images/iconssetimg.png" alt="" border="0"><p>My program</p></a></li>
-                        <li class="nutrition"><a href="javascript:popUpWin('Main/MyNutrition/MyNutrition.aspx',900,650);">
+                        <li class="nutrition"><a href="../Main/MyNutrition/MyNutrition.aspx">
                             <img src="../Images/iconssetimg.png" alt="" border="0"><p>My Nutrition</p></a></li>
                         <li class="activity_calendar"><a href="../Main/PALs/PAL_TABS.aspx"><img src="../Images/iconssetimg.png" alt="" border="0"><p>Activity Calendar</p></a></li>
-                        <li class="mealexchange"><a href="javascript:popUpWin('Main/DDs/MealExchange/HTML_MealExchange.aspx',900,650);">
+                        <li class="mealexchange"><a href="../Main/Full_MealExchange.aspx">
                             <img src="../images/iconssetimg.png" alt="" border="0"><p>Food Exchange</p></a></li>
                     </ul>
                    

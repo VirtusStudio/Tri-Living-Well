@@ -42,7 +42,7 @@ public partial class MyProgram : System.Web.UI.Page
 
     private void fillOutForm()
     {
-        if (Membership.GetUser() != null)
+        /*if (Membership.GetUser() != null)
         {
             string sUserID = Membership.GetUser().ProviderUserKey.ToString();
 
@@ -58,14 +58,6 @@ public partial class MyProgram : System.Web.UI.Page
 
                 UC_PAL_Steps1.populate(iProgramCurrentStep.ToString(), iNumSteps.ToString());
 
-                /*
-                 * lblProgramForum.Text = "<a href='/FORUM/topics.aspx?ForumID=" + DS.Tables[0].Rows[0]["FORUM_PROGRAM_ID"].ToString() + "'><img src='/Images/icons/iconProgram" + sProgramNumber + ".jpg' /> " + DS.Tables[0].Rows[0]["PROGRAM_NAME"].ToString() + " Forum</a>";
-                lblEmailCoach.Text = "<a href='/FORUM/addprivatemsg.aspx?ToUserID=" + DS.Tables[0].Rows[0]["COACH_ID"].ToString() + "'><img src='/Images/icons/iconEmail.gif' /> Private Message Coach</a>";
-
-                lblLevelID.Text = "<img src='/images/icons/iconPalLevel" + sLevelID + ".jpg' />";
-                lblProgramID.Text = "<img src='/Images/icons/iconProgram" + sProgramNumber + ".jpg' />";
-                 
-                 */
                 lblProgramForum.Text = "<a href='" + AppConfig.GetBaseSiteUrl() + "FORUM/topics.aspx?ForumID=" + DS.Tables[0].Rows[0]["FORUM_PROGRAM_ID"].ToString() + "'><img src='" + AppConfig.GetBaseSiteUrl() + "Images/icons/iconProgram" + sProgramNumber + ".jpg' /> " + DS.Tables[0].Rows[0]["PROGRAM_NAME"].ToString() + " Forum</a>";
                 lblEmailCoach.Text = "<a href='" + AppConfig.GetBaseSiteUrl() + "FORUM/addprivatemsg.aspx?ToUserID=" + DS.Tables[0].Rows[0]["COACH_ID"].ToString() + "'><img src='" + AppConfig.GetBaseSiteUrl() + "Images/icons/iconEmail.gif' /> Private Message Coach</a>";
 
@@ -149,7 +141,7 @@ public partial class MyProgram : System.Web.UI.Page
                     RadMenu1.Items.Add(RMI);
                 }
             }
-        }
+        }*/
     }
 
 

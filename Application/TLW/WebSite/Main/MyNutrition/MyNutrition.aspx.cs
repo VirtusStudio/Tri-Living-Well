@@ -72,7 +72,7 @@ public partial class MyNutrition : System.Web.UI.Page
                 lblLevelID.Text = "<img src='" + AppConfig.GetBaseSiteUrl() + "images/icons/iconPalLevel" + sLevelID + ".jpg' />";
 
                 //lblDetailLevel.Text = "<a href=\"javascript:top.popUpWin('/main/MyNutrition/HTML_Details.aspx?levelID=" + sLevelID + "#1',900,550);\">View Nutrition Details</a>";
-                lblDetailLevel.Text = "<a href=\"javascript:top.popUpWin('" + AppConfig.GetBaseSiteUrl() + "Main/DDs/MealExchange/HTML_MealExchange.aspx?',900,550);\">View Nutrition Details</a>";
+                //lblDetailLevel.Text = "<a href=\"javascript:top.popUpWin('" + AppConfig.GetBaseSiteUrl() + "Main/DDs/MealExchange/HTML_MealExchange.aspx?',900,550);\">View Nutrition Details</a>";
 
                 for (int i = 1; i <= iNumSteps; i++)
                 {
