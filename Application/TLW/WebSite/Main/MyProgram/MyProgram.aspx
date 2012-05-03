@@ -1,153 +1,69 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MyProgram.aspx.cs" Inherits="MyProgram" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MyProgram.aspx.cs" MasterPageFile="~/MasterPages/User.master"  Title="My Fitness" Inherits="MyProgram" %>
 
-<%@ Register Src="~/Controls/UC_Visitlog_Visitlog.ascx" TagName="UC_Visitlog_Visitlog"
-    TagPrefix="uc1" %>
+<%@ Register Src="~/Controls/UC_Visitlog_Visitlog.ascx" TagName="UC_Visitlog_Visitlog" TagPrefix="uc1" %>
+
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ Register Src="../../Controls/UC_PAL_Steps.ascx" TagName="UC_PAL_Steps" TagPrefix="uc2" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <script type="text/javascript">
-        function popUpWin(path, x, y) {
 
-            var sURL = path;
-          
-            var features = 'toolbar=0,location=0,status=1,menubar=0,scrollbars=1,resizable=1,width=' + x + ',height=' + y + ',left=' + top.window.screenLeft + ',top=' + top.window.screenTop;
-            var windownew = window.open(sURL, "new_sub_window", features);
-            windownew.focus();
-        }
-    </script>
-    <!--IFRAME HEIGHT STUFF-->
-    <script type="text/javascript">
-        var iframeName = "IFRAME_CONTENT";
+<%@ Register src="~/Controls/UC_PAL_Steps.ascx" tagname="UC_PAL_Steps" tagprefix="uc2" %>
 
-        function getDocHeight(doc) {
-            var docHt = 0, sh, oh;
-            if (doc.height) docHt = doc.height;
-            else if (doc.body) {
-                if (doc.body.scrollHeight) docHt = sh = doc.body.scrollHeight;
-                if (doc.body.offsetHeight) docHt = oh = doc.body.offsetHeight;
-                if (sh && oh) docHt = Math.max(sh, oh);
-            }
-            return docHt;
-        }
-        function setIframeHeight_NoTopScroll() {
-            bTopScroll = false;
-            setIframeHeight();
-            bTopScroll = true;
-        }
-        var bTopScroll = true;
-        function setIframeHeight() {
-            //alert(" in Tabs height:");
-
-            var iframeWin = window.frames[iframeName];
-            var iframeEl = document.getElementById ? document.getElementById(iframeName) : document.all ? document.all[iframeName] : null;
-            //alert("setIframeHeight() - iframeWin=" + iframeWin);
-            //alert("setIframeHeight() - iframeEl=" + iframeEl);
-            if (iframeEl && iframeWin) {
-                if (bTopScroll) iframeEl.style.height = "auto"; //causes a top scroll to occur & help resize for some shorter content pages
-                var docHt = getDocHeight(iframeWin.document);
-                // need to add to height to be sure it will all show
-                //alert("setIframeHeight() - docHt=" + docHt);
-
-                var newHeight = docHt + 100;
-                if (newHeight < 400) {
-                    newHeight = 400;
-                }
-
-                if (docHt) iframeEl.style.height = newHeight + "px";
-            }
-        }
-    </script>
-    <!--MENU system-->
-    <script type="text/javascript">
-        function load(sUrl) {
-            document.getElementById(iframeName).src = sUrl;
-        }
-        function Init() {
-            window.focus();
-            //document.getElementById(iframeName).src = tabStrip.SelectedTab.Value;
-        }
-    </script>
-</head>
-<body onload="Init();" class="body2">
-    <form id="form1" runat="server">
-     <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
-    <div style="text-align: right; padding-bottom: 5px;">
-        <asp:Label ID="lblViewExerciseDetail" runat="server"></asp:Label>
-        | <a id="ancSwitchNutrition" runat="server" href="~/Main/MyNutrition/MyNutrition.aspx">
-            Switch to My Nutrition</a>
-    </div>
-    <div style="height: 100%;">
-        <table>
-            <tr>
-                <td>
-                 
-                    <div class="title">
-                        My Program</div>
-                </td>
-                <td style="display: none;">
-                    <div style="padding: 0px 15px 0px 0px; text-align: right; vertical-align: middle;">
-                        <asp:Label ID="lblEmailCoach" runat="server"></asp:Label>
-                        <asp:Label ID="lblProgramForum" runat="server"></asp:Label>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <div class="description">
-            <center class="Round3">
-                <center>
-                    <center>
-                        <center>
-                            <center>
-                                <center>
-                                    <center>
-                                        <center>
-                                            <center>
-                                                <center>
-                                                    <table class="Round3_tblHeader">
-                                                        <tr>
-                                                            <td>
-                                                                My Status
-                                                            </td>
-                                                            <td style="text-align: right;">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <table>
-                                                        <tr>
-                                                            <td>
-                                                                <uc2:UC_PAL_Steps ID="UC_PAL_Steps1" runat="server" />
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td style="text-align: right;">
-                                                                <asp:Label ID="lblProgramID" runat="server"></asp:Label>
-                                                                &nbsp;<asp:Label ID="lblLevelID" runat="server"></asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </center>
-                                            </center>
-                                        </center>
-                                    </center>
-                                </center>
-                            </center>
-                        </center>
-                    </center>
-                </center>
-            </center>
+<%@ Register Src="~/Controls/UC_TextArea.ascx" TagName="UC_TextArea" TagPrefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+ <!--MENU system-->
+<script  type="text/javascript">
+    function load(sUrl) {
+        document.getElementById(iframeName).src = sUrl;
+    }
+    function Init() {
+        window.focus();
+        //document.getElementById(iframeName).src = tabStrip.SelectedTab.Value;
+    }
+</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">   
+<div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; hight: 600px; overflow:hidden;">
+    <div class="demoContent">    
+        <div class="overview">
+            <table>
+                <tr>
+                    <td>
+                        <uc1:uc_textarea id="UC_TextArea1" runat="server" textarea_name="MyFitnessOverview" />
+                       
+                    </td>
+                </tr>
+            </table>
         </div>
-        <telerik:RadMenu ID="RadMenu1" runat="server" SkinID="" Skin="Web20" Width="99%">
-        </telerik:RadMenu>
-        <iframe runat="server" frameborder="0" name="IFRAME_CONTENT" id="IFRAME_CONTENT"
-            class="IFRAME_CONTENT IFRAME_TAB" style="height: 375px; overflow-y: scroll; overflow-x: hidden;">
-        </iframe>
+        <div class="programBlock">
+            <table>
+                <tr>
+                    <td style="display: none;">
+                            <asp:Label ID="lblEmailCoach" runat="server"></asp:Label>
+                            <asp:Label ID="lblProgramForum" runat="server"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+             <table>
+                <tr>
+                    <td>
+                        <uc2:UC_PAL_Steps ID="UC_PAL_Steps1" runat="server" />
+                    </td>
+                    <td>
+                    </td>
+                    <td style="text-align: right;">
+                        <asp:Label ID="lblProgramID" runat="server"></asp:Label>
+                        &nbsp;<asp:Label ID="lblLevelID" runat="server"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="description">
+            <telerik:RadMenu ID="RadMenu1" runat="server" SkinID="" Skin="Web20" Width="99%">
+            </telerik:RadMenu>
+            <iframe runat="server" frameborder="0" name="IFRAME_CONTENT" id="IFRAME_CONTENT"
+                class="IFRAME_CONTENT IFRAME_TAB" style="height: 375px; overflow-y: scroll; overflow-x: hidden;">
+            </iframe>
+        </div>
     </div>
     <uc1:UC_Visitlog_Visitlog ID="UC_Visitlog_Visitlog1" runat="server" />
-    </div>
-    </form>
-</body>
-</html>
+</div>
+</asp:Content>
+    

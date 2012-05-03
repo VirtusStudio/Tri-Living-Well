@@ -247,16 +247,16 @@
                                                                                  <telerik:RadMenuItem ID="RadMenuItem12" runat="server" NavigateUrl="~/Main/WellnessDiary.aspx"
                                                                                             Text="Wellness Diary">
                                                                                         </telerik:RadMenuItem>
-                                                                                <telerik:RadMenuItem ID="RadMenuItem29" runat="server" NavigateUrl="javascript:popUpWin('Main/MyProgram/MyProgram.aspx',900,650);"
+                                                                                <telerik:RadMenuItem ID="RadMenuItem29" runat="server" NavigateUrl="~/Main/MyProgram/MyProgram.aspx"
                                                                                     Text="Program">
                                                                                     <Items>
-                                                                                        <telerik:RadMenuItem ID="RadMenuItem37" runat="server" NavigateUrl="javascript:popUpWin('Main/MyNutrition/MyNutrition.aspx',900,650);" 
+                                                                                        <telerik:RadMenuItem ID="RadMenuItem37" runat="server" NavigateUrl="~/Main/MyNutrition/MyNutrition.aspx" 
                                                                                             Text="My Nutrition">
                                                                                         </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="RadMenuItem38" runat="server" NavigateUrl="~/Welcome/Content/HealthNews.aspx"
+                                                                                        <telerik:RadMenuItem ID="RadMenuItem38" runat="server" NavigateUrl="~/Main/MyProgram/MyProgram.aspx"
                                                                                             Text="My Fitness">
                                                                                         </telerik:RadMenuItem>
-                                                                                        <telerik:RadMenuItem ID="RadMenuItem39" runat="server" NavigateUrl= "javascript:popUpWin('Main/DDs/MealExchange/HTML_MealExchange.aspx',900,650);" 
+                                                                                        <telerik:RadMenuItem ID="RadMenuItem39" runat="server" NavigateUrl= "~/Main/Full_MealExchange.aspx" 
                                                                                             Text="Food Exchange">
                                                                                         </telerik:RadMenuItem> 
                                                                                     </Items>

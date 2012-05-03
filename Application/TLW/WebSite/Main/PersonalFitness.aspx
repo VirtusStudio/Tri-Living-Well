@@ -8,6 +8,7 @@
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
+    <%@ Register Src="~/Controls/UC_TextArea.ascx" TagName="UC_TextArea" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="../Scripts/Common.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -24,13 +25,17 @@
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
 
 <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255);   margin: 0px auto; padding: 10px; width:886px; overflow:hidden;" >
-
+    <div class="overview">
+            <table>
+                <tr>
+                    <td>
+                        <uc1:uc_textarea id="UC_TextArea1" runat="server" textarea_name="PersonalFitness" />
+                       
+                    </td>
+                </tr>
+            </table>
+            </div>
 <div style="height:100px;"></div>
-
-
-
-
-
     <table>
         <tr>
             <td>
