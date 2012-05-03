@@ -595,6 +595,7 @@ Note:
       
         try
         {
+            
             //int UserId = AppLib.GetUserIDByEmail(mailTo);
             //emailBody = emailBody.Replace("[strBaseSiteUrl]", AppConfig.GetBaseSiteUrl());
             //emailBody = emailBody.Replace("[FULLNAME]", AppLib.GetUserFirstAndLastNameById(UserId));
@@ -607,15 +608,20 @@ Note:
             // myMail.ReplyTo = "noreply@kangalope.com";
             myMail.To.Add(mailTo.ToString());
             myMail.Subject = emailSubject;
-            myMail.Priority = MailPriority.High;
+            myMail.Priority = MailPriority.Normal;
             myMail.IsBodyHtml = true;
             myMail.Body = emailBody;
             SmtpMail.Host = AppConfig.GetSMTPserver();
             SmtpMail.Port = 25;
             SmtpMail.EnableSsl = true;
             SmtpMail.DeliveryMethod = SmtpDeliveryMethod.Network;
+            SmtpMail.UseDefaultCredentials = false;
+            SmtpMail.Credentials = new System.Net.NetworkCredential("tlw@virtusstudio.com", "Virtus2012");
             
             SmtpMail.Send(myMail);
+
+         
+            
         }
         catch (Exception exc)
         {
