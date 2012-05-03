@@ -15,6 +15,13 @@ using Telerik.Web.UI;
 
 public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
 {
+    int iInviteId = 0;
+	int iCompanyId = 0;
+    string sCompanyName = "";
+    string sEmpFirstName = "";
+	string sEmpLastName = "";
+    string sEmpEmail = "";
+
     string gsAccountFrom;
 
     int giSendEmail, giShowReceipt;
@@ -68,60 +75,77 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
             // the tbl_CompanyRequestedUsersList.  The iid is read from the url and stored in a hidden form field.  If
             // its not in either place then its invalid so redirect them to the resend invite form 
             string get_iid = "";
-            int iid = 0;
             var giid = Request.QueryString["iid"];
             if (giid != null)
             {
                 get_iid = giid.ToString();
                 textIID.Value = get_iid;
-                iid = Convert.ToInt32(get_iid);
+                iInviteId = Convert.ToInt32(get_iid);
             }
             else
             {
 
                 string hidden_iid = textIID.Value.Trim();
-                if (hidden_iid.Length > 0) iid = Convert.ToInt32(hidden_iid);
+                if (hidden_iid.Length > 0) iInviteId = Convert.ToInt32(hidden_iid);
             }
-            if (iid == 0)
+            if (iInviteId == 0)
             {
                 Response.Redirect("ResendInvite.aspx");
             }
             // --- end validate invite id
-
-            //    Response.Write(AppLib.Encrypt("1"));
-            /*DateTime dtTodayDate = DateTime.Now;
-            DateTime dtBDate = Convert.ToDateTime("16/06/1983");
-            Response.Write(dtTodayDate - dtBDate);*/
-
+            
             objBackofficeClass = new BackofficeClass(objSqlConnClass.OpenConnection());
             objUsersClass = new UsersClass(objSqlConnClass.sqlConnection);
+
+            DataSet DS = new DataSet();
+            DS = objUsersClass.USR_GetInviteCompany(iInviteId);
+            if (DS != null)
+            {
+                iCompanyId = Convert.ToInt32(DS.Tables[0].Rows[0]["intCompanyId"].ToString());
+                sCompanyName = DS.Tables[0].Rows[0]["strCompanyName"].ToString();
+                sEmpFirstName = DS.Tables[0].Rows[0]["strEmpFirstName"].ToString();
+                sEmpLastName = DS.Tables[0].Rows[0]["strEmpLastName"].ToString();
+                sEmpEmail = DS.Tables[0].Rows[0]["strEmpEmail"].ToString();
+            }
 
             if (ViewState["gsAccountFrom"] != null)
             {
                 gsAccountFrom = ViewState["gsAccountFrom"].ToString();
             }
 
-
+/*
+ * =====================================================================
+ * David Bowers 5/3/2012
+ * I can't figure out what this is for so I am commenting it out for now
+ * =====================================================================
             //DropDownList ddlCompany = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("ddlCompany");
-            TextBox txtOrganization = (TextBox)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("txtOrganization");
             if (Request.QueryString["cid"] != null && Request.QueryString["id"] != null)
             {
                 //ddlCompany.Visible = false;
                 BindCompanyDetails();
-                txtOrganization.Visible = true;
-                txtOrganization.Attributes.Add("Readonly", "true");
             }
             else
             {
                // ddlCompany.Visible = true;
-                txtOrganization.Visible = false;
             }
+*/
+            TextBox txtOrganization = (TextBox)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("txtOrganization");
+            txtOrganization.Text = sCompanyName;
+            txtOrganization.ReadOnly = true;
+            txtOrganization.Visible = true;
+
 
             if (!IsPostBack)
             {
+                
+/*
+ * =====================================================================
+ * David Bowers 5/3/2012
+ * I can't figure out what this is for so I am commenting it out for now
+ * =====================================================================                
                 if (Request.QueryString["cid"] == null && Request.QueryString["id"] == null)
                     BindCompanyControl();
-
+*/
 
                 giShowReceipt = 1;
                 giSendEmail = 1;
@@ -366,14 +390,7 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
             parameters[18] = txtPassword.Text;
             parameters[19] = RandomCode();
 
-            if (Request.QueryString["cid"] == null && Request.QueryString["id"] == null)
-            {
-               // parameters[20] = ddlCompany.SelectedItem.Text; //organization
-            }
-            else
-                parameters[20] = txtOrganization.Text; //organization
-
-
+            parameters[20] = txtOrganization.Text; //organization
             //parameters[20] = "information tech";
 
             //parameters[21] = rdbtnlst_IsAccredited.SelectedValue; //is accredited

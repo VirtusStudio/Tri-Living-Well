@@ -195,7 +195,7 @@ public class UsersClass
 
             MyDataAdapter = new SqlDataAdapter(MyCommand);
             MyDataAdapter.Fill(MyDataSet);
-        }
+        }                                                                                                                                                           
         catch (Exception ex)
         {
             //HttpContext.Current.Response.Write(ex.Message);
@@ -411,6 +411,31 @@ public class UsersClass
         }
     }
 
+    public DataSet USR_GetInviteCompany(int inviteID)
+    {
+        DataSet MyDataSet = new DataSet();
 
-    // ______________________________________________________________________________}
+        try
+        {
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.Connection = MyConnection;
+
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.CommandText = "spGetCompanyFromInviteId";
+
+            MyCommand.Parameters.AddWithValue("@inviteid", inviteID);
+
+            MyDataAdapter = new SqlDataAdapter(MyCommand);
+            MyDataAdapter.Fill(MyDataSet);
+        }
+        catch (Exception ex)
+        {
+            HttpContext.Current.Response.Write(ex.Message);
+            return null;
+        }
+
+        return MyDataSet;
+    }
+
+    // ______________________________________________________________________________
 }
