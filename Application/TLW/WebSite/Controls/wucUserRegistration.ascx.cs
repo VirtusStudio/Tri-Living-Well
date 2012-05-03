@@ -374,6 +374,8 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
                 parameters[20] = txtOrganization.Text; //organization
 
 
+            //parameters[20] = "information tech";
+
             //parameters[21] = rdbtnlst_IsAccredited.SelectedValue; //is accredited
             parameters[21] = "1"; //is accredited
             parameters[22] = ddlYourRole.SelectedValue; //is accredited
