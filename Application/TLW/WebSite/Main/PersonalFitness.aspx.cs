@@ -61,6 +61,91 @@ public partial class PersonalFitness : System.Web.UI.Page
         objTemplateClass = new TemplateClass(objSqlConnClass.OpenConnection());
 
 
+
+
+
+        int ileftMargin = 0;
+        string sTriangleImg = "triangle1.jpg";
+        int iMET = 0;
+        string sLastWorkout = "";
+        DataSet entries = objPALClass.PAL_GET_PalEntries_BY_UserId(gsUserID, "", "");
+        foreach (DataRow DR in entries.Tables[0].Rows)
+        {
+            iMET += Convert.ToInt32(DR["MET_EQUIVALENT"]);
+            sLastWorkout = DR["PAL_ENTRY_DATE"].ToString();
+        }
+        labelLastWorkout.Text = sLastWorkout;
+
+        iMET = 100;
+        // 0
+        if (iMET <= 0)
+        {
+            ileftMargin = 7;
+            sTriangleImg = "triangle1.jpg";
+        }
+        // 1
+        else if (iMET <= 100)
+        {
+            ileftMargin = 32;
+            sTriangleImg = "triangle1.jpg";
+        }
+        // 2
+        else if (iMET <= 200)
+        {
+            ileftMargin = 52;
+            sTriangleImg = "triangle2.jpg";
+        }
+        // 3
+        else if (iMET <= 300)
+        {
+            ileftMargin = 72;
+            sTriangleImg = "triangle3.jpg";
+        }
+        // 4
+        else if (iMET <= 400)
+        {
+            ileftMargin = 92;
+            sTriangleImg = "triangle4.jpg";
+        }
+        // 5
+        else if (iMET <= 500)
+        {
+            ileftMargin = 112;
+            sTriangleImg = "triangle5.jpg";
+        }
+        // 6
+        else if (iMET <= 600)
+        {
+            ileftMargin = 132;
+            sTriangleImg = "triangle6.jpg";
+        }
+        // 7
+        else if (iMET <= 700)
+        {
+            ileftMargin = 152;
+            sTriangleImg = "triangle7.jpg";
+        }
+        // 8
+        else if (iMET <= 800)
+        {
+            ileftMargin = 172;
+            sTriangleImg = "triangle8.jpg";
+        }
+        // 9
+        else if (iMET <= 900)
+        {
+            ileftMargin = 192;
+            sTriangleImg = "triangle9.jpg";
+        }
+        // 10
+        else if (iMET > 900)
+        {
+            ileftMargin = 212;
+            sTriangleImg = "triangle10.jpg";
+        }
+        literalTriangle.Text = "<img style='margin-left:20px;' src='" + AppConfig.GetBaseSiteUrl() + "Images/dashboard/" + sTriangleImg + "' />";
+        literalMetsMarker.Text = "<div style='width:30px;margin-left:" + ileftMargin.ToString() + "px;margin-top:-7px;font-weight:bold;font-size:larger;font-color:Black;text-align:center;line-height:80%'>&#9650;<br />" + iMET.ToString() + "</div>";
+
         getActivitiesData();
     }
 

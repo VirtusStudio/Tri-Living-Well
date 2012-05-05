@@ -5,6 +5,7 @@
 <%@ Register Src="~/Controls/UC_Home_1_Control.ascx" TagName="UC_Home_1_Control"
     TagPrefix="uc3" %>
 <%@ Register Src="~/Controls/UC_EnterActivity_PopUp.ascx" TagName="UC_EnterActivity_PopUp" TagPrefix="uc2" %>
+<%@ Register Src="~/Controls/UC_ActivityCalendar_PopUp.ascx" TagName="UC_ActivityCalendar_PopUp" TagPrefix="uc3" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
@@ -35,19 +36,29 @@
                 </tr>
             </table>
             </div>
-<div style="height:100px;"></div>
+    <div id="fitnessactions" style="margin-top:25px;">
     <table>
         <tr>
             <td>
                 <table width="100%">
                     <tr valign="top">
                         <td align="left">
-                            <img alt="library" src='<%=AppConfig.GetBaseSiteUrl() %>images/personalfitness.png' border="0" />
-                            <hr />
-                            <p style="font-weight:bold;text-align:center;">Last Workout:</p>
-                            <p style="text-align:center;"><asp:Label ID="labelLastWorkout" runat="server" /></p>
-                            <p style="text-align:center;"><span style="font-weight:bold;">Workout History: </span>(7 Days)</p>
-                            <p style="text-align:center;"><asp:Label ID="labelHistory" runat="server" /></p>
+                            <div style="margin-right:20px;">
+                                <h3>METABOLIC MINUTE PROGRESS</h3>
+                                <asp:Literal ID="literalTriangle" runat="server"></asp:Literal>
+                                <div style="margin-left:10px;margin-top:-10px;font-weight:bold;color:Black;">0</div>
+                                <div style="margin-left:228px;margin-top:-17px;font-weight:bold;color:Black;">1000</div>
+                                <asp:Literal ID="literalMetsMarker" runat="server"></asp:Literal>
+                                <hr />
+                                <p style="font-weight:bold;text-align:center;">Last Workout:</p>
+                                <p style="text-align:center;"><asp:Label ID="labelLastWorkout" runat="server" /></p>
+                                <p style="text-align:center;"><span style="font-weight:bold;">Workout History: </span>(7 Days)</p>
+                                <p style="text-align:center;"><asp:Label ID="labelHistory" runat="server" /></p>
+                            </div>
+                            
+                            
+                            
+
                         </td>
                         <td align="left" colspan="2">
                             <table>
@@ -103,7 +114,9 @@
                                 <tr>
                                     <td colspan="2" >&nbsp;</td>
                                     <td align="center">
-                                        <a href="javascript:addEntry('');"><img src="<%=AppConfig.GetBaseSiteUrl() %>images/icons/iconPalEntryCreate.gif" /><br />Record Activity</a>
+                                        <a class="aSmallButton" href="javascript:showCalendar();">Activity Calendar</a>
+                                        <uc3:UC_ActivityCalendar_PopUp id="UC_ActivityCalendar_PopUp1" runat="server"></uc3:UC_ActivityCalendar_PopUp>
+                                        <a class="aSmallButton" href="javascript:addEntry('');">Record Activity</a>
                                         <uc2:UC_EnterActivity_PopUp id="UC_EnterActivity_PopUp1" runat="server"></uc2:UC_EnterActivity_PopUp> 
                                     </td>
                                     <td>&nbsp;</td>
@@ -115,6 +128,7 @@
             </td>
         </tr>
     </table>
+    </div>
     <script language="javascript" type="text/javascript">
         function ShowPopup(varPagePath) {
             var varPath = '<%=AppConfig.GetBaseSiteUrl() %>' + varPagePath;

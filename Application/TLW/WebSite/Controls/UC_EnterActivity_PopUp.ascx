@@ -91,7 +91,7 @@
                                     <center>
                                         <center>
                                             <center>
-                                                <img id="imgPAL" alt="" runat="server" />Personal Activity Log<br />
+                                                <img id="imgPAL" alt="" runat="server" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Activity Log<br />
                                                 <br />
                                                 <table class="tblItems" style="background-color: White;">
                                                     <tr>
@@ -239,9 +239,6 @@
 </div>
 <asp:HiddenField ID="hfCategoryName" Value="Walking" runat="server" />
 <!--Init()-->
-<script type="text/javascript">
-    //UC_PAL_PalEntries_PopUp();
-</script>
 <telerik:RadScriptBlock ID="RadScriptBlock2" runat="server">
     <!--RadAjaxManager-->
     <script type="text/javascript">
@@ -325,29 +322,3 @@
 
     </script>
 </telerik:RadScriptBlock>
-<telerik:RadAjaxLoadingPanel ID="AjaxLoadingPanel1" runat="server" Height="75px"
-    Width="75px">
-    <asp:Image ID="Image1" runat="server" AlternateText="Loading..." ImageUrl="~/RadControls/Ajax/Skins/Default/loading2.gif" />
-</telerik:RadAjaxLoadingPanel>
-<%-- <telerik:RadAjaxManagerProxy ID="RadAjaxManager1" runat="server">
-        <AjaxSettings>
-            <telerik:AjaxSetting AjaxControlID="btnSubmit">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="txtPostback" />
-                    <telerik:AjaxUpdatedControl ControlID="lblMessage" />
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-             <telerik:AjaxSetting AjaxControlID="btnEdit">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="ddlPalEntryType" LoadingPanelID="AjaxLoadingPanel1" />
-                    <telerik:AjaxUpdatedControl ControlID="ddlPalEntryTime" LoadingPanelID="AjaxLoadingPanel1" />
-                    <telerik:AjaxUpdatedControl ControlID="ddlPalEntryDuration" LoadingPanelID="AjaxLoadingPanel1" />
-                    <telerik:AjaxUpdatedControl ControlID="ddlPalEntryIntensity" LoadingPanelID="AjaxLoadingPanel1" />
-                    <telerik:AjaxUpdatedControl ControlID="txtPalEntryWeight" LoadingPanelID="AjaxLoadingPanel1" />
-                    <telerik:AjaxUpdatedControl ControlID="txtPalEntryComment" LoadingPanelID="AjaxLoadingPanel1" />
-                    <telerik:AjaxUpdatedControl ControlID="lblMessage" />
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-        </AjaxSettings>
-    </telerik:RadAjaxManagerProxy>
---%>
