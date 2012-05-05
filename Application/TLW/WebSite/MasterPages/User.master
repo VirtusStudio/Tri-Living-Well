@@ -237,7 +237,7 @@
                                                                                 <telerik:RadMenuItem ID="RadMenuItem1" runat="server" NavigateUrl="~/Main/Main_Frame.aspx"
                                                                                     Text="Dashboard">
                                                                                 </telerik:RadMenuItem>
-                                                                                <telerik:RadMenuItem ID="RadMenuItem4" runat="server" NavigateUrl="~/Main/Main_Frame.aspx"
+                                                                                <telerik:RadMenuItem ID="RadMenuItem4" runat="server" NavigateUrl="~/Main/NutritionCenter.aspx"
                                                                                     Text="Nutrition Center">
                                                                                 </telerik:RadMenuItem>
 
