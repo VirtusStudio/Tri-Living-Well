@@ -234,10 +234,15 @@
             <div class="menu2_div">
                 <telerik:RadMenu ID="rmMenu" runat="server" CssClass="WebsiteHeaderMenu" EnableEmbeddedSkins="false">
                     <Items>
-                        <telerik:RadMenuItem ID="RadMenuItem1" runat="server" NavigateUrl="~/company/uploadusersforregistration.aspx"
-                            Text="Dashboard">
+                        <telerik:RadMenuItem ID="RadMenuItemSubmit" runat="server" NavigateUrl="~/company/uploadusersforregistration.aspx"
+                            Text="Submit Employees">
                         </telerik:RadMenuItem>
-                                                                           
+                        <telerik:RadMenuItem ID="RadMenuItemView" runat="server" NavigateUrl="~/company/viewrequestedusers.aspx"
+                            Text="View Employee Status">
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem ID="RadMenuItemAccount" runat="server" NavigateUrl="~/company/editcompanydetails.aspx"
+                            Text="My Account">
+                        </telerik:RadMenuItem>                                                
                     </Items>
                 </telerik:RadMenu>
                 <br />

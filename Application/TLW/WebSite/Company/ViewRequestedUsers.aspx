@@ -1,27 +1,12 @@
-﻿<%@ Page Title="View my Requested users Requests" Language="C#" MasterPageFile="~/MasterPages/User.master"
+﻿<%@ Page Title="View my Requested users Requests" Language="C#" MasterPageFile="~/MasterPages/Company.master"
     AutoEventWireup="true" CodeFile="ViewRequestedUsers.aspx.cs" Inherits="Company_ViewRequestedUsers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="../../Scripts/Common.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+   <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;"> 
     <table width="90%" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table class="title">
-                    <tr>
-                        <td>
-                            View Requested User(s)
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
         <tr>
             <td align="center">
                 <asp:Label ID="lblMsg" runat="server" CssClass="required"></asp:Label>
@@ -43,30 +28,17 @@
                                                             <table>
                                                                 <tr>
                                                                     <td>
-                                                                        <table class="Round3_tblHeader">
-                                                                            <tr>
-                                                                                <td>
-                                                                                    User Status
-                                                                                </td>
-                                                                                <td style="text-align: right;">
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
                                                                         <table border="0" width="100%" cellpadding="2" cellspacing="2">
                                                                             <tr>
-                                                                                <td align="left" valign="middle" style="width: 15%;">
-                                                                                    <span class="keyword">Request Status:</span>&nbsp;
+                                                                                <td align="left" valign="middle" style="width: 25%;">
+                                                                                    <span class="keyword">Filter Employee Status:</span>&nbsp;
                                                                                 </td>
                                                                                 <td align="left" valign="middle" style="white-space: nowrap; width: 20%;">
                                                                                     <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="true" 
                                                                                         onselectedindexchanged="ddlStatus_SelectedIndexChanged">
                                                                                         <asp:ListItem Value="I" Text="InProcess"></asp:ListItem>
-                                                                                        <asp:ListItem Value="S" Text="Request For Registration Sent By TLW"></asp:ListItem>
-                                                                                        <asp:ListItem Value="D" Text="Disapproved By TLW"></asp:ListItem>
+                                                                                        <asp:ListItem Value="S" Text="Request For Registration Sent"></asp:ListItem>
+                                                                                        <asp:ListItem Value="D" Text="Disapproved"></asp:ListItem>
                                                                                         <asp:ListItem Value="L" Text="Registered"></asp:ListItem>
                                                                                     </asp:DropDownList>
                                                                                 </td>
@@ -112,7 +84,7 @@
                                                                         <table class="Round3_tblHeader">
                                                                             <tr>
                                                                                 <td>
-                                                                                    User Details
+                                                                                    Filter Results
                                                                                 </td>
                                                                                 <td style="text-align: right;">
                                                                                 </td>
@@ -202,4 +174,5 @@
             </td>
         </tr>
     </table>
+  </div>
 </asp:Content>

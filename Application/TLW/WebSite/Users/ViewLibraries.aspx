@@ -22,37 +22,7 @@
         </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">
-        <center class="Round5">
-            <center>
-                <center>
-                    <center>
-                        <center>
-                            <center>
-                                <center>
-                                    <center>
-                                        <center>
-                                            <center>
-                                                <table class="Round5_tblHeader">
-                                                    <tr>
-                                                        <td>
-                                                            Libraries
-                                                        </td>
-                                                        <td style="text-align: right;">
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </center>
-                                        </center>
-                                    </center>
-                                </center>
-                            </center>
-                        </center>
-                    </center>
-                </center>
-            </center>
-        </center>
-       
+    <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">  
             <div>
                 <asp:Label ID="lbltextcontent" runat="server"></asp:Label>
             </div>

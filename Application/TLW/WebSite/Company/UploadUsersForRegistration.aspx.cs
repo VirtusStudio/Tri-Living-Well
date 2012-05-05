@@ -26,6 +26,8 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
             lblMsg.Text = "Your session has been expired. Please login again";
             return;
         }
+            else
+            lblMsg.Text = "";
 
 
 
@@ -164,7 +166,6 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
                 || DataBinder.Eval(e.Row.DataItem, "EmployeeFirstName").ToString().Equals(string.Empty)
                 || DataBinder.Eval(e.Row.DataItem, "EmployeeLastName").ToString().Equals(string.Empty)
                 || DataBinder.Eval(e.Row.DataItem, "EmployeeEmail").ToString().Equals(string.Empty)
-                || DataBinder.Eval(e.Row.DataItem, "EmpDateofBirth").ToString().Equals(string.Empty)
                 )
             {
                 e.Row.Style.Add("background-color:", "red");
@@ -175,10 +176,10 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
     protected void btnSaveRecord_Click(object sender, EventArgs e)
     {
         //date of birth should be mm/dd/yyyy
-
+        
         List<Entity.CompanyInfo> oListCompanyInfo = new List<Entity.CompanyInfo>();
         Entity.CompanyInfo oCompanyInfo;
-
+        /*
         foreach (GridViewRow gvr in gvRequestedUser.Rows)
         {
             Label lblEmpDateofBirth = (Label)gvr.FindControl("lblEmpDateofBirth");
@@ -190,7 +191,7 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
                     return;
                 }
             }
-        }
+        }*/
 
         string[] strEmailArray = new string[gvRequestedUser.Rows.Count];
         int i = 0;
@@ -209,7 +210,7 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
         if (!oCompanyManager.IsEmailIdExists(strEmailArray))
         {
             oCompanyManager = null;
-            lblMsg.Text = "<br /><br/>Please check the email id(s). It's already exists in TLW database.";
+            lblMsg.Text = "<br /><br/>Please check the email addresses.  Multiple entries are not allowed.";
             ReadXML();
             return;
         }
@@ -220,20 +221,20 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
         {
             foreach (GridViewRow gvr in gvRequestedUser.Rows)
             {
-                Label lblEmpDateofBirth = (Label)gvr.FindControl("lblEmpDateofBirth");
+                //Label lblEmpDateofBirth = (Label)gvr.FindControl("lblEmpDateofBirth");
 
-                if (lblEmpDateofBirth != null && lblEmpDateofBirth.Text != string.Empty)
-                {
+                //if (lblEmpDateofBirth != null && lblEmpDateofBirth.Text != string.Empty)
+                //{
                     Label lblEmpCode = (Label)gvr.FindControl("lblEmpCode");
                     Label lblEmpfName = (Label)gvr.FindControl("lblEmpfName");
                     Label lblEmpMName = (Label)gvr.FindControl("lblEmpMName");
                     Label lblEmpLName = (Label)gvr.FindControl("lblEmpLName");
                     Label lblEmpEmail = (Label)gvr.FindControl("lblEmpEmail");
 
-                    Label lblEmpRelationshipCode = (Label)gvr.FindControl("lblEmpRelationshipCode");
-                    Label lblEmpFamilyStatus = (Label)gvr.FindControl("lblEmpFamilyStatus");
-                    Label lblEmpGender = (Label)gvr.FindControl("lblEmpGender");
-                    Label lblEmpPhoneORCellNumber = (Label)gvr.FindControl("lblEmpPhoneORCellNumber");
+                    //Label lblEmpRelationshipCode = (Label)gvr.FindControl("lblEmpRelationshipCode");
+                    //Label lblEmpFamilyStatus = (Label)gvr.FindControl("lblEmpFamilyStatus");
+                    //Label lblEmpGender = (Label)gvr.FindControl("lblEmpGender");
+                    //Label lblEmpPhoneORCellNumber = (Label)gvr.FindControl("lblEmpPhoneORCellNumber");
 
                     oCompanyInfo = new Entity.CompanyInfo();
                     oCompanyInfo.IntCompanyId = AppLib.GetLoggedInUserId();
@@ -244,21 +245,21 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
                     oCompanyInfo.StrEmpLastName = lblEmpLName.Text.Trim();
                     oCompanyInfo.StrEmpMiddleName = lblEmpMName.Text.Trim();
                     oCompanyInfo.StrEmpEmail = lblEmpEmail.Text.Trim();
-                    oCompanyInfo.StrEmpRelationShipCode = lblEmpRelationshipCode.Text;
-                    oCompanyInfo.StrEmpFamilyStatus = lblEmpFamilyStatus.Text;
-                    oCompanyInfo.StrEmpGender = lblEmpGender.Text;
-                    oCompanyInfo.StrEmpPhoneORCell = lblEmpPhoneORCellNumber.Text;
+                    //oCompanyInfo.StrEmpRelationShipCode = lblEmpRelationshipCode.Text;
+                    //oCompanyInfo.StrEmpFamilyStatus = lblEmpFamilyStatus.Text;
+                    //oCompanyInfo.StrEmpGender = lblEmpGender.Text;
+                    //oCompanyInfo.StrEmpPhoneORCell = lblEmpPhoneORCellNumber.Text;
 
 
-                    string strTemp = lblEmpDateofBirth.Text.Trim().Substring(0, 10);
-                    oCompanyInfo.DtEmpDateofBirth = Convert.ToDateTime(strTemp);
+                    //string strTemp = lblEmpDateofBirth.Text.Trim().Substring(0, 10);
+                    //oCompanyInfo.DtEmpDateofBirth = Convert.ToDateTime(strTemp);
                     oCompanyInfo.ChrStatus = 'I';
                     oCompanyInfo.DtCreatedDate = DateTime.Now;
 
                     oListCompanyInfo.Add(oCompanyInfo);
                     oCompanyInfo = null;
-                    strTemp = null;
-                }
+                    //strTemp = null;
+                //}
             }
         }
         catch { }
@@ -271,10 +272,13 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
                 oCompanyManager.SaveRequestCompanyForUserRegistration(oListCompanyInfo);
                 oCompanyManager = null;
                 SendUserRegistrationEmailtoAdmin();
-                lblMsg.Text = "<br /><br />Your request has been successfully sent to TLW admin.<br /><br /><br />";
+                lblMsg.Text = "<br /><br />Your request has been successfully sent to TLW.<br /><br /><br />";
             }
         }
-        catch { }
+        catch {
+
+            lblMsg.Text = "<br /><br />There was an error with your request.  Please contact TLW directly.<br /><br /><br />";
+        }
         oCompanyInfo = null;
 
         oListCompanyInfo = null;
