@@ -73,7 +73,7 @@ public partial class BackOffice_ManageCompany_ManageCompanyRequestForUserRegistr
 
                 if (lblCompanyRequestedUsersListId != null)
                 {
-                    string strRegistrationLink = AppConfig.GetBaseSiteUrl() + "UserRegistration.aspx?iid=" + lblCompanyId.Text;
+                    string strRegistrationLink = AppConfig.GetBaseSiteUrl() + "UserRegistration.aspx?iid=" + lblCompanyRequestedUsersListId.Text;
                     strEmailContentForCompany = strEmailContentForCompany + "<tr><td>" + lblName.Text + "(" + lblEmail.Text + ")</td></tr>";
 
                     strContent = strContent.Replace("[FullName]", lblName.Text);
@@ -83,7 +83,7 @@ public partial class BackOffice_ManageCompany_ManageCompanyRequestForUserRegistr
                     
                     //AppLib.SendMailToUser(lblEmail.Text, "Registration Request By TLW", strContent, AppConfig.GetAdminEmail());
                     
-                       string fname = "~/Upload/" + lblName.Text + ".txt";
+                       string fname = "~/Upload/" + lblName.Text + ".html";
                        StreamWriter _testData = new StreamWriter(Server.MapPath(fname)); 
                         _testData.WriteLine(strContent); // Write the file. 
                         _testData.Flush(); 
