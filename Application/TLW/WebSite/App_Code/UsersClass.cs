@@ -438,4 +438,29 @@ public class UsersClass
     }
 
     // ______________________________________________________________________________
+
+
+    public string GetUserRole(string sUserId)
+    {
+        string sRole = "";
+        DataSet MyDataSet = new DataSet();
+        try
+        {
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.Connection = MyConnection;
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.CommandText = "sp_type";
+            MyCommand.Parameters.AddWithValue("@UserEmail", sUserId);
+            MyDataAdapter = new SqlDataAdapter(MyCommand);
+            MyDataAdapter.Fill(MyDataSet);
+
+            DataRow dr = MyDataSet.Tables[0].Rows[0];
+            sRole = dr["RoleName"].ToString();
+        }
+        catch (Exception ex)
+        {
+            HttpContext.Current.Response.Write(ex.Message);
+        }
+        return sRole;
+    }
 }
