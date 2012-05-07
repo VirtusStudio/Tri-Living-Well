@@ -275,7 +275,7 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
                 lblMsg.Text = "<br /><br />Your request has been successfully sent to TLW.<br /><br /><br />";
             }
         }
-        catch {
+        catch(Exception ex) {
 
             lblMsg.Text = "<br /><br />There was an error with your request.  Please contact TLW directly.<br /><br /><br />";
         }
