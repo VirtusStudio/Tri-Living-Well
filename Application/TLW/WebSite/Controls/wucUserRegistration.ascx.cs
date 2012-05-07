@@ -414,7 +414,7 @@ public partial class Controls_wucUserRegistration : System.Web.UI.UserControl
             objBackofficeClass.Mem_INSERT_UserInfo(parameters);
 
             string sUsername = userNameTextBox.Text.Trim();
-            sendOutConfirmationEmail(sUsername);
+            //sendOutConfirmationEmail(sUsername);
 
             Session["strUserName"] = userNameTextBox.Text;
 

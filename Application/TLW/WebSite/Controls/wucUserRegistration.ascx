@@ -288,7 +288,7 @@
                                                                     Name of Organization:
                                                                 </td>
                                                                 <td>
-                                                                    <asp:TextBox CssClass="txtBox" ID="txtOrganization" runat="server" Width="400px"></asp:TextBox>
+                                                                    <asp:TextBox CssClass="txtBox" ID="txtOrganization" ReadOnly="true" runat="server" Width="400px"></asp:TextBox>
                                                                 </td>
                                                             </tr>
                                                         </table>
