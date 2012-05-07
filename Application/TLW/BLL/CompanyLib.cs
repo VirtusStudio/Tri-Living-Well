@@ -324,7 +324,8 @@ namespace BLL
                         oCompanyRequestedUsersListDAL.strEmpMiddleName = oCompanyInfo.StrEmpMiddleName;
                         oCompanyRequestedUsersListDAL.strEmpLastName = oCompanyInfo.StrEmpLastName;
                         oCompanyRequestedUsersListDAL.strEmployeeAddress = oCompanyInfo.StrEmployeeAddress;
-                        oCompanyRequestedUsersListDAL.dtEmpDateofBirth = oCompanyInfo.DtEmpDateofBirth;
+                        //oCompanyRequestedUsersListDAL.dtEmpDateofBirth = oCompanyInfo.DtEmpDateofBirth;
+                        oCompanyRequestedUsersListDAL.dtEmpDateofBirth = System.DateTime.Now;
                         oCompanyRequestedUsersListDAL.strEmpEmail = oCompanyInfo.StrEmpEmail;
                         oCompanyRequestedUsersListDAL.strEmpRelationShipCode = oCompanyInfo.StrEmpRelationShipCode;
                         oCompanyRequestedUsersListDAL.strEmpFamilyStatus = oCompanyInfo.StrEmpFamilyStatus;
