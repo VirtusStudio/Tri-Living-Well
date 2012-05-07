@@ -16,7 +16,6 @@ public partial class _Default : System.Web.UI.Page
         try
         {
             string sHost = Request.ServerVariables["HTTP_HOST"].ToString();
-            // Response.Write(Request.ServerVariables["HTTP_HOST"].ToString());
             if (sHost.ToLower().Contains("tri-livingwell.com"))
             {
                 Response.Redirect("/comingsoon.html");
@@ -25,20 +24,25 @@ public partial class _Default : System.Web.UI.Page
             {
                 if (Membership.GetUser() == null)//anonymous
                 {
-                    //Response.Redirect("/Welcome/main_frame.aspx");/*Commented by Netsmartz*/
                     Response.Redirect(AppConfig.GetBaseSiteUrl() + "Welcome/main_frame.aspx", true);
                 }
                 else//logged in
                 {
-                    //Response.Redirect("/main/main_frame.aspx");/*CommentedBy Netsmartz*/
-                    string sUsername = Membership.GetUser(AppLib.GetLoggedInUserName()).UserName;
-                    Response.Redirect(AppConfig.GetBaseSiteUrl() + "main/main_frame.aspx", false);
-                    // HttpContext.Current.Response.End();
-                    /*if (Roles.IsUserInRole(sUsername, "Company"))
+                    string sUsername = Membership.GetUser(AppLib.GetLoggedInUserName()).UserName; 
+                    SqlConnClass objSqlConnClass = new SqlConnClass();
+                    UsersClass objUsersClass = new UsersClass(objSqlConnClass.sqlConnection);
+                    string sRole = objUsersClass.GetUserRole(sUsername);
+                    if (sRole == "Company")
                     {
                         Response.Redirect(AppConfig.GetBaseSiteUrl() + "Company/UploadUsersForRegistration.aspx");
                     }
-                    */
+                    else if (sRole == "Administrator")
+                    {
+                        Response.Redirect(AppConfig.GetBaseSiteUrl() + "Company/UploadUsersForRegistration.aspx");
+                    }
+
+                    else
+                        Response.Redirect(AppConfig.GetBaseSiteUrl() + "main/main_frame.aspx", false);
                 }
             }
         }
