@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 public partial class BackOffice_ManageCompany_ManageCompanyRequestForUserRegistration : System.Web.UI.Page
 {
@@ -72,14 +73,25 @@ public partial class BackOffice_ManageCompany_ManageCompanyRequestForUserRegistr
 
                 if (lblCompanyRequestedUsersListId != null)
                 {
-                    string strRegistrationLink = AppConfig.GetBaseSiteUrl() + "UserRegistration.aspx?id=" + lblCompanyRequestedUsersListId.Text + "&cid=" + lblCompanyId.Text;
+                    string strRegistrationLink = AppConfig.GetBaseSiteUrl() + "UserRegistration.aspx?iid=" + lblCompanyId.Text;
                     strEmailContentForCompany = strEmailContentForCompany + "<tr><td>" + lblName.Text + "(" + lblEmail.Text + ")</td></tr>";
 
                     strContent = strContent.Replace("[FullName]", lblName.Text);
                     strContent = strContent.Replace("[SiteUrl]", AppConfig.GetBaseSiteUrl());
                     strContent = strContent.Replace("[RegistrationLink]", strRegistrationLink);
                     strContent = strContent.Replace("[SiteName]", AppConfig.GetSiteName());
-                    AppLib.SendMailToUser(lblEmail.Text, "Registration Request By TLW", strContent, AppConfig.GetAdminEmail());
+                    
+                    //AppLib.SendMailToUser(lblEmail.Text, "Registration Request By TLW", strContent, AppConfig.GetAdminEmail());
+                    
+                       string fname = "~/Upload/" + lblName.Text + ".txt";
+                       StreamWriter _testData = new StreamWriter(Server.MapPath(fname)); 
+                        _testData.WriteLine(strContent); // Write the file. 
+                        _testData.Flush(); 
+                        _testData.Close(); // Close the instance of StreamWriter. 
+                        _testData.Dispose(); // Dispose from memory.
+
+
+
 
                     oCompanyInfo = new Entity.CompanyInfo();
                     oCompanyInfo.IntCompanyRequestedUsersListId = Convert.ToInt32(lblCompanyRequestedUsersListId.Text);
