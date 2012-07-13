@@ -142,12 +142,6 @@
                                                                                             <asp:Label ID="lblCompanyId" runat="server" Visible="false" Text='<%#Eval("IntCompanyId") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" SortExpression="StrEmpCode"
-                                                                                        HeaderText="Emp Code"  ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
-                                                                                        <ItemTemplate>
-                                                                                            <%#Eval("StrEmpCode")%>
-                                                                                        </ItemTemplate>
-                                                                                    </asp:TemplateField>
                                                                                     <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" SortExpression="StrEmpEmail"
                                                                                         HeaderText="Emp Email"  ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
                                                                                         <ItemTemplate>

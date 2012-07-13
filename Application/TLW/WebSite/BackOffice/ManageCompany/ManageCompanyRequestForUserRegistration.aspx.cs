@@ -69,7 +69,6 @@ public partial class BackOffice_ManageCompany_ManageCompanyRequestForUserRegistr
                 Label lblCompanyRequestedUsersListId = (Label)gvRows.FindControl("lblCompanyRequestedUsersListId");
                 Label lblEmail = (Label)gvRows.FindControl("lblEmail");
                 Label lblName = (Label)gvRows.FindControl("lblName");
-                Label lblCompanyId = (Label)gvRows.FindControl("lblCompanyId");
 
                 if (lblCompanyRequestedUsersListId != null)
                 {

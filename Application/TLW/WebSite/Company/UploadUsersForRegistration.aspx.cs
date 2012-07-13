@@ -235,7 +235,7 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
                 oCompanyManager.SaveRequestCompanyForUserRegistration(oListCompanyInfo);
                 oCompanyManager = null;
                 SendUserRegistrationEmailtoAdmin();
-                lblMsg.Text = "<br /><br />Your request has been successfully sent to TLW.<br /><br /><br />";
+                lblMsg.Text = "<br /><br />Thank you.  Check back for status of your employees.<br /><br /><br />";
             }
         }
         catch(Exception ex) {
