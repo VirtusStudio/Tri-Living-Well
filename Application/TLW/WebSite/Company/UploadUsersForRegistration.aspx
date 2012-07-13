@@ -9,17 +9,17 @@
     <div style="padding-top: 20px; height: 600px">
     <table width="90%" border="0" cellpadding="0" cellspacing="0">                                                                 
         <tr>
-            <td align="right" style="width: 15%;">
+            <td align="right" valign="top" style="width: 15%;">
                 <span class="keyword">Employee List:</span>&nbsp;
             </td>
-            <td align="left" style="width: 25%;">
+            <td align="left" valign="top" style="width: 25%;">
                 <asp:FileUpload ID="fuUser" Height="22" CssClass="txtBox" runat="server" />
             </td>
-            <td align="left">
+            <td align="left" valign="top">
                 <asp:LinkButton ID="btnUpload" CssClass="aButtonSmall" runat="server" Text="Upload"
                     OnClick="btnUpload_Click" />
             </td>
-            <td align="right">
+            <td align="right" valign="top">
                         <asp:LinkButton ID="lntBtnDownload" CssClass="templateButton" runat="server" Text="&nbsp;Download Template&nbsp;"
                     OnClick="lntBtnDownload_Click" />
             </td>
@@ -38,20 +38,10 @@
                         <HeaderStyle CssClass="gridHeader" />
                         <AlternatingRowStyle CssClass="gridAltItem" />
                         <Columns>
-                            <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Emp. Code"
-                                ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblEmpCode" runat="server" Text='<%# Eval("EmployeeCode") %>'></asp:Label></ItemTemplate>
-                            </asp:TemplateField>
                             <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="First Name"
                                 ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     <asp:Label ID="lblEmpfName" runat="server" Text='<%# Eval("EmployeeFirstName") %>'></asp:Label></ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Middle Name"
-                                ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblEmpMName" runat="server" Text='<%# Eval("EmployeeMiddleName") %>'></asp:Label></ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderStyle-Height="30" ItemStyle-Height="30" HeaderText="Last Name"
                                 ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">

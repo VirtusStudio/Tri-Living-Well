@@ -162,8 +162,7 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             string strTemp = DataBinder.Eval(e.Row.DataItem, "EmployeeFirstName").ToString();
-            if (DataBinder.Eval(e.Row.DataItem, "EmployeeCode").ToString().Equals(string.Empty)
-                || DataBinder.Eval(e.Row.DataItem, "EmployeeFirstName").ToString().Equals(string.Empty)
+            if (DataBinder.Eval(e.Row.DataItem, "EmployeeFirstName").ToString().Equals(string.Empty)
                 || DataBinder.Eval(e.Row.DataItem, "EmployeeLastName").ToString().Equals(string.Empty)
                 || DataBinder.Eval(e.Row.DataItem, "EmployeeEmail").ToString().Equals(string.Empty)
                 )
@@ -175,23 +174,8 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
 
     protected void btnSaveRecord_Click(object sender, EventArgs e)
     {
-        //date of birth should be mm/dd/yyyy
-        
         List<Entity.CompanyInfo> oListCompanyInfo = new List<Entity.CompanyInfo>();
         Entity.CompanyInfo oCompanyInfo;
-        /*
-        foreach (GridViewRow gvr in gvRequestedUser.Rows)
-        {
-            Label lblEmpDateofBirth = (Label)gvr.FindControl("lblEmpDateofBirth");
-            if (!lblEmpDateofBirth.Text.Equals(string.Empty))
-            {
-                if (!AppLib.isValidDate(lblEmpDateofBirth.Text))
-                {
-                    lblMsg.Text = lblMsg.Text + " Invalid Date->" + lblEmpDateofBirth.Text + ".<br /> Please upload the document again. <br />";
-                    return;
-                }
-            }
-        }*/
 
         string[] strEmailArray = new string[gvRequestedUser.Rows.Count];
         int i = 0;
@@ -221,45 +205,24 @@ public partial class Company_UploadUsersForRegistration : System.Web.UI.Page
         {
             foreach (GridViewRow gvr in gvRequestedUser.Rows)
             {
-                //Label lblEmpDateofBirth = (Label)gvr.FindControl("lblEmpDateofBirth");
+                Label lblEmpfName = (Label)gvr.FindControl("lblEmpfName");
+                Label lblEmpLName = (Label)gvr.FindControl("lblEmpLName");
+                Label lblEmpEmail = (Label)gvr.FindControl("lblEmpEmail");
 
-                //if (lblEmpDateofBirth != null && lblEmpDateofBirth.Text != string.Empty)
-                //{
-                    Label lblEmpCode = (Label)gvr.FindControl("lblEmpCode");
-                    Label lblEmpfName = (Label)gvr.FindControl("lblEmpfName");
-                    Label lblEmpMName = (Label)gvr.FindControl("lblEmpMName");
-                    Label lblEmpLName = (Label)gvr.FindControl("lblEmpLName");
-                    Label lblEmpEmail = (Label)gvr.FindControl("lblEmpEmail");
+                oCompanyInfo = new Entity.CompanyInfo();
+                oCompanyInfo.IntCompanyId = AppLib.GetLoggedInUserId();
+                oCompanyInfo.StrEmployeeAddress = "";
 
-                    //Label lblEmpRelationshipCode = (Label)gvr.FindControl("lblEmpRelationshipCode");
-                    //Label lblEmpFamilyStatus = (Label)gvr.FindControl("lblEmpFamilyStatus");
-                    //Label lblEmpGender = (Label)gvr.FindControl("lblEmpGender");
-                    //Label lblEmpPhoneORCellNumber = (Label)gvr.FindControl("lblEmpPhoneORCellNumber");
+                oCompanyInfo.StrEmpCode = "";
+                oCompanyInfo.StrEmpFirstName = lblEmpfName.Text.Trim();
+                oCompanyInfo.StrEmpLastName = lblEmpLName.Text.Trim();
+                oCompanyInfo.StrEmpMiddleName = "";
+                oCompanyInfo.StrEmpEmail = lblEmpEmail.Text.Trim();
+                oCompanyInfo.ChrStatus = 'I';
+                oCompanyInfo.DtCreatedDate = DateTime.Now;
 
-                    oCompanyInfo = new Entity.CompanyInfo();
-                    oCompanyInfo.IntCompanyId = AppLib.GetLoggedInUserId();
-                    oCompanyInfo.StrEmployeeAddress = "";
-
-                    oCompanyInfo.StrEmpCode = lblEmpCode.Text.Trim();
-                    oCompanyInfo.StrEmpFirstName = lblEmpfName.Text.Trim();
-                    oCompanyInfo.StrEmpLastName = lblEmpLName.Text.Trim();
-                    oCompanyInfo.StrEmpMiddleName = lblEmpMName.Text.Trim();
-                    oCompanyInfo.StrEmpEmail = lblEmpEmail.Text.Trim();
-                    //oCompanyInfo.StrEmpRelationShipCode = lblEmpRelationshipCode.Text;
-                    //oCompanyInfo.StrEmpFamilyStatus = lblEmpFamilyStatus.Text;
-                    //oCompanyInfo.StrEmpGender = lblEmpGender.Text;
-                    //oCompanyInfo.StrEmpPhoneORCell = lblEmpPhoneORCellNumber.Text;
-
-
-                    //string strTemp = lblEmpDateofBirth.Text.Trim().Substring(0, 10);
-                    //oCompanyInfo.DtEmpDateofBirth = Convert.ToDateTime(strTemp);
-                    oCompanyInfo.ChrStatus = 'I';
-                    oCompanyInfo.DtCreatedDate = DateTime.Now;
-
-                    oListCompanyInfo.Add(oCompanyInfo);
-                    oCompanyInfo = null;
-                    //strTemp = null;
-                //}
+                oListCompanyInfo.Add(oCompanyInfo);
+                oCompanyInfo = null;
             }
         }
         catch { }
