@@ -15,6 +15,41 @@ public partial class MasterPages_BackOffice : System.Web.UI.MasterPage
     SqlConnClass objSqlConnClass = new SqlConnClass();
     BackofficeClass objBackOfficeClass;
     DataSet DS = new DataSet();
+
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        // immediately bail out of here is you are a user or not logged in
+        if(Session["strUserType"] == null) Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+/*
+Health Coaches can access these pages in the BackOffice Folder:
+1. AddEditEvents.aspx
+2. ManageEvents.aspx
+3. ManageLibrary.aspx
+4. ManageNewsAnnouncements.aspx
+5. ManageNewletters.aspx
+6. UserUtilities/AnswertoQuestions.aspx
+7. UserUtilities/ManageQuestionsforHealthCoach.aspx
+*/
+        string url = this.Request.Url.AbsolutePath;
+        if (url.Contains("AddEditEvents.aspx") && (Session["strUserType"] != "A" || Session["strUserType"] != "C")) 
+            Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+        else if (url.Contains("ManageEvents.aspx") && (Session["strUserType"] != "A" || Session["strUserType"] != "C"))
+            Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+        else if (url.Contains("ManageLibrary.aspx") && (Session["strUserType"] != "A" || Session["strUserType"] != "C"))
+            Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+        else if (url.Contains("ManageNewsAnnouncements.aspx") && (Session["strUserType"] != "A" || Session["strUserType"] != "C"))
+            Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+        else if (url.Contains("ManageNewletters.aspx") && (Session["strUserType"] != "A" || Session["strUserType"] != "C"))
+            Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+        else if (url.Contains("UserUtilities/AnswertoQuestions.aspx") && (Session["strUserType"] != "A" || Session["strUserType"] != "C"))
+            Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+        else if (url.Contains("UserUtilities/ManageQuestionsforHealthCoach.aspx") && (Session["strUserType"] != "A" || Session["strUserType"] != "C"))
+            Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+        else
+            Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         objBackOfficeClass = new BackofficeClass(objSqlConnClass.OpenConnection());

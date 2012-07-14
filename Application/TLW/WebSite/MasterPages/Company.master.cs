@@ -17,6 +17,12 @@ public partial class MasterPages_User : System.Web.UI.MasterPage
     ForumClass objForumClass;
     DataSet DS = new DataSet();
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        // immediately bail out of here is you are a user or not logged in
+        if (Session["strUserType"] == null || Session["strUserType"] == "U") Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         fillNames();
