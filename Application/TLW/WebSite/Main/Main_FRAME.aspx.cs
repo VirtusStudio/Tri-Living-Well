@@ -24,16 +24,16 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
         if (!AppLib.IsLoggedinSessionExists() || currentUser == null)
             Response.Redirect(AppConfig.GetBaseSiteUrl() + "Welcome/main_frame.aspx", true);
 
-        
+        objSqlConnClass.OpenConnection();
 
         AccountClass objAccountClass;
         objAccountClass = new AccountClass(objSqlConnClass.sqlConnection);
         BackofficeClass objBackOfficeClass;
-        objBackOfficeClass = new BackofficeClass(objSqlConnClass.OpenConnection());
+        objBackOfficeClass = new BackofficeClass(objSqlConnClass.sqlConnection);
 
         #region Insert visited log details
 
-        AppLib.InsertVisitedSectionDetails("Dashboard Page");
+        //AppLib.InsertVisitedSectionDetails("Dashboard Page");
 
         #endregion
 
@@ -56,44 +56,13 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
         DS = null;
 
 
-        objTemplateClass = new TemplateClass(objSqlConnClass.OpenConnection());
+        objTemplateClass = new TemplateClass(objSqlConnClass.sqlConnection);
 
-        objPALClass = new PALClass(objSqlConnClass.OpenConnection());
-        string sLastWorkout = "";
-        labelLastWorkout.Text = sLastWorkout;
+        objPALClass = new PALClass(objSqlConnClass.sqlConnection);
+
         
-        int iCurrentStage = 3;
-        string divStageRow1 = "<div style='border:1px solid white;background-color:#203956;'>&nbsp;</div>";
-        string divCurrentStageRow1 = "<div style='border:1px solid white;background-color:#7AB4F7;'>";
-        string divStageRow2 = "<div style='border:1px solid white;background-color:#FFFFFF;'>";
-        string divCurrentStageRow2 = "<div style='border:1px solid white;background-color:#52749B;color:white;text-align:center;font-weight:bold;'>" + iCurrentStage.ToString() + "</div>";
-   
-        litStage1Row1.Text = divStageRow1;
-        litStage2Row1.Text = divStageRow1;
-        litStage3Row1.Text = divCurrentStageRow1;
-        litStage4Row1.Text = divStageRow1;
-        litStage5Row1.Text = divStageRow1;
-        litStage6Row1.Text = divStageRow1;
-        litStage7Row1.Text = divStageRow1;
-        litStage8Row1.Text = divStageRow1;
-        litStage9Row1.Text = divStageRow1;
-        litStage10Row1.Text = divStageRow1;
-        litStage11Row1.Text = divStageRow1;
-        litStage12Row1.Text = divStageRow1;
-        litStage13Row1.Text = divStageRow1;
-        litStage1Row2.Text = divStageRow2;
-        litStage2Row2.Text = divStageRow2;
-        litStage3Row2.Text = divCurrentStageRow2;
-        litStage4Row2.Text = divStageRow2;
-        litStage5Row2.Text = divStageRow2;
-        litStage6Row2.Text = divStageRow2;
-        litStage7Row2.Text = divStageRow2;
-        litStage8Row2.Text = divStageRow2;
-        litStage9Row2.Text = divStageRow2;
-        litStage10Row2.Text = divStageRow2;
-        litStage11Row2.Text = divStageRow2;
-        litStage12Row2.Text = divStageRow2;
-        litStage13Row2.Text = divStageRow2;
+
+
     }
 
 
@@ -103,6 +72,7 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
         if (!IsPostBack)
         {
             fillOutForm();
+            PopulatePersonalFitness();
         }
         objSqlConnClass.CloseConnection();
     }
@@ -315,6 +285,19 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
 
             return _strRetVal;
     }
+
+    private void PopulatePersonalFitness()
+    {
+        DashboardFitnessClass objDashboardFitnessClass = new DashboardFitnessClass(objSqlConnClass.sqlConnection, Membership.GetUser().ProviderUserKey.ToString());
+        LiteralMetTriangleImage.Text = objDashboardFitnessClass.m_sTriangleImage;
+        LiteralProgressNumberLeft.Text = objDashboardFitnessClass.m_sProgressNumberLeft;
+        LiteralProgressMarkerLeft.Text = objDashboardFitnessClass.m_sProgressMarkerLeft;
+        LiteralCurrentStepImage.Text = objDashboardFitnessClass.m_sStepImage;
+        LiteralProgressNumber.Text = objDashboardFitnessClass.m_iWeeklyTotalMets.ToString();
+        LiteralLastWorkout.Text = objDashboardFitnessClass.m_sLastWorkout;
+        LiteralWorkoutHistory.Text = objDashboardFitnessClass.m_sWorkoutHistory;
+    }
+
     #endregion
 
 }

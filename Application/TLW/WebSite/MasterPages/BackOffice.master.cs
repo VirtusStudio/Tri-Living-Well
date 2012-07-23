@@ -19,7 +19,7 @@ public partial class MasterPages_BackOffice : System.Web.UI.MasterPage
     protected void Page_Init(object sender, EventArgs e)
     {
         // immediately bail out of here is you are a user or not logged in
-        if(Session["strUserType"] == null) Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
+       // if(Session["strUserType"] == null) Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
 /*
 Health Coaches can access these pages in the BackOffice Folder:
 1. AddEditEvents.aspx
@@ -30,7 +30,7 @@ Health Coaches can access these pages in the BackOffice Folder:
 6. UserUtilities/AnswertoQuestions.aspx
 7. UserUtilities/ManageQuestionsforHealthCoach.aspx
 */
-        string url = this.Request.Url.AbsolutePath;
+/*        string url = this.Request.Url.AbsolutePath;
         if (url.Contains("AddEditEvents.aspx") && (Session["strUserType"] != "A" || Session["strUserType"] != "C")) 
             Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
         else if (url.Contains("ManageEvents.aspx") && (Session["strUserType"] != "A" || Session["strUserType"] != "C"))
@@ -47,7 +47,7 @@ Health Coaches can access these pages in the BackOffice Folder:
             Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
         else
             Response.Redirect("~/Welcome/Main_FRAME.aspx", true);
-
+*/
     }
 
     protected void Page_Load(object sender, EventArgs e)

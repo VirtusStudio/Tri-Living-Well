@@ -42,7 +42,7 @@ public partial class MyProgram : System.Web.UI.Page
 
     private void fillOutForm()
     {
-        /*if (Membership.GetUser() != null)
+        if (Membership.GetUser() != null)
         {
             string sUserID = Membership.GetUser().ProviderUserKey.ToString();
 
@@ -66,7 +66,7 @@ public partial class MyProgram : System.Web.UI.Page
 
 
                 string sProgramSeries = (Convert.ToInt32(sProgramID) / 100 * 100).ToString();
-                lblViewExerciseDetail.Text = "<a href=\"javascript:popUpWin(' " +AppConfig.GetBaseSiteUrl()+ "main/MyProgram/MyProgram_Exercises.aspx?programSeries=" + sProgramSeries + "#0',900,550);\">View Exercise Details</a>";
+                //lblViewExerciseDetail.Text = "<a href=\"javascript:popUpWin(' " +AppConfig.GetBaseSiteUrl()+ "main/MyProgram/MyProgram_Exercises.aspx?programSeries=" + sProgramSeries + "#0',900,550);\">View Exercise Details</a>";
 
                 for (int i = 1; i <= iNumSteps; i++)
                 {
@@ -114,7 +114,7 @@ public partial class MyProgram : System.Web.UI.Page
 
 
                 string sProgramSeries = (Convert.ToInt32(sProgramID) / 100 * 100).ToString();
-                lblViewExerciseDetail.Text = "<a href=\"javascript:popUpWin('" + AppConfig.GetBaseSiteUrl() + "MyProgram/MyProgram_Exercises.aspx?programSeries=" + sProgramSeries + "#0',900,550);\">View Exercise Details</a>";
+                //lblViewExerciseDetail.Text = "<a href=\"javascript:popUpWin('" + AppConfig.GetBaseSiteUrl() + "MyProgram/MyProgram_Exercises.aspx?programSeries=" + sProgramSeries + "#0',900,550);\">View Exercise Details</a>";
 
                 for (int i = 1; i <= iNumSteps; i++)
                 {
@@ -141,7 +141,7 @@ public partial class MyProgram : System.Web.UI.Page
                     RadMenu1.Items.Add(RMI);
                 }
             }
-        }*/
+        }
     }
 
 

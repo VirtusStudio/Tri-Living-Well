@@ -39,70 +39,11 @@
     <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_CONTENT" runat="server"
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
     <div role="main" class="contentarea">
-        <%--<div class="topmainheadings">
-            <h1>
-                <img src="images/mydashbordhead.png" alt="" border="0"></h1>
-        </div>--%>
+
         <div class="clear">
         </div>
 
     <div>
-        <div style="float:left;width:310px;height:350px;background-image:url('../Images/dashboard/dashboard_nutrition.gif');background-repeat:no-repeat; display:none;"></div>
-        <div style="float:left;width:300px;height:350px;background-image:url('../Images/dashboard/dash_fitness_empty.jpg');background-repeat:no-repeat;padding-top:42px;padding-left:3px;padding-right:3px;padding-bottom:40px; display:none;">
-            <div style="text-align:center;height:265px;width:280px;background-image:url('../Images/dashboard/dash_fitness_bkgd.jpg');background-repeat:repeat;">
-            <span style="font-weight:bold;font-size:larger;">METABOLIC MINUTE PROGRESS</span>
-            <span><img src="../Images/dashboard/dash_fitness_triangle.jpg" /></span>
-            <hr style="margin-top:20px;margin-bottom:10px;" />
-            <span style="font-weight:bold;">Last Workout</span><br />
-            <span style="font-weight:normal;"><ASP:Label ID="labelLastWorkout" runat="server"></ASP:Label></span><br />
-            <span style="font-weight:bold;">Workout History: (7 days)</span><br />
-            <span style="font-weight:bold;">
-                <asp:HyperLink ID="LinkLast1" runat="server"></asp:HyperLink>&nbsp;
-                <asp:HyperLink ID="LinkLast2" runat="server"></asp:HyperLink>&nbsp;
-                <asp:HyperLink ID="LinkLast3" runat="server"></asp:HyperLink>&nbsp;
-                <asp:HyperLink ID="LinkLast4" runat="server"></asp:HyperLink>&nbsp;
-                <asp:HyperLink ID="LinkLast5" runat="server"></asp:HyperLink>&nbsp;
-                <asp:HyperLink ID="LinkLast6" runat="server"></asp:HyperLink>&nbsp;
-                <asp:HyperLink ID="LinkLast7" runat="server"></asp:HyperLink>
-            </span><br />
-            <hr style="margin-top:10px;margin-bottom:10px;" />
-            <span style="text-align:center;font-weight:bold;">CURRENT STAGE</span>
-            <table style="margin-left:10px;width:260px;">
-                <tr style="height:15px;">
-                    <td><asp:Literal ID="litStage1Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage2Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage3Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage4Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage5Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage6Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage7Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage8Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage9Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage10Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage11Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage12Row1" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage13Row1" runat="server"></asp:Literal></td>
-                </tr>
-                <tr style="height:15px;">
-                    <td><asp:Literal ID="litStage1Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage2Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage3Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage4Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage5Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage6Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage7Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage8Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage9Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage10Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage11Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage12Row2" runat="server"></asp:Literal></td>
-                    <td><asp:Literal ID="litStage13Row2" runat="server"></asp:Literal></td>
-                </tr>
-            </table>    
-            </div>
-        </div>
-
-
         <!-- Graph start here -->
         <div class="graphwrapper">
             <div class="mid_box">
@@ -116,9 +57,27 @@
                 <div class="mid_boxhead">
                     Personal Fitness</div>
                 <div class="mid_boxbody">
-                    <a href="../Main/PersonalFitness.aspx"><img src="images/graph2.png" alt="" border="0"></a>
+                    <div style="position:relative;330px;width:290px;" onclick="window.location = '../Main/PersonalFitness.aspx';" >
+                        <div id="pfTitle" style="position:absolute;top:0px;left:30px;font-size:larger;font-weight:bolder;">METABOLIC MINUTE PROGRESS</div>
+                        <div style="position:absolute;top:20px;left:0px;height:95px;width:285px;background-image:url('../Images/dashboard/<asp:Literal ID="LiteralMetTriangleImage" runat="server" />');background-position:center;background-repeat:no-repeat;">
+                            <div id="pfLeftRange" style="position:absolute;top:90px;left:30px;">0</div>
+                            <div id="pfRightRange" style="position:absolute;top:90px;left:246px;">1000</div>
+                        </div>
+                        <div id="pfProgressTriangle" style="position:absolute;top:115px;left:<asp:Literal ID="LiteralProgressMarkerLeft" runat="server" />px;height:31px;width:47px;background-image:url('../Images/dashboard/currentmet.jpg');background-position:center;background-repeat:no-repeat;"> 
+                            <div id="pfProgressNumber" style="position:absolute;top:10px;left:<asp:Literal ID="LiteralProgressNumberLeft" runat="server" />px;color:Blue;font-weight:bold;"><asp:Literal ID="LiteralProgressNumber" runat="server" /></div>
+                        </div>
+                        <div style="position:absolute;top:130px;left:5px;width:275px;height:5px;"><hr style="height:1px;background-color:Gray;" /></div>           
+                        <div id="pfLastWorkoutTitle" style="position:absolute;top:145px;left:5px;font-weight:bolder;">Last Workout:</div>           
+                        <div id="pfLastWorkoutDate" style="position:absolute;top:160px;left:5px;font-weight:smaller;"><asp:Literal ID="LiteralLastWorkout" runat="server" /></div>           
+                        <div id="pfWorkoutHistoryTitle1" style="position:absolute;top:180px;left:5px;"><span style="font-size:nornal;font-weight:bold;">Workout History: </span><span id="pfWorkoutHistoryTitle2" style="font-size:normal;font-weight:normal;">(7 days)</span></div>           
+                        <div id="pfWorkoutHistoryDates" style="position:absolute;top:200px;left:5px;font-size:smaller;font-weight:normal;"><asp:Literal ID="LiteralWorkoutHistory" runat="server" /></div>           
+                        <div style="position:absolute;top:220px;left:5px;width:275px;height:5px;"><hr style="height:1px;background-color:Gray;" /></div>         
+                        <div id="pfCurrentStageTitle" style="position:absolute;top:235px;left:80px;font-size:larger;font-weight:bolder;">CURRENT STAGE</div>         
+                        <div id="pfCurrentStageImage" style="position:absolute;top:255px;left:0px;height:35px;width:285px;background-image:url('../Images/dashboard/<asp:Literal ID="LiteralCurrentStepImage" runat="server" />');background-position:center;"></div>         
+                    </div>                
                 </div>
             </div>
+
             <div class="mid_box">
                 <div class="mid_boxhead">
                     Wellness Diary</div>

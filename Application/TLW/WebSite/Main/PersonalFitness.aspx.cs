@@ -60,10 +60,6 @@ public partial class PersonalFitness : System.Web.UI.Page
 
         objTemplateClass = new TemplateClass(objSqlConnClass.OpenConnection());
 
-
-
-
-
         int ileftMargin = 0;
         string sTriangleImg = "triangle1.jpg";
         int iMET = 0;
