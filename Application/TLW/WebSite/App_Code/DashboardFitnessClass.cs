@@ -62,6 +62,11 @@ public class DashboardFitnessClass
 
     private void FillMembers()
     {
+        m_dtLastWorkout = DateTime.MinValue;
+        m_sLastWorkout = "";
+        m_sLastWorkout = "";
+        m_iWeeklyTotalMets = 0;
+        
         DateTime dtDay1 = DateTime.MinValue;
         DateTime dtDay2 = DateTime.MinValue;
         DateTime dtDay3 = DateTime.MinValue;
@@ -121,11 +126,17 @@ public class DashboardFitnessClass
                     properIndex--;
                 }
                 if( !Convert.IsDBNull(DR["MET_EQUIVALENT"]) ) m_iWeeklyTotalMets += Convert.ToInt16(DR["MET_EQUIVALENT"].ToString());
+                
             }
+        }
 
-            m_dtLastWorkout = GetLastWorkout(dtDay1, dtDay2, dtDay3, dtDay4, dtDay5, dtDay6, dtDay7 );
+        m_dtLastWorkout = GetLastWorkout(dtDay1, dtDay2, dtDay3, dtDay4, dtDay5, dtDay6, dtDay7);
+        if (m_dtLastWorkout != DateTime.MinValue) {
             m_sLastWorkout = GetDateString(m_dtLastWorkout);
             m_sWorkoutHistory = GetWorkoutHistory(dtDay1, dtDay2, dtDay3, dtDay4, dtDay5, dtDay6, dtDay7);
+        } else {
+            m_sLastWorkout = "No workout history in the past week.";
+            m_sWorkoutHistory = "No workout history in the past week.";
         }
 
         // get the weekly total mets triangle image as well as the left position of the marker and the left position of the total number
@@ -134,7 +145,7 @@ public class DashboardFitnessClass
         m_sProgressNumberLeft = mt.numberLeftPos;
         m_sProgressMarkerLeft = mt.markerLeftPos;
 
-        // get the current program, he current step, and the step image by looking at the last entry in palstarts table
+        // get the current program, the current step, and the step image by looking at the last entry in palstarts table
         DataSet starts = objPALClass.PAL_GET_PalStarts(m_sUserId, "1", "0");
         tableCount = entries.Tables.Count;
         int startCount = starts.Tables[0].Rows.Count;
@@ -160,13 +171,21 @@ public class DashboardFitnessClass
     private string GetWorkoutHistory(DateTime dtDay1, DateTime dtDay2, DateTime dtDay3, DateTime dtDay4, DateTime dtDay5, DateTime dtDay6, DateTime dtDay7)
     {
         string returnValue = "";
-        string sDay1 = GetDateString(dtDay1);
-        string sDay2 = GetDateString(dtDay2);
-        string sDay3 = GetDateString(dtDay3);
-        string sDay4 = GetDateString(dtDay4);
-        string sDay5 = GetDateString(dtDay5);
-        string sDay6 = GetDateString(dtDay6);
-        string sDay7 = GetDateString(dtDay7);
+        string sDay1 = "";
+        string sDay2 = "";
+        string sDay3 = "";
+        string sDay4 = "";
+        string sDay5 = "";
+        string sDay6 = "";
+        string sDay7 = "";
+
+        if (dtDay1 > DateTime.MinValue) sDay1 = GetDateString(dtDay1);
+        if (dtDay2 > DateTime.MinValue) sDay2 = GetDateString(dtDay2);
+        if (dtDay3 > DateTime.MinValue) sDay3 = GetDateString(dtDay3);
+        if (dtDay4 > DateTime.MinValue) sDay4 = GetDateString(dtDay4);
+        if (dtDay5 > DateTime.MinValue) sDay5 = GetDateString(dtDay5);
+        if (dtDay6 > DateTime.MinValue) sDay6 = GetDateString(dtDay6);
+        if (dtDay7 > DateTime.MinValue) sDay7 = GetDateString(dtDay7);
 
         if (sDay1.Length > 0) {
             if (returnValue.Length == 0)
@@ -231,6 +250,8 @@ public class DashboardFitnessClass
         return DateTime.MinValue;
     }
 
+    // David Bowers 7/28/12
+    // Take Note, starting position of the number is not quite 0 is not quite 20 pixels less then next position like the rest
     private MetsTriangle GetMetsTriangle(int mets)
     {
         // the triangle image starts at left position of 40px
@@ -242,101 +263,149 @@ public class DashboardFitnessClass
         returnValue.numberLeftPos = "";
         int posWhiteLine = 1;
 
-        if (mets <= 0)
-        {
-            // no white line
-            posWhiteLine = 1;
-            returnValue.image = "triangle0.jpg";
-        }
-        else if (mets >= 1 && mets <= 99)
-        {
-            // triangle1 image white line at 25pixels
-            posWhiteLine = 25;
-            returnValue.image = "triangle1.jpg";
-        }
-        else if (mets >= 100 && mets <= 199)
-        {
-            // triangle2 image white line at 45 pixels
-            posWhiteLine = 45;
-            returnValue.image = "triangle2.jpg";
-        }
-        else if (mets >= 200 && mets <= 299)
-        {
-            // triangle3 image white line at 65 pixels
-            posWhiteLine = 65;
-            returnValue.image = "triangle3.jpg";
-        }
-        else if (mets >= 300 && mets <= 399)
-        {
-            // triangle4 image white line at 85 pixels
-            posWhiteLine = 85;
-            returnValue.image = "triangle4.jpg";
-        }
-        else if (mets >= 400 && mets <= 499)
-        {
-            // triangle5 image white line at 105 pixels
-            posWhiteLine = 105;
-            returnValue.image = "triangle5.jpg";
-        }
-        else if (mets >= 500 && mets <= 599)
-        {
-            // triangle6 image white line at 125 pixels
-            posWhiteLine = 125;
-            returnValue.image = "triangle6.jpg";
-        }
-        else if (mets >= 600 && mets <= 699)
-        {
-            // triangle7 image white line at 145 pixels
-            posWhiteLine = 145;
-            returnValue.image = "triangle7.jpg";
-        }
-        else if (mets >= 700 && mets <= 799)
-        {
-            // triangle8 image white line at 165 pixels
-            posWhiteLine = 165;
-            returnValue.image = "triangle8.jpg";
-        }
-        else if (mets >= 800 && mets <= 899)
-        {
-            // triangle9 image white line at 185 pixels
-            posWhiteLine = 185;
-            returnValue.image = "triangle9.jpg";
-        }
-        else if (mets >= 900 && mets < 1000)
-        {
-            // triangle10 image no white line so 205 pixels
-            posWhiteLine = 205;
-            returnValue.image = "triangle10.jpg";
-        }
-        else if (mets >= 1000)
-        {
-            // triangle10 image no white line so 205 pixels
-            posWhiteLine = 205;
-            returnValue.image = "triangle10.jpg";
-        }
-        else
-        {
-            // triangle0 no white line so 0px
-            posWhiteLine = 0;
-            returnValue.image = "triangle0.jpg";
-        }
-
         // the triangle image starts at left position of 40px
         int leftPosTriangleImage = 40;
-        
+
         // middle of marker is 8 pixels
         int middlePosMarkerImage = 8;
 
         // marker offset
         int offsetMarkerImage = 17;
 
-        // marker left
-        returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
-        
-        // making start of number the middle of the marker
-        //returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine).ToString();
-        returnValue.numberLeftPos = "11";
-        return returnValue;
+        // number offset
+        int offsetNumber = 11;
+
+        // testing
+        // mets = 0;
+        // mets = 50;
+        // mets = 150;
+        // mets = 250;
+        // mets = 350;
+        // mets = 450;
+        // mets = 550;
+        // mets = 650;
+        // mets = 750;
+        // mets = 850;
+        // mets = 950;
+        // mets = 1000;
+
+        if (mets <= 0)
+        {
+            // no white line
+            posWhiteLine = 1;
+            returnValue.image = "triangle0.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage + 5).ToString();
+            return returnValue;
+        }
+        else if (mets >= 1 && mets <= 99)
+        {
+            // triangle1 image white line at 25pixels
+            posWhiteLine = 25;
+            returnValue.image = "triangle1.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 19).ToString();
+            return returnValue;
+        }
+        else if (mets >= 100 && mets <= 199)
+        {
+            // triangle2 image white line at 45 pixels
+            posWhiteLine = 45;
+            returnValue.image = "triangle2.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 39).ToString();
+            return returnValue;
+        }
+        else if (mets >= 200 && mets <= 299)
+        {
+            // triangle3 image white line at 65 pixels
+            posWhiteLine = 65;
+            returnValue.image = "triangle3.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 59).ToString();
+            return returnValue;
+        }
+        else if (mets >= 300 && mets <= 399)
+        {
+            // triangle4 image white line at 85 pixels
+            posWhiteLine = 85;
+            returnValue.image = "triangle4.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 79).ToString();
+            return returnValue;
+        }
+        else if (mets >= 400 && mets <= 499)
+        {
+            // triangle5 image white line at 105 pixels
+            posWhiteLine = 105;
+            returnValue.image = "triangle5.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 99).ToString();
+            return returnValue;
+        }
+        else if (mets >= 500 && mets <= 599)
+        {
+            // triangle6 image white line at 125 pixels
+            posWhiteLine = 125;
+            returnValue.image = "triangle6.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 119).ToString();
+            return returnValue;
+        }
+        else if (mets >= 600 && mets <= 699)
+        {
+            // triangle7 image white line at 145 pixels
+            posWhiteLine = 145;
+            returnValue.image = "triangle7.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 139).ToString();
+            return returnValue;
+        }
+        else if (mets >= 700 && mets <= 799)
+        {
+            // triangle8 image white line at 165 pixels
+            posWhiteLine = 165;
+            returnValue.image = "triangle8.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 159).ToString();
+            return returnValue;
+        }
+        else if (mets >= 800 && mets <= 899)
+        {
+            // triangle9 image white line at 185 pixels
+            posWhiteLine = 185;
+            returnValue.image = "triangle9.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 179).ToString();
+            return returnValue;
+        }
+        else if (mets >= 900 && mets < 1000)
+        {
+            // triangle10 image no white line so 205 pixels
+            posWhiteLine = 205;
+            returnValue.image = "triangle10.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 199).ToString();
+            return returnValue;
+        }
+        else if (mets >= 1000)
+        {
+            // triangle10 image no white line so 205 pixels
+            posWhiteLine = 205;
+            returnValue.image = "triangle10.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 199).ToString();
+            return returnValue;
+        }
+        else
+        {
+            // triangle0 no white line so 0px
+            posWhiteLine = 0;
+            returnValue.image = "triangle0.jpg";
+            returnValue.markerLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage).ToString();
+            returnValue.numberLeftPos = (leftPosTriangleImage + posWhiteLine - middlePosMarkerImage - offsetMarkerImage - 5).ToString();
+            return returnValue;
+        }
     }
 
     private string GetStepImage(int step)

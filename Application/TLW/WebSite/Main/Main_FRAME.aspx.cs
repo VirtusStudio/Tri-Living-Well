@@ -55,13 +55,9 @@ public partial class Main_Main_FRAME : System.Web.UI.Page
   
         DS = null;
 
-
         objTemplateClass = new TemplateClass(objSqlConnClass.sqlConnection);
 
         objPALClass = new PALClass(objSqlConnClass.sqlConnection);
-
-        
-
 
     }
 

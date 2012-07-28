@@ -60,8 +60,8 @@
                     <div style="position:relative;330px;width:290px;" onclick="window.location = '../Main/PersonalFitness.aspx';" >
                         <div id="pfTitle" style="position:absolute;top:0px;left:30px;font-size:larger;font-weight:bolder;">METABOLIC MINUTE PROGRESS</div>
                         <div style="position:absolute;top:20px;left:0px;height:95px;width:285px;background-image:url('../Images/dashboard/<asp:Literal ID="LiteralMetTriangleImage" runat="server" />');background-position:center;background-repeat:no-repeat;">
-                            <div id="pfLeftRange" style="position:absolute;top:90px;left:30px;">0</div>
-                            <div id="pfRightRange" style="position:absolute;top:90px;left:246px;">1000</div>
+                            <div id="pfLeftRange" style="position:absolute;top:80px;left:30px;">0</div>
+                            <div id="pfRightRange" style="position:absolute;top:80px;left:247px;">1000</div>
                         </div>
                         <div id="pfProgressTriangle" style="position:absolute;top:115px;left:<asp:Literal ID="LiteralProgressMarkerLeft" runat="server" />px;height:31px;width:47px;background-image:url('../Images/dashboard/currentmet.jpg');background-position:center;background-repeat:no-repeat;"> 
                             <div id="pfProgressNumber" style="position:absolute;top:10px;left:<asp:Literal ID="LiteralProgressNumberLeft" runat="server" />px;color:Blue;font-weight:bold;"><asp:Literal ID="LiteralProgressNumber" runat="server" /></div>
