@@ -50,14 +50,43 @@
                 <div class="mid_boxhead">
                     Nutritional Center</div>
                 <div class="mid_boxbody">
-                    <img src="images/graph1.png" alt="" border="0">
+                    <div style="position:relative;height:293px;width:310px;" onclick="window.location = '../Main/NutritionCenter.aspx';" >
+                        <div style="position:asolute;left:0px;top:0px;height:293px;width:261px;background-image:url(<%=AppConfig.GetBaseSiteUrl() %>images/dashboard/nutritioncenter.jpg);background-repeat:no-repeat;" onclick="window.location = '../Main/NutritionCenter.aspx';" >
+                            <div id="nutrition-recalculate" name="nutrition-recalculate" style="position:absolute;left:75px;top:173px;height:18px;width:110px;" ></div>
+                            <div id="nutrition-diary" name="nutrition-diary" style="position:absolute;left:75px;top:210px;height:18px;width:110px;" ></div>
+                            <div id="nutrition-mynutrition" name="nutrition-diary" style="position:absolute;left:75px;top:234px;height:18px;width:110px" ></div>
+                            <div id="nutrition-meal" name="nutrition-meal" style="position:absolute;left:75px;top:258px;height:18px;width:110px;" ></div>
+
+                            <div id="nutrition-water" name="nutrition-water" style="position:absolute;left:227px;top:39px;height:15px;width:34px;" >
+                                <span id="nutrition-water-number" name="nutrition-water-number" style="font-weight:bolder;color:black;" >0</span>
+                            </div>
+                            <div id="nutrition-dairy" name="nutrition-dairy" style="position:absolute;left:227px;top:57px;height:15px;width:34px;" >
+                                <span id="nutrition-dairy-number" name="nutrition-dairy-number" style="font-weight:bolder;color:black;" >0</span>
+                            </div>
+                            <div id="nutrition-vegetable" name="nutrition-vegetable" style="position:absolute;left:227px;top:75px;height:15px;width:34px;" >
+                                <span id="nutrition-vegetable-number" name="nutrition-vegetable-number" style="font-weight:bolder;color:black;" >0</span>
+                            </div>
+                            <div id="nutrition-starch" name="nutrition-starch" style="position:absolute;left:227px;top:93px;height:15px;width:34px;" >
+                                <span id="nutrition-starch-number" name="nutrition-starch-number" style="font-weight:bolder;color:black;" >0</span>
+                            </div>
+                            <div id="nutrition-protein" name="nutrition-protein" style="position:absolute;left:227px;top:111px;height:15px;width:34px;" >
+                                <span id="nutrition-protein-number" name="nutrition-protein-number" style="font-weight:bolder;color:black;" >0</span>
+                            </div>
+                            <div id="nutrition-fats" name="nutrition-fats" style="position:absolute;left:227px;top:129px;height:15px;width:34px;" >
+                                <span id="nutrition-fats-number" name="nutrition-fats-number" style="font-weight:bolder;color:black;" >0</span>
+                            </div>
+                            <div id="nutrition-calories" name="nutrition-calories" style="position:absolute;left:227px;top:147px;height:15px;width:34px;" >
+                                <span id="nutrition-calories-number" name="nutrition-calories-number" style="font-weight:bolder;color:black;" >0</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="mid_box">
                 <div class="mid_boxhead">
                     Personal Fitness</div>
                 <div class="mid_boxbody">
-                    <div style="position:relative;330px;width:290px;" onclick="window.location = '../Main/PersonalFitness.aspx';" >
+                    <div style="position:relative;height:290px;width:290px;" onclick="window.location = '../Main/PersonalFitness.aspx';" >
                         <div id="pfTitle" style="position:absolute;top:0px;left:30px;font-size:larger;font-weight:bolder;">METABOLIC MINUTE PROGRESS</div>
                         <div style="position:absolute;top:20px;left:0px;height:95px;width:285px;background-image:url('../Images/dashboard/<asp:Literal ID="LiteralMetTriangleImage" runat="server" />');background-position:center;background-repeat:no-repeat;">
                             <div id="pfLeftRange" style="position:absolute;top:80px;left:30px;">0</div>
