@@ -51,16 +51,10 @@
                     Nutritional Center</div>
                 <div class="mid_boxbody">
                     <div style="position:relative;height:293px;width:310px;" onclick="window.location = '../Main/NutritionCenter.aspx';" >
-                        <div style="position:asolute;left:0px;top:0px;height:293px;width:261px;background-image:url(<%=AppConfig.GetBaseSiteUrl() %>images/dashboard/nutritioncenter.jpg);background-repeat:no-repeat;" onclick="window.location = '../Main/NutritionCenter.aspx';" >
-                           
-                            <div id="nutrition-recalculate" name="nutrition-recalculate" style="position:absolute;left:75px;top:173px;height:18px;width:110px;" ></div>
-                            
-                            <div id="nutrition-diary" name="nutrition-diary" style="position:absolute;left:75px;top:210px;height:18px;width:110px;" ></div>
-                            
-                            <div id="nutrition-mynutrition" name="nutrition-diary" style="position:absolute;left:75px;top:234px;height:18px;width:110px" ></div>
-                            
-                            <div id="nutrition-meal" name="nutrition-meal" style="position:absolute;left:75px;top:258px;height:18px;width:110px;" ></div>
+                        <div style="position:asolute;left:0px;top:0px;height:293px;width:261px;background-image:url(<%=AppConfig.GetBaseSiteUrl() %>images/dashboard/nutritioncenter.jpg);
+                            background-repeat:no-repeat;" onclick="window.location = '../Main/NutritionCenter.aspx';" >
 
+                            <!-- Nutrition Center Pyramid Sections totals -->
                             <div id="nutrition-water" name="nutrition-water" style="position:absolute;left:227px;top:39px;height:15px;width:34px;" >
                                 <span id="nutrition-water-number" name="nutrition-water-number" style="font-weight:bolder;color:black;" >0</span>
                             </div>
@@ -79,10 +73,24 @@
                             <div id="nutrition-fats" name="nutrition-fats" style="position:absolute;left:227px;top:129px;height:15px;width:34px;" >
                                 <span id="nutrition-fats-number" name="nutrition-fats-number" style="font-weight:bolder;color:black;" >0</span>
                             </div>
-                            <div id="nutrition-calories" name="nutrition-calories" style="position:absolute;left:227px;top:147px;height:15px;width:34px;" >
+                            <div id="nutrition-calories" name="nutrition-calories" style="position:absolute;left:227px;top:147px;height:15px;width:34px;" 
+                                onclick="alert('TODO: add in meal exchange page.');" >
                                 <span id="nutrition-calories-number" name="nutrition-calories-number" style="font-weight:bolder;color:black;" >0</span>
                             </div>
 
+                            <!-- Nutrition Center Action Buttons-->
+                            <div id="nutrition-recalculate" name="nutrition-recalculate" style="position:absolute;left:75px;top:173px;height:18px;width:110px;" 
+                                onclick="alert('TODO: add in ajax recalculate.');" ></div>
+                            
+                            <div id="nutrition-dailydiary" name="nutrition-dailydiary" style="position:absolute;left:75px;top:210px;height:18px;width:110px;" 
+                                onclick="alert('TODO: add in daily diary page.');" ></div>
+
+                            <div id="nutrition-mynutrition" name="nutrition-mynutrition" style="position:absolute;left:75px;top:234px;height:18px;width:110px" 
+                                onclick="alert('TODO: add in my nutrition page.');" ></div>
+
+                            <div id="nutrition-mealexchange" name="nutrition-mealexchange" style="position:absolute;left:75px;top:258px;height:18px;width:110px;" 
+                                onclick="alert('TODO: add in meal exchange page.');" ></div>
+                            
                         </div>
                     </div>
                 </div>

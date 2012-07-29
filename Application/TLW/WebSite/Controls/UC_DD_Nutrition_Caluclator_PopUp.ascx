@@ -20,8 +20,8 @@ var radTxtBField_01;
 
 function editCalorie()
 {
-     
-    show('divWin2');
+    alert("test");
+    show('divCalorieCalculator');
     //bWaiting = true;  commented by Netsmartz
 }
 function hide(objElementID) {
@@ -53,12 +53,12 @@ function hoverTransparency2(sElementName)
 function submitCalorie()
 {
     document.getElementById('<%= btnCalorieSubmit.ClientID %>').click();
-    hide('divWin2');
+    hide('divCalorieCalculator');
 }
 </script>
        </telerik:RadScriptBlock>      
           
-        <div id="divWin2" class="fixed" style="left:200px;top:200px;z-index:300; display:none; " >
+        <div id="divCalorieCalculator" class="fixed" style="left:200px;top:200px;z-index:300;display:none;" >
              <center class="Round1"><center><center><center><center><center><center><center><center><center>
              
              Calorie Calculator<br />
@@ -109,7 +109,7 @@ function submitCalorie()
                 </td><td>
                 
                                 <a class="aButtonSmall" href="javascript:submitCalorie();">Save</a>
-                                <a class="aButtonSmall" href="javascript:hide('divWin2');">Cancel</a>
+                                <a class="aButtonSmall" href="javascript:hide('divCalorieCalculator');">Cancel</a>
                            </td></tr></table>
                 </td>
              </tr>

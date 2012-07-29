@@ -55,10 +55,6 @@
                                 <p style="text-align:center;"><span style="font-weight:bold;">Workout History: </span>(7 Days)</p>
                                 <p style="text-align:center;"><asp:Label ID="labelHistory" runat="server" /></p>
                             </div>
-                            
-                            
-                            
-
                         </td>
                         <td align="left" colspan="2">
                             <table>

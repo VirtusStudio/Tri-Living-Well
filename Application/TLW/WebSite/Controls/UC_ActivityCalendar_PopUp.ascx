@@ -15,8 +15,6 @@
             show('divWinCalendar');
             bWaiting = true;
         }
-
-
     </script>
 </telerik:RadScriptBlock>
 <!--Transparency-->
