@@ -10,7 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using Telerik.Web.UI;
 
-public partial class PersonalFitness : System.Web.UI.Page
+public partial class NutritionCenter : System.Web.UI.Page
 {
     SqlConnClass objSqlConnClass = new SqlConnClass();
     TemplateClass objTemplateClass;
@@ -26,7 +26,7 @@ public partial class PersonalFitness : System.Web.UI.Page
         if (!AppLib.IsLoggedinSessionExists() || currentUser == null)
             Response.Redirect(AppConfig.GetBaseSiteUrl() + "Welcome/main_frame.aspx", true);
 
-        
+
 
         AccountClass objAccountClass;
         objAccountClass = new AccountClass(objSqlConnClass.sqlConnection);
@@ -60,17 +60,14 @@ public partial class PersonalFitness : System.Web.UI.Page
 
         objTemplateClass = new TemplateClass(objSqlConnClass.OpenConnection());
 
-
-        
     }
 
- 
 
     protected void Page_PreRender(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            
+
         }
         objSqlConnClass.CloseConnection();
     }
@@ -120,7 +117,7 @@ public partial class PersonalFitness : System.Web.UI.Page
             _strRetVal = AppConfig.GetBaseSiteUrl() + "images/blog.png";
 
 
-            return _strRetVal;
+        return _strRetVal;
     }
 
 }
