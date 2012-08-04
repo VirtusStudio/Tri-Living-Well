@@ -21,8 +21,8 @@
             </td>
         </tr>
         <tr>
-            <td>
-                &nbsp;
+            <td>&nbsp;
+                
             </td>
         </tr>
         <tr>
@@ -88,7 +88,13 @@
                                                                         </tr>
                                                                         <tr style="height: 30px;">
                                                                             <td align="left" style="padding-left: 20px;">
-                                                                                Height:
+                                                                                Height:                                                                                                               				                               													<ajaxToolkit:SliderExtender ID="SliderHeight" runat="server"
+                                                                                TargetControlID="Slider1"
+                                                                                Minimum="36"
+                                                                                Maximum="90"
+                                                                                BoundControlID="Slider1_BoundControl"
+                                                                                Steps="55"
+                                                                                Length="30" />
                                                                                 <asp:TextBox ID="txtHeight" onblur="calcCaloriesOnBlur()" runat="server" CssClass="txtBox"
                                                                                     MaxLength="7"></asp:TextBox>
                                                                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtHeight" Display="Static"
