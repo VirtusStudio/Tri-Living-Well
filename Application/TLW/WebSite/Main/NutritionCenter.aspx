@@ -1,8 +1,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/User.master"
     CodeFile="NutritionCenter.aspx.cs" Inherits="NutritionCenter" Title="Nutrition Center" %>
-<%@ Register Src="~/Controls/UC_Login_Register.ascx" TagName="UC_Login_Register"
-    TagPrefix="uc2" %>
-<%@ Register Src="~/Controls/UC_DD_Nutrition_Caluclator_PopUp.ascx" TagName="UC_DD_Nutrition_Caluclator_PopUp" TagPrefix="uc3" %>
+<%@ Register Src="~/controls/UC_Nutrition_CalorieCalculator_PopUp.ascx" TagName="UC_Nutrition_CalorieCalculator_PopUp" TagPrefix="uc1" %>
+<%@ Register Src="~/Controls/UC_Login_Register.ascx" TagName="UC_Login_Register" TagPrefix="uc2" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
@@ -22,9 +21,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_CONTENT" runat="server"
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
-    
-    <uc3:UC_DD_Nutrition_Caluclator_PopUp id="UC_DD_Nutrition_Caluclator_PopUp1" runat="server"></uc3:UC_DD_Nutrition_Caluclator_PopUp>
-    <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255);   margin: 0px auto; padding: 10px; width:886px; overflow:hidden;" >
+        <uc1:UC_Nutrition_CalorieCalculator_PopUp id="UC_Nutrition_CalorieCalculator_PopUp" runat="server"></uc1:UC_Nutrition_CalorieCalculator_PopUp>
+        <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255);margin: 0px auto; padding: 10px; width:886px; overflow:hidden;" >
         <div class="overview">
             <table>
                 <tr>
@@ -43,42 +41,43 @@
                 
                 <div id="milk-dairy" name="milk-dairy" style="position:absolute;top:15px;left:192px;width:200px;height:20px;text-align: center;" >
                     <span id="milk-dairy-number" name="milk-dairy-number" ><a style="color:black;font-size:small;font-weight:bolder;" 
-                        href="#" onclick="alert('TODO: add in meal exchange page. Link to dairy.');" >Milk / Dairy</a></span>
+                        href="#" onclick="window.location = 'FoodExchange.aspx#1';" >Milk / Dairy</a></span>
                 </div>
                 
                 <div id="fruit" name="fruit" style="position:absolute;top:55px;left:192px;width:200px;height:20px;text-align: center;" >
                     <span id="fruit-number" name="fruit-number" ><a style="color:black;font-size:small;font-weight:bolder;" 
-                        href="#" onclick="alert('TODO: add in meal exchange page. Link to fruit.');" >Fruit</a></span>
+                        href="#" onclick="window.location = 'FoodExchange.aspx#2';" >Fruit</a></span>
                 </div>
                 
                 <div id="vegetables" name="vegetables" style="position:absolute;top:95px;left:192px;width:200px;height:20px;text-align: center;" >
                     <span id="vegetables-number" name="vegetables-number" ><a style="color:black;font-size:small;font-weight:bolder;" 
-                        href="#" onclick="alert('TODO: add in meal exchange page. Link to vegetables.');" >Vegetables</a></span>
+                        href="#" onclick="window.location = 'FoodExchange.aspx#3';" >Vegetables</a></span>
                 </div>
                 
                 <div id="starch" name="starch" style="position:absolute;top:138px;left:192px;width:200px;height:20px;text-align: center;" >
                     <span id="starch-number" name="starch-number" ><a style="color:black;font-size:small;font-weight:bolder;" 
-                        href="#" onclick="alert('TODO: add in meal exchange page. Link to starch.');" >Starch</a></span>
+                        href="#" onclick="window.location = 'FoodExchange.aspx#4';" >Starch</a></span>
                 </div>
                 
                 <div id="protein" name="protein" style="position:absolute;top:180px;left:192px;width:200px;height:20px;text-align: center;" >
                     <span id="protein-number" name="protein-number" ><a style="color:black;font-size:small;font-weight:bolder;" 
-                        href="#" onclick="alert('TODO: add in meal exchange page. Link to protein.');" >Protein</a></span>
+                        href="#" onclick="window.location = 'FoodExchange.aspx#5';" >Protein</a></span>
                 </div>
                 
                 <div id="fat" name="fat" style="position:absolute;top:222px;left:192px;width:200px;height:20px;text-align: center;" >
                     <span id="fat-number" name="fat-number" ><a style="color:black;font-size:small;font-weight:bolder;" 
-                        href="#" onclick="alert('TODO: add in meal exchange page. Link to fat.');" >Fat</a></span>
+                        href="#" onclick="window.location = 'FoodExchange.aspx#6';" >Fat</a></span>
                 </div>
                 
                 <div id="water" name="water" style="position:absolute;top:264px;left:192px;width:200px;height:20px;text-align: center;" >
                     <span id="water-number" name="water-number" ><a style="color:black;font-size:small;font-weight:bolder;" 
-                        href="#" onclick="alert('TODO: add in meal exchange page. Link to water.');" >Water</a></span>
+                        href="#" onclick="window.location = 'FoodExchange.aspx#7';" >Water</a></span>
                 </div>
                 
                 <div id="calories" name="calories" style="position:absolute;top:307px;left:192px;width:200px;height:20px;text-align: center;" >
-                    <span id="calories-number" name="calories-number" ><a style="color:black;font-size:small;font-weight:bolder;" 
-                        href="javascript:editCalorie();" >Calories</a></span>
+                    <span id="calories-number" name="calories-number" >
+                        <a style="color:black;font-size:small;font-weight:bolder;"  href="javascript:editCalorie();" >Calories</a>
+                    </span>
                 </div>
 
             </div><!-- End Nutrition Center Pyramid -->

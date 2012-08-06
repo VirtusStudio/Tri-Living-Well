@@ -14,6 +14,7 @@
 <![endif]-->
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <meta http-equiv=”X-UA-Compatible” content=”IE=edge”>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/libs/modernizr-2.5.3.min.js"></script>
     <!-- Menu -->
