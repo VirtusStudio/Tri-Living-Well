@@ -1,0 +1,228 @@
+/*************************************************************
+/    Copyright 2012 Virtus Studio, LLC                      /
+/    This code is owned by Virtus Studio, LLC               /
+/    It may not be copied, shared or modified.              /
+/************************************************************/
+
+div 
+{
+    color: #000000;
+    font-family: Tahoma;
+}
+
+#wrapper 
+{
+    background-color: #ffffff;
+    width: 907px;
+    margin: 0px auto;
+    padding-top: 35px;
+    padding-bottom: 3px;
+}
+
+#contentFrame
+{
+    background-color: #4a74a3;
+    width: 847px;
+    padding: 15px 15px 15px 15px;
+    margin: 15px 15px 15px 15px;
+}
+
+#mainContent
+{
+
+}
+
+#lblError 
+{
+    padding: auto;
+    font-size: 20px;
+    color: #ff0000;
+}
+
+#contentHeader 
+{
+    background-color: #e4e7eb;
+    padding: 25px 35px 25px 35px;
+}
+
+#contentBody 
+{
+    background-color: #f3f3f3;
+    padding: 10px 10px 65px 10px;
+    
+}
+
+#waiver
+{
+    float: left;
+}
+
+#continueBtn
+{
+    padding-top: 10px;
+    padding-right: 25px;
+    float: right;
+}
+
+.topRow 
+{
+    background-color: #f3f3f3;
+}
+
+.altRow
+{
+    background-color: #e4e7eb;
+}
+
+#categoryTextWrapper 
+{
+    width: 400px;
+    margin: auto;    
+}
+
+#askCoach 
+{
+    float: right;
+    padding-right: 25px;
+}
+
+#activityHeader 
+{
+    font-size: 16px;
+    color: #ff0000;
+    padding-bottom: 25px;
+}
+
+.header 
+{
+    font-size: 14px;    
+    padding-bottom: 25px;
+    padding-top: 10px;
+}
+#programActivity 
+{
+    padding-bottom: 15px;
+}
+
+#programSelectedTitle 
+{
+    font-size: 18px;
+}
+
+#programSelected 
+{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#programActivity 
+{
+    width:100%;
+}
+
+#programInfo 
+{
+    padding-left: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
+.bioRow
+{
+    width: 100%;
+}
+
+.lblBioAlt 
+{
+    background-color: #e4e7eb;
+    padding-top: 10px;
+    height: 30px;
+    width: 50%;
+    float: left;
+}
+
+.dataBioAlt
+{
+    background-color: #e4e7eb;
+    padding-top: 10px;
+    height: 30px;
+    float:right;
+    width: 50%;
+}
+
+.lblBio
+{
+    background-color: #f3f3f3;
+    padding-top: 10px;
+    height: 30px;
+    width: 50%;
+    float: left;
+}
+
+.dataBio
+{
+    background-color: #f3f3f3;
+    padding-top: 10px;
+    height: 30px;
+    float:right;
+    width: 50%;
+}
+
+.lblBioActive
+{
+    background-color: #e4e7eb;
+    padding-top: 10px;
+    height: 100px;
+    width: 50%;
+    float: left;
+}
+
+.dataBioActive
+{
+    background-color: #e4e7eb;
+    padding-top: 10px;
+    height: 100px;
+    float:right;
+    width: 50%;
+}
+.riskBox 
+{
+    width: 25px;
+}
+
+.calBox 
+{
+    width: 30px;
+}
+
+#dailyCal
+{
+   height: 40px;
+}
+
+#calcBtn 
+{
+    padding-top: 10px;
+    float: right;
+}
+
+.alignCenter 
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 200px;
+    margin: 0px auto;
+}
+
+.resourceHeader
+{
+    background-color: #e4e7eb;
+    font-weight: bold;
+}
+
+.resourceDetails
+{
+    background-color: #f3f3f3;
+    padding-bottom:25px;
+}

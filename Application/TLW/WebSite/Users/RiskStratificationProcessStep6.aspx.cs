@@ -48,8 +48,6 @@ public partial class Users_RiskStratificationProcessStep6 : System.Web.UI.Page
 
 
         BindCMSText();
-
-        trThanks.Visible = false;
     }
 
     private void BindCMSText()
@@ -135,10 +133,8 @@ public partial class Users_RiskStratificationProcessStep6 : System.Web.UI.Page
     {
         try
         {
-            trThanks.Visible = true;
-            trContent.Visible = false;
             Response.Redirect(AppConfig.GetBaseSiteUrl() + "Main/Main_Frame.aspx", true);
-            lblError.Text = "Thanks for registration with " + AppConfig.GetSiteName();
+            lblError.Text = "Oops - We are having technical difficulties.  Please try again in a moment.";
         }
         catch { }
     }

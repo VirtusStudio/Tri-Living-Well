@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+
 public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
 {
     BackofficeClass objBackOfficeClass;
@@ -500,7 +501,7 @@ public partial class Users_RiskStratificationProcessStep2 : System.Web.UI.Page
             objBackOfficeClass = null;
 
 
-            lblTotalScore.Text = "Your Score:" + " " + intScore.ToString();
+            //lblTotalScore.Text = "Your Score:" + " " + intScore.ToString();
         }
         catch { }
         finally { }

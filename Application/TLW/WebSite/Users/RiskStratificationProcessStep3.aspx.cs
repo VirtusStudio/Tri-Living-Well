@@ -18,7 +18,7 @@ public partial class Users_RiskStratificationProcessStep3 : System.Web.UI.Page
 
         if (Request.QueryString["sc"] != null)
         {
-            lblScore.Text = AppLib.Decrypt(Request.QueryString["sc"].ToString()) + " and " + "Category is" + Request.QueryString["cat"].ToString();
+            lblScore.Text = "<strong>" + AppLib.Decrypt(Request.QueryString["sc"].ToString()) + "</strong>" + " your are in the " + "<strong>" + Request.QueryString["cat"].ToString() + "</strong>";
         }
 
         if (Request.QueryString["cat"].ToString() == "Tri")
@@ -47,22 +47,39 @@ public partial class Users_RiskStratificationProcessStep3 : System.Web.UI.Page
 
         imgCategory.Src = AppConfig.GetBaseSiteUrl() + "images/icons/iconPalLevel" + AppLib.Decrypt(Request.QueryString["c"].ToString()) + ".jpg";
 
+        BindCMSText();
     }
+
+    private void BindCMSText()
+    {
+        BLL.TemplateLib oTemplateLib = new BLL.TemplateLib();
+        try
+        {
+            lblCMSText.Text = oTemplateLib.GetTemplateDetailsByTemplateTemplateName("RiskStratificationProcessThirdStepIntroduction").TextAreaHTML;
+            lblCMSTri.Text = oTemplateLib.GetTemplateDetailsByTemplateTemplateName("RiskStratificationProcessThirdStepTri").TextAreaHTML;
+            lblCMSLiving.Text = oTemplateLib.GetTemplateDetailsByTemplateTemplateName("RiskStratificationProcessThirdStepLiving").TextAreaHTML;
+            lblCMSWell.Text = oTemplateLib.GetTemplateDetailsByTemplateTemplateName("RiskStratificationProcessThirdStepWell").TextAreaHTML;
+        }
+        catch { }
+        finally { oTemplateLib = null; }
+    }
+
     protected void lnkBack_Click(object sender, EventArgs e)
     {
         Response.Redirect(AppConfig.GetBaseSiteUrl() + "Users/RiskStratificationProcessStep2.aspx?id=" + Request.QueryString["id"].ToString() + "sc=" + Request.QueryString["sc"].ToString());
     }
+    
     protected void lnkBtnSubmit_Click(object sender, EventArgs e)
     {
         try
         {
-            if (!chkWaiverAgreement.Checked)
+            /*if (!chkWaiverAgreement.Checked)
             {
                 lblError.Text = "Please accept the waiver agreement";
                 return;
             }
             else
-            {
+            {*/
                 SqlConnClass objSqlConnClass = new SqlConnClass();
                 BackofficeClass objBackOfficeClass = new BackofficeClass();
                 PALClass objPALClass;
@@ -80,7 +97,7 @@ public partial class Users_RiskStratificationProcessStep3 : System.Web.UI.Page
                         Response.Redirect(AppConfig.GetBaseSiteUrl() + "Users/RiskStratificationProcessStep4.aspx?id=" + Request.QueryString["id"].ToString() + "&c=" + Request.QueryString["c"].ToString() + "&sc=" + Request.QueryString["sc"].ToString());
                     }
                 }
-            }
+            //}
         }
         catch { }
     }
