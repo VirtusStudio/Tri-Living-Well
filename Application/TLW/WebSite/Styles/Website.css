@@ -8,3 +8,35 @@
 
 .WebsiteHeaderMenu .rmSlide .rmLink {background-color:#B85B22;}
 .WebsiteHeaderMenu .rmSlide .rmLink:hover {background-color:#0a1524;}
+
+#wrapper 
+{
+    background-color: #ffffff;
+    width: 930px;
+    margin: 0px auto;
+
+}
+
+#contentFrame
+{
+    background-color: #4a74a3;
+    width: 910px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 0px;
+}
+
+#regWrapper 
+{
+    background-color: #ffffff;
+    width: 907px;
+    margin: 0px auto;
+}
+
+#regFrame
+{
+    background-color: #4a74a3;
+    width: 887px;
+    height: 500px;
+    padding: 10px 12px 10px 10px;
+    margin: 10px 10px 10px 0px;
+}

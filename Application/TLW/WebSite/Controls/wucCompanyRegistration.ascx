@@ -1,15 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wucCompanyRegistration.ascx.cs"
     Inherits="Controls_wucCompanyRegistration" %>
 <script src="../Scripts/Common.js" type="text/javascript"></script>
-<div>
-<div style="float:left; width:300px; background-color:#FFFFFF;">
+<div id="regWrapper">
+<div id="regFrame">
+<div style="float: left; height:500px; width:300px; background-color:#FFFFFF;">
     <table>
         <tr>
             <td><h1>Signup and Get</h1><br /><ul><li>Physical Activity Monitoring</li><li>Nutritional Guidance</li><li>Mental Wellness</li><li>Access to private Health Coaches</li></ul></td>
         </tr>
     </table>
 </div>
-<div style="float:right; width: 586px; background-color: #6b86a5;">
+<div style="float: left; width: 500px; background-color: #4a74a3;">
     <table class="reg_table" align="left" width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td rowspan="13"><img src="Images/registration-divider.jpg" /></td>
@@ -195,5 +196,6 @@ Adding in zip code, validation is numeric and - maz 11 char, ie: 12345 or 12345-
             </td>
         </tr>
     </table>
+</div>
 </div>
 </div>
