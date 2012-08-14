@@ -1,0 +1,108 @@
+﻿/*************************************************************
+/    Copyright 2012 Virtus Studio, LLC                      /
+/    This code is owned by Virtus Studio, LLC               /
+/    It may not be copied, shared or modified.              /
+/************************************************************/
+
+div 
+{
+    color: #000000;
+    font-family: Tahoma;
+}
+
+#wrapper 
+{
+    background-color: #ffffff;
+    width: 907px;
+    margin: 0px auto;
+    padding-top: 35px;
+    padding-bottom: 3px;
+}
+
+#contentFrame
+{
+    background-color: #4a74a3;
+    width: 847px;
+    padding: 15px 15px 15px 15px;
+    margin: 15px 15px 15px 15px;
+}
+
+#mainContent
+{
+
+}
+
+#lblError 
+{
+    padding: auto;
+    font-size: 20px;
+    color: #ff0000;
+}
+
+#contentHeader 
+{
+    background-color: #e4e7eb;
+    padding: 25px 35px 25px 35px;
+}
+
+#contentBody 
+{
+    background-color: #f3f3f3;
+    padding: 10px 10px 65px 10px;
+    
+}
+
+.row 
+{
+    background-color: #f3f3f3;
+    padding-left: 140px;
+}
+
+.altRow
+{
+    background-color: #e4e7eb;
+}
+
+#continueBtn
+{
+    padding-top: 10px;
+    padding-right: 25px;
+    float: right;
+}
+
+.txtQuestion
+{
+    font-size: 14px;
+    width: 450px;
+    float: left;    
+    height: 40px;
+    padding-top: 15px;
+}
+
+.txtAnswer
+{
+    width: 375px;
+    padding-top: 15px;
+    padding-left: 350px;
+    height: 40px;
+}
+
+.dateBox 
+{
+    width: 40px;
+}
+
+.monthChange 
+{
+    width: 80px;
+}
+
+.dayChange 
+{
+    width: 45px;
+}
+
+.yearChange 
+{
+    width: 55px;
+}
