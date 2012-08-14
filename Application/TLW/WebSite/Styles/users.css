@@ -63,6 +63,16 @@ div
     background-color: #e4e7eb;
 }
 
+.wellnessRow 
+{
+    background-color: #f3f3f3;
+}
+
+.altWellnessRow
+{
+    background-color: #e4e7eb;
+}
+
 #continueBtn
 {
     padding-top: 10px;
@@ -77,11 +87,12 @@ div
     float: left;    
     height: 40px;
     padding-top: 15px;
+    padding-left: 10px;
 }
 
 .txtAnswer
 {
-    width: 375px;
+    width: 450px;
     padding-top: 15px;
     padding-left: 350px;
     height: 40px;

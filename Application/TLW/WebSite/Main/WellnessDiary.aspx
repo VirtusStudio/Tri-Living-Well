@@ -29,7 +29,8 @@
 <div id="contentBody">
 <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_CONTENT" runat="server"
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
-<div class="altRow"><div class="txtQuestion">How would you rate the quality of your sleep last night?</div><div class="txtAnswer">
+<div class="altWellnessRow"><div class="txtQuestion">How would you rate the quality of your sleep last night?</div>
+                        <div class="txtAnswer">
                             <asp:DropDownList ID="ddlQualitySleep" runat="server" CssClass="txtBox">
                             <asp:ListItem Value="0" Text="Quality of Sleep"></asp:ListItem>
                             <asp:ListItem Value="6" Text="Excellent"></asp:ListItem>
@@ -40,7 +41,8 @@
                             <asp:ListItem Value="1" Text="Very Poor"></asp:ListItem>
                         </asp:DropDownList></div>
 </div>
-<div class="row"><div class="txtQuestion">How would you rate your current level of stress?</div><div class="txtAnswer">
+<div class="wellnessRow"><div class="txtQuestion">How would you rate your current level of stress?</div>
+                        <div class="txtAnswer">
                         <asp:DropDownList ID="ddlLevel" runat="server" CssClass="txtBox">
                             <asp:ListItem Value="0" Text="Level of Stress"></asp:ListItem>
                             <asp:ListItem Value="6" Text="Very low/none"></asp:ListItem>
@@ -51,7 +53,8 @@
                             <asp:ListItem Value="1" Text="Extremely Stressed"></asp:ListItem>
                         </asp:DropDownList></div>
 </div>
-<div class="altRow"><div class="txtQuestion">How would you describe your perspective or state of happiness?</div><div class="txtAnswer">
+<div class="altWellnessRow"><div class="txtQuestion">How would you describe your perspective or state of happiness?</div>
+                        <div class="txtAnswer">
                         <asp:DropDownList ID="ddloutlook" runat="server" CssClass="txtBox">
                             <asp:ListItem Value="0" Text="State of Happiness"></asp:ListItem>
                             <asp:ListItem Value="6" Text="Excited"></asp:ListItem>
@@ -62,7 +65,8 @@
                             <asp:ListItem Value="1" Text="Pessimistic"></asp:ListItem>
                         </asp:DropDownList></div>
 </div>
-<div class="row"><div class="txtQuestion">How would you rate your level of productivity?</div><div class="txtAnswer">
+<div class="wellnessRow"><div class="txtQuestion">How would you rate your level of productivity?</div>
+                        <div class="txtAnswer">
                         <asp:DropDownList ID="ddlengagement" runat="server" CssClass="txtBox">
                             <asp:ListItem Value="0" Text="Level of Productivity"></asp:ListItem>
                             <asp:ListItem Value="6" Text="Very positive"></asp:ListItem>
@@ -73,7 +77,8 @@
                             <asp:ListItem Value="1" Text="Negative"></asp:ListItem>
                         </asp:DropDownList></div>
 </div>
-<div class="altRow"><div class="txtQuestion">How much energy do you have today?</div><div class="txtAnswer">
+<div class="altWellnessRow"><div class="txtQuestion">How much energy do you have today?</div>
+                        <div class="txtAnswer">
                         <asp:DropDownList ID="ddlenergylevel" runat="server" CssClass="txtBox">
                             <asp:ListItem Value="0" Text="Energy Level"></asp:ListItem>
                             <asp:ListItem Value="6" Text="I am full of energy"></asp:ListItem>
@@ -84,7 +89,7 @@
                             <asp:ListItem Value="1" Text="None, or not too much"></asp:ListItem>
                         </asp:DropDownList></div>
 </div>
-<div class="row"><div id="continueBtn"><asp:LinkButton CssClass="aButtonSmall" ToolTip="Click here to submit " CausesValidation="true"
+<div class="wellnessRow"><div id="continueBtn"><asp:LinkButton CssClass="aButtonSmall" ToolTip="Click here to submit " CausesValidation="true"
                             ValidationGroup="CreateUserWizard1" Width="65" ID="lnkBtnSearch" runat="server"
                             OnClick="lnkBtnSearch_Click">Submit</asp:LinkButton></div>
 </div>

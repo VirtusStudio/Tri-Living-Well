@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<div id="wrapper">
+<div id="contentFrame">
+<div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); margin: 0px auto; padding: 10px; width: 886px; overflow:hidden;">
  <h3>Please enter your email address to have your invite re-sent to you.</h3>
  
 <table class="tblItems">
@@ -24,6 +27,8 @@
         </td>
     </tr>
 </table>
-
+</div>
+</div>
+</div>
 </asp:Content>
 
