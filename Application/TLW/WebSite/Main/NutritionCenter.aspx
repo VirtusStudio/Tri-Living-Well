@@ -2,6 +2,9 @@
     CodeFile="NutritionCenter.aspx.cs" Inherits="NutritionCenter" Title="Nutrition Center" %>
 <%@ Register Src="~/controls/UC_Nutrition_CalorieCalculator_PopUp.ascx" TagName="UC_Nutrition_CalorieCalculator_PopUp" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/UC_Login_Register.ascx" TagName="UC_Login_Register" TagPrefix="uc2" %>
+
+<%@ Register Src="~/controls/UC_Nutrition_FoodJournal_Popup.ascx" TagName="UC_Nutrition_FoodJournal_Popup" TagPrefix="uc3" %>
+
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
@@ -22,6 +25,7 @@
     <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_CONTENT" runat="server"
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
         <uc1:UC_Nutrition_CalorieCalculator_PopUp id="UC_Nutrition_CalorieCalculator_PopUp" runat="server"></uc1:UC_Nutrition_CalorieCalculator_PopUp>
+        <uc3:UC_Nutrition_FoodJournal_Popup id="UC_Nutrition_FoodJournal_Popup1" runat="server"></uc3:UC_Nutrition_FoodJournal_Popup>
         <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255);margin: 0px auto; padding: 10px; width:886px; overflow:hidden;" >
         <div class="overview">
             <table>
@@ -90,7 +94,7 @@
                     
                     <div id="nutritioncenter-button-foodjournal" name="nutritioncenter-button-foodjournal" 
                         style="position:absolute;top:2px;left:2px;width:105px;height:16px;text-align:center;" 
-                        onclick="alert('TODO: add in food journal popup. Opens Food Journal Entry');" ></div>
+                        onclick="popupFoodJournal();" ></div>
 
                     <div id="nutritioncenter-button-scorecard" name="nutritioncenter-button-scorecard" 
                         style="position:absolute;top:25px;left:2px;width:105px;height:16px;text-align:center;" 

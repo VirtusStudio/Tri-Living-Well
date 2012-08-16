@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="My Nutrition" Language="C#" MasterPageFile="~/MasterPages/User.master"
     AutoEventWireup="true" CodeFile="MyNutrition.aspx.cs" Inherits="Main_MyNutrition" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="../Scripts/Common.js" type="text/javascript"></script>

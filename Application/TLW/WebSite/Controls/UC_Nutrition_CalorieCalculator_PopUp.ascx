@@ -56,7 +56,7 @@ Above lines are commented by Netsmartz
           
         <div id="divCalorieCalculator" class="fixed" style="left:470px;top:285px;z-index:1000;display:none;" >
 
-            <div style="width:401px;height:312px;;background-color:#fff;background-image:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/caloric.png);background-repeat:no-repeat;" >
+            <div style="width:401px;height:312px;background-color:#fff;background-image:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/caloric.png);background-repeat:no-repeat;" >
 
                 <div style="position:absolute;top:35px;left:50px;width:230px;height:100px;font-weight:bold;color:#000;">
                     <p>Caloric Requirement</p>

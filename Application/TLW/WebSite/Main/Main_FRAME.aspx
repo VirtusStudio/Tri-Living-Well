@@ -1,13 +1,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/User.master"
     CodeFile="Main_FRAME.aspx.cs" Inherits="Main_Main_FRAME" Title="Dashboard" %>
-    <%@ Register Src="~/controls/UC_DD_Nutrition_Caluclator_PopUp.ascx" TagName="UC_DD_Nutrition_Caluclator_PopUp" TagPrefix="uc5" %>
-<%@ Register Src="~/Controls/UC_Visitlog_Visitlog.ascx" TagName="UC_Visitlog_Visitlog"
-    TagPrefix="uc5" %>
-<%@ Register Src="~/Controls/UC_Login_Register.ascx" TagName="UC_Login_Register"
-    TagPrefix="uc2" %>
-<%@ Register Src="~/Controls/UC_Home_1_Control.ascx" TagName="UC_Home_1_Control"
-    TagPrefix="uc3" %>
-<%@ Register Src="~/Controls/UC_EnterActivity_PopUp.ascx" TagName="UC_EnterActivity_PopUp" TagPrefix="uc2" %>
+<%@ Register Src="~/Controls/UC_Visitlog_Visitlog.ascx" TagName="UC_Visitlog_Visitlog" TagPrefix="uc1" %>
+<%@ Register Src="~/controls/UC_Nutrition_CalorieCalculator_PopUp.ascx" TagName="UC_Nutrition_CalorieCalculator_PopUp" TagPrefix="uc2" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
@@ -36,6 +30,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
     <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_CONTENT" runat="server"
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
     <div role="main" class="contentarea">
@@ -74,8 +69,9 @@
                                 <span id="nutrition-fats-number" name="nutrition-fats-number" style="font-weight:bolder;color:black;" >0</span>
                             </div>
                             <div id="nutrition-calories" name="nutrition-calories" style="position:absolute;left:227px;top:147px;height:15px;width:34px;" 
-                                onclick="alert('TODO: add in meal exchange page.');" >
+                                onclick="editCalorie();" >
                                 <span id="nutrition-calories-number" name="nutrition-calories-number" style="font-weight:bolder;color:black;" >0</span>
+                                <uc2:UC_Nutrition_CalorieCalculator_PopUp id="UC_Nutrition_CalorieCalculator_PopUp" runat="server"></uc2:UC_Nutrition_CalorieCalculator_PopUp> 
                             </div>
 
                             <!-- Nutrition Center Action Buttons-->
@@ -88,8 +84,8 @@
                             <div id="nutrition-mynutrition" name="nutrition-mynutrition" style="position:absolute;left:75px;top:234px;height:18px;width:110px" 
                                 onclick="alert('TODO: add in my nutrition page.');" ></div>
 
-                            <div id="nutrition-mealexchange" name="nutrition-mealexchange" style="position:absolute;left:75px;top:258px;height:18px;width:110px;" 
-                                onclick="alert('TODO: add in meal exchange page.');" ></div>
+                            <div id="nutrition-foodexchange" name="nutrition-foodexchange" style="position:absolute;left:75px;top:258px;height:18px;width:110px;" 
+                                onclick="window.location='FoodExchange.aspx';" ></div>
                             
                         </div>
                     </div>
@@ -218,6 +214,7 @@
             </div>
         </div>
         <!-- right area End here -->
+        <uc1:UC_Visitlog_Visitlog ID="UC_Visitlog_Visitlog1" runat="server" />
     </div>
     <div class="clear">
     </div>
