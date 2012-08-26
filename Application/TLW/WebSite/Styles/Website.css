@@ -9,7 +9,7 @@
 .WebsiteHeaderMenu .rmSlide .rmLink {background-color:#B85B22;}
 .WebsiteHeaderMenu .rmSlide .rmLink:hover {background-color:#0a1524;}
 
-#wrapper 
+#publicWrapper 
 {
     background-color: #ffffff;
     width: 930px;
@@ -17,7 +17,7 @@
 
 }
 
-#contentFrame
+#publicFrame
 {
     background-color: #4a74a3;
     width: 910px;
