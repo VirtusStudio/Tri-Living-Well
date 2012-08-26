@@ -18,9 +18,12 @@ Above lines are commented by Netsmartz
 
     var radTxtBField_01;
 
+    function popupCalorieCalculator() {
+        show('divCalorieCalculator');
+    }
+
     function editCalorie() {
         show('divCalorieCalculator');
-        //bWaiting = true;  commented by Netsmartz
     }
     function hide(objElementID) {
         document.getElementById(objElementID).style.display = "none";
@@ -111,6 +114,7 @@ Above lines are commented by Netsmartz
 
                 <div style="position:absolute;top:240px;left:150px;">
                     <asp:LinkButton  CssClass="aButtonSmall" ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" ValidationGroup="vgCalculator" Text="Update"></asp:LinkButton>
+                    <asp:HyperLink id="hyperBodyFatCalculator" NavigateUrl="http://www.microsoft.com" Text="Microsoft Official Site" Target="_new" runat="server"/>
                 </div>
 
                 <div style="position:absolute;top:240px;left:250px;">

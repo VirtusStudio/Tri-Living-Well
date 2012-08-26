@@ -1,3 +1,20 @@
+/*
+•	Caloric Requirements Calculator Pop-up pre-populated by original DCR calculation during account set-up
+•	Hitting “Update” Updates the User Caloric Requirements in the DB as well as the goal Calories
+•	Original Caloric Requirements (Risk Strat) Calculated by:
+    o	Male BMR = (9.99 x (Weight/2.2)) + (6.25 x (Height*2.54)) – 4.92 x Age + 5
+    o	Female BMR = (9.99 x (Weight/2.2)) + (6.25 x (Height*2.54)) – 4.92 x Age -161
+    o	BMR Multiplied by Activity level selected
+•	Daily Calorie Calculator takes more information into consideration:
+    o	BMR = 370 + (9.79759519 x Lean Body Mass (lbs))
+    o	BMR multiplied by Activity level selected.
+•	Weight Goal Calories = Caloric Requirement – (Loss Frequency Goal x 3500)/7
+•	NOTE: If Lean Body Mass has not been calculated, “Update” button is replaced by prompt: 
+    “Please use Body Fat % Calculator to calculate Lean Body Mass prior to updating Caloric requirements”.
+    o	Body Fat % Calculator text hyperlinks to Body Fat % Calculator
+
+*/
+
 using System;
 using System.Data;
 using System.Configuration;
@@ -27,6 +44,22 @@ public partial class UC_Nutrition_CalorieCalculator_PopUp : System.Web.UI.UserCo
 
     private void fillOutForm()
     {
+        /*
+        •	Caloric Requirements Calculator Pop-up pre-populated by original DCR calculation during account set-up
+        •	Hitting “Update” Updates the User Caloric Requirements in the DB as well as the goal Calories
+        •	Original Caloric Requirements (Risk Strat) Calculated by:
+            o	Male BMR = (9.99 x (Weight/2.2)) + (6.25 x (Height*2.54)) – 4.92 x Age + 5
+            o	Female BMR = (9.99 x (Weight/2.2)) + (6.25 x (Height*2.54)) – 4.92 x Age -161
+            o	BMR Multiplied by Activity level selected
+        •	Daily Calorie Calculator takes more information into consideration:
+            o	BMR = 370 + (9.79759519 x Lean Body Mass (lbs))
+            o	BMR multiplied by Activity level selected.
+        •	Weight Goal Calories = Caloric Requirement – (Loss Frequency Goal x 3500)/7
+        •	NOTE: If Lean Body Mass has not been calculated, “Update” button is replaced by prompt: 
+            “Please use Body Fat % Calculator to calculate Lean Body Mass prior to updating Caloric requirements”.
+            o	Body Fat % Calculator text hyperlinks to Body Fat % Calculator
+
+        */
         string sedentary = "Sedentary - little or no exercise</asp:ListItem";
         string lightly = "Lightly Active - light exercise/sports 1-3 days/week</asp:ListItem";
         string moderately = "Moderately Active - moderate exercise/sports 3-5 days/week</asp:ListItem";
@@ -78,6 +111,12 @@ public partial class UC_Nutrition_CalorieCalculator_PopUp : System.Web.UI.UserCo
             ddlActivityLevel.SelectedIndex = 4;
         else
             ddlActivityLevel.SelectedIndex = 0;
+
+        if (objCaloricRequirementsCalculatorClass.getLeanBodyMass() == 0)
+        {
+            btnUpdate.Visible = false;
+
+        }
 
         objSqlConnClass.CloseConnection();
 

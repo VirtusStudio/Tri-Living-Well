@@ -49,6 +49,7 @@ public class CaloricRequirementsCalculatorClass
         m_decBodyFATPercentage = 0m;
         m_decWaistToHeight = 0m;
         m_decWaistToHip = 0m;
+        GetMemberData();
 	}
     #endregion
 
@@ -67,6 +68,12 @@ public class CaloricRequirementsCalculatorClass
     #endregion
 
     #region Public Methods
+
+    private void GetMemberData()
+    {
+        GetCurrentCaloricRequirements();
+        GetUserData();
+    }
 
     private void GetCurrentCaloricRequirements()
     {
@@ -142,18 +149,24 @@ public class CaloricRequirementsCalculatorClass
             MyDataAdapter.Fill(MyDataSet);
             if (MyDataSet.Tables[0].Rows.Count > 0)
             {
-                m_iPersonalSummaryId = (!Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["intPersonalSummaryId"])) ? 0 : Convert.ToInt32(MyDataSet.Tables[0].Rows[0]["intPersonalSummaryId"]);
-                m_decWeight = (!Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWeight"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWeight"]);
-                m_decWaist = (!Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWaist"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWaist"]);
-                m_decBMI = (!Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decBMI"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decBMI"]);
-                m_decBodyFATPercentage = (!Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decBodyFATPercentage"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decBodyFATPercentage"]);
-                m_decWaistToHeight = (!Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWaistToHeight"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWaistToHeight"]);
-                m_decWaistToHip = (!Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWaistToHip"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWaistToHip"]);
-                m_decLossFrequencyGoal = (!Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decLossFrequencyGoal"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decLossFrequencyGoal"]);
-                m_sActivityLevel = (!Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["sActivityLevel"])) ? "" : MyDataSet.Tables[0].Rows[0]["sActivityLevel"].ToString();
+                m_iPersonalSummaryId = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["intPersonalSummaryId"])) ? 0 : Convert.ToInt32(MyDataSet.Tables[0].Rows[0]["intPersonalSummaryId"]);
+                m_decWeight = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWeight"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWeight"]);
+                m_decWaist = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWaist"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWaist"]);
+                m_decBMI = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decBMI"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decBMI"]);
+                m_decBodyFATPercentage = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decBodyFATPercentage"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decBodyFATPercentage"]);
+                m_decWaistToHeight = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWaistToHeight"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWaistToHeight"]);
+                m_decWaistToHip = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWaistToHip"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWaistToHip"]);
+                m_decLossFrequencyGoal = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decLossFrequencyGoal"])) ? 0 : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decLossFrequencyGoal"]);
+                m_sActivityLevel = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["sActivityLevel"])) ? "" : MyDataSet.Tables[0].Rows[0]["sActivityLevel"].ToString();
 
                 // Lean Body Mass = Total Body Weight x (1 - Body Fat %)
-                m_decLeanBodyMass = m_decWeight * (1 - m_decBodyFATPercentage);
+                if (m_decBodyFATPercentage > 0)
+                {
+                    decimal percentageMultiplier = .01m;
+                    m_decBodyFATPercentage = Decimal.Multiply(m_decBodyFATPercentage, percentageMultiplier);
+                    m_decLeanBodyMass = m_decWeight * (1 - m_decBodyFATPercentage);
+                    m_decLeanBodyMass = Decimal.Round(m_decLeanBodyMass, 2);
+                }
 
                 // Weight Goal Calories = Caloric Requirement – (Loss Frequency Goal x 3500)/7
                 m_iGoalCalories = m_iCaloricRequirement - Convert.ToInt32(((m_decLossFrequencyGoal * 3500) / 7));
@@ -162,6 +175,7 @@ public class CaloricRequirementsCalculatorClass
         catch (Exception ex)
         {
             // TODO: log the error
+            string msg = ex.Message;
         }
     }
 
