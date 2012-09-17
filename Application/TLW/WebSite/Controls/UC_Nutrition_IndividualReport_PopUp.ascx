@@ -56,7 +56,7 @@ Above lines are commented by Netsmartz
         border:none;
     }
     
-    .outside 
+    #divIndividualReportOutside 
     {
         background-color:#992E24;
         width:570px;
@@ -66,10 +66,9 @@ Above lines are commented by Netsmartz
         -webkit-border-radius: 10px;
         -khtml-border-radius: 10px;
         border-radius: 10px;
-        
     }
     
-    .inside 
+    #divIndividualReportInside 
     {
         background-color:#F9D4A8;
         width:100%;
@@ -109,11 +108,10 @@ Above lines are commented by Netsmartz
           
         <div id="divIndividualReport" class="fixed" style="display:none;">
 
-            <div id="divContainer"  class="outside" >
+            <div id="divIndividualReportOutside" >
                 
-                <div id="divInside"  class="inside" >
+                <div id="divIndividualReportInside" >
 
-                    <div id="divMiddle" style="position:absolute;top:50px;left:50px;width:500px;height:300px;" >
                         <table>
                             <tr>
                                 <th>Measurement</th>
@@ -163,18 +161,18 @@ Above lines are commented by Netsmartz
 
                             <tr>
                                 <td colspan="4" align="right">
-                                    <a class="aButtonSmall" id="A2" onclick="')" >Print</a>
-                                    <a class="aButtonSmall" id="A1" onclick="hide('divBodyFatCalculator')" >Close</a>
+                                    <br />
+                                    <asp:LinkButton  CssClass="aButtonSmall" ID="btnPrint" runat="server" OnClick="btnPrint_Click" Text="Print"></asp:LinkButton>
+                                    <a class="aButtonSmall" id="btnClose" onclick="hide('divIndividualReport');" >Close</a>
                                 </td>
                             </tr>                                                                                           
                         </table>
-                    </div><!-- end divMiddle -->
 
-                </div><!-- end divInside -->
+                </div><!-- end divIndividualReportInside -->
 
-            </div><!-- divContainer -->
+            </div><!-- divIndividualReportOutside -->
 
-        </div><!-- end divScorecard -->
+        </div><!-- end divIndividualReport -->
 
 
 <telerik:RadScriptBlock ID="RadScriptBlock2" runat="server">
@@ -225,7 +223,7 @@ Above lines are commented by Netsmartz
     var myWidth;
     var myHeight;
     var calcheight = 290;
-    var calcWidth = 500;
+    var calcWidth = 570;
 
     // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
     if (typeof window.innerWidth != 'undefined') {

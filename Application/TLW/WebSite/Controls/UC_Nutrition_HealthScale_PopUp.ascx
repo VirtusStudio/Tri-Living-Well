@@ -56,11 +56,11 @@ Above lines are commented by Netsmartz
         border:none;
     }
     
-    .outside 
+    #divHealthScaleOutside 
     {
         background-color:#992E24;
         width:570px;
-        height:260px;
+        height:300px;
         padding:20px;
         margin-right:-20px;
         -moz-border-radius: 10px;
@@ -70,7 +70,7 @@ Above lines are commented by Netsmartz
         
     }
     
-    .inside 
+    #divHealthScaleInsideTop 
     {
         background-color:#F9D4A8;
         width:550px;
@@ -82,11 +82,11 @@ Above lines are commented by Netsmartz
         border-radius: 10px;
     }
 
-    .insideBottom 
+    #divHealthScaleInsideBottom 
     {
         background-color:#F9D4A8;
         width:550px;
-        height:100px;
+        height:140px;
         padding-left:20px;
         margin-top:20px;
         padding-top:10px;
@@ -124,8 +124,9 @@ Above lines are commented by Netsmartz
           
         <div id="divHealthScale" class="fixed" style="display:none;">
 
-            <div id="divContainer"  class="outside" >
-                <div class="inside" >
+            <div id="divHealthScaleOutside" >
+
+                <div id="divHealthScaleInsideTop" >
 
                     <div style="float:left;margin-right:10px;">
                         <p>Goal Weight (lbs): <asp:TextBox ID="textGoalWeight" runat="server" Columns="20"></asp:TextBox></p>
@@ -140,9 +141,9 @@ Above lines are commented by Netsmartz
                         </a>
                     </div>
 
-                </div><!-- inside -->
+                </div><!-- divHealthScaleInsideTop -->
         
-                <div class="insideBottom" >
+                <div id="divHealthScaleInsideBottom" >
 
                     <table>                                                                                                                                                                             <table style="width:500px;">
                         <tr>
@@ -187,13 +188,14 @@ Above lines are commented by Netsmartz
                                 <asp:TextBox ID="TextBox9" runat="server" Columns="10"></asp:TextBox>
                             </td>
                         </tr>
+                        <tr><td colspan="5" align="right"><a class="aButtonSmall" id="btnClose" onclick="hide('divHealthScale')" >Close</a></td></tr>
                     </table>
 
-                </div><!-- insideBottom -->
+                </div><!-- divHealthScaleInsideBottom -->
 
-            </div><!-- divContainer -->
+            </div><!-- divHealthScaleOutside -->
 
-        </div><!-- end divScorecard -->
+        </div><!-- end divHealthScale -->
 
 
 <telerik:RadScriptBlock ID="RadScriptBlock2" runat="server">
@@ -243,7 +245,7 @@ Above lines are commented by Netsmartz
 
     var myWidth;
     var myHeight;
-    var calcheight = 260;
+    var calcheight = 300;
     var calcWidth = 570;
 
     // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight

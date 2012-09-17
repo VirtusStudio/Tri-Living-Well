@@ -54,7 +54,7 @@ public partial class UC_Nutrition_IndividualReport_PopUp : System.Web.UI.UserCon
           
     }
 
-    protected void btnSave_Click(object sender, EventArgs e)
+    protected void btnPrint_Click(object sender, EventArgs e)
     {
 
 

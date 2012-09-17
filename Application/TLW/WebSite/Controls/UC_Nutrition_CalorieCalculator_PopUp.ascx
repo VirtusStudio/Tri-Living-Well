@@ -33,8 +33,6 @@ Above lines are commented by Netsmartz
         document.getElementById(objElementID).style.display = "";
     }
 
-
-
 </script>
 
 <telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">
@@ -55,75 +53,161 @@ Above lines are commented by Netsmartz
         hide('divCalorieCalculator');
     }
 </script>
-       </telerik:RadScriptBlock>      
+       </telerik:RadScriptBlock>  
+           
+<style type="text/css">
+
+    td 
+    {
+        padding-left:10px; 
+        padding-bottom: 5px;   
+        border:none;
+    }
+    
+    #divCalorieCalculatorOutside 
+    {
+        background-color:#992E24;
+        width:450px;
+        height:280px;
+        padding:20px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        border-radius: 10px;
+        
+    }
+    
+    #divCalorieCalculatorTop 
+    {
+        background-color:#F9D4A8;
+        width:100%;
+        height:50px;
+        margin-bottom:20px;
+        padding-top:10px;
+        padding-bottom:10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        border-radius: 10px;
+    }
+    
+   #divCalorieCalculatorBottom 
+    {
+        background-color:#F9D4A8;
+        width:100%;
+        height:175px;
+        padding-top:10px;
+        padding-bottom:10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        border-radius: 10px;
+    }
+    
+
+    hr 
+    {
+        height:3px;
+        color:#000;
+        background-color: #000;   
+    }
+    
+    .aButtonSmall
+    {
+      display:inline-table;
+      padding:2px 5px 2px 5px;
+      border:none;
+      text-align:center;
+      color:#ffffff;
+      text-decoration:none;
+      vertical-align:middle;
+      line-height:27px;
+      font-weight:bold;
+      font-size:12px;
+      background-color:#1581AE;
+    }
+
+</style>
           
-        <div id="divCalorieCalculator" class="fixed" style="left:470px;top:285px;z-index:1000;display:none;" >
+    <div id="divCalorieCalculator" class="fixed" style="display:none;">
 
-            <div style="width:401px;height:312px;background-color:#fff;background-image:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/caloric.png);background-repeat:no-repeat;" >
+        <div id="divCalorieCalculatorOutside" >
 
-                <div style="position:absolute;top:35px;left:50px;width:230px;height:100px;font-weight:bold;color:#000;">
-                    <p>Caloric Requirement</p>
-                    <p>Daily Goal Calories</p>
-                </div>
+            <div id="divCalorieCalculatorTop" >
+                <table>
+                    <tr>
+                        <td>Caloric Requirement</td>
+                        <td><asp:Label ID="labelCalories" runat="server" Text=""></asp:Label></td>
+                    </tr>                        
+                    <tr>
+                        <td>Daily Goal Calories</asp:Label></td>
+                        <td><asp:Label ID="labelGoalCalories" runat="server" Text=""></asp:Label></td>
+                    </tr> 
+                </table>
+            </div>                    
 
-                <div style="position:absolute;top:35px;left:200px;width:150px;height:100px;font-weight:bold;color:#000;text-align:right;">
-                    <p><asp:Label ID="labelCalories" runat="server" Text=""></asp:Label></p>
-                    <p><asp:Label ID="labelGoalCalories" runat="server" Text=""></asp:Label></p>
-                </div>
+            <div id="divCalorieCalculatorBottom" >
+                <table>
+                    <tr>
+                        <td>Weight</td>
+                        <td><asp:Label ID="labelWeight" runat="server" Text="" ></asp:Label></td>
+                    </tr>                        
+                    <tr>
+                        <td>Lean Body Mass</td>
+                        <td><asp:Label ID="labelLeanBodyMass" runat="server" Text=""></asp:Label></td>
+                    </tr> 
+                    <tr>
+                        <td>Loss Frequency Goal</td>
+                        <td>
+                            <asp:DropDownList ID="ddlLossFrequencyGoal" runat="server" Width="140">
+                                <asp:ListItem Value="0.5">1/2 lb.</asp:ListItem>
+                                <asp:ListItem Value="1.0">1 lb.</asp:ListItem>
+                                <asp:ListItem Value="1.5">1 1/2 lb.</asp:ListItem>
+                                <asp:ListItem Value="2">2 lb.</asp:ListItem>
+                                <asp:ListItem Value="2.5">2 1/2 lb.</asp:ListItem>
+                                <asp:ListItem Value="3.0">3 lb.</asp:ListItem>
+                                <asp:ListItem Value="3.5">3 1/2 lb.</asp:ListItem>
+                                <asp:ListItem Value="4.0">4 lb.</asp:ListItem>
+                                <asp:ListItem Value="4.5">4 1/2 lb.</asp:ListItem>
+                                <asp:ListItem Value="5.0">5 lb.</asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>Activity Level</td>
+                        <td>
+                            <asp:DropDownList ID="ddlActivityLevel" runat="server" Width="140">
+                                <asp:ListItem Value="1">Sedentary - little or no exercise</asp:ListItem>
+                                <asp:ListItem Value="2">Lightly Active - light exercise/sports 1-3 days/week</asp:ListItem>
+                                <asp:ListItem Value="3">Moderately Active - moderate exercise/sports 3-5 days/week</asp:ListItem>
+                                <asp:ListItem Value="4">Very Active - hard exercise/sports 6-7 days/week</asp:ListItem>
+                                <asp:ListItem Value="5">Extra Active - very hard daily exercise/sports & physical job or 2X day training</asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div style="padding-left:10px;padding-right:10px;">
+                            <asp:Label ID="labelLBM1" runat="server" Text="Please use the " ></asp:Label>
+                            <asp:HyperLink ID="hylinkLBM" runat="server" onclick="hide('divCalorieCalculator');popupBodyFat();">Body % Fat Calculator</asp:HyperLink>
+                            <asp:Label ID="labelLBM2" runat="server" Text="to calculate Lean Body Mass prior to updating Caloric Requirements." ></asp:Label>
+                            </div>
+                        </td>
+                    </tr>                                              
+                    <tr>
+                        <td colspan="2" align="right">
+                            <asp:LinkButton  CssClass="aButtonSmall" ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" ValidationGroup="vgCalculator" Text="Update"></asp:LinkButton>
+                            <a class="aButtonSmall" id="btnClose" onclick="hide('divCalorieCalculator')" >Close</a>
+                        </td>
+                    </tr>                                              
+                        
+                         
+                </table>
+            </div>                        
 
-                <div style="position:absolute;top:140px;left:50px;width:230px;height:100px;font-weight:bold;color:#000;">
-                    <p style="line-height:50%" >Weight</p>
-                    <p style="line-height:50%" >Lean Body Mass</p>
-                    <p style="line-height:100%" >Loss Frequency Goal</p>
-                    <p style="line-height:100%" >Activity Level</p>
-                </div>
+        </div><!-- divCalorieCalculatorOutside -->
 
-                <div style="position:absolute;top:140px;left:200px;width:150px;height:40px;font-weight:bold;color:#000;text-align:right;">
-                    <p style="line-height:50%;" ><asp:Label ID="labelWeight" runat="server" Text="" ></asp:Label></p>
-                    <p style="line-height:50%;" ><asp:Label ID="labelLeanBodyMass" runat="server" Text=""></asp:Label></p>
-                </div>
-
-                <div style="position:absolute;top:175px;left:210px;width:150px;height:20px;font-weight:bold;color:#000;">
-                    <p> 
-                        <asp:DropDownList ID="ddlLossFrequencyGoal" runat="server" Width="140">
-                            <asp:ListItem Value="0.5">1/2 lb.</asp:ListItem>
-                            <asp:ListItem Value="1.0">1 lb.</asp:ListItem>
-                            <asp:ListItem Value="1.5">1 1/2 lb.</asp:ListItem>
-                            <asp:ListItem Value="2">2 lb.</asp:ListItem>
-                            <asp:ListItem Value="2.5">2 1/2 lb.</asp:ListItem>
-                            <asp:ListItem Value="3.0">3 lb.</asp:ListItem>
-                            <asp:ListItem Value="3.5">3 1/2 lb.</asp:ListItem>
-                            <asp:ListItem Value="4.0">4 lb.</asp:ListItem>
-                            <asp:ListItem Value="4.5">4 1/2 lb.</asp:ListItem>
-                            <asp:ListItem Value="5.0">5 lb.</asp:ListItem>
-                        </asp:DropDownList>
-                    </p>
-                </div>
-                
-                <div style="position:absolute;top:200px;left:210px;width:150px;height:20px;font-weight:bold;color:#000;">
-                    <p>
-                        <asp:DropDownList ID="ddlActivityLevel" runat="server" Width="140">
-                            <asp:ListItem Value="1">Sedentary - little or no exercise</asp:ListItem>
-                            <asp:ListItem Value="2">Lightly Active - light exercise/sports 1-3 days/week</asp:ListItem>
-                            <asp:ListItem Value="3">Moderately Active - moderate exercise/sports 3-5 days/week</asp:ListItem>
-                            <asp:ListItem Value="4">Very Active - hard exercise/sports 6-7 days/week</asp:ListItem>
-                            <asp:ListItem Value="5">Extra Active - very hard daily exercise/sports & physical job or 2X day training</asp:ListItem>
-                        </asp:DropDownList>
-                    </p>
-                </div>
-
-                <div style="position:absolute;top:240px;left:150px;">
-                    <asp:LinkButton  CssClass="aButtonSmall" ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" ValidationGroup="vgCalculator" Text="Update"></asp:LinkButton>
-                    <asp:HyperLink id="hyperBodyFatCalculator" NavigateUrl="http://www.microsoft.com" Text="Microsoft Official Site" Target="_new" runat="server"/>
-                </div>
-
-                <div style="position:absolute;top:240px;left:250px;">
-                    <a class="aButtonSmall" id="btnClose" onclick="hide('divCalorieCalculator')" >Close</a>
-                </div>
-
-            </div>
-
-        </div>
+    </div><!-- end divCalorieCalculator -->
 
 
 <telerik:RadScriptBlock ID="RadScriptBlock2" runat="server">
@@ -168,3 +252,33 @@ Above lines are commented by Netsmartz
     }
 </script>
 </telerik:RadScriptBlock>
+<script type="text/javascript">
+
+    var myWidth;
+    var myHeight;
+    var calcheight = 280;
+    var calcWidth = 450;
+
+    // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
+    if (typeof window.innerWidth != 'undefined') {
+        myWidth = window.innerWidth;
+        myHeight = window.innerHeight;
+    }
+    // IE6 in standards compliant mode (i.e. with a valid doctype as the first line in the document)  
+    else if (typeof document.documentElement != 'undefined' && typeof document.documentElement.clientWidth != 'undefined' && document.documentElement.clientWidth != 0) {
+        myWidth = document.documentElement.clientWidth;
+        myHeight = document.documentElement.clientHeight;
+    }
+    // older versions of IE   
+    else {
+        myWidth = document.getElementsByTagName('body')[0].clientWidth;
+        myHeight = document.getElementsByTagName('body')[0].clientHeight;
+    }
+
+
+    var calcTop = (myHeight - calcheight) / 2;
+    var calcLeft = (myWidth - calcWidth) / 2;
+    document.getElementById("divCalorieCalculator").style.top = calcTop + 'px';
+    document.getElementById("divCalorieCalculator").style.left = calcLeft + 'px';
+
+</script>

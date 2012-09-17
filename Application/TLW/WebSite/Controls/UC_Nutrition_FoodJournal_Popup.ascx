@@ -50,11 +50,11 @@
         border:none;
     }
     
-    .outside 
+    #divFoodJournalOutside 
     {
         background-color:#992E24;
         width:570px;
-        height:600px;
+        height:650px;
         padding:20px;
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
@@ -63,11 +63,11 @@
         
     }
     
-    .inside 
+    #divFoodJournalTop 
     {
         background-color:#F9D4A8;
         width:100%;
-        height:385px;
+        height:420px;
         padding-top:10px;
         padding-bottom:10px;
         -moz-border-radius: 10px;
@@ -76,7 +76,7 @@
         border-radius: 10px;
     }
 
-    .insideBottom 
+    #divFoodJournalInsideBottom 
     {
         background-color:#F9D4A8;
         width:100%;
@@ -115,11 +115,19 @@
 </style>
 <div id="divFoodJournal" class="fixed" style="left:400px;top:120px;z-index:1000;display:none;" >
 
-    <div class="outside" >
+    <div id="divFoodJournalOutside" >
 
-        <div class="inside" >
+        <div id="divFoodJournalTop" >
 
             <table style="width:500px;">
+                <tr>
+                    <td colspan="8" align="right">
+                        <asp:TextBox ID="textJournalDate" runat="server" MaxLength="15" Columns="10"></asp:TextBox>
+                        <img alt="" src="<%=AppConfig.GetBaseSiteUrl() %>images/Calendar.png" id="imgJournalDate" />
+                        <cc1:CalendarExtender ID="calExtJournalDate" TargetControlID="textJournalDate" PopupButtonID="imgJournalDate" Format="MM/dd/yyyy" runat="server"></cc1:CalendarExtender>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="textPrintFrom" Display="Dynamic" ValidationGroup="Step5" ID="RequiredFieldValidator1" ErrorMessage="Please Enter Date." CssClass="required"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
                 <tr>
                     <th>Meal</th>
                     <th>Time</th>
@@ -454,22 +462,22 @@
                     <td align="right"><span style="padding-top:5px;font-weight:bold;">Totals</span></td>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:TextBox ID="textTotalMilk" runat="server" MaxLength="7" Columns="5" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="textTotalMilk" runat="server" MaxLength="7" Columns="5" ReadOnly="true" Text="0" ></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textTotalFruit" runat="server" MaxLength="7" Columns="5" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="textTotalFruit" runat="server" MaxLength="7" Columns="5" ReadOnly="true" Text="0" ></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textTotalVeg" runat="server" MaxLength="7" Columns="5" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="textTotalVeg" runat="server" MaxLength="7" Columns="5" ReadOnly="true" Text="0"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textTotalStarch" runat="server" MaxLength="7" Columns="5" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="textTotalStarch" runat="server" MaxLength="7" Columns="5" ReadOnly="true" Text="0"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textTotalProtein" runat="server" MaxLength="7" Columns="5" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="textTotalProtein" runat="server" MaxLength="7" Columns="5" ReadOnly="true" Text="0"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textTotalFat" runat="server" MaxLength="7" Columns="5" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="textTotalFat" runat="server" MaxLength="7" Columns="5" ReadOnly="true" Text="0"></asp:TextBox>
                     </td> 
                 </tr>
 
@@ -479,22 +487,22 @@
                     <td align="right"><span style="padding-top:5px;font-weight:bold;">Goal</span></td>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:TextBox ID="textGoalMilk" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None"></asp:TextBox>
+                        <asp:TextBox ID="textGoalMilk" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None" Text="0"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textGoalFruit" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None"></asp:TextBox>
+                        <asp:TextBox ID="textGoalFruit" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None" Text="0"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textGoalVeg" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None"></asp:TextBox>
+                        <asp:TextBox ID="textGoalVeg" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None" Text="0"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textGoalStarch" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None"></asp:TextBox>
+                        <asp:TextBox ID="textGoalStarch" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None" Text="0"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textGoalProtein" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None"></asp:TextBox>
+                        <asp:TextBox ID="textGoalProtein" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None" Text="0"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="textGoalFat" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None"></asp:TextBox>
+                        <asp:TextBox ID="textGoalFat" runat="server" MaxLength="7" Columns="5" ReadOnly="true" BackColor="#F9D4A8" BorderStyle="None" Text="0"></asp:TextBox>
                     </td> 
                 </tr>
 
@@ -508,47 +516,22 @@
                 <tr>
                     <td colspan="8">
 
-                        <asp:Button ID="buttonPrint" Height="25" runat="server" Text="Print" CssClass="aButtonSmall"
-                            ValidationGroup="Step5" CausesValidation="true" OnClick="btnPrint_Click" />
+                        <asp:LinkButton  CssClass="aButtonSmall" ID="buttonPrint" runat="server" OnClick="btnPrint_Click" CausesValidation="true" ValidationGroup="Step5" Text="Print"></asp:LinkButton>
 
-                        &nbsp;&nbsp;
-
-                        <asp:TextBox ID="textPrintFrom" runat="server" MaxLength="15" Columns="7"></asp:TextBox>
-                        
-                        <img alt="" src="<%=AppConfig.GetBaseSiteUrl() %>images/Calendar.png" id="img1" />
-                        
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="textPrintFrom" Display="Dynamic"
-                            ValidationGroup="Step5" ID="RequiredFieldValidator2" ErrorMessage="Please Enter Date."
-                            CssClass="required"></asp:RequiredFieldValidator>
-                        
-                        <cc1:CalendarExtender ID="CalendarExtender2" TargetControlID="textPrintFrom" PopupButtonID="imgCal"
-                            Format="MM/dd/yyyy" runat="server">
-                        </cc1:CalendarExtender>
-                        
-                        &nbsp;&nbsp;
+                        <asp:TextBox ID="textPrintFrom" runat="server" MaxLength="15" Columns="10"></asp:TextBox>
+                        <img alt="" src="<%=AppConfig.GetBaseSiteUrl() %>images/Calendar.png" id="imgPrintFrom" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="textPrintFrom" Display="Dynamic" ValidationGroup="Step5" ID="RequiredFieldValidator2" ErrorMessage="Please Enter Date." CssClass="required"></asp:RequiredFieldValidator>
+                        <cc1:CalendarExtender ID="CalendarExtender2" TargetControlID="textPrintFrom" PopupButtonID="imgPrintFrom" Format="MM/dd/yyyy" runat="server"></cc1:CalendarExtender>
                         
                         <span style="padding-top:5px;font-weight:bold;">To</span>
                         
-                        &nbsp;&nbsp;
+                        <asp:TextBox ID="textPrintTo" runat="server" MaxLength="15" Columns="10"></asp:TextBox>
+                        <img alt="" src="<%=AppConfig.GetBaseSiteUrl() %>images/Calendar.png" id="imgPrintTo" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="textPrintTo" Display="Dynamic" ValidationGroup="Step5" ID="RequiredFieldValidator3" ErrorMessage="Please Enter Date." CssClass="required"></asp:RequiredFieldValidator>
+                        <cc1:CalendarExtender ID="CalendarExtender3" TargetControlID="textPrintTo" PopupButtonID="imgPrintTo" Format="MM/dd/yyyy" runat="server"></cc1:CalendarExtender>
                         
-                        <asp:TextBox ID="textPrintTo" runat="server" MaxLength="15" Columns="7"></asp:TextBox>
-                        
-                        <img alt="" src="<%=AppConfig.GetBaseSiteUrl() %>images/Calendar.png" id="img2" />
-                        
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="textPrintTo" Display="Dynamic"
-                            ValidationGroup="Step5" ID="RequiredFieldValidator3" ErrorMessage="Please Enter Date."
-                            CssClass="required"></asp:RequiredFieldValidator>
-                        
-                        <cc1:CalendarExtender ID="CalendarExtender3" TargetControlID="textPrintTo" PopupButtonID="imgCal"
-                            Format="MM/dd/yyyy" runat="server">
-                        </cc1:CalendarExtender>
-                        
-                        &nbsp;&nbsp;
-                        
-                        <asp:Button ID="buttonSave" Height="25" runat="server" Text="Save" CssClass="aButtonSmall"
-                            ValidationGroup="Step5" CausesValidation="true" OnClick="btnSave_Click" />
-
-                        <asp:Button ID="buttonClose" Height="25" runat="server" Text="Close" CssClass="aButtonSmall" OnClientClick="javascript:closeFoodJournal();"  />
+                        <asp:LinkButton  CssClass="aButtonSmall" ID="buttonSave" runat="server" OnClick="btnSave_Click" CausesValidation="true" ValidationGroup="Step5" Text="Save"></asp:LinkButton>
+                        <a class="aButtonSmall" id="buttonClose" onclick="closeFoodJournal();" >Close</a>
                     </td> 
                 </tr>
 
@@ -557,7 +540,7 @@
 
         </div>
 
-        <div class="insideBottom" >
+        <div id="divFoodJournalInsideBottom" >
             
             <div style="clear:both;"></div>
 
@@ -573,7 +556,7 @@
                     <tr>
                         <th>Food Type</th><th># Starch</th><th># Fat</th><th>Portion Size</th>
                     </tr>
-
+                    <tr><td colspan="4"><hr /></td></tr>
                     <tr>
                         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
                     </tr>
@@ -643,3 +626,34 @@
     }
 </script>
 </telerik:RadScriptBlock>
+
+<script type="text/javascript">
+
+    var myWidth;
+    var myHeight;
+    var calcheight = 600;
+    var calcWidth = 570;
+
+    // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
+    if (typeof window.innerWidth != 'undefined') {
+        myWidth = window.innerWidth;
+        myHeight = window.innerHeight;
+    }
+    // IE6 in standards compliant mode (i.e. with a valid doctype as the first line in the document)  
+    else if (typeof document.documentElement != 'undefined' && typeof document.documentElement.clientWidth != 'undefined' && document.documentElement.clientWidth != 0) {
+        myWidth = document.documentElement.clientWidth;
+        myHeight = document.documentElement.clientHeight;
+    }
+    // older versions of IE   
+    else {
+        myWidth = document.getElementsByTagName('body')[0].clientWidth;
+        myHeight = document.getElementsByTagName('body')[0].clientHeight;
+    }
+
+
+    var calcTop = (myHeight - calcheight) / 2;
+    var calcLeft = (myWidth - calcWidth) / 2;
+    document.getElementById("divFoodJournal").style.top = calcTop + 'px';
+    document.getElementById("divFoodJournal").style.left = calcLeft + 'px';
+
+</script>

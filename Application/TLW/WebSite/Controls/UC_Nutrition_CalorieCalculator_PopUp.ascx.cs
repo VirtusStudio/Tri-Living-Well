@@ -115,7 +115,16 @@ public partial class UC_Nutrition_CalorieCalculator_PopUp : System.Web.UI.UserCo
         if (objCaloricRequirementsCalculatorClass.getLeanBodyMass() == 0)
         {
             btnUpdate.Visible = false;
-
+            labelLBM1.Visible = true;
+            hylinkLBM.Visible = true;
+            labelLBM2.Visible = true;
+        }
+        else
+        {
+            btnUpdate.Visible = true;
+            labelLBM1.Visible = false;
+            hylinkLBM.Visible = false;
+            labelLBM2.Visible = false;
         }
 
         objSqlConnClass.CloseConnection();

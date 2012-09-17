@@ -56,7 +56,7 @@ Above lines are commented by Netsmartz
         border:none;
     }
     
-    .outside 
+    #divHealthyWeightCalculatorOutside 
     {
         background-color:#992E24;
         width:570px;
@@ -70,12 +70,13 @@ Above lines are commented by Netsmartz
         
     }
     
-    .insideTop 
+    #divHealthyWeightCalculatorInsideTop 
     {
-        background-color:#F9D4A8;
-        width:550px;
+        background-color:blue;
+        width:100%;
         height:75px;
-        padding:10px;
+        padding-top:10px;
+        padding-bottom:10px;
         margin-bottom:20px;        
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
@@ -83,24 +84,24 @@ Above lines are commented by Netsmartz
         border-radius: 10px;
     }
 
-    .insideMiddle 
+    #divHealthyWeightCalculatorInsideMiddle 
     {
         background-color:#F9D4A8;
-        width:550px;
+        width:100%;
         height:45px;
-        padding:10px;        
+        padding:10px;
+        margin-bottom:20px;          
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         -khtml-border-radius: 10px;
         border-radius: 10px;
     }
 
-    .insideBottom 
+    #divHealthyWeightCalculatorInsideBottom
     {
         background-color:#F9D4A8;
-        width:550px;
+        width:100%;
         height:360px;
-        padding-left:20px;
         margin-top:20px;
         padding-top:10px;
         padding-bottom:10px;
@@ -137,9 +138,9 @@ Above lines are commented by Netsmartz
           
         <div id="divHealthyWeightCalculator" class="fixed" style="display:none;">
 
-            <div id="divContainer"  class="outside" >
+            <div id="divHealthyWeightCalculatorOutside" >
 
-                <div class="insideTop" >
+                <div class="divHealthyWeightCalculatorInsideTop" >
 
                     <table>
                         <tr>
@@ -160,9 +161,9 @@ Above lines are commented by Netsmartz
                         </tr>
                     </table>
 
-                </div><!-- inside -->
+                </div><!-- divHealthyWeightCalculatorInsideTop -->
         
-                <div class="insideMiddle" >
+                <div class="divHealthyWeightCalculatorInsideMiddle" >
 
                     <div style="float:left;margin-left:10px;">
                         <p>Lean Body Mass: <asp:Label ID="labelLeanBodyMass" runat="server" Columns="20"></asp:Label></p>
@@ -172,16 +173,16 @@ Above lines are commented by Netsmartz
                         <p>Body Fat Weight:&nbsp;<asp:Label ID="labelBodyFatWeight" runat="server" Columns="20"></asp:Label></p>
                     </div>
 
-                </div><!-- insideMiddle -->
+                </div><!-- divHealthyWeightCalculatorInsideMiddle -->
 
-                <div class="insideBottom" >
+                <div class="divHealthyWeightCalculatorInsideBottom" >
 
                     <div align="center" >Select a Weight Loss Method</div>
                     <br />
                     <div align="center" >
-                        <asp:RadioButton ID="radFatGoal" runat="server" TextAlign="Right" Text="Fat % Goal" Checked="true" ></asp:RadioButton>
+                        <asp:RadioButton ID="radFatGoal" runat="server" TextAlign="Right" Text="Fat % Goal" Checked="true" onclick="show('divFatGoal');hide('divWeightGoal');" ></asp:RadioButton>
                         &nbsp;&nbsp;&nbsp;
-                        <asp:RadioButton ID="radWeightGoal" runat="server" TextAlign="Right" Text="Weight Goal" ></asp:RadioButton>
+                        <asp:RadioButton ID="radWeightGoal" runat="server" TextAlign="Right" Text="Weight Goal" onclick="show('divWeightGoal');hide('divFatGoal');" ></asp:RadioButton>
                     </div>
                     <br />
                     <div id="divFatGoal" align="center" >
@@ -260,14 +261,19 @@ Above lines are commented by Netsmartz
                         </table>
                     </div>
                     <br />
-                    <div align="center"><asp:LinkButton  CssClass="aButtonSmall" ID="btnCalculate" runat="server" OnClick="btnCalculate_Click" Text="Calculate"></asp:LinkButton></div>
-                    <div align="center"><p>Target Date: <asp:Label ID="labelTargetDate" Columns="5" ReadOnly="true" runat="server" ></asp:Label></p></div>
+                    <div align="center">
+                        Target Date: 
+                        <asp:Label ID="labelTargetDate" Columns="5" ReadOnly="true" runat="server" ></asp:Label>
+                        <asp:LinkButton  CssClass="aButtonSmall" ID="btnCalculate" runat="server" OnClick="btnCalculate_Click" Text="Calculate"></asp:LinkButton>
+                        <a class="aButtonSmall" id="buttonClose" onclick="hide('divHealthyWeightCalculator');" >Close</a>
+                    </div>
+                    <div align="center"><p></p></div>
 
-                </div><!-- insideBottom -->
+                </div><!-- divHealthyWeightCalculatorInsideBottom -->
 
-            </div><!-- divContainer -->
+            </div><!-- divHealthyWeightCalculatorOutside -->
 
-        </div><!-- end divScorecard -->
+        </div><!-- end divHealthyWeightCalculator -->
 
 
 <telerik:RadScriptBlock ID="RadScriptBlock2" runat="server">

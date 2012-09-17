@@ -33,6 +33,9 @@ Above lines are commented by Netsmartz
 
 </script>
 
+
+
+
 <telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">
 <!--Transparency-->
 <script type="text/javascript">
@@ -56,7 +59,7 @@ Above lines are commented by Netsmartz
         border:none;
     }
     
-    .outside 
+    #divScorecardOutside 
     {
         background-color:#992E24;
         width:570px;
@@ -69,7 +72,7 @@ Above lines are commented by Netsmartz
         
     }
     
-    .inside 
+    #divScorecardInside 
     {
         background-color:#F9D4A8;
         width:100%;
@@ -81,6 +84,9 @@ Above lines are commented by Netsmartz
         -khtml-border-radius: 10px;
         border-radius: 10px;
     }
+
+
+
 
     hr 
     {
@@ -109,11 +115,11 @@ Above lines are commented by Netsmartz
           
         <div id="divScorecard" class="fixed" style="display:none;">
 
-            <div id="divContainer"  class="outside" >
+            <div id="divScorecardOutside" >
                 
-                <div id="divInside"  class="inside" >
+                <div id="divScorecardInside" >
 
-                    <div id="divTop">
+                    <div id="divScorecardTop">
                         <a href="#" >
                             <div style="position:absolute;top:0px;left:40px;width:100px;height:120px;background:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/calculator.png) no-repeat center center;" >
                                 <span style="position:absolute;top:90px;left:25px;">Body Fat Calculator</span>
@@ -134,16 +140,18 @@ Above lines are commented by Netsmartz
 
                             <div style="position:absolute;top:35px;left:450px;width:100px;height:100px;" >
                                 <p>Entry Date: </p>
-                                <asp:TextBox ID="textEntryDate" runat="server" MaxLength="15" Columns="7"></asp:TextBox>
+                                <asp:TextBox ID="textEntryDate" runat="server" MaxLength="15" Columns="7" ></asp:TextBox>
+                                <asp:ImageButton ID="btnPopCalendar" ImageUrl="~/Images/Calendar.png" runat="server" />
                                 <img alt="" src="<%=AppConfig.GetBaseSiteUrl() %>images/Calendar.png" id="img1" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="textEntryDate" Display="Dynamic"
-                                        ValidationGroup="Step5" ID="RequiredFieldValidator2" ErrorMessage="Please Enter Date."
-                                        CssClass="required"></asp:RequiredFieldValidator>  
+                                
                             </div>
 
                     </div><!-- end divTop -->
                 
-                    <div id="divMiddle" style="position:absolute;top:140px;left:50px;width:500px;height:300px;" >
+                    <div id="divScorecardMiddle" style="position:absolute;top:140px;left:50px;width:500px;height:300px;" >
+                        <asp:HiddenField ID="hiddenUserId" runat="server" />
+                        <asp:HiddenField ID="hiddenBaselinePersonalSummaryId" runat="server" />
+                        <asp:HiddenField ID="hiddenLatestPersonalSummaryId" runat="server" />
                         <table>
                             <tr>
                                 <th>Measurement</th>
@@ -200,68 +208,25 @@ Above lines are commented by Netsmartz
 
                             <tr>
                                 <td colspan="5" align="right">
-                                    <a class="aButtonSmall" id="A1" onclick="hide('divBodyFatCalculator')" >Close</a>
+                                    <asp:LinkButton  CssClass="aButtonSmall" ID="buttonSave" runat="server" OnClick="btnSave_Click" Text="Save"></asp:LinkButton>
+                                    <a class="aButtonSmall" id="A1" onclick="hide('divScorecard')" >Close</a>
                                 </td>
                             </tr>                                                                                           
                         </table>
-                    </div><!-- end divMiddle -->
+                    </div><!-- end divScorecardMiddle -->
 
-                </div><!-- end divInside -->
+                </div><!-- end divScorecardInside -->
 
-            </div><!-- divContainer -->
+            </div><!-- divScorecardOutside -->
 
         </div><!-- end divScorecard -->
-
-
-<telerik:RadScriptBlock ID="RadScriptBlock2" runat="server">
-<!--Harris-Benedict Formula-->
-<script type="text/javascript">
-/*
-    function calcCalories() {
-        var iCalories = Math.round(calcBmr() * calcActivityFactor() / 100) * 100;
-
-        document.getElementById('<   % = lblViewSampleMeals.ClientID %  >  ').innerHTML = "<a href=\"j a vascript:popUpWin('Main/MyNutrition/HTML_SampleMeals.aspx#" + iCalories + "',900,650);\">View Sample Meals</a>";
-
-        document.getElementById('<   %   =txtCalories.ClientID %  >').value = iCalories.toString();
-    }
-    function calcBmr() {
-        var iHeight = Number(document.getElementById('<  %  =txtHeight.ClientID %  >').value);
-        var iWeight = Number(document.getElementById('<  %  =txtWeight.ClientID %  >').value);
-        var iAge = Number(document.getElementById('<  %  =txtAge.ClientID %  >  ').value);
-
-        var iBmr;
-
-
-
-        if (document.getElementById('< % =ddlGender.ClientID % >').value == "Female") {
-            iBmr = 655 + (9.6 * 0.453 * iWeight) + (1.8 * 0.393 * iHeight) - (4.7 * iAge);
-        }
-        else if (document.getElementById('< %  =ddlGender.ClientID %  >').value == "Male") {
-            iBmr = 66 + (13.7 * 0.453 * iWeight) + (5 * 0.393 * iHeight) - (6.8 * iAge);
-        }
-
-
-
-        return iBmr;
-    }
-    function calcActivityFactor() {
-        var sActivityLevel = document.getElementById('<  %  =ddlActivityLevel.ClientID %  >').value;
-
-        if (sActivityLevel == "1") return 1.2;
-        if (sActivityLevel == "2") return 1.375;
-        if (sActivityLevel == "3") return 1.55;
-        if (sActivityLevel == "4") return 1.725;
-        if (sActivityLevel == "5") return 1.9;
-    }
-</script>
-</telerik:RadScriptBlock>
 
 <script type="text/javascript">
 
     var myWidth;
     var myHeight;
-    var calcheight = 570;
-    var calcWidth = 500;
+    var calcheight = 370;
+    var calcWidth = 570;
 
     // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
     if (typeof window.innerWidth != 'undefined') {

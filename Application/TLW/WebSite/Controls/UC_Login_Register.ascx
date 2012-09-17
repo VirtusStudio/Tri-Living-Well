@@ -38,7 +38,7 @@
                                                                 <span class="keyword">Username:</span>&nbsp;
                                                             </td>
                                                             <td style="white-space: nowrap;">
-                                                                <asp:TextBox runat="server" ID="UserName" onkeypress="return keyPress(event);" Width="150px"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="UserName" onkeypress="return keyPress(event);" Width="150px" Text="1@dajomasoft.net"></asp:TextBox>
                                                             </td>
                                                             <td>
                                                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" Display="Static"
@@ -51,7 +51,8 @@
                                                             </td>
                                                             <td>
                                                                 <asp:TextBox runat="server" Enabled="true" ID="Password" onkeypress="return keyPress(event);"
-                                                                    TextMode="Password" Width="150px"></asp:TextBox>
+                                                                     Width="150px" Text="123456"></asp:TextBox>
+                                                                    //TextMode="Password" Width="150px" ></asp:TextBox>
                                                             </td>
                                                             <td>
                                                                 <asp:RequiredFieldValidator runat="server" ErrorMessage="*" ControlToValidate="Password"
