@@ -40,13 +40,13 @@
 
         <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255);margin: 0px auto; padding: 10px; width:886px; overflow:hidden;" >
  
-            <p><a style="color:black;font-size:small;font-weight:bolder;"  href="javascript:popupCalorieCalculator();" >Show Calorie Calculator</a></p>
-            <p><a style="color:black;font-size:small;font-weight:bolder;"  href="javascript:popupFoodJournal();" >Show Food Journal</a></p>
-            <p><a style="color:black;font-size:small;font-weight:bolder;"  href="javascript:popupBodyFat();" >Show Body Fat Calculator</a></p>
-            <p><a style="color:black;font-size:small;font-weight:bolder;"  href="javascript:popupScorecard();" >Show Scorecard</a></p>
-            <p><a style="color:black;font-size:small;font-weight:bolder;"  href="javascript:popupIndividualReport();" >Show Individual Report</a></p>
-            <p><a style="color:black;font-size:small;font-weight:bolder;"  href="javascript:popupHealthScale();" >Show Health Scale</a></p>
-            <p><a style="color:black;font-size:small;font-weight:bolder;"  href="javascript:popupHealthyWeightCalculator();" >Show Healthy Weight Calculator</a></p>
+            <p><a style="color:black;font-size:small;font-weight:bolder;"  onclick="popupCalorieCalculator();" >Show Calorie Calculator</a></p>
+            <p><a style="color:black;font-size:small;font-weight:bolder;"  onclick="popupFoodJournal();" >Show Food Journal</a></p>
+            <p><a style="color:black;font-size:small;font-weight:bolder;"  onclick="popupBodyFat();" >Show Body Fat Calculator</a></p>
+            <p><a style="color:black;font-size:small;font-weight:bolder;"  onclick="popupScorecard();" >Show Scorecard</a></p>
+            <p><a style="color:black;font-size:small;font-weight:bolder;"  onclick="popupIndividualReport();" >Show Individual Report</a></p>
+            <p><a style="color:black;font-size:small;font-weight:bolder;"  onclick="popupHealthScale();" >Show Health Scale</a></p>
+            <p><a style="color:black;font-size:small;font-weight:bolder;"  onclick="popupHealthyWeightCalculator();" >Show Healthy Weight Calculator</a></p>
 
         </div>
 

@@ -1,14 +1,19 @@
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/User.master"
     CodeFile="NutritionCenter.aspx.cs" Inherits="NutritionCenter" Title="Nutrition Center" %>
-<%@ Register Src="~/controls/UC_Nutrition_CalorieCalculator_PopUp.ascx" TagName="UC_Nutrition_CalorieCalculator_PopUp" TagPrefix="uc1" %>
-<%@ Register Src="~/Controls/UC_Login_Register.ascx" TagName="UC_Login_Register" TagPrefix="uc2" %>
 
-<%@ Register Src="~/controls/UC_Nutrition_FoodJournal_Popup.ascx" TagName="UC_Nutrition_FoodJournal_Popup" TagPrefix="uc3" %>
-
+<%@ Register Src="~/Controls/UC_Login_Register.ascx" TagName="UC_Login_Register" TagPrefix="uc1" %>
+<%@ Register Src="~/Controls/UC_TextArea.ascx" TagName="UC_TextArea" TagPrefix="uc2" %>
+<%@ Register Src="~/controls/UC_Nutrition_CalorieCalculator_PopUp.ascx" TagName="UC_Nutrition_CalorieCalculator_PopUp" TagPrefix="uc3" %>
+<%@ Register Src="~/controls/UC_Nutrition_FoodJournal_Popup.ascx" TagName="UC_Nutrition_FoodJournal_Popup" TagPrefix="uc4" %>
+<%@ Register Src="~/controls/UC_Nutrition_Scorecard_PopUp.ascx" TagName="UC_Nutrition_Scorecard_PopUp" TagPrefix="uc5" %>
+<%@ Register Src="~/controls/UC_Nutrition_HealthScale_PopUp.ascx" TagName="UC_Nutrition_HealthScale_PopUp" TagPrefix="uc6" %>
+<%@ Register Src="~/controls/UC_Nutrition_BodyFatCalculator_PopUp.ascx" TagName="UC_Nutrition_BodyFatCalculator_PopUp" TagPrefix="uc7" %>
+<%@ Register Src="~/controls/UC_Nutrition_IndividualReport_PopUp.ascx" TagName="UC_Nutrition_IndividualReport_PopUp" TagPrefix="uc8" %>
+<%@ Register Src="~/controls/UC_Nutrition_HealthyWeightCalculator_PopUp.ascx" TagName="UC_Nutrition_HealthyWeightCalculator_PopUp" TagPrefix="uc9" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="MetaBuilders.WebControls.RollOverLink" Namespace="MetaBuilders.WebControls"
     TagPrefix="mbrol" %>
-    <%@ Register Src="~/Controls/UC_TextArea.ascx" TagName="UC_TextArea" TagPrefix="uc1" %>
+    
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="../Scripts/Common.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -24,14 +29,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <iframe id="IFRAME_CONTENT" name="IFRAME_CONTENT" class="IFRAME_CONTENT" runat="server"
         frameborder="0" style="display:none;" src="Content/Home.aspx"></iframe>
-        <uc1:UC_Nutrition_CalorieCalculator_PopUp id="UC_Nutrition_CalorieCalculator_PopUp" runat="server"></uc1:UC_Nutrition_CalorieCalculator_PopUp>
-        <uc3:UC_Nutrition_FoodJournal_Popup id="UC_Nutrition_FoodJournal_Popup1" runat="server"></uc3:UC_Nutrition_FoodJournal_Popup>
+        <uc3:UC_Nutrition_CalorieCalculator_PopUp id="UC_Nutrition_CalorieCalculator_PopUp1" runat="server"></uc3:UC_Nutrition_CalorieCalculator_PopUp>
+        <uc4:UC_Nutrition_FoodJournal_Popup id="UC_Nutrition_FoodJournal_Popup2" runat="server"></uc4:UC_Nutrition_FoodJournal_Popup>
+        <uc5:UC_Nutrition_Scorecard_PopUp id="UC_Nutrition_Scorecard_PopUp1" runat="server"></uc5:UC_Nutrition_Scorecard_PopUp>
+        <uc6:UC_Nutrition_HealthScale_PopUp id="UC_Nutrition_HealthScale_PopUp1" runat="server"></uc6:UC_Nutrition_HealthScale_PopUp>        
+        <uc7:UC_Nutrition_BodyFatCalculator_PopUp id="UC_Nutrition_BodyFatCalculator_PopUp1" runat="server"></uc7:UC_Nutrition_BodyFatCalculator_PopUp>
+        <uc8:UC_Nutrition_IndividualReport_PopUp id="UC_Nutrition_IndividualReport_PopUp2" runat="server"></uc8:UC_Nutrition_IndividualReport_PopUp>
+        <uc9:UC_Nutrition_HealthyWeightCalculator_PopUp id="UC_Nutrition_HealthyWeightCalculator_PopUp1" runat="server"></uc9:UC_Nutrition_HealthyWeightCalculator_PopUp>
         <div style="background: none repeat scroll 0% 0% rgb(255, 255, 255);margin: 0px auto; padding: 10px; width:886px; overflow:hidden;" >
         <div class="overview">
             <table>
                 <tr>
                     <td>
-                        <uc1:uc_textarea id="UC_TextArea1" runat="server" textarea_name="NutritionCenter" />
+                        <uc2:uc_textarea id="UC_TextArea1" runat="server" textarea_name="NutritionCenter" /></uc2:UC_TextArea>
                     </td>
                 </tr>
             </table>
@@ -80,7 +90,7 @@
                 
                 <div id="calories" name="calories" style="position:absolute;top:307px;left:192px;width:200px;height:20px;text-align: center;" >
                     <span id="calories-number" name="calories-number" >
-                        <a style="color:black;font-size:small;font-weight:bolder;"  href="javascript:editCalorie();" >Calories</a>
+                        <a style="color:black;font-size:small;font-weight:bolder;"  onclick="popupCalorieCalculator();" >Calories</a>
                     </span>
                 </div>
 
@@ -98,11 +108,11 @@
 
                     <div id="nutritioncenter-button-scorecard" name="nutritioncenter-button-scorecard" 
                         style="position:absolute;top:25px;left:2px;width:105px;height:16px;text-align:center;" 
-                        onclick="alert('TODO: add in scorecard entry popup.');" ></div>
+                        onclick="popupScorecard();" ></div>
 
                     <div id="nutritioncenter-button-healthscale" name="nutritioncenter-button-healthscale" 
                         style="position:absolute;top:50px;left:2px;width:105px;height:16px;text-align:center;" 
-                        onclick="alert('TODO: add in health scale popup.');" ></div>
+                        onclick="popupHealthScale();" ></div>
 
                 </div>
             
