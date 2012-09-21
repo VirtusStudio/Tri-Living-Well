@@ -113,7 +113,7 @@
     }
 
 </style>
-<div id="divFoodJournal" class="fixed" style="left:400px;top:120px;z-index:1000;display:none;" >
+<div id="divFoodJournal" class="fixed" style="display:none;z-index:222;" >
 
     <div id="divFoodJournalOutside" >
 
@@ -122,7 +122,7 @@
             <table style="width:500px;">
                 <tr>
                     <td colspan="8" align="right">
-                        <asp:TextBox ID="textJournalDate" runat="server" MaxLength="15" Columns="10"></asp:TextBox>
+                        <asp:TextBox ID="textJournalDate" runat="server" MaxLength="15" Columns="10" OnTextChanged="On_textJournalDate_Changed"></asp:TextBox>
                         <img alt="" src="<%=AppConfig.GetBaseSiteUrl() %>images/Calendar.png" id="imgJournalDate" />
                         <cc1:CalendarExtender ID="calExtJournalDate" TargetControlID="textJournalDate" PopupButtonID="imgJournalDate" Format="MM/dd/yyyy" runat="server"></cc1:CalendarExtender>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="textPrintFrom" Display="Dynamic" ValidationGroup="Step5" ID="RequiredFieldValidator1" ErrorMessage="Please Enter Date." CssClass="required"></asp:RequiredFieldValidator>
@@ -141,7 +141,9 @@
                 <tr><td colspan="8"><hr /></td></tr>
                 <tr>
                     <td style="width:150px;">
+                        <asp:HiddenField ID="FoodIntakeLogId1" runat="server" />
                         <asp:DropDownList ID="ddlMeal1" runat="server">
+                            <asp:ListItem Value="0" Text=""></asp:ListItem>
                             <asp:ListItem Value="1" Text="Breakfast"></asp:ListItem>
                             <asp:ListItem Value="2" Text="Snack"></asp:ListItem>
                             <asp:ListItem Value="3" Text="Lunch"></asp:ListItem>
@@ -149,7 +151,17 @@
                         </asp:DropDownList> 
                     </td>
                     <td>
-                        <asp:TextBox ID="textTime1" runat="server" Columns="10"></asp:TextBox>
+                        <asp:TextBox ID="textJournalTime1" runat="server" Columns="10"></asp:TextBox>
+                        <cc1:MaskedEditExtender AcceptAMPM="true" ID="mexJournalTime1" MaskType="Time" Mask="99:99" runat="server" TargetControlID="textJournalTime1" />
+                        <cc1:MaskedEditValidator ID="mevJournalTime1" runat="server"   
+                            ControlExtender="mexJournalTime1"  
+                            ControlToValidate="textJournalTime1"  
+                            IsValidEmpty="False"  
+                            EmptyValueMessage="Time is required"  
+                            InvalidValueMessage="Time is invalid"  
+                            Display="Dynamic"  
+                            TooltipMessage="Input a time"  
+                            ValidationGroup="MKE" />  
                     </td>
                     <td >
                         <asp:TextBox ID="txtMilkRecord1" runat="server" MaxLength="7" Columns="5"></asp:TextBox>
@@ -196,7 +208,9 @@
 
                 <tr>
                     <td>
+                        <asp:HiddenField ID="FoodIntakeLogId2" runat="server" />
                         <asp:DropDownList ID="ddlMeal2" runat="server">
+                            <asp:ListItem Value="0" Text=""></asp:ListItem>
                             <asp:ListItem Value="1" Text="Breakfast"></asp:ListItem>
                             <asp:ListItem Value="2" Text="Snack"></asp:ListItem>
                             <asp:ListItem Value="3" Text="Lunch"></asp:ListItem>
@@ -204,7 +218,17 @@
                         </asp:DropDownList> 
                     </td>
                     <td>
-                        <asp:TextBox ID="textTime2" runat="server" Columns="10"></asp:TextBox>
+                        <asp:TextBox ID="textJournalTime2" runat="server" Columns="10"></asp:TextBox>
+                        <cc1:MaskedEditExtender AcceptAMPM="true" ID="mexJournalTime2" MaskType="Time" Mask="99:99" runat="server" TargetControlID="textJournalTime2" />
+                        <cc1:MaskedEditValidator ID="mevJournalTime2" runat="server"  
+                            ControlExtender="mexJournalTime2"  
+                            ControlToValidate="textJournalTime2"  
+                            IsValidEmpty="False"  
+                            EmptyValueMessage="Time is required"  
+                            InvalidValueMessage="Time is invalid"  
+                            Display="Dynamic"  
+                            TooltipMessage="Input a time"
+                            ValidationGroup="MKE" />  
                     </td>
                     <td>
                         <asp:TextBox ID="txtMilkRecord2" runat="server" MaxLength="7" Columns="5"></asp:TextBox>
@@ -249,7 +273,9 @@
 
                 <tr>
                     <td>
+                        <asp:HiddenField ID="FoodIntakeLogId3" runat="server" />
                         <asp:DropDownList ID="ddlMeal3" runat="server">
+                            <asp:ListItem Value="0" Text=""></asp:ListItem>
                             <asp:ListItem Value="1" Text="Breakfast"></asp:ListItem>
                             <asp:ListItem Value="2" Text="Snack"></asp:ListItem>
                             <asp:ListItem Value="3" Text="Lunch"></asp:ListItem>
@@ -257,7 +283,17 @@
                         </asp:DropDownList> 
                     </td>
                     <td>
-                        <asp:TextBox ID="textTime3" runat="server" Columns="10"></asp:TextBox>
+                        <asp:TextBox ID="textJournalTime3" runat="server" Columns="10"></asp:TextBox>
+                        <cc1:MaskedEditExtender AcceptAMPM="true" ID="mexJournalTime3" MaskType="Time" Mask="99:99" runat="server" TargetControlID="textJournalTime3" />
+                        <cc1:MaskedEditValidator ID="mevJournalTime3" runat="server"  
+                            ControlExtender="mexJournalTime3"  
+                            ControlToValidate="textJournalTime3"  
+                            IsValidEmpty="False"  
+                            EmptyValueMessage="Time is required"  
+                            InvalidValueMessage="Time is invalid"  
+                            Display="Dynamic"  
+                            TooltipMessage="Input a time"  
+                            ValidationGroup="MKE" />  
                     </td>
                     <td>
                         <asp:TextBox ID="txtMilkRecord3" runat="server" MaxLength="7" Columns="5"></asp:TextBox>
@@ -302,7 +338,9 @@
 
                 <tr>
                     <td>
+                        <asp:HiddenField ID="FoodIntakeLogId4" runat="server" />
                         <asp:DropDownList ID="ddlMeal4" runat="server">
+                            <asp:ListItem Value="0" Text=""></asp:ListItem>
                             <asp:ListItem Value="1" Text="Breakfast"></asp:ListItem>
                             <asp:ListItem Value="2" Text="Snack"></asp:ListItem>
                             <asp:ListItem Value="3" Text="Lunch"></asp:ListItem>
@@ -310,7 +348,17 @@
                         </asp:DropDownList> 
                     </td>
                     <td>
-                        <asp:TextBox ID="textTime4" runat="server" Columns="10"></asp:TextBox>
+                        <asp:TextBox ID="textJournalTime4" runat="server" Columns="10"></asp:TextBox>
+                        <cc1:MaskedEditExtender AcceptAMPM="true" ID="mexJournalTime4" MaskType="Time" Mask="99:99" runat="server" TargetControlID="textJournalTime4" />
+                        <cc1:MaskedEditValidator ID="mevJournalTime4" runat="server"  
+                            ControlExtender="mexJournalTime4"  
+                            ControlToValidate="textJournalTime4"  
+                            IsValidEmpty="False"  
+                            EmptyValueMessage="Time is required"  
+                            InvalidValueMessage="Time is invalid"  
+                            Display="Dynamic"  
+                            TooltipMessage="Input a time"  
+                            ValidationGroup="MKE" />  
                     </td>
                     <td>
                         <asp:TextBox ID="txtMilkRecord4" runat="server" MaxLength="7" Columns="5"></asp:TextBox>
@@ -355,7 +403,9 @@
 
                 <tr>
                     <td>
+                        <asp:HiddenField ID="FoodIntakeLogId5" runat="server" />
                         <asp:DropDownList ID="ddlMeal5" runat="server">
+                            <asp:ListItem Value="0" Text=""></asp:ListItem>
                             <asp:ListItem Value="1" Text="Breakfast"></asp:ListItem>
                             <asp:ListItem Value="2" Text="Snack"></asp:ListItem>
                             <asp:ListItem Value="3" Text="Lunch"></asp:ListItem>
@@ -363,7 +413,17 @@
                         </asp:DropDownList> 
                     </td>
                     <td>
-                        <asp:TextBox ID="textTime5" runat="server" Columns="10"></asp:TextBox>
+                        <asp:TextBox ID="textJournalTime5" runat="server" Columns="10"></asp:TextBox>
+                        <cc1:MaskedEditExtender AcceptAMPM="true" ID="mexJournalTime5" MaskType="Time" Mask="99:99" runat="server" TargetControlID="textJournalTime5" />
+                        <cc1:MaskedEditValidator ID="mevJournalTime5" runat="server"  
+                            ControlExtender="mexJournalTime5"  
+                            ControlToValidate="textJournalTime5"  
+                            IsValidEmpty="False"  
+                            EmptyValueMessage="Time is required"  
+                            InvalidValueMessage="Time is invalid"  
+                            Display="Dynamic"  
+                            TooltipMessage="Input a time"  
+                            ValidationGroup="MKE" />  
                     </td>
                     <td>
                         <asp:TextBox ID="txtMilkRecord5" runat="server" MaxLength="7" Columns="5"></asp:TextBox>
@@ -407,7 +467,9 @@
                 </tr>
                 <tr>
                     <td>
+                        <asp:HiddenField ID="FoodIntakeLogId6" runat="server" />
                         <asp:DropDownList ID="ddlMeal6" runat="server">
+                            <asp:ListItem Value="0" Text=""></asp:ListItem>
                             <asp:ListItem Value="1" Text="Breakfast"></asp:ListItem>
                             <asp:ListItem Value="2" Text="Snack"></asp:ListItem>
                             <asp:ListItem Value="3" Text="Lunch"></asp:ListItem>
@@ -415,7 +477,17 @@
                         </asp:DropDownList> 
                     </td>
                     <td>
-                        <asp:TextBox ID="textTime6" runat="server" Columns="10"></asp:TextBox>
+                        <asp:TextBox ID="textJournalTime6" runat="server" Columns="10"></asp:TextBox>
+                        <cc1:MaskedEditExtender AcceptAMPM="true" ID="mexJournalTime6" MaskType="Time" Mask="99:99" runat="server" TargetControlID="textJournalTime6" />
+                        <cc1:MaskedEditValidator ID="mevJournalTime6" runat="server"  
+                            ControlExtender="mexJournalTime6"  
+                            ControlToValidate="textJournalTime6"  
+                            IsValidEmpty="False"  
+                            EmptyValueMessage="Time is required"  
+                            InvalidValueMessage="Time is invalid"  
+                            Display="Dynamic"  
+                            TooltipMessage="Input a time"
+                            ValidationGroup="MKE" />  
                     </td>
                     <td>
                         <asp:TextBox ID="txtMilkRecord6" runat="server" MaxLength="7" Columns="5"></asp:TextBox>
@@ -509,7 +581,7 @@
                 <tr>
                     <td align="right"><span style="padding-top:5px;font-weight:bold;">Notes</span></td>
                     <td colspan="7">
-                        <asp:TextBox ID="textNotes"  runat="server" Width="400" Height="50" style="padding-top:5px;" ></asp:TextBox>
+                        <asp:TextBox ID="textNotes" TextMode="MultiLine" Wrap="true" runat="server" Width="400" Height="50" style="padding-top:5px;" />
                     </td>
                 </tr>
 
@@ -545,87 +617,20 @@
             <div style="clear:both;"></div>
 
             <div style="float:right;margin-right:10px;">
-                <asp:TextBox ID="textFoodSearch" runat="server" Columns="20"></asp:TextBox>&nbsp;&nbsp;<img src="../Images/magnifying_glass.jpg" />
+                <asp:TextBox ID="textFoodSearch" runat="server" Columns="20"></asp:TextBox>&nbsp;&nbsp;<asp:ImageButton ID="btnSearch" CausesValidation="true" ImageUrl="~/Images/magnifying_glass.jpg" runat="server" OnClick="btnSearch_Click" />
             </div>
             
             <div style="clear:both;"></div>
 
             <div style="margin:10px;padding:10px;width=100%;height:100px;background-color:white;-moz-border-radius: 10px;-webkit-border-radius: 10px;-khtml-border-radius: 10px;border-radius: 10px;" align="center">
-
-                <table>
-                    <tr>
-                        <th>Food Type</th><th># Starch</th><th># Fat</th><th>Portion Size</th>
-                    </tr>
-                    <tr><td colspan="4"><hr /></td></tr>
-                    <tr>
-                        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-                    </tr>
-
-                    <tr>
-                        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-                    </tr>
-
-                    <tr>
-                        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-                    </tr>
-
-                    <tr>
-                        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-                    </tr>
-
-                </table>
-
+            <asp:Literal ID="searchTable" runat="server" />
             </div>
 
 
         </div>
 
     </div>
-
 </div><!-- divFoodJournal -->
-
-<telerik:RadScriptBlock ID="RadScriptBlock2" runat="server">
-<!--Harris-Benedict Formula-->
-<script type="text/javascript">
-/*
-    function calcCalories() {
-        var iCalories = Math.round(calcBmr() * calcActivityFactor() / 100) * 100;
-
-        document.getElementById('<   % = lblViewSampleMeals.ClientID %  >  ').innerHTML = "<a href=\"j a vascript:popUpWin('Main/MyNutrition/HTML_SampleMeals.aspx#" + iCalories + "',900,650);\">View Sample Meals</a>";
-
-        document.getElementById('<   %   =txtCalories.ClientID %  >').value = iCalories.toString();
-    }
-    function calcBmr() {
-        var iHeight = Number(document.getElementById('<  %  =txtHeight.ClientID %  >').value);
-        var iWeight = Number(document.getElementById('<  %  =txtWeight.ClientID %  >').value);
-        var iAge = Number(document.getElementById('<  %  =txtAge.ClientID %  >  ').value);
-
-        var iBmr;
-
-
-
-        if (document.getElementById('< % =ddlGender.ClientID % >').value == "Female") {
-            iBmr = 655 + (9.6 * 0.453 * iWeight) + (1.8 * 0.393 * iHeight) - (4.7 * iAge);
-        }
-        else if (document.getElementById('< %  =ddlGender.ClientID %  >').value == "Male") {
-            iBmr = 66 + (13.7 * 0.453 * iWeight) + (5 * 0.393 * iHeight) - (6.8 * iAge);
-        }
-
-
-
-        return iBmr;
-    }
-    function calcActivityFactor() {
-        var sActivityLevel = document.getElementById('<  %  =ddlActivityLevel.ClientID %  >').value;
-
-        if (sActivityLevel == "1") return 1.2;
-        if (sActivityLevel == "2") return 1.375;
-        if (sActivityLevel == "3") return 1.55;
-        if (sActivityLevel == "4") return 1.725;
-        if (sActivityLevel == "5") return 1.9;
-    }
-</script>
-</telerik:RadScriptBlock>
 
 <script type="text/javascript">
 

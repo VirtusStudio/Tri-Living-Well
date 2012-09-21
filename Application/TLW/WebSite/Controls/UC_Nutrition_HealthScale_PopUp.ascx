@@ -122,7 +122,7 @@ Above lines are commented by Netsmartz
 </style>
        </telerik:RadScriptBlock>      
           
-        <div id="divHealthScale" class="fixed" style="display:none;">
+        <div id="divHealthScale" class="fixed" style="display:none;z-index:666;">
 
             <div id="divHealthScaleOutside" >
 

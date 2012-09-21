@@ -136,12 +136,12 @@ Above lines are commented by Netsmartz
 </style>
        </telerik:RadScriptBlock>      
           
-        <div id="divHealthyWeightCalculator" class="fixed" style="display:none;">
+        <div id="divHealthyWeightCalculator" class="fixed" style="display:none;z-index:222;">
 
             <div id="divHealthyWeightCalculatorOutside" >
 
                 <div class="divHealthyWeightCalculatorInsideTop" >
-
+                    <asp:HiddenField ID="hiddenPersonalSummaryId" runat="server" />
                     <table>
                         <tr>
                             <td>

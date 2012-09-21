@@ -106,7 +106,7 @@ Above lines are commented by Netsmartz
 </style>
        </telerik:RadScriptBlock>      
           
-        <div id="divIndividualReport" class="fixed" style="display:none;">
+        <div id="divIndividualReport" class="fixed" style="display:none;z-index:555;">
 
             <div id="divIndividualReportOutside" >
                 

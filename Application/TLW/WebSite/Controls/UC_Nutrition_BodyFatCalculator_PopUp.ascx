@@ -1,5 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeFile="UC_Nutrition_BodyFatCalculator_PopUp.ascx.cs" Inherits="UC_Nutrition_BodyFatCalculator_PopUp" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <%--<link href="/Styles/Table.css" rel="stylesheet" type="text/css" />
 <link href="/Styles/centerRound1.css" rel="stylesheet" type="text/css" />
@@ -29,10 +30,55 @@ Above lines are commented by Netsmartz
     function show(objElementID) {
         document.getElementById(objElementID).style.display = "";
     }
-
-
-
 </script>
+<script runat="server">  
+
+    protected void textLatestWeight_TextChanged(object sender, System.EventArgs e)
+    {
+        int firstWeight = Convert.ToInt32(textBaselineWeight.Text);
+        if (firstWeight > 0)
+        {
+            int lastWeight = Convert.ToInt32(textLatestWeight.Text);
+            textChangeWeight.Text = (firstWeight - lastWeight).ToString();
+            textPercentChangeWeight.Text = ((firstWeight - lastWeight)/firstWeight).ToString();
+        }
+    }
+    
+    protected void textLatestWaist_TextChanged(object sender, System.EventArgs e)
+    {
+        int firstWaist = Convert.ToInt32(textBaselineWaist.Text);
+        if (firstWaist > 0)
+        { 
+            int lastWaist = Convert.ToInt32(textLatestWaist.Text);
+            textChangeWaist.Text = (firstWaist - lastWaist).ToString();
+            textPercentChangeWaist.Text = ((firstWaist - lastWaist)/firstWaist).ToString();
+        }
+    }            
+
+    protected void textLatestNeck_TextChanged(object sender, System.EventArgs e)
+    {
+        int firstNeck = Convert.ToInt32(textBaselineNeck.Text);
+        if (firstNeck > 0)
+        {
+            int lastNeck = Convert.ToInt32(textLatestNeck.Text);
+            textChangeNeck.Text = (firstNeck - lastNeck).ToString();
+            textPercentChangeNeck.Text = ((firstNeck - lastNeck) / firstNeck).ToString();
+        }
+    }
+
+    protected void textLatestHips_TextChanged(object sender, System.EventArgs e)   
+    {
+        int firstHips = Convert.ToInt32(textBaselineHips.Text);
+        if (firstHips > 0)
+        {
+            int lastHips = Convert.ToInt32(textLatestHips.Text);
+            textChangeHips.Text = (firstHips - lastHips).ToString();
+            textPercentChangeHips.Text = ((firstHips - lastHips)/firstHips).ToString();
+        }
+    }                
+    
+</script>  
+
 
 <telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">
 <!--Transparency-->
@@ -67,10 +113,8 @@ Above lines are commented by Netsmartz
     function HipsChanged() {
 
     }
-    
-    
-
 </script>
+
 <style type="text/css">
 
     td 
@@ -142,42 +186,198 @@ Above lines are commented by Netsmartz
       font-size:12px;
       background-color:#1581AE;
     }
+    
+    .instructions
+    {
+        display:none;
+        color:#fff;
+        background-color:Navy;   
+        width: 700px ;
+        margin-left: auto ;
+        margin-right: auto ;   
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        border-radius: 10px;   
+    }
+    
+    .modalBackground
+    {
+        background-color: Black;
+        opacity: 0.8;
+    }
 
+    .modalPopup
+    {
+        background-color: #FFFFFF;
+        border-width: 3px;
+        border-style: solid;
+        border-color: black;
+        padding-top: 10px;
+        padding-left: 10px;
+        width: 300px;
+        height: 300px;
+    }
+        
 </style>
        </telerik:RadScriptBlock>      
-          
-        <div id="divBodyFatCalculator" class="fixed" style="display:none;">
+
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="panelMeasuring" TargetControlID="hyperMeasuring" CancelControlID="btnClose1" BackgroundCssClass="modalBackground"></cc1:ModalPopupExtender>
+<asp:Panel ID="panelMeasuring" runat="server" CssClass="modalPopup" >
+    <h2>Measuring Instructions</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi 
+        enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
+        nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit 
+        in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla 
+        facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+        luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+    </p>
+    <asp:Button ID="btnClose1" Height="30" Width="60" runat="server" Text="Close" />
+</asp:Panel>
+<!-- ModalPopupExtender -->
+
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="panelTipsForMen" TargetControlID="hyperTipsForMen" CancelControlID="btnClose2" BackgroundCssClass="modalBackground"></cc1:ModalPopupExtender>
+<asp:Panel ID="panelTipsForMen" runat="server" CssClass="modalPopup" >
+    <h2>Tips For Men</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi 
+        enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
+        nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit 
+        in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla 
+        facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+        luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+    </p>
+    <asp:Button ID="btnClose2" Height="30" Width="60" runat="server" Text="Close" />
+</asp:Panel>
+<!-- ModalPopupExtender -->
+
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="panelTipsForWomen" TargetControlID="hyperTipsForWomen" CancelControlID="btnClose3" BackgroundCssClass="modalBackground"></cc1:ModalPopupExtender>
+<asp:Panel ID="panelTipsForWomen" runat="server" CssClass="modalPopup" >
+    <h2>Tips For Women</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi 
+        enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
+        nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit 
+        in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla 
+        facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+        luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+    </p>
+    <asp:Button ID="btnClose3" Height="30" Width="60" runat="server" Text="Close" />
+</asp:Panel>
+<!-- ModalPopupExtender -->
+
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server" PopupControlID="panelWeightInstructions" TargetControlID="WeightInstructions" CancelControlID="btnClose4" BackgroundCssClass="modalBackground"></cc1:ModalPopupExtender>
+<asp:Panel ID="panelWeightInstructions" runat="server" CssClass="modalPopup" >
+            <h2>Measuring Weight</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+                nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi 
+                enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
+                nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit 
+                in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla 
+                facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+                luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+            </p>
+    <asp:Button ID="btnClose4" Height="30" Width="60" runat="server" Text="Close" />
+</asp:Panel>
+<!-- ModalPopupExtender -->
+
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="ModalPopupExtender4" runat="server" PopupControlID="panelWaistInstructions" TargetControlID="WaistInstructions" CancelControlID="btnClose5" BackgroundCssClass="modalBackground"></cc1:ModalPopupExtender>
+<asp:Panel ID="panelWaistInstructions" runat="server" CssClass="modalPopup" >
+            <h2>Measuring Waist</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+                nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi 
+                enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
+                nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit 
+                in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla 
+                facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+                luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+            </p>
+    <asp:Button ID="btnClose5" Height="30" Width="60" runat="server" Text="Close" />
+</asp:Panel>
+<!-- ModalPopupExtender -->
+
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="ModalPopupExtender5" runat="server" PopupControlID="panelNeckInstructions" TargetControlID="NeckInstructions" CancelControlID="btnClose6" BackgroundCssClass="modalBackground"></cc1:ModalPopupExtender>
+<asp:Panel ID="panelNeckInstructions" runat="server" CssClass="modalPopup" >
+            <h2>Measuring Neck</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+                nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi 
+                enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
+                nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit 
+                in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla 
+                facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+                luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+            </p>
+    <asp:Button ID="btnClose6" Height="30" Width="60" runat="server" Text="Close" />
+</asp:Panel>
+<!-- ModalPopupExtender -->
+
+<!-- ModalPopupExtender -->
+<cc1:ModalPopupExtender ID="ModalPopupExtender6" runat="server" PopupControlID="panelHipsInstructions" TargetControlID="HipsInstructions" CancelControlID="btnClose7" BackgroundCssClass="modalBackground"></cc1:ModalPopupExtender>
+<asp:Panel ID="panelHipsInstructions" runat="server" CssClass="modalPopup" >
+            <h2>Measuring Hips</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+                nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi 
+                enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
+                nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit 
+                in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla 
+                facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+                luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+            </p>
+    <asp:Button ID="btnClose7" Height="30" Width="60" runat="server" Text="Close" />
+</asp:Panel>
+<!-- ModalPopupExtender -->
+         <div id="divBodyFatCalculator" class="fixed" style="display:none;z-index:333;">
 
             <div id="divBodyFatCalculatorOutside" >
 
                 <div id="divBodyFatCalculatorTop">
-                    <a href="#" >
-                        <div style="position:absolute;top:30px;left:40px;width:100px;height:120px;background:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/measuring.png) no-repeat center center;" >
-                            <span style="position:absolute;top:110px;left:25px;">Measuring</span>
-                        </div>
-                    </a>
-
-                    <a href="#" >
-                        <div style="position:absolute;top:30px;left:150px;width:100px;height:120px;background:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/tipsmen.png) no-repeat center center;" >
-                            <span style="position:absolute;top:110px;left:15px;">Tips for Men</span>
-                        </div>
-                    </a>
-
-                    <a href="#" >
-                        <div style="position:absolute;top:30px;left:280px;width:120px;height:120px;background:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/tipswomen.png) no-repeat center center;" >
-                            <span style="position:absolute;top:110px;left:5px;">Tips for Women</span>
-                        </div>
-                    </a>
-
-                        <div style="position:absolute;top:95px;left:450px;width:100px;height:100px;" >
-                            <p>Entry Date: </p>
-                            <asp:TextBox ID="textEntryDate" runat="server" MaxLength="15" Columns="7"></asp:TextBox>
-                            <img alt="" src="<%=AppConfig.GetBaseSiteUrl() %>images/Calendar.png" id="img1" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="textEntryDate" Display="Dynamic"
-                                    ValidationGroup="Step5" ID="RequiredFieldValidator2" ErrorMessage="Please Enter Date."
-                                    CssClass="required"></asp:RequiredFieldValidator>  
-                        </div>
-
+                <asp:HiddenField ID="hiddenPersonalSummaryId" runat="server" />
+                    <table>
+                        <tr>
+                            <td>
+                                 <asp:HyperLink ID="hyperMeasuring" runat="server" >
+                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/nutrition/measuring.png" />
+                                    <br />
+                                    <asp:Label ID="Label1" runat="server" Text="Measuring"></asp:Label>
+                                </asp:HyperLink>                          
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="hyperTipsForMen" runat="server" >
+                                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/nutrition/tipsmen.png" />
+                                    <br />
+                                    <asp:Label ID="Label2" runat="server" Text="Tips For Men"></asp:Label>
+                                </asp:HyperLink>                            
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="hyperTipsForWomen" runat="server" >
+                                    <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/nutrition/tipswomen.png" />
+                                    <br />
+                                    <asp:Label ID="Label3" runat="server" Text="Tips For Women"></asp:Label>
+                                </asp:HyperLink>                            
+                            </td>
+                            <td>
+                                <p>Entry Date: </p>
+                                <asp:TextBox ID="textEntryDate" runat="server" MaxLength="15" Columns="10"></asp:TextBox>
+                                <img alt="" src="<%=AppConfig.GetBaseSiteUrl() %>images/Calendar.png" id="imgEntryDate" />
+                                <cc1:CalendarExtender ID="calExtJournalDate" TargetControlID="textEntryDate" PopupButtonID="imgEntryDate" Format="yyyy-MM-dd" runat="server"></cc1:CalendarExtender>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="textEntryDate" Display="Dynamic" ValidationGroup="Step5" ID="RequiredFieldValidator2" ErrorMessage="Please Enter Date." CssClass="required"></asp:RequiredFieldValidator>  
+                            </td>
+                        </tr>
+                    </table>
                 </div><!-- end divBodyFatCalculatorTop -->
                 
                 <div id="divBodyFatCalculatorBottom" >
@@ -193,30 +393,30 @@ Above lines are commented by Netsmartz
                             <td colspan="5"><hr /></td>
                         </tr>
                         <tr>
-                            <td>Weight (lbs)</td>
+                            <td><asp:HyperLink ID="WeightInstructions" runat="server" >Weight (lbs)</asp:HyperLink></td>
                             <td><asp:TextBox ID="textBaselineWeight" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
-                            <td><asp:TextBox ID="textLatestWeight" Columns="5" runat="server" onchange="javascript: WeightChanged();" ></asp:TextBox></td>
+                            <td><asp:TextBox ID="textLatestWeight" Columns="5" runat="server" OnTextChanged="textLatestWeight_TextChanged" ></asp:TextBox></td>
                             <td><asp:TextBox ID="textChangeWeight" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
                             <td><asp:TextBox ID="textPercentChangeWeight" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>Waist (inches)</td>
+                            <td><asp:HyperLink ID="WaistInstructions" runat="server" >Waist (inches)</asp:HyperLink></td>
                             <td><asp:TextBox ID="textBaselineWaist" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
-                            <td><asp:TextBox ID="textLatestWaist" Columns="5" runat="server" onchange="javascript: WaistChanged();" ></asp:TextBox></td>
+                            <td><asp:TextBox ID="textLatestWaist" Columns="5" runat="server" OnTextChanged="textLatestWaist_TextChanged" ></asp:TextBox></td>
                             <td><asp:TextBox ID="textChangeWaist" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
                             <td><asp:TextBox ID="textPercentChangeWaist" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>Neck (inches)</td>
+                            <td><asp:HyperLink ID="NeckInstructions" runat="server" >Neck (inches)</asp:HyperLink></td>
                             <td><asp:TextBox ID="textBaselineNeck" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
-                            <td><asp:TextBox ID="textLatestNeck" Columns="5" runat="server" onchange="javascript: NeckChanged();" ></asp:TextBox></td>
+                            <td><asp:TextBox ID="textLatestNeck" Columns="5" runat="server" OnTextChanged="textLatestNeck_TextChanged" ></asp:TextBox></td>
                             <td><asp:TextBox ID="textChangeNeck" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
                             <td><asp:TextBox ID="textPercentChangeNeck" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>Hips (inches)</td>
+                            <td><asp:HyperLink ID="HipsInstructions" runat="server" >Hips (inches)</asp:HyperLink></td>
                             <td><asp:TextBox ID="textBaselineHips" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
-                            <td><asp:TextBox ID="textLatestHips" Columns="5" runat="server" onchange="javascript: HipsChanged();" ></asp:TextBox></td>
+                            <td><asp:TextBox ID="textLatestHips" Columns="5" runat="server" OnTextChanged="textLatestHips_TextChanged" ></asp:TextBox></td>
                             <td><asp:TextBox ID="textChangeHips" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
                             <td><asp:TextBox ID="textPercentChangeHips" Columns="5" ReadOnly="true" runat="server" ></asp:TextBox></td>
                         </tr>
@@ -232,50 +432,6 @@ Above lines are commented by Netsmartz
             </div><!-- divBodyFatCalculatorOutside -->
 
         </div><!-- end divBodyFatCalculator -->
-
-
-<telerik:RadScriptBlock ID="RadScriptBlock2" runat="server">
-<!--Harris-Benedict Formula-->
-<script type="text/javascript">
-/*
-    function calcCalories() {
-        var iCalories = Math.round(calcBmr() * calcActivityFactor() / 100) * 100;
-
-        document.getElementById('<   % = lblViewSampleMeals.ClientID %  >  ').innerHTML = "<a href=\"j a vascript:popUpWin('Main/MyNutrition/HTML_SampleMeals.aspx#" + iCalories + "',900,650);\">View Sample Meals</a>";
-
-        document.getElementById('<   %   =txtCalories.ClientID %  >').value = iCalories.toString();
-    }
-    function calcBmr() {
-        var iHeight = Number(document.getElementById('<  %  =txtHeight.ClientID %  >').value);
-        var iWeight = Number(document.getElementById('<  %  =txtWeight.ClientID %  >').value);
-        var iAge = Number(document.getElementById('<  %  =txtAge.ClientID %  >  ').value);
-
-        var iBmr;
-
-
-
-        if (document.getElementById('< % =ddlGender.ClientID % >').value == "Female") {
-            iBmr = 655 + (9.6 * 0.453 * iWeight) + (1.8 * 0.393 * iHeight) - (4.7 * iAge);
-        }
-        else if (document.getElementById('< %  =ddlGender.ClientID %  >').value == "Male") {
-            iBmr = 66 + (13.7 * 0.453 * iWeight) + (5 * 0.393 * iHeight) - (6.8 * iAge);
-        }
-
-
-
-        return iBmr;
-    }
-    function calcActivityFactor() {
-        var sActivityLevel = document.getElementById('<  %  =ddlActivityLevel.ClientID %  >').value;
-
-        if (sActivityLevel == "1") return 1.2;
-        if (sActivityLevel == "2") return 1.375;
-        if (sActivityLevel == "3") return 1.55;
-        if (sActivityLevel == "4") return 1.725;
-        if (sActivityLevel == "5") return 1.9;
-    }
-</script>
-</telerik:RadScriptBlock>
 
 <script type="text/javascript">
 

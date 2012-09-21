@@ -31,26 +31,16 @@ public partial class UC_Nutrition_HealthScale_PopUp : System.Web.UI.UserControl
 
     private void fillOutForm()
     {
-            // linkMeasuring
-            // linkMen
-            // linkWomen" ImageUrl="<%=AppConfig.GetBaseSiteUrl() %>Images\tipswomen.png" NavigateUrl="#" Text="Tips for Women" Target="_new" runat="server"/>
-            // textEntryDate
-            // textBaselineWeight
-            // textLatestWeight
-            // textChangeWeight
-            // textPercentChangeWeight
-            // textBaselineWaist
-            // textLatestWaist
-            // textChangeWaist
-            // textPercentChangeWaist
-            // textBaselineNeck
-            // textLatestNeck
-            // textChangeNeck
-            // textPercentChangeNeck
-            // textBaselineHips
-            // textLatestHips
-            // textChangeHips
-            // textPercentChangeHips
+        int iGoalWeight = 0;
+        int iWeightLossGoal = 0;
+        int iBaselineLBS = 0;
+        int iBaselineLoss = 0;
+        int iLatestLBS = 0;
+        int iLatestLoss = 0;
+        decimal iPercentChangeLBS = 0.0m;
+        decimal iPercentChangeLoss = 0.0m;
+        DateTime dtTargetDateLBS = DateTime.MinValue;
+        DateTime dtTargetDateLoss = DateTime.MinValue;
           
     }
 

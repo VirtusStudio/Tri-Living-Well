@@ -65,16 +65,62 @@ public partial class UC_Nutrition_CalorieCalculator_PopUp : System.Web.UI.UserCo
         string moderately = "Moderately Active - moderate exercise/sports 3-5 days/week</asp:ListItem";
         string very = "Very Active - hard exercise/sports 6-7 days/week</asp:ListItem";
         string extra = "Extra Active - very hard daily exercise/sports & physical job or 2X day training";
-        decimal decLossFrequencyGoal = 0.0m;
         string sActivityLevel = "";
-        
-        CaloricRequirementsCalculatorClass objCaloricRequirementsCalculatorClass = new CaloricRequirementsCalculatorClass(objSqlConnClass.OpenConnection(), Membership.GetUser().ProviderUserKey.ToString());
-        labelCalories.Text = objCaloricRequirementsCalculatorClass.getCaloricRequirement().ToString();
-        labelGoalCalories.Text = objCaloricRequirementsCalculatorClass.getGoalCalories().ToString();
-        labelWeight.Text = objCaloricRequirementsCalculatorClass.getWeight().ToString();
-        labelLeanBodyMass.Text = objCaloricRequirementsCalculatorClass.getLeanBodyMass().ToString();
-        decLossFrequencyGoal = objCaloricRequirementsCalculatorClass.getLossFrequencyGoal();
-        sActivityLevel = objCaloricRequirementsCalculatorClass.getActivityLevel();
+
+        int iPersonalSummaryId = 0;
+	    decimal decWeight = 0.00m;
+	    decimal decWaist = 0.00m;
+	    decimal decNeck = 0.00m;
+	    decimal decHips = 0.00m;
+	    decimal decBMI = 0.00m;
+	    decimal decBodyFATPercentage = 0.00m;
+	    decimal decWaistToHeight = 0.00m;
+        decimal decWaistToHip = 0.00m;
+	    decimal decLossFrequencyGoal = 0.00m;
+	    int iActivityLevel = 0;
+        int iCaloricRequirement = 0;
+        decimal decLeanBodyMass = 0.00m;
+        int iGoalCalories = 0;
+
+        CaloricRequirementsCalculatorClass objCaloricRequirementsCalculatorClass = new CaloricRequirementsCalculatorClass(objSqlConnClass.OpenConnection());
+        DataSet MyDataSet = objCaloricRequirementsCalculatorClass.GetCaloricRequirementsCalculator(Membership.GetUser().ProviderUserKey.ToString());
+        if ((MyDataSet != null) && (MyDataSet.Tables.Count > 0))
+        {
+            if (MyDataSet.Tables[0].Rows.Count > 0)
+            {
+                iPersonalSummaryId = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["intPersonalSummaryId"])) ? 0 : Convert.ToInt32(MyDataSet.Tables[0].Rows[0]["intPersonalSummaryId"]);
+                decWeight = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWeight"])) ? 0.00m : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWeight"]);
+                decWaist = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWaist"])) ? 0.00m : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWaist"]);
+                decNeck = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decNeck"])) ? 0.00m : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decNeck"]);
+                decHips = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decHips"])) ? 0.00m : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decHips"]);
+                decBMI = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decBMI"])) ? 0.00m : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decBMI"]);
+                decBodyFATPercentage = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decBodyFATPercentage"])) ? 0.00m : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decBodyFATPercentage"]);
+                decWaistToHeight = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWaistToHeight"])) ? 0.00m : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWaistToHeight"]);
+                decWaistToHip = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decWaistToHip"])) ? 0.00m : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decWaistToHip"]);
+                decLossFrequencyGoal = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["decLossFrequencyGoal"])) ? 0.00m : Convert.ToDecimal(MyDataSet.Tables[0].Rows[0]["decLossFrequencyGoal"]);
+                iActivityLevel = (Convert.IsDBNull(MyDataSet.Tables[0].Rows[0]["intActivityLevel"])) ? 0 : Convert.ToInt32(MyDataSet.Tables[0].Rows[0]["intActivityLevel"]);
+            }
+        }
+        hiddenPersonalSummaryId.Value = iPersonalSummaryId.ToString();
+        iCaloricRequirement = objCaloricRequirementsCalculatorClass.GetCurrentCaloricRequirements(Membership.GetUser().ProviderUserKey.ToString());
+
+        // Lean Body Mass = Total Body Weight x (1 - Body Fat %)
+        if (decBodyFATPercentage > 0)
+        {
+            decimal percentageMultiplier = .01m;
+            decimal decBodyFATPercentage1 = Decimal.Multiply(decBodyFATPercentage, percentageMultiplier);
+            decLeanBodyMass = decWeight * (1 - decBodyFATPercentage1);
+            decLeanBodyMass = Decimal.Round(decLeanBodyMass, 2);
+        }
+
+        // Weight Goal Calories = Caloric Requirement – (Loss Frequency Goal x 3500)/7
+        iGoalCalories = iCaloricRequirement - Convert.ToInt32(((decLossFrequencyGoal * 3500) / 7));
+
+        labelCalories.Text = iCaloricRequirement.ToString();
+        labelGoalCalories.Text = iGoalCalories.ToString();
+        labelWeight.Text = decWeight.ToString();
+        labelLeanBodyMass.Text = decLeanBodyMass.ToString();
+        ddlActivityLevel.SelectedIndex = iActivityLevel;
 
         if (decLossFrequencyGoal == 0.5m)
             ddlLossFrequencyGoal.SelectedIndex = 0;
@@ -112,7 +158,7 @@ public partial class UC_Nutrition_CalorieCalculator_PopUp : System.Web.UI.UserCo
         else
             ddlActivityLevel.SelectedIndex = 0;
 
-        if (objCaloricRequirementsCalculatorClass.getLeanBodyMass() == 0)
+        if (decLeanBodyMass == 0)
         {
             btnUpdate.Visible = false;
             labelLBM1.Visible = true;
@@ -134,20 +180,12 @@ public partial class UC_Nutrition_CalorieCalculator_PopUp : System.Web.UI.UserCo
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
 
-        CaloricRequirementsCalculatorClass objCaloricRequirementsCalculatorClass = new CaloricRequirementsCalculatorClass(objSqlConnClass.OpenConnection(), Membership.GetUser().ProviderUserKey.ToString());
         string sUserID = Membership.GetUser().ProviderUserKey.ToString();
-        string sCalories = labelCalories.Text;
-        string sGoalCalories = labelGoalCalories.Text;
-        string sWeight = labelWeight.Text;
-        string sLeanBodyMass = labelLeanBodyMass.Text;
-        decimal decLossFrequencyGoal = 0.0m;
-        string sActivityLevel = "";
-        string sedentary = "Sedentary - little or no exercise</asp:ListItem";
-        string lightly = "Lightly Active - light exercise/sports 1-3 days/week</asp:ListItem";
-        string moderately = "Moderately Active - moderate exercise/sports 3-5 days/week</asp:ListItem";
-        string very = "Very Active - hard exercise/sports 6-7 days/week</asp:ListItem";
-        string extra = "Extra Active - very hard daily exercise/sports & physical job or 2X day training";
+        int iPersonalSummaryId = Convert.ToInt32(hiddenPersonalSummaryId.Value);
+        decimal decLeanBodyMass = Convert.ToDecimal(labelLeanBodyMass.Text.Trim());
+        decimal decWeight = Convert.ToDecimal(labelWeight.Text.Trim());
 
+        decimal decLossFrequencyGoal = 0.0m;
         int ddlLossFrequencyGoalIndex = ddlLossFrequencyGoal.SelectedIndex;
         if (ddlLossFrequencyGoal.SelectedIndex == 0)
             decLossFrequencyGoal = 0.5m;      
@@ -171,22 +209,17 @@ public partial class UC_Nutrition_CalorieCalculator_PopUp : System.Web.UI.UserCo
             decLossFrequencyGoal = 5.0m;
         else
             decLossFrequencyGoal = 0.5m;
+        
+        int iActivityLevel = ddlActivityLevel.SelectedIndex;
 
-        if (ddlActivityLevel.SelectedIndex == 0)
-            sActivityLevel = sedentary;
-        else if (ddlActivityLevel.SelectedIndex == 1)
-            sActivityLevel = lightly;
-        else if (ddlActivityLevel.SelectedIndex == 2)
-            sActivityLevel = moderately;
-        else if (ddlActivityLevel.SelectedIndex == 3)
-            sActivityLevel = very;
-        else if (ddlActivityLevel.SelectedIndex == 4)
-            sActivityLevel = extra;
-        else
-            sActivityLevel = sedentary;
-
-        objCaloricRequirementsCalculatorClass.SetUserData(Convert.ToDecimal(sLeanBodyMass), Convert.ToInt32(sWeight), decLossFrequencyGoal, sActivityLevel); 
-
+        decimal decWaist = Convert.ToDecimal(hiddenWaist.Value);
+        decimal decBMI = Convert.ToDecimal(hiddenBMI.Value);
+        decimal decBodyFATPercentage = Convert.ToDecimal(hiddenBodyFATPercentage.Value);
+        decimal decWaistToHeight = Convert.ToDecimal(hiddenWaistToHeight.Value);
+        decimal decWaistToHip = Convert.ToDecimal(hiddenWaistToHip.Value);
+        
+        CaloricRequirementsCalculatorClass objCaloricRequirementsCalculatorClass = new CaloricRequirementsCalculatorClass(objSqlConnClass.OpenConnection());
+        objCaloricRequirementsCalculatorClass.SetCaloricRequirementsCalculator(Membership.GetUser().ProviderUserKey.ToString(), iPersonalSummaryId, decLeanBodyMass, decWeight, decLossFrequencyGoal, iActivityLevel, decWaist, decBMI, decBodyFATPercentage, decWaistToHeight, decWaistToHip);
         objSqlConnClass.CloseConnection();
 
     }

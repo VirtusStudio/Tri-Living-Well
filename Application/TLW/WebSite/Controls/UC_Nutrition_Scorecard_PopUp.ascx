@@ -113,26 +113,26 @@ Above lines are commented by Netsmartz
 </style>
        </telerik:RadScriptBlock>      
           
-        <div id="divScorecard" class="fixed" style="display:none;">
+        <div id="divScorecard" class="fixed" style="display:none;z-index:444;">
 
             <div id="divScorecardOutside" >
                 
                 <div id="divScorecardInside" >
 
                     <div id="divScorecardTop">
-                        <a href="#" >
+                        <a href="#" onclick="popupBodyFat();hide('divScorecard');" >
                             <div style="position:absolute;top:0px;left:40px;width:100px;height:120px;background:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/calculator.png) no-repeat center center;" >
                                 <span style="position:absolute;top:90px;left:25px;">Body Fat Calculator</span>
                             </div>
                         </a>
 
-                        <a href="#" >
+                        <a href="#" onclick="popupIndividualReport();hide('divScorecard');"  >
                             <div style="position:absolute;top:0px;left:150px;width:100px;height:120px;background:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/report.png) no-repeat center center;" >
                                 <span style="position:absolute;top:90px;left:15px;">Individual Report</span>
                             </div>
                         </a>
 
-                        <a href="#" >
+                        <a href="#" onclick="alert('Progress Chart has not been coded.');"  >
                             <div style="position:absolute;top:0px;left:280px;width:120px;height:120px;background:url(<%=AppConfig.GetBaseSiteUrl() %>images/nutrition/chart.png) no-repeat center center;" >
                                 <span style="position:absolute;top:90px;left:5px;">Progress Chart</span>
                             </div>
@@ -149,7 +149,6 @@ Above lines are commented by Netsmartz
                     </div><!-- end divTop -->
                 
                     <div id="divScorecardMiddle" style="position:absolute;top:140px;left:50px;width:500px;height:300px;" >
-                        <asp:HiddenField ID="hiddenUserId" runat="server" />
                         <asp:HiddenField ID="hiddenBaselinePersonalSummaryId" runat="server" />
                         <asp:HiddenField ID="hiddenLatestPersonalSummaryId" runat="server" />
                         <table>

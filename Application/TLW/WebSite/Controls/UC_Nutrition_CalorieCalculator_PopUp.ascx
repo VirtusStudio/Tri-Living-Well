@@ -125,15 +125,25 @@ Above lines are commented by Netsmartz
       font-weight:bold;
       font-size:12px;
       background-color:#1581AE;
+     
     }
 
 </style>
           
-    <div id="divCalorieCalculator" class="fixed" style="display:none;">
+    <div id="divCalorieCalculator" class="fixed" style="display:none;z-index:111;">
 
         <div id="divCalorieCalculatorOutside" >
 
             <div id="divCalorieCalculatorTop" >
+                <asp:HiddenField ID="hiddenPersonalSummaryId" runat="server" />
+                <asp:HiddenField ID="hiddenWaist" runat="server" />
+                <asp:HiddenField ID="hiddenNeck" runat="server" />
+                <asp:HiddenField ID="hiddenHips" runat="server" />
+                <asp:HiddenField ID="hiddenBMI" runat="server" />
+                <asp:HiddenField ID="hiddenBodyFATPercentage" runat="server" />
+                <asp:HiddenField ID="hiddenWaistToHeight" runat="server" />
+                <asp:HiddenField ID="hiddenWaistToHip" runat="server" />
+
                 <table>
                     <tr>
                         <td>Caloric Requirement</td>
